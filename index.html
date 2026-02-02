@@ -216,7 +216,7 @@
             transition: all 0.4s ease;
             cursor: pointer;
             stroke: white;
-            stroke-width: 2;
+            stroke-width: 1;
         }
         .triangle-segment:hover {
             filter: brightness(1.1);
@@ -442,15 +442,15 @@
                     <div class="triangle-container fade-in">
                         <svg class="triangle-svg" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <!-- Awareness (Bottom Level) -->
-                            <path class="triangle-segment" d="M20 340 H380 L320 230 H80 L20 340 Z" fill="#fecdd3" />
+                            <path class="triangle-segment" d="M20,340 L380,340 L320,230 L80,230 Z" fill="#fecdd3" />
                             <!-- Roll-out (Middle Level) -->
-                            <path class="triangle-segment" d="M80 225 H320 L260 135 H140 L80 225 Z" fill="#fb923c" />
+                            <path class="triangle-segment" d="M80,230 L320,230 L260,120 L140,120 Z" fill="#fb923c" />
                             <!-- Strategy (Top Level) -->
-                            <path class="triangle-segment" d="M140 130 H260 L200 10 L140 130 Z" fill="#ec4899" />
+                            <path class="triangle-segment" d="M140,120 L260,120 L200,10 Z" fill="#ec4899" />
                             
                             <!-- Labels -->
-                            <text x="200" y="95" text-anchor="middle" fill="white" class="triangle-label" font-size="16">Strategy</text>
-                            <text x="200" y="190" text-anchor="middle" fill="white" class="triangle-label" font-size="18">Roll-out</text>
+                            <text x="200" y="85" text-anchor="middle" fill="white" class="triangle-label" font-size="16">Strategy</text>
+                            <text x="200" y="185" text-anchor="middle" fill="white" class="triangle-label" font-size="18">Roll-out</text>
                             <text x="200" y="295" text-anchor="middle" fill="#991b1b" class="triangle-label" font-size="20">Awareness</text>
                         </svg>
                     </div>
