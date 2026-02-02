@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AITraining2U | Enterprise AI Solutions & Corporate Training</title>
+    <meta name="description" content="AITraining2U provides specialized private AI training for corporate teams. HRD Corp claimable. Expert-led automation and strategy consulting for Malaysian enterprises.">
+    
+    <!-- Tracking Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '613351752149959');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=613351752149959&ev=PageView&noscript=1"
+    /></noscript>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --brand-primary: #ec4899; /* Pink 500 */
+            --brand-secondary: #f97316; /* Orange 500 */
+            --brand-dark: #1e1b4b;    /* Deep Indigo/Ink */
+            --brand-accent: #f43f5e;  /* Rose 500 */
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+        .hero-mesh {
+            background-color: var(--brand-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(236, 72, 153, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.2) 0px, transparent 50%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #ec4899, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-brand {
+            background: linear-gradient(135deg, #ec4899, #f97316);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-brand:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.4);
+        }
+        .section-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .section-card:hover {
+            border-color: #ec4899;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        .marquee-container {
+            background: #fffafa;
+            border-y: 1px solid #fee2e2;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-inner {
+            display: flex;
+            width: fit-content;
+            animation: scroll 35s linear infinite;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .tech-pill {
+            background: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            color: #475569;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .tech-pill:hover {
+            border-color: #ec4899;
+            color: #ec4899;
+            transform: scale(1.05);
+        }
+        .media-tag {
+            background: #fff1f2;
+            color: #e11d48;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .client-logo-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            border-radius: 1.5rem;
+            height: 100px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .client-logo-card img {
+            max-width: 85%;
+            max-height: 75%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .client-logo-card:hover {
+            border-color: #ec4899;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.1);
+        }
+        .client-logo-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        .client-logo-card::after {
+            content: 'View Impact';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            font-weight: 800;
+            color: #ec4899;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .client-logo-card:hover::after {
+            opacity: 1;
+        }
+        
+        /* Modal Styles */
+        #testimonial-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        #testimonial-modal.active {
+            display: flex;
+        }
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 27, 75, 0.85);
+            backdrop-blur: 8px;
+        }
+        .modal-content {
+            position: relative;
+            background: white;
+            width: 100%;
+            max-width: 550px;
+            border-radius: 2.5rem;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Triangle Diagram Styles */
+        .triangle-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .triangle-svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(236, 72, 153, 0.1));
+        }
+        .triangle-segment {
+            transition: all 0.4s ease;
+            cursor: pointer;
+            stroke: white;
+            stroke-width: 2;
+        }
+        .triangle-segment:hover {
+            filter: brightness(1.1);
+            transform: translateY(-5px);
+        }
+        .triangle-label {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+        }
+        .triangle-month {
+            font-size: 10px;
+            font-weight: 600;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Modal for Testimonials -->
+    <div id="testimonial-modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="modal-body">
+                <div class="w-16 h-16 bg-rose-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="quote" class="text-pink-500 w-8 h-8"></i>
+                </div>
+                <h4 id="modal-title" class="text-2xl font-extrabold text-slate-900 mb-1 leading-tight">Organization Name</h4>
+                <p id="modal-subtitle" class="text-pink-500 font-bold text-xs mb-6 uppercase tracking-widest">Case Study Impact</p>
+                <p id="modal-text" class="text-slate-600 text-lg leading-relaxed italic border-l-4 border-rose-100 pl-6 mb-8">"Testimonial text goes here..."</p>
+                
+                <div class="flex items-center gap-4">
+                    <div id="modal-avatar" class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-white font-bold text-lg overflow-hidden">
+                        <img id="modal-speaker-img" src="" alt="" class="w-full h-full object-cover hidden">
+                        <span id="modal-speaker-init">W</span>
+                    </div>
+                    <div>
+                        <p id="modal-speaker" class="font-extrabold text-slate-900 text-base">Warren Leow</p>
+                        <p id="modal-speaker-title" class="text-slate-500 text-xs">AITraining2U Faculty Lead</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-rose-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="zap" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-slate-900">AITraining<span class="text-pink-500">2U</span></span>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="#courses" class="hover:text-pink-500 transition font-bold">Programs</a>
+                <a href="#team" class="hover:text-pink-500 transition">Our Faculty</a>
+                <a href="#media" class="hover:text-pink-500 transition">Media</a>
+                <a href="#services" class="hover:text-pink-500 transition">Focus Areas</a>
+                <a href="https://wa.me/60126791203" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Inquire Now</a>
+            </div>
+
+            <button id="menu-toggle" class="lg:hidden text-slate-900">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero-mesh text-white px-6 py-20 lg:py-24 overflow-hidden border-b border-pink-500/10">
+            <div class="container mx-auto text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-wider mb-8">
+                    Direct Corporate Implementation
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8">
+                    AI Automation & <span class="gradient-text">Strategic Change</span> <br>In Your Office
+                </h1>
+                <p class="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto mb-10">
+                    AITraining2U brings specialized private AI training and change management consulting directly to your team. Specialized for 25-35 pax with 100% HRD Corp claimable options.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                    <a href="#courses" class="btn-brand px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
+                        View Training Programs
+                    </a>
+                    <div class="text-sm text-slate-500">
+                        WhatsApp: <a href="https://wa.me/60126791203" class="text-white font-semibold hover:text-orange-400 underline">+6012 679 1203</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Trust Bar -->
+        <div class="marquee-container py-5 overflow-hidden">
+            <div class="marquee-inner text-slate-500 font-bold text-xs uppercase tracking-[0.2em]">
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> HRD Corp Registered</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Bespoke Consulting</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Localized Case Studies</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Enterprise Adoption Roadmaps</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Post-Training Support</span>
+            </div>
+        </div>
+
+        <!-- Programs -->
+        <section id="courses" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4">Training Programs</h2>
+                    <p class="text-slate-500 max-w-xl mx-auto">High-impact workshops for corporate teams and public participants.</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- Course 1 (Public Class) -->
+                    <div class="relative bg-white rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-pink-500/20 transition hover:shadow-2xl hover:border-pink-500/50">
+                        <div class="absolute top-0 right-0 p-6">
+                            <span class="bg-pink-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-pink-500/20">Public Class</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Agentic Financial <br>Transformation</h3>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex items-center gap-2 text-pink-600">
+                                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                                    <span class="text-xs font-bold uppercase tracking-wide">26-27 March 2026</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-orange-600">
+                                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                                    <span class="text-xs font-bold uppercase tracking-wide">2-3 April 2026 (KL)</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-500 text-xs mb-8 leading-relaxed">
+                                Master AI agentic automation specifically for financial operations, high-speed reporting, and advanced fiscal analysis. Designed for Finance Managers and Controllers.
+                            </p>
+                        </div>
+                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" class="btn-brand text-center py-3 rounded-2xl font-bold text-sm shadow-lg shadow-pink-500/20">Register for Public Class</a>
+                    </div>
+
+                    <!-- Course 2 (Private Corporate) -->
+                    <div class="relative bg-slate-900 rounded-[2.5rem] p-10 text-white flex flex-col justify-between border border-white/5 transition hover:shadow-2xl">
+                        <div class="absolute top-0 right-0 p-6">
+                            <span class="bg-gradient-to-r from-pink-500 to-orange-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">Intensive Delivery</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 leading-tight">AI Agentic Automation <br>+ Consulting</h3>
+                            <div class="inline-block bg-white/10 px-4 py-1 rounded-full text-orange-400 text-[10px] font-bold mb-6 uppercase tracking-wider">
+                                2 Days Workshop + 1 Day Consultation
+                            </div>
+                            <p class="text-slate-400 text-xs mb-8 leading-relaxed">
+                                Build autonomous agents that handle repetitive tasks. Day 3 is a private session to map these tools to your internal business data and architecture.
+                            </p>
+                        </div>
+                        <a href="#contact" class="btn-brand text-center py-3 rounded-2xl font-bold text-sm">Request Full Syllabus</a>
+                    </div>
+
+                    <!-- Course 3 (Strategy) -->
+                    <div class="bg-rose-50/30 rounded-[2.5rem] p-10 border border-rose-100 flex flex-col justify-between transition hover:shadow-xl hover:bg-white">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Strategy <br>+ Implementation</h3>
+                            <div class="inline-block bg-white border border-rose-100 px-4 py-1 rounded-full text-rose-500 text-[10px] font-bold mb-6 uppercase tracking-wider">
+                                Custom Corporate Scope
+                            </div>
+                            <p class="text-slate-500 text-xs mb-8 leading-relaxed">
+                                End-to-end consulting to deploy AI workflows across your existing tools. Focused on Financial Ops, Change Management, and long-term tech ROI.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/60126791203" class="bg-slate-900 text-white text-center py-3 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-colors">Book Scoping Call</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rapid 3-Month ROI Framework Section -->
+        <section id="roi-framework" class="py-24 bg-slate-50 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4">Rapid 3-Month ROI Framework</h2>
+                    <p class="text-slate-500">Our proven deployment hierarchy designed for immediate business value and cultural adoption.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
+                    <!-- Triangle Diagram -->
+                    <div class="triangle-container fade-in">
+                        <svg class="triangle-svg" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Awareness (Bottom Level) -->
+                            <path class="triangle-segment" d="M20 340 H380 L320 230 H80 L20 340 Z" fill="#fecdd3" />
+                            <!-- Roll-out (Middle Level) -->
+                            <path class="triangle-segment" d="M80 225 H320 L260 115 H140 L80 225 Z" fill="#fb923c" />
+                            <!-- Strategy (Top Level) -->
+                            <path class="triangle-segment" d="M140 110 H260 L200 10 L140 110 Z" fill="#ec4899" />
+                            
+                            <!-- Labels -->
+                            <text x="200" y="75" text-anchor="middle" fill="white" class="triangle-label" font-size="14">Strategy</text>
+                            <text x="200" y="90" text-anchor="middle" fill="white" class="triangle-month">Month 1</text>
+                            
+                            <text x="200" y="180" text-anchor="middle" fill="white" class="triangle-label" font-size="16">Roll-out</text>
+                            <text x="200" y="195" text-anchor="middle" fill="white" class="triangle-month">Month 2</text>
+                            
+                            <text x="200" y="295" text-anchor="middle" fill="#991b1b" class="triangle-label" font-size="18">Awareness</text>
+                            <text x="200" y="315" text-anchor="middle" fill="#991b1b" class="triangle-month">Month 3 & Beyond</text>
+                        </svg>
+                    </div>
+
+                    <!-- Milestones Text -->
+                    <div class="lg:w-1/2 space-y-8">
+                        <div class="flex gap-6 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-500 flex-shrink-0 flex items-center justify-center text-white font-bold">01</div>
+                            <div>
+                                <h4 class="text-xl font-extrabold text-slate-900 mb-1 uppercase tracking-tight">Month 1: Strategy</h4>
+                                <p class="text-slate-500 text-sm">Executive alignment, tool selection, and mapping critical high-ROI business processes for automation.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-orange-500 flex-shrink-0 flex items-center justify-center text-white font-bold">02</div>
+                            <div>
+                                <h4 class="text-xl font-extrabold text-slate-900 mb-1 uppercase tracking-tight">Month 2: Roll-out</h4>
+                                <p class="text-slate-500 text-sm">Implementation of AI agents in core departments. Live deployment and technical integration with internal systems.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-200 flex-shrink-0 flex items-center justify-center text-rose-800 font-bold">03</div>
+                            <div>
+                                <h4 class="text-xl font-extrabold text-slate-900 mb-1 uppercase tracking-tight">Month 3: Awareness</h4>
+                                <p class="text-slate-500 text-sm">Organization-wide training, change management, and cultural shift to ensure long-term adoption and scale.</p>
+                            </div>
+                        </div>
+                        <div class="pt-6">
+                            <div class="bg-white border border-pink-100 p-6 rounded-3xl flex items-center gap-4">
+                                <div class="w-10 h-10 bg-green-50 text-green-600 rounded-full flex items-center justify-center">
+                                    <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                </div>
+                                <span class="text-slate-900 font-bold text-sm leading-tight">Projected ROI: Full operational recovery of training investment within 90 days.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section id="tech" class="py-16 bg-white border-y border-rose-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-10">
+                    <p class="text-slate-400 font-bold uppercase text-xs tracking-widest">Technology We Master</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 lg:gap-8">
+                    <div class="tech-pill"><i data-lucide="workflow" class="w-5 h-5 text-orange-500"></i> n8n</div>
+                    <div class="tech-pill"><i data-lucide="zap" class="w-5 h-5 text-pink-500"></i> PowerAutomate</div>
+                    <div class="tech-pill"><i data-lucide="bird" class="w-5 h-5 text-orange-400"></i> Lark</div>
+                    <div class="tech-pill"><i data-lucide="grid" class="w-5 h-5 text-pink-600"></i> Office365</div>
+                    <div class="tech-pill"><i data-lucide="cloud" class="w-5 h-5 text-orange-600"></i> Google Workspace</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Leadership -->
+        <section id="team" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4">World-Class Faculty</h2>
+                    <p class="text-slate-500 max-w-2xl mx-auto">Our trainers bring decades of experience from management consulting, multi-million dollar tech exits, and specialized data transformation.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Warren Leow -->
+                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
+                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" alt="Warren Leow" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-slate-900">Warren Leow</h3>
+                            <p class="text-pink-600 text-sm font-bold mb-4">Advisor & Policy Specialist</p>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Founder of Super Group, KAIN member. Former Bain & Company consultant and MED4IRN council member.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Azrul Rahim -->
+                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
+                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Azrul%20Rahim.jpg?raw=true" alt="Azrul Rahim" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-slate-900">Azrul Rahim</h3>
+                            <p class="text-pink-600 text-sm font-bold mb-4">Technical Architect</p>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Founder of Jomsocial & Jewel Paymenttech (Acquired). Expert in production-ready AI infrastructure.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Chan Wei Khjan -->
+                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
+                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" alt="Chan Wei Khjan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-slate-900">Chan Wei Khjan</h3>
+                            <p class="text-pink-600 text-sm font-bold mb-4">Finance Transformation</p>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Former Audit Partner at YYC. Specialist in automating financial reporting and fiscal AI governance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Appearances Section -->
+        <section id="media" class="py-24 bg-rose-50/20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4">Industry Voices</h2>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- Media Items -->
+                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="media-tag">BFM 89.9</span>
+                                <i data-lucide="radio" class="w-5 h-5 text-pink-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors uppercase tracking-tight">AI for All, or Just the Few?</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Warren Leow joins BFM to discuss the democratization of AI and whether the benefits of automation will be shared by all or concentrated among a few.</p>
+                        </div>
+                        <a href="https://www.bfm.my/content/podcast/ai-for-all-or-just-the-few" target="_blank" class="text-slate-400 hover:text-pink-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
+                            Listen to Podcast <i data-lucide="play-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="media-tag">BFM 89.9</span>
+                                <i data-lucide="radio" class="w-5 h-5 text-orange-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors uppercase tracking-tight">Empowering Creativity with AI</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Exploring how Generative AI serves as a force multiplier for creative teams, moving beyond basic automation to true human-AI collaboration.</p>
+                        </div>
+                        <a href="https://www.bfm.my/content/podcast/empowering-creativity-with-ai" target="_blank" class="text-slate-400 hover:text-orange-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
+                            Listen to Podcast <i data-lucide="play-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="media-tag">BFM 89.9</span>
+                                <i data-lucide="radio" class="w-5 h-5 text-pink-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors uppercase tracking-tight">Solving the People Bottleneck</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Addressing the most critical factor in AI success: the human element. How to manage organizational change and overcome adoption friction.</p>
+                        </div>
+                        <a href="https://www.bfm.my/solving-the-people-bottleneck-in-ai-adoption" target="_blank" class="text-slate-400 hover:text-pink-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
+                            Listen to Podcast <i data-lucide="play-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clients Section with Interactive Testimonials -->
+        <section id="clients" class="py-24 bg-white border-b border-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-slate-900 text-3xl font-extrabold">Proven Corporate Impact</h2>
+                    <p class="text-slate-500 mt-2">Click any partner logo below to see our trainer's impact.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-7xl mx-auto">
+                    <!-- Client Logos -->
+                    <div class="client-logo-card" onclick="openModal('ryt')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Ryt%20Bank.png?raw=true" alt="Ryt Bank" onerror="handleImageError(this, 'Ryt Bank')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('ccm')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_CCM.jpg?raw=true" alt="CCM" onerror="handleImageError(this, 'CCM')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('mrdiy')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Mr%20DIY.png?raw=true" alt="MR. DIY" onerror="handleImageError(this, 'MR DIY')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('shopee')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Shopee.png?raw=true" alt="Shopee" onerror="handleImageError(this, 'Shopee')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('yyc')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_YYC.png?raw=true" alt="YYC Advisors" onerror="handleImageError(this, 'YYC Advisors')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('moneymatch')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_MoneyMatch.png?raw=true" alt="MoneyMatch" onerror="handleImageError(this, 'MoneyMatch')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('zus')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Zus%20Coffee.png?raw=true" alt="Zus Coffee" onerror="handleImageError(this, 'Zus Coffee')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('mynews')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Mynews.webp?raw=true" alt="myNEWS" onerror="handleImageError(this, 'myNEWS')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('ctos')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_CTOS.jpg?raw=true" alt="CTOS" onerror="handleImageError(this, 'CTOS')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('bfm')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_BFM.jpg?raw=true" alt="BFM" onerror="handleImageError(this, 'BFM')">
+                    </div>
+                    <div class="client-logo-card" onclick="openModal('2x')">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_2x.png?raw=true" alt="2X Marketing" onerror="handleImageError(this, '2X Marketing')">
+                    </div>
+                    <div class="client-logo-card bg-rose-50 border-rose-200" onclick="window.location.href='#contact'">
+                        <span class="text-rose-500 font-bold text-[10px] text-center uppercase tracking-widest">Inquire Now</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-rose-50/10">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-4xl font-extrabold text-slate-900 mb-6">Ready to <br><span class="gradient-text">Modernize?</span></h2>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-pink-600">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <span class="font-bold text-slate-700 text-lg">jeleow@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-orange-600">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <span class="font-bold text-slate-700 text-lg">+6012 679 1203</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-10 rounded-[2rem] border border-rose-100 shadow-xl shadow-rose-500/5">
+                        <form id="contact-form" class="space-y-5">
+                            <input type="text" id="company" placeholder="Organization Name" required class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-pink-500 outline-none transition">
+                            <input type="text" id="person" placeholder="Contact Person" required class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-pink-500 outline-none transition">
+                            <input type="email" id="email" placeholder="Work Email" required class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-pink-500 outline-none transition">
+                            <select id="interest" class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-pink-500 outline-none transition bg-white text-slate-600">
+                                <option>AI Agentic Automation + Consulting (2+1 Day)</option>
+                                <option>AI Strategy + Implementation (Custom)</option>
+                                <option>Public Workshop: Financial Transformation</option>
+                            </select>
+                            <textarea id="message" rows="3" placeholder="Estimated Pax & Preferred Dates" class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-pink-500 outline-none transition"></textarea>
+                            <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg">Get Training Quote</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-100 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-sm font-extrabold tracking-tight text-slate-900 uppercase">AITraining<span class="text-pink-500">2U</span></span>
+            <div class="mt-4 text-slate-500 text-xs font-bold uppercase tracking-widest">
+                AITREAINING2U PLT (202504002669)
+            </div>
+            <p class="text-slate-400 text-[10px] mt-2">© 2026 AITraining2U. Empowering the Malaysian workforce with applied intelligence.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky WhatsApp -->
+    <a href="https://wa.me/60126791203" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.038 3.284l-.54 2.317 2.357-.51c.955.615 1.911.95 3.1.95 3.182 0 5.768-2.586 5.768-5.766 0-3.18-2.586-5.766-5.767-5.766zm3.332 7.757c-.19.533-.881.862-1.393.918-.512.056-1.127.182-3.122-.596-1.995-.778-3.3-2.8-3.411-2.95-.111-.15-.815-1.082-.815-2.064 0-.982.512-1.464.693-1.666.182-.202.394-.253.527-.253s.266 0 .381.006c.121.006.284-.044.444.341.166.402.569 1.388.621 1.49.051.102.086.222.018.358-.067.137-.102.222-.203.342-.102.12-.213.268-.305.358-.102.102-.209.213-.091.416.118.203.524.862.775 1.086.326.29.596.381.802.482.203.102.321.051.444-.086.12-.137.512-.596.647-.798.137-.203.272-.17.458-.102s1.178.556 1.382.658c.204.102.34.152.389.241.05.089.05.52-.14.753zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.658 1.442 5.17L2 22l4.985-1.313c1.472.825 3.178 1.313 5.015 1.313 5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.63 0-3.14-.424-4.448-1.171l-.319-.182-3.31.871.884-3.178-.201-.32A7.957 7.957 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+    </a>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // Reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Testimonial Data
+        const testimonials = {
+            ryt: {
+                name: "Ryt Bank",
+                subtitle: "Strategic Digital Banking Transition",
+                speaker: "Warren Leow",
+                speakerTitle: "Policy & Strategy Expert",
+                text: "AITraining2U provided the Ryt Bank management team with a clear roadmap for AI adoption in digital banking. Our focus on agentic automation has already begun yielding operational results.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true"
+            },
+            ccm: {
+                name: "CCM",
+                subtitle: "Operational Efficiency",
+                speaker: "Warren Leow",
+                speakerTitle: "Advisor & Faculty Lead",
+                text: "The financial transformation workshop for CCM helped bridge the gap between legacy processes and automated intelligence. The ROI on the 2+1 day course was realized within a single fiscal quarter.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true"
+            },
+            mrdiy: {
+                name: "MR. DIY",
+                subtitle: "Retail Automation",
+                speaker: "Warren Leow",
+                speakerTitle: "Advisor & Faculty Lead",
+                text: "Implementing custom AI workflows for MR. DIY's scale requires strategic foresight. We focused on the 20% of effort that yielded 80% of business value across their logistics chain.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true"
+            },
+            shopee: {
+                name: "Shopee",
+                subtitle: "Market Intelligence",
+                speaker: "AITraining2U Faculty",
+                speakerTitle: "Technical Architect Team",
+                text: "Technical architecture training that actually speaks to scale. We refined internal data pipelines to ensure Shopee's internal tools are production-ready for the AI era.",
+                img: ""
+            },
+            yyc: {
+                name: "YYC Advisors",
+                subtitle: "Financial Transformation",
+                speaker: "Chan Wei Khjan",
+                speakerTitle: "Finance Transformation Expert",
+                text: "Managing cultural change during AI adoption in professional services is critical. We provided the framework for YYC to align their workforce with automated audit intelligence.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true"
+            },
+            moneymatch: {
+                name: "MoneyMatch",
+                subtitle: "Fintech Innovation",
+                speaker: "Chan Wei Khjan",
+                speakerTitle: "Finance Transformation Expert",
+                text: "For a high-growth firm like MoneyMatch, speed and automated fiscal reporting are priorities. We bridge the gap between traditional accounting and automated data modeling.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true"
+            },
+            zus: {
+                name: "Zus Coffee",
+                subtitle: "Scalable Operations",
+                speaker: "Chan Wei Khjan",
+                speakerTitle: "Finance Transformation Expert",
+                text: "From Excel automation to automated feedback loops—we provided Zus Coffee with the tools to manage rapid expansion while maintaining thin operational overhead.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true"
+            },
+            mynews: {
+                name: "myNEWS",
+                subtitle: "Inventory Intelligence",
+                speaker: "Warren Leow",
+                speakerTitle: "Advisor & Faculty Lead",
+                text: "A masterclass in turning raw retail data into decisions. MyNEWS managers now utilize automated logic that predicts inventory demand trends with high precision.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true"
+            },
+            ctos: {
+                name: "CTOS",
+                subtitle: "Data Governance",
+                speaker: "Warren Leow",
+                speakerTitle: "Advisor & Faculty Lead",
+                text: "We provided a deep dive into financial ops and AI governance for CTOS, ensuring their data-heavy workflows are future-proof and ethically robust.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true"
+            },
+            bfm: {
+                name: "BFM 89.9",
+                subtitle: "Industry Partnership",
+                speaker: "Warren Leow",
+                speakerTitle: "Policy & Strategy Expert",
+                text: "Our partnership with BFM has allowed us to bring expert AI discourse to the national level. We focus on bridging academic theory with corporate practicalities.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true"
+            },
+            '2x': {
+                name: "2X Marketing",
+                subtitle: "Demand Gen Automation",
+                speaker: "Warren Leow",
+                speakerTitle: "Advisor & Faculty Lead",
+                text: "The Agentic AI course completely redefined 2X's B2B demand generation. They are now running experiments at a velocity that was previously manual and impossible.",
+                img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true"
+            }
+        };
+
+        // Modal Functions
+        function openModal(key) {
+            const data = testimonials[key];
+            if (!data) return;
+            
+            document.getElementById('modal-title').innerText = data.name;
+            document.getElementById('modal-subtitle').innerText = data.subtitle;
+            document.getElementById('modal-text').innerText = `"${data.text}"`;
+            document.getElementById('modal-speaker').innerText = data.speaker;
+            document.getElementById('modal-speaker-title').innerText = data.speakerTitle;
+            
+            const imgEl = document.getElementById('modal-speaker-img');
+            const initEl = document.getElementById('modal-speaker-init');
+            
+            if (data.img) {
+                imgEl.src = data.img;
+                imgEl.classList.remove('hidden');
+                initEl.classList.add('hidden');
+            } else {
+                imgEl.classList.add('hidden');
+                initEl.classList.remove('hidden');
+                initEl.innerText = data.speaker.charAt(0);
+            }
+            
+            document.getElementById('testimonial-modal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeModal() {
+            document.getElementById('testimonial-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Image Fallback Handler
+        function handleImageError(img, text) {
+            const parent = img.parentElement;
+            parent.innerHTML = `<span class="text-slate-900 font-extrabold text-[10px] opacity-50 uppercase tracking-tighter text-center px-2">${text}</span>`;
+        }
+
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const company = document.getElementById('company').value;
+            const person = document.getElementById('person').value;
+            const email = document.getElementById('email').value;
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value;
+
+            const subject = `Training Inquiry: ${company} - ${interest}`;
+            let body = `AITraining2U Proposal Request:\n\n`;
+            body += `Organization: ${company}\n`;
+            body += `Requester: ${person}\n`;
+            body += `Email: ${email}\n`;
+            body += `Program: ${interest}\n\n`;
+            body += `Requirements:\n${message}`;
+
+            window.location.href = `mailto:jeleow@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+    </script>
+</body>
+</html>
