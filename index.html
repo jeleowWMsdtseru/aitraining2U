@@ -87,8 +87,7 @@
         }
         .marquee-container {
             background: #fffafa;
-            border-top: 1px solid #fee2e2;
-            border-bottom: 1px solid #fee2e2;
+            border-y: 1px solid #fee2e2;
         }
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -183,7 +182,7 @@
             position: absolute;
             inset: 0;
             background: rgba(30, 27, 75, 0.85);
-            backdrop-filter: blur(8px);
+            backdrop-blur: 8px;
         }
         .modal-content {
             position: relative;
@@ -216,7 +215,7 @@
             transition: all 0.4s ease;
             cursor: pointer;
             stroke: white;
-            stroke-width: 1;
+            stroke-width: 2;
         }
         .triangle-segment:hover {
             filter: brightness(1.1);
@@ -299,11 +298,6 @@
     </div>
 
     <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-rose-50 animated-header-bg">
-        <!-- Top Guarantee Banner -->
-        <div class="bg-slate-900 text-white text-center py-2 text-[10px] font-black uppercase tracking-[0.3em]">
-            100% Guaranteed Results • HRD Corp Claimable
-        </div>
-        
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
@@ -326,7 +320,7 @@
         </nav>
     </header>
 
-    <main class="pt-24 lg:pt-28">
+    <main class="pt-20">
         
         <!-- Hero Section -->
         <section id="hero" class="hero-mesh text-white px-6 py-20 lg:py-24 overflow-hidden border-b border-pink-500/10">
@@ -409,7 +403,7 @@
                                 Build autonomous agents that handle repetitive tasks. Day 3 is a private session to map these tools to your internal business data and architecture.
                             </p>
                         </div>
-                        <a href="#contact" class="btn-brand text-center py-3 rounded-2xl font-bold text-sm">Request Full Syllabus</a>
+                        <a href="agentic.html" class="btn-brand text-center py-3 rounded-2xl font-bold text-sm">Request Full Syllabus</a>
                     </div>
 
                     <!-- Course 3 (Strategy) -->
@@ -442,15 +436,15 @@
                     <div class="triangle-container fade-in">
                         <svg class="triangle-svg" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <!-- Awareness (Bottom Level) -->
-                            <path class="triangle-segment" d="M20,340 L380,340 L320,230 L80,230 Z" fill="#fecdd3" />
+                            <path class="triangle-segment" d="M20 340 H380 L320 230 H80 L20 340 Z" fill="#fecdd3" />
                             <!-- Roll-out (Middle Level) -->
-                            <path class="triangle-segment" d="M80,230 L320,230 L260,120 L140,120 Z" fill="#fb923c" />
+                            <path class="triangle-segment" d="M80 225 H320 L260 135 H140 L80 225 Z" fill="#fb923c" />
                             <!-- Strategy (Top Level) -->
-                            <path class="triangle-segment" d="M140,120 L260,120 L200,10 Z" fill="#ec4899" />
+                            <path class="triangle-segment" d="M140 130 H260 L200 10 L140 130 Z" fill="#ec4899" />
                             
                             <!-- Labels -->
-                            <text x="200" y="85" text-anchor="middle" fill="white" class="triangle-label" font-size="16">Strategy</text>
-                            <text x="200" y="185" text-anchor="middle" fill="white" class="triangle-label" font-size="18">Roll-out</text>
+                            <text x="200" y="95" text-anchor="middle" fill="white" class="triangle-label" font-size="16">Strategy</text>
+                            <text x="200" y="190" text-anchor="middle" fill="white" class="triangle-label" font-size="18">Roll-out</text>
                             <text x="200" y="295" text-anchor="middle" fill="#991b1b" class="triangle-label" font-size="20">Awareness</text>
                         </svg>
                     </div>
@@ -491,7 +485,7 @@
                     <p class="text-slate-500 max-w-2xl mx-auto">Our trainers bring decades of experience from management consulting, multi-million dollar tech exits, and specialized data transformation.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <div class="section-card p-0 rounded-3xl overflow-hidden group">
                         <div class="aspect-[4/5] overflow-hidden bg-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" alt="Warren Leow" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -504,22 +498,22 @@
                     </div>
                     <div class="section-card p-0 rounded-3xl overflow-hidden group">
                         <div class="aspect-[4/5] overflow-hidden bg-slate-100">
-                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Azrul%20Rahim.jpg?raw=true" alt="Azrul Rahim" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-xl font-bold text-slate-900">Azrul Rahim</h3>
-                            <p class="text-pink-600 text-sm font-bold mb-4">CTO and Technical Architect</p>
-                            <p class="text-slate-500 text-xs leading-relaxed">Founder of Jomsocial & Jewel Paymenttech (Acquired). Expert in production-ready AI infrastructure.</p>
-                        </div>
-                    </div>
-                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
-                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" alt="Chan Wei Khjan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-8">
                             <h3 class="text-xl font-bold text-slate-900">Chan Wei Khjan</h3>
                             <p class="text-pink-600 text-sm font-bold mb-4">Audit & Process Transformation Expert</p>
                             <p class="text-slate-500 text-xs leading-relaxed">Former Audit Partner at YYC. Specialist in automating financial reporting and fiscal AI governance.</p>
+                        </div>
+                    </div>
+                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
+                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Shah%20Mijanur.jpeg?raw=true" alt="Shah Mijanur" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-slate-900">Shah Mijanur</h3>
+                            <p class="text-pink-600 text-sm font-bold mb-4">Cybersecurity & AI Security Expert</p>
+                            <p class="text-slate-500 text-xs leading-relaxed">Head of Security at Inmagine. AWS Malaysia Security Usergroup Leader. Former Senior Enterprise Security Researcher at Mozilla Firefox.</p>
                         </div>
                     </div>
                 </div>
@@ -643,82 +637,22 @@
                         <p class="text-slate-500">Everything you need to know about our training protocols and impact.</p>
                     </div>
 
-                    <div class="space-y-3">
-                        <!-- FAQ Item 1 -->
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100 shadow-sm transition-all hover:border-pink-200">
-                            <button class="faq-trigger" onclick="toggleFaq(this)">
-                                <span>Is this training HRD Corp claimable?</span>
-                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i>
-                            </button>
-                            <div class="faq-content">
-                                Yes. All our corporate programs are 100% HRD Corp claimable under the SBL-Khas scheme. We handle the technical registration details so your HR team can focus on the learning outcomes.
-                            </div>
+                    <div class="space-y-2">
+                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                            <button class="faq-trigger" onclick="toggleFaq(this)"><span>Is this training HRD Corp claimable?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
+                            <div class="faq-content">Yes. All our corporate programs are 100% HRD Corp claimable under the SBL-Khas scheme.</div>
                         </div>
-
-                        <!-- FAQ Item 2 -->
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100 shadow-sm transition-all hover:border-pink-200">
-                            <button class="faq-trigger" onclick="toggleFaq(this)">
-                                <span>How do your trainers differ from academic courses?</span>
-                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i>
-                            </button>
-                            <div class="faq-content">
-                                Our faculty are practitioners, not just academics. They include former Bain & Co consultants, audit partners, and tech founders who have built and sold multi-million dollar companies. We focus on "What works in the office tomorrow morning," not just theoretical concepts.
-                            </div>
+                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                            <button class="faq-trigger" onclick="toggleFaq(this)"><span>How do your trainers differ from academic courses?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
+                            <div class="faq-content">Our faculty are practitioners including former Bain & Co consultants and audit partners. We focus on real-world automation results.</div>
                         </div>
-
-                        <!-- FAQ Item 3 -->
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100 shadow-sm transition-all hover:border-pink-200">
-                            <button class="faq-trigger" onclick="toggleFaq(this)">
-                                <span>Do we need technical backgrounds (coding) to join?</span>
-                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i>
-                            </button>
-                            <div class="faq-content">
-                                Not at all. Our courses are designed specifically for non-technical managers, business operators, and finance professionals. We teach "Vibe Coding" and no-code/low-code AI agent tools that allow anyone to build powerful automations without writing a single line of traditional code.
-                            </div>
+                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                            <button class="faq-trigger" onclick="toggleFaq(this)"><span>Can you customize the syllabus for our industry?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
+                            <div class="faq-content">Absolutely. For private corporate sessions, we conduct a pre-training audit to tailor use cases to your specific industry (e.g., retail, finance, logistics) and software stack.</div>
                         </div>
-
-                        <!-- FAQ Item 4 -->
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100 shadow-sm transition-all hover:border-pink-200">
-                            <button class="faq-trigger" onclick="toggleFaq(this)">
-                                <span>What is the ideal team size for private training?</span>
-                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i>
-                            </button>
-                            <div class="faq-content">
-                                25-35 pax is the "sweet spot" for interactive workshops to ensure everyone gets hands-on guidance. However, we also cater to smaller executive leadership groups (5-10 pax) for strategy-heavy sessions or larger department rollouts with modified delivery formats.
-                            </div>
-                        </div>
-
-                        <!-- FAQ Item 5 -->
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100 shadow-sm transition-all hover:border-pink-200">
-                            <button class="faq-trigger" onclick="toggleFaq(this)">
-                                <span>Can the curriculum be customized for our industry?</span>
-                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i>
-                            </button>
-                            <div class="faq-content">
-                                Absolutely. Our 2+1 Day program is built for this. The first two days establish the core AI skills, and the +1 Day is a dedicated private session where we map those skills specifically to your organization's internal data, pain points, and existing tech stack.
-                            </div>
-                        </div>
-
-                        <!-- FAQ Item 6 -->
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100 shadow-sm transition-all hover:border-pink-200">
-                            <button class="faq-trigger" onclick="toggleFaq(this)">
-                                <span>Where is the training conducted?</span>
-                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i>
-                            </button>
-                            <div class="faq-content">
-                                Most clients prefer we conduct the sessions at their own office premises to encourage direct application and minimize travel time. Alternatively, we can arrange for hotel-based training venues in Kuala Lumpur or Selangor for a "retreat-style" learning environment.
-                            </div>
-                        </div>
-
-                        <!-- FAQ Item 7 -->
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100 shadow-sm transition-all hover:border-pink-200">
-                            <button class="faq-trigger" onclick="toggleFaq(this)">
-                                <span>Is there post-training support provided?</span>
-                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i>
-                            </button>
-                            <div class="faq-content">
-                                Yes. We provide a post-training implementation roadmap and access to our Super Group community where your team can continue to ask questions and stay updated on the latest AI tool updates. For organizations needing deeper support, we offer ongoing AI Change Management consulting.
-                            </div>
+                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                            <button class="faq-trigger" onclick="toggleFaq(this)"><span>What happens after the training ends?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
+                            <div class="faq-content">We provide 3 months of post-training support via a dedicated channel. Our team helps troubleshoot any issues as your employees begin deploying their first live automations.</div>
                         </div>
                     </div>
                 </div>
@@ -784,18 +718,8 @@
         function toggleFaq(button) {
             const item = button.parentElement;
             const isActive = item.classList.contains('active');
-            
-            // Close all other items
-            document.querySelectorAll('.faq-item').forEach(el => {
-                if (el !== item) el.classList.remove('active');
-            });
-            
-            // Toggle the clicked item
-            if (!isActive) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
         }
 
         const testimonials = {
