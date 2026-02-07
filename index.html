@@ -106,24 +106,6 @@
         .fade-in.visible {
             opacity: 1; transform: translateY(0);
         }
-        .tech-pill {
-            background: #ffffff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 700;
-            color: #475569;
-            border: 1px solid #f1f5f9;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .tech-pill:hover {
-            border-color: #ec4899;
-            color: #ec4899;
-            transform: scale(1.05);
-        }
         .media-tag {
             background: #fff1f2;
             color: #e11d48;
@@ -365,15 +347,15 @@
                 </div>
                 
                 <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <!-- Course 1 (Public Class) -->
-                    <div class="relative bg-white rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-pink-500/20 transition hover:shadow-2xl hover:border-pink-500/50">
+                    <!-- Course 1 (Public Class) - COLOR MODIFIED TO RED -->
+                    <div class="relative bg-red-50/30 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-red-500 transition hover:shadow-2xl hover:bg-white hover:border-red-600">
                         <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-pink-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-pink-500/20">Public Class</span>
+                            <span class="bg-red-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-red-500/20">Public Class</span>
                         </div>
                         <div>
                             <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Agentic Financial <br>Transformation</h3>
                             <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-pink-600">
+                                <div class="flex items-center gap-2 text-red-600">
                                     <i data-lucide="calendar" class="w-4 h-4"></i>
                                     <span class="text-xs font-bold uppercase tracking-wide">26-27 March 2026</span>
                                 </div>
@@ -382,11 +364,11 @@
                                     <span class="text-xs font-bold uppercase tracking-wide">2-3 April 2026 (KL)</span>
                                 </div>
                             </div>
-                            <p class="text-slate-500 text-xs mb-8 leading-relaxed">
+                            <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">
                                 Master AI agentic automation specifically for financial operations, high-speed reporting, and advanced fiscal analysis. Designed for Finance Managers and Controllers.
                             </p>
                         </div>
-                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" class="btn-brand text-center py-3 rounded-2xl font-bold text-sm shadow-lg shadow-pink-500/20">Register for Public Class</a>
+                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" class="bg-red-500 hover:bg-red-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-red-500/20 transition-all uppercase tracking-wider">Register for Public Class</a>
                     </div>
 
                     <!-- Course 2 (Private Corporate) -->
@@ -403,28 +385,31 @@
                                 Build autonomous agents that handle repetitive tasks. Day 3 is a private session to map these tools to your internal business data and architecture.
                             </p>
                         </div>
-                        <a href="agentic.html" class="btn-brand text-center py-3 rounded-2xl font-bold text-sm">Request Full Syllabus</a>
+                        <a href="agentic.html" class="btn-brand text-center py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">Request Full Syllabus</a>
                     </div>
 
-                    <!-- Course 3 (Strategy) -->
-                    <div class="bg-rose-50/30 rounded-[2.5rem] p-10 border border-rose-100 flex flex-col justify-between transition hover:shadow-xl hover:bg-white">
+                    <!-- Course 3 (Strategy) - COLOR MODIFIED TO BRIGHT YELLOW -->
+                    <div class="relative bg-yellow-400 rounded-[2.5rem] p-10 border-2 border-yellow-500 flex flex-col justify-between transition hover:shadow-2xl hover:scale-[1.02] hover:border-yellow-600">
+                        <div class="absolute top-0 right-0 p-6">
+                            <span class="bg-slate-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">Corporate Strategy</span>
+                        </div>
                         <div>
                             <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Strategy <br>+ Implementation</h3>
-                            <div class="inline-block bg-white border border-rose-100 px-4 py-1 rounded-full text-rose-500 text-[10px] font-bold mb-6 uppercase tracking-wider">
+                            <div class="inline-block bg-white/40 border border-yellow-600 px-4 py-1 rounded-full text-slate-900 text-[10px] font-bold mb-6 uppercase tracking-wider">
                                 Custom Corporate Scope
                             </div>
-                            <p class="text-slate-500 text-xs mb-8 leading-relaxed">
+                            <p class="text-slate-800 text-xs mb-8 leading-relaxed font-bold">
                                 End-to-end consulting to deploy AI workflows across your existing tools. Focused on Financial Ops, Change Management, and long-term tech ROI.
                             </p>
                         </div>
-                        <a href="https://wa.me/60126791203" class="bg-slate-900 text-white text-center py-3 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-colors">Book Scoping Call</a>
+                        <a href="https://wa.me/60126791203" class="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-colors uppercase tracking-wider shadow-lg">Book Scoping Call</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Rapid ROI Framework Section -->
-        <section id="roi-framework" class="py-24 bg-slate-50 overflow-hidden">
+        <section id="roi-framework" class="py-24 bg-slate-50 overflow-hidden border-y border-slate-100">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center mb-16">
                     <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Rapid ROI Framework</h2>
@@ -520,67 +505,68 @@
             </div>
         </section>
 
-        <!-- Media Appearances Section -->
-        <section id="media" class="py-24 bg-rose-50/20">
+        <!-- Media Appearances Section (MODERN DARK THEME) -->
+        <section id="media" class="py-24 bg-[#020617] text-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-slate-900 text-3xl font-extrabold mb-4 uppercase tracking-tight">Industry Voices</h2>
+                    <h2 class="text-white text-3xl font-extrabold mb-4 uppercase tracking-tight">Industry Voices</h2>
+                    <div class="h-1.5 w-24 bg-gradient-to-r from-pink-500 to-orange-500 mx-auto rounded-full"></div>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-pink-500/30">
                         <div>
-                            <span class="media-tag mb-4 inline-block">The Star</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors uppercase tracking-tight">Equipping Employees with AI Skills</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Discussing the essential AI curriculum required for the modern Malaysian workforce to remain globally competitive.</p>
+                            <span class="media-tag mb-4 inline-block bg-pink-500/20 text-pink-400 border border-pink-500/20">The Star</span>
+                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-pink-400 transition-colors uppercase tracking-tight">Equipping Employees with AI Skills</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">Discussing the essential AI curriculum required for the modern Malaysian workforce to remain globally competitive.</p>
                         </div>
-                        <a href="https://www.thestar.com.my/tech/tech-news/2024/12/16/equipping-malaysian-employees-with-essential-ai-skills" target="_blank" class="text-pink-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">Read Article <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        <a href="https://www.thestar.com.my/tech/tech-news/2024/12/16/equipping-malaysian-employees-with-essential-ai-skills" target="_blank" class="text-pink-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Read Article <i data-lucide="external-link" class="w-4 h-4"></i></a>
                     </div>
-                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-orange-500/30">
                         <div>
-                            <span class="media-tag mb-4 inline-block">Tatler Asia</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors uppercase tracking-tight">What Matters To Me: Azrul Rahim</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed mb-6">A profile on Azrul Rahim's philosophy on technology, building Maideasy and beyond.</p>
+                            <span class="media-tag mb-4 inline-block bg-orange-500/20 text-orange-400 border border-orange-500/20">Tatler Asia</span>
+                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-orange-400 transition-colors uppercase tracking-tight">What Matters To Me: Azrul Rahim</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">A profile on Azrul Rahim's philosophy on technology, building Maideasy and beyond.</p>
                         </div>
-                        <a href="https://www.tatlerasia.com/the-scene/people-parties/what-matters-to-me-azrul-rahim-ceo-of-maideasy" target="_blank" class="text-orange-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">Read Profile <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        <a href="https://www.tatlerasia.com/the-scene/people-parties/what-matters-to-me-azrul-rahim-ceo-of-maideasy" target="_blank" class="text-orange-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Read Profile <i data-lucide="external-link" class="w-4 h-4"></i></a>
                     </div>
-                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-pink-500/30">
                         <div>
-                            <span class="media-tag mb-4 inline-block">Business Insider</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors uppercase tracking-tight">Vibe Coding & AI Tools</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed mb-6">How accountants and non-technical professionals are leveraging agentic AI tools in 2025.</p>
+                            <span class="media-tag mb-4 inline-block bg-pink-500/20 text-pink-400 border border-pink-500/20">Business Insider</span>
+                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-pink-400 transition-colors uppercase tracking-tight">Vibe Coding & AI Tools</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">How accountants and non-technical professionals are leveraging agentic AI tools in 2025.</p>
                         </div>
-                        <a href="https://www.businessinsider.com/accountant-how-to-learn-vibe-coding-ai-tools-workshop-2025-10" target="_blank" class="text-pink-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">Read Story <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        <a href="https://www.businessinsider.com/accountant-how-to-learn-vibe-coding-ai-tools-workshop-2025-10" target="_blank" class="text-pink-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Read Story <i data-lucide="external-link" class="w-4 h-4"></i></a>
                     </div>
-                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-pink-500/30">
                         <div>
-                            <span class="media-tag mb-4 inline-block">BFM 89.9</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors uppercase tracking-tight">AI for All, or Just the Few?</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Democratization of AI and shared automation benefits.</p>
+                            <span class="media-tag mb-4 inline-block bg-pink-500/20 text-pink-400 border border-pink-500/20">BFM 89.9</span>
+                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-pink-400 transition-colors uppercase tracking-tight">AI for All, or Just the Few?</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">Democratization of AI and shared automation benefits.</p>
                         </div>
-                        <a href="https://www.bfm.my/content/podcast/ai-for-all-or-just-the-few" target="_blank" class="text-pink-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">Listen Podcast <i data-lucide="play-circle" class="w-4 h-4"></i></a>
+                        <a href="https://www.bfm.my/content/podcast/ai-for-all-or-just-the-few" target="_blank" class="text-pink-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Listen Podcast <i data-lucide="play-circle" class="w-4 h-4"></i></a>
                     </div>
-                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-orange-500/30">
                         <div>
-                            <span class="media-tag mb-4 inline-block">BFM 89.9</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors uppercase tracking-tight">Empowering Creativity with AI</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Generative AI as a force multiplier for creative teams.</p>
+                            <span class="media-tag mb-4 inline-block bg-orange-500/20 text-orange-400 border border-orange-500/20">BFM 89.9</span>
+                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-orange-400 transition-colors uppercase tracking-tight">Empowering Creativity with AI</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">Generative AI as a force multiplier for creative teams.</p>
                         </div>
-                        <a href="https://www.bfm.my/content/podcast/empowering-creativity-with-ai" target="_blank" class="text-orange-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">Listen Podcast <i data-lucide="play-circle" class="w-4 h-4"></i></a>
+                        <a href="https://www.bfm.my/content/podcast/empowering-creativity-with-ai" target="_blank" class="text-orange-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Listen Podcast <i data-lucide="play-circle" class="w-4 h-4"></i></a>
                     </div>
-                    <div class="section-card p-8 rounded-3xl flex flex-col justify-between group border-rose-100">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-pink-500/30">
                         <div>
-                            <span class="media-tag mb-4 inline-block">BFM 89.9</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-pink-600 transition-colors uppercase tracking-tight">Solving the People Bottleneck</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Managing change and overcoming adoption friction during organizational shifts.</p>
+                            <span class="media-tag mb-4 inline-block bg-pink-500/20 text-pink-400 border border-pink-500/20">BFM 89.9</span>
+                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-pink-400 transition-colors uppercase tracking-tight">Solving the People Bottleneck</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">Managing change and overcoming adoption friction during organizational shifts.</p>
                         </div>
-                        <a href="https://www.bfm.my/solving-the-people-bottleneck-in-ai-adoption" target="_blank" class="text-pink-500 flex items-center gap-2 text-xs font-bold uppercase tracking-widest">Listen Podcast <i data-lucide="play-circle" class="w-4 h-4"></i></a>
+                        <a href="https://www.bfm.my/solving-the-people-bottleneck-in-ai-adoption" target="_blank" class="text-pink-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Listen Podcast <i data-lucide="play-circle" class="w-4 h-4"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Clients Section & Product Showcase -->
-        <section id="clients" class="py-24 bg-white border-b border-slate-100">
+        <!-- Clients Section -->
+        <section id="clients" class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-slate-900 text-3xl font-extrabold uppercase tracking-tight">Proven Corporate Impact</h2>
@@ -629,7 +615,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-24 bg-slate-50">
+        <section id="faq" class="py-24 bg-slate-50 border-t border-slate-100">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto">
                     <div class="text-center mb-16">
@@ -637,20 +623,20 @@
                         <p class="text-slate-500">Everything you need to know about our training protocols and impact.</p>
                     </div>
 
-                    <div class="space-y-2">
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                    <div class="space-y-4">
+                        <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
                             <button class="faq-trigger" onclick="toggleFaq(this)"><span>Is this training HRD Corp claimable?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
-                            <div class="faq-content">Yes. All our corporate programs are 100% HRD Corp claimable under the SBL-Khas scheme.</div>
+                            <div class="faq-content">Yes. All our corporate programs are 100% HRD Corp claimable under the SBL-Khas scheme. We provide the full documentation required for your grant application.</div>
                         </div>
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                        <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
                             <button class="faq-trigger" onclick="toggleFaq(this)"><span>How do your trainers differ from academic courses?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
-                            <div class="faq-content">Our faculty are practitioners including former Bain & Co consultants and audit partners. We focus on real-world automation results.</div>
+                            <div class="faq-content">Our faculty are practitioners including former Bain & Co consultants and audit partners. We focus on real-world automation results rather than abstract theoretical frameworks.</div>
                         </div>
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                        <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
                             <button class="faq-trigger" onclick="toggleFaq(this)"><span>Can you customize the syllabus for our industry?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
                             <div class="faq-content">Absolutely. For private corporate sessions, we conduct a pre-training audit to tailor use cases to your specific industry (e.g., retail, finance, logistics) and software stack.</div>
                         </div>
-                        <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                        <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
                             <button class="faq-trigger" onclick="toggleFaq(this)"><span>What happens after the training ends?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
                             <div class="faq-content">We provide 3 months of post-training support via a dedicated channel. Our team helps troubleshoot any issues as your employees begin deploying their first live automations.</div>
                         </div>
@@ -695,11 +681,17 @@
         </section>
     </main>
 
-    <footer class="bg-white border-t border-slate-100 py-12">
+    <!-- MODERN DARK FOOTER -->
+    <footer class="bg-[#020617] py-16 text-slate-500">
         <div class="container mx-auto px-6 text-center">
-            <span class="text-sm font-extrabold tracking-tight text-slate-900 uppercase">AITraining<span class="text-pink-500">2U</span></span>
-            <div class="mt-4 text-slate-500 text-[10px] font-bold uppercase tracking-widest">AITRAINING2U PLT (202504002669)</div>
-            <p class="text-slate-400 text-[10px] mt-2">© 2026 AITraining2U. Empowering the Malaysian workforce with applied intelligence.</p>
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="zap" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">AITraining<span class="text-pink-500">2U</span></span>
+            </div>
+            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-4">AITRAINING2U PLT (202504002669)</div>
+            <p class="text-slate-600 text-[10px] max-w-lg mx-auto leading-relaxed">© 2026 AITraining2U. Empowering the Malaysian workforce with applied intelligence through expert-led workshops and strategic consulting.</p>
         </div>
     </footer>
 
