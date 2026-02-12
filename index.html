@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+dl:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AITraining2U | Enterprise AI Solutions & Corporate Training</title>
     <meta name="description" content="AITraining2U provides specialized private AI training for corporate teams. HRD Corp claimable. Expert-led automation and strategy consulting for Malaysian enterprises.">
     
-    <!-- Tracking Pixel -->
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -16,12 +24,13 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '613351752149959');
+    fbq('init', '1425055582697450');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=613351752149959&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1425055582697450&ev=PageView&noscript=1"
     /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -249,6 +258,10 @@
     </style>
 </head>
 <body class="antialiased">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Modal for Testimonials -->
     <div id="testimonial-modal">
@@ -293,7 +306,7 @@
                 <a href="#team" class="hover:text-pink-500 transition">Our Faculty</a>
                 <a href="#media" class="hover:text-pink-500 transition">Media</a>
                 <a href="#faq" class="hover:text-pink-500 transition">FAQ</a>
-                <a href="https://wa.me/60126791203" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Inquire Now</a>
+                <a href="https://wa.me/60126791203" id="cta-nav-inquire" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Inquire Now</a>
             </div>
 
             <button id="menu-toggle" class="lg:hidden text-slate-900">
@@ -317,11 +330,11 @@
                     AITraining2U brings specialized private AI training and change management consulting directly to your team. Specialized for 25-35 pax with 100% HRD Corp claimable options.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-                    <a href="#courses" class="btn-brand px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
+                    <a href="#courses" id="cta-hero-programs" class="btn-brand px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
                         View Training Programs
                     </a>
                     <div class="text-sm text-slate-500">
-                        WhatsApp: <a href="https://wa.me/60126791203" class="text-white font-semibold hover:text-orange-400 underline">+6012 679 1203</a>
+                        WhatsApp: <a href="https://wa.me/60126791203" id="cta-hero-whatsapp" class="text-white font-semibold hover:text-orange-400 underline">+6012 679 1203</a>
                     </div>
                 </div>
             </div>
@@ -368,7 +381,7 @@
                                 Master AI agentic automation specifically for financial operations, high-speed reporting, and advanced fiscal analysis. Designed for Finance Managers and Controllers.
                             </p>
                         </div>
-                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" class="bg-red-500 hover:bg-red-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-red-500/20 transition-all uppercase tracking-wider">Register for Public Class</a>
+                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" id="cta-course-finance" target="_blank" class="bg-red-500 hover:bg-red-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-red-500/20 transition-all uppercase tracking-wider">Register for Public Class</a>
                     </div>
 
                     <!-- Course 2 (Private Corporate) -->
@@ -385,7 +398,7 @@
                                 Build autonomous agents that handle repetitive tasks. Day 3 is a private session to map these tools to your internal business data and architecture.
                             </p>
                         </div>
-                        <a href="agentic.html" class="btn-brand text-center py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">Request Full Syllabus</a>
+                        <a href="agentic.html" id="cta-course-agentic" class="btn-brand text-center py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">Request Full Syllabus</a>
                     </div>
 
                     <!-- Course 3 (Strategy) - COLOR MODIFIED TO BRIGHT YELLOW -->
@@ -402,7 +415,67 @@
                                 End-to-end consulting to deploy AI workflows across your existing tools. Focused on Financial Ops, Change Management, and long-term tech ROI.
                             </p>
                         </div>
-                        <a href="https://wa.me/60126791203" class="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-colors uppercase tracking-wider shadow-lg">Book Scoping Call</a>
+                        <a href="https://wa.me/60126791203" id="cta-course-strategy" class="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-colors uppercase tracking-wider shadow-lg">Book Scoping Call</a>
+                    </div>
+
+                    <!-- NEW Course 4: Vibe Coding (Purple) -->
+                    <div class="relative bg-purple-50/30 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-purple-500 transition hover:shadow-2xl hover:bg-white hover:border-purple-600">
+                        <div class="absolute top-0 right-0 p-6">
+                            <span class="bg-purple-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-purple-500/20">Rapid Prototyping</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Vibe Coding <br>+ Rapid Prototyping</h3>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex items-center gap-2 text-purple-600">
+                                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                                    <span class="text-xs font-bold uppercase tracking-wide">11-12 April 2026</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">
+                                Learn to build functional apps in minutes using Cursor, Replit, and v0. Designed for non-technical founders and product managers to prototype instantly.
+                            </p>
+                        </div>
+                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-course-vibecoding" class="bg-purple-500 hover:bg-purple-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-purple-500/20 transition-all uppercase tracking-wider">Register Interest</a>
+                    </div>
+
+                    <!-- NEW Course 5: Marketing + WhatsApp (Green) -->
+                    <div class="relative bg-green-50/30 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-green-500 transition hover:shadow-2xl hover:bg-white hover:border-green-600">
+                        <div class="absolute top-0 right-0 p-6">
+                            <span class="bg-green-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-green-500/20">Coming Soon</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Marketing <br>+ Whatsapp Masterclass</h3>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex items-center gap-2 text-green-600">
+                                    <i data-lucide="clock" class="w-4 h-4"></i>
+                                    <span class="text-xs font-bold uppercase tracking-wide">Dates Announcing Soon</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">
+                                Automate lead qualification and customer support on WhatsApp. Integrate AI agents directly into your marketing funnel for 24/7 engagement.
+                            </p>
+                        </div>
+                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-course-whatsapp" class="bg-green-500 hover:bg-green-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-green-500/20 transition-all uppercase tracking-wider">Join Waitlist</a>
+                    </div>
+
+                    <!-- NEW Course 6: Sales Automation (Blue) -->
+                    <div class="relative bg-blue-50/30 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-blue-500 transition hover:shadow-2xl hover:bg-white hover:border-blue-600">
+                        <div class="absolute top-0 right-0 p-6">
+                            <span class="bg-blue-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-blue-500/20">Coming Soon</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Agentic <br>Sales Automation</h3>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex items-center gap-2 text-blue-600">
+                                    <i data-lucide="clock" class="w-4 h-4"></i>
+                                    <span class="text-xs font-bold uppercase tracking-wide">Dates Announcing Soon</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">
+                                Revolutionize your sales pipeline. Build agents that handle outreach, follow-ups, and CRM data entry, allowing your team to focus on closing.
+                            </p>
+                        </div>
+                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-course-sales" class="bg-blue-500 hover:bg-blue-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-blue-500/20 transition-all uppercase tracking-wider">Join Waitlist</a>
                     </div>
                 </div>
             </div>
@@ -470,12 +543,12 @@
                     <p class="text-slate-500 max-w-2xl mx-auto">Our trainers bring decades of experience from management consulting, multi-million dollar tech exits, and specialized data transformation.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     <div class="section-card p-0 rounded-3xl overflow-hidden group">
                         <div class="aspect-[4/5] overflow-hidden bg-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" alt="Warren Leow" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         </div>
-                        <div class="p-8">
+                        <div class="p-6">
                             <h3 class="text-xl font-bold text-slate-900">Warren Leow</h3>
                             <p class="text-pink-600 text-sm font-bold mb-4">Entrepreneur, Advisor & Policy Specialist</p>
                             <p class="text-slate-500 text-xs leading-relaxed">Founder of Super Group, KAIN member. Former Bain & Company consultant and MED4IRN council member.</p>
@@ -485,7 +558,7 @@
                         <div class="aspect-[4/5] overflow-hidden bg-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" alt="Chan Wei Khjan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         </div>
-                        <div class="p-8">
+                        <div class="p-6">
                             <h3 class="text-xl font-bold text-slate-900">Chan Wei Khjan</h3>
                             <p class="text-pink-600 text-sm font-bold mb-4">Audit & Process Transformation Expert</p>
                             <p class="text-slate-500 text-xs leading-relaxed">Former Audit Partner at YYC. Specialist in automating financial reporting and fiscal AI governance.</p>
@@ -495,10 +568,21 @@
                         <div class="aspect-[4/5] overflow-hidden bg-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Shah%20Mijanur.jpeg?raw=true" alt="Shah Mijanur" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         </div>
-                        <div class="p-8">
+                        <div class="p-6">
                             <h3 class="text-xl font-bold text-slate-900">Shah Mijanur</h3>
                             <p class="text-pink-600 text-sm font-bold mb-4">Cybersecurity & AI Security Expert</p>
                             <p class="text-slate-500 text-xs leading-relaxed">Head of Security at Inmagine. AWS Malaysia Security Usergroup Leader. Former Senior Enterprise Security Researcher at Mozilla Firefox.</p>
+                        </div>
+                    </div>
+                    <!-- NEW TRAINER: Choong Ruey Liuh -->
+                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
+                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Ruey.jpg?raw=true" alt="Choong Ruey Liuh" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900">Choong Ruey Liuh</h3>
+                            <p class="text-pink-600 text-sm font-bold mb-4">Whatsapp Automation Expert</p>
+                            <p class="text-slate-500 text-xs leading-relaxed">Specializes in high-impact training for WhatsApp Business Solutions and AI Integration. Helps businesses provide a seamless, 24/7 customer experience without increasing headcount.</p>
                         </div>
                     </div>
                 </div>
@@ -673,7 +757,7 @@
                                 <option>Public Workshop: Financial Transformation</option>
                             </select>
                             <textarea id="message" rows="3" placeholder="Estimated Pax & Preferred Dates" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500"></textarea>
-                            <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg">Get Training Quote</button>
+                            <button type="submit" id="cta-form-submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg">Get Training Quote</button>
                         </form>
                     </div>
                 </div>
@@ -696,7 +780,7 @@
     </footer>
 
     <!-- Sticky WhatsApp -->
-    <a href="https://wa.me/60126791203" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
+    <a href="https://wa.me/60126791203" target="_blank" id="cta-sticky-whatsapp" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
         <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.038 3.284l-.54 2.317 2.357-.51c.955.615 1.911.95 3.1.95 3.182 0 5.768-2.586 5.768-5.766 0-3.18-2.586-5.766-5.767-5.766zm3.332 7.757c-.19.533-.881.862-1.393.918-.512.056-1.127.182-3.122-.596-1.995-.778-3.3-2.8-3.411-2.95-.111-.15-.815-1.082-.815-2.064 0-.982.512-1.464.693-1.666.182-.202.394-.253.527-.253s.266 0 .381.006c.121.006.284-.044.444.341.166.402.569 1.388.621 1.49.051.102.086.222.018.358-.067.137-.102.222-.203.342-.102.12-.213.268-.305.358-.102.102-.209.213-.091.416.118.203.524.862.775 1.086.326.29.596.381.802.482.203.102.321.051.444-.086.12-.137.512-.596.647-.798.137-.203.272-.17.458-.102s1.178.556 1.382.658c.204.102.34.152.389.241.05.089.05.52-.14.753zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.658 1.442 5.17L2 22l4.985-1.313c1.472.825 3.178 1.313 5.015 1.313 5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.63 0-3.14-.424-4.448-1.171l-.319-.182-3.31.871.884-3.178-.201-.32A7.957 7.957 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
     </a>
 
