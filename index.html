@@ -14,6 +14,9 @@
     <title>AITraining2U | Enterprise AI Solutions & Corporate Training</title>
     <meta name="description" content="AITraining2U provides specialized private AI training for corporate teams. HRD Corp claimable. Expert-led automation and strategy consulting for Malaysian enterprises.">
     
+    <!-- BRAND FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23a)'/%3E%3Cpath d='M17 6L11 16H16L14 26L22 14H17L19 6Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -105,7 +108,7 @@
         .marquee-inner {
             display: flex;
             width: fit-content;
-            animation: scroll 35s linear infinite;
+            animation: scroll 45s linear infinite;
         }
         .fade-in {
             opacity: 0;
@@ -255,6 +258,26 @@
         .faq-icon {
             transition: transform 0.3s;
         }
+
+        /* Dropdown Styles */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.2s ease-out;
+        }
+        /* Bridge the gap to prevent accidental closing on hover */
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: transparent;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -302,7 +325,25 @@
             </div>
             
             <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-600">
-                <a href="#courses" class="hover:text-pink-500 transition font-bold">Programs</a>
+                <div class="relative dropdown group">
+                    <button class="flex items-center gap-1 hover:text-pink-500 transition font-bold py-2">
+                        Programs <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl p-2 mt-2">
+                        <a href="index.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Corporate Training</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Enterprise</span>
+                        </a>
+                        <a href="agentic.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Agentic Automation</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Specialist</span>
+                        </a>
+                        <a href="vibecoding.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Vibe Coding</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Prototyping</span>
+                        </a>
+                    </div>
+                </div>
                 <a href="#team" class="hover:text-pink-500 transition">Our Faculty</a>
                 <a href="#media" class="hover:text-pink-500 transition">Media</a>
                 <a href="#faq" class="hover:text-pink-500 transition">FAQ</a>
@@ -343,11 +384,22 @@
         <!-- Dynamic Trust Bar -->
         <div class="marquee-container py-5 overflow-hidden">
             <div class="marquee-inner text-slate-500 font-bold text-xs uppercase tracking-[0.2em]">
+                <!-- Set 1 -->
                 <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> HRD Corp Registered</span>
                 <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Bespoke Consulting</span>
                 <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Localized Case Studies</span>
                 <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Enterprise Adoption Roadmaps</span>
                 <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Post-Training Support</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Professional Certification</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Workflow Automation</span>
+                <!-- Set 2 (for seamless loop) -->
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> HRD Corp Registered</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Bespoke Consulting</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Localized Case Studies</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Enterprise Adoption Roadmaps</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Post-Training Support</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Professional Certification</span>
+                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Workflow Automation</span>
             </div>
         </div>
 
@@ -368,20 +420,17 @@
                         <div>
                             <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Agentic Financial <br>Transformation</h3>
                             <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-red-600">
-                                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wide">26-27 March 2026</span>
-                                </div>
                                 <div class="flex items-center gap-2 text-orange-600">
                                     <i data-lucide="calendar" class="w-4 h-4"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wide">2-3 April 2026 (KL)</span>
+                                    <span class="text-xs font-bold uppercase tracking-wide">2-3 April 2026 (Worq TTDI)</span>
                                 </div>
                             </div>
                             <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">
                                 Master AI agentic automation specifically for financial operations, high-speed reporting, and advanced fiscal analysis. Designed for Finance Managers and Controllers.
                             </p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-red-700/70"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
-                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" id="cta-course-finance" target="_blank" class="bg-red-500 hover:bg-red-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-red-500/20 transition-all uppercase tracking-wider">Register for Public Class</a>
+                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" id="cta-course-finance" target="_blank" class="bg-red-500 hover:bg-red-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-red-500/20 transition-all uppercase tracking-wider">Book Now</a>
                     </div>
 
                     <!-- Course 2 (Private Corporate) -->
@@ -397,8 +446,9 @@
                             <p class="text-slate-400 text-xs mb-8 leading-relaxed">
                                 Build autonomous agents that handle repetitive tasks. Day 3 is a private session to map these tools to your internal business data and architecture.
                             </p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-slate-400"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
-                        <a href="agentic.html" id="cta-course-agentic" class="btn-brand text-center py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">Request Full Syllabus</a>
+                        <a href="agentic.html" id="cta-course-agentic" class="btn-brand text-center py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">Contact Us</a>
                     </div>
 
                     <!-- Course 3 (Strategy) - COLOR MODIFIED TO BRIGHT YELLOW -->
@@ -414,8 +464,9 @@
                             <p class="text-slate-800 text-xs mb-8 leading-relaxed font-bold">
                                 End-to-end consulting to deploy AI workflows across your existing tools. Focused on Financial Ops, Change Management, and long-term tech ROI.
                             </p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-slate-800/70"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
-                        <a href="https://wa.me/60126791203" id="cta-course-strategy" class="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-colors uppercase tracking-wider shadow-lg">Book Scoping Call</a>
+                        <a href="https://wa.me/60126791203" id="cta-course-strategy" class="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-colors uppercase tracking-wider shadow-lg">Contact Us</a>
                     </div>
 
                     <!-- NEW Course 4: Vibe Coding (Purple) -->
@@ -428,14 +479,15 @@
                             <div class="space-y-2 mb-6">
                                 <div class="flex items-center gap-2 text-purple-600">
                                     <i data-lucide="calendar" class="w-4 h-4"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wide">11-12 April 2026</span>
+                                    <span class="text-xs font-bold uppercase tracking-wide">11-12 April 2026 (Worq TTDI)</span>
                                 </div>
                             </div>
                             <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">
                                 Learn to build functional apps in minutes using Cursor, Replit, and v0. Designed for non-technical founders and product managers to prototype instantly.
                             </p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-purple-700/70"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
-                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-course-vibecoding" class="bg-purple-500 hover:bg-purple-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-purple-500/20 transition-all uppercase tracking-wider">Register Interest</a>
+                        <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-course-vibecoding" class="bg-purple-500 hover:bg-purple-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-purple-500/20 transition-all uppercase tracking-wider">Book Now</a>
                     </div>
 
                     <!-- NEW Course 5: Marketing + WhatsApp (Green) -->
@@ -454,6 +506,7 @@
                             <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">
                                 Automate lead qualification and customer support on WhatsApp. Integrate AI agents directly into your marketing funnel for 24/7 engagement.
                             </p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-green-700/70"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
                         <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-course-whatsapp" class="bg-green-500 hover:bg-green-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-green-500/20 transition-all uppercase tracking-wider">Join Waitlist</a>
                     </div>
@@ -474,6 +527,7 @@
                             <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">
                                 Revolutionize your sales pipeline. Build agents that handle outreach, follow-ups, and CRM data entry, allowing your team to focus on closing.
                             </p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-blue-700/70"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
                         <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-course-sales" class="bg-blue-500 hover:bg-blue-600 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg shadow-blue-500/20 transition-all uppercase tracking-wider">Join Waitlist</a>
                     </div>
@@ -494,16 +548,16 @@
                     <div class="triangle-container fade-in">
                         <svg class="triangle-svg" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <!-- Awareness (Bottom Level) -->
-                            <path class="triangle-segment" d="M20 340 H380 L320 230 H80 L20 340 Z" fill="#fecdd3" />
+                            <path class="triangle-segment" d="M20 340 H380 L320 230 H80 Z" fill="#fecdd3" />
                             <!-- Roll-out (Middle Level) -->
-                            <path class="triangle-segment" d="M80 225 H320 L260 135 H140 L80 225 Z" fill="#fb923c" />
+                            <path class="triangle-segment" d="M83 225 H317 L266 130 H134 Z" fill="#fb923c" />
                             <!-- Strategy (Top Level) -->
-                            <path class="triangle-segment" d="M140 130 H260 L200 10 L140 130 Z" fill="#ec4899" />
+                            <path class="triangle-segment" d="M200 10 L263 125 H137 Z" fill="#ec4899" />
                             
                             <!-- Labels -->
-                            <text x="200" y="95" text-anchor="middle" fill="white" class="triangle-label" font-size="16">Strategy</text>
-                            <text x="200" y="190" text-anchor="middle" fill="white" class="triangle-label" font-size="18">Roll-out</text>
-                            <text x="200" y="295" text-anchor="middle" fill="#991b1b" class="triangle-label" font-size="20">Awareness</text>
+                            <text x="200" y="90" text-anchor="middle" fill="white" class="triangle-label" font-size="12">Strategy</text>
+                            <text x="200" y="190" text-anchor="middle" fill="white" class="triangle-label" font-size="15">Roll-out</text>
+                            <text x="200" y="295" text-anchor="middle" fill="#991b1b" class="triangle-label" font-size="18">Awareness</text>
                         </svg>
                     </div>
 
@@ -543,7 +597,7 @@
                     <p class="text-slate-500 max-w-2xl mx-auto">Our trainers bring decades of experience from management consulting, multi-million dollar tech exits, and specialized data transformation.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     <div class="section-card p-0 rounded-3xl overflow-hidden group">
                         <div class="aspect-[4/5] overflow-hidden bg-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" alt="Warren Leow" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -574,7 +628,6 @@
                             <p class="text-slate-500 text-xs leading-relaxed">Head of Security at Inmagine. AWS Malaysia Security Usergroup Leader. Former Senior Enterprise Security Researcher at Mozilla Firefox.</p>
                         </div>
                     </div>
-                    <!-- NEW TRAINER: Choong Ruey Liuh -->
                     <div class="section-card p-0 rounded-3xl overflow-hidden group">
                         <div class="aspect-[4/5] overflow-hidden bg-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Ruey.jpg?raw=true" alt="Choong Ruey Liuh" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -583,6 +636,28 @@
                             <h3 class="text-xl font-bold text-slate-900">Choong Ruey Liuh</h3>
                             <p class="text-pink-600 text-sm font-bold mb-4">Whatsapp Automation Expert</p>
                             <p class="text-slate-500 text-xs leading-relaxed">Specializes in high-impact training for WhatsApp Business Solutions and AI Integration. Helps businesses provide a seamless, 24/7 customer experience without increasing headcount.</p>
+                        </div>
+                    </div>
+                    <!-- NEW TRAINER: Tze Jin -->
+                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
+                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_TzeJin.jpg?raw=true" alt="Tze Jin" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900">Tze Jin</h3>
+                            <p class="text-pink-600 text-sm font-bold mb-4">AI & ML Specialist</p>
+                            <p class="text-slate-500 text-xs leading-relaxed">Deep expertise in machine learning and backend logic. Guides participants on integrating complex AI reasoning with Claude Code and database structures into their projects.</p>
+                        </div>
+                    </div>
+                    <!-- NEW TRAINER: Marcus Chia -->
+                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
+                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Marcus.jpg?raw=true" alt="Marcus Chia" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900">Marcus Chia</h3>
+                            <p class="text-pink-600 text-sm font-bold mb-4">UI/UX Director & Product Manager</p>
+                            <p class="text-slate-500 text-xs leading-relaxed">Expert in translating user needs into functional AI-driven interfaces. Teaches how to use Antigravity and Cursor to build polished, user-centric apps without a design team.</p>
                         </div>
                     </div>
                 </div>
@@ -597,21 +672,23 @@
                     <div class="h-1.5 w-24 bg-gradient-to-r from-pink-500 to-orange-500 mx-auto rounded-full"></div>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- Updated BFM Feature -->
                     <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-pink-500/30">
                         <div>
-                            <span class="media-tag mb-4 inline-block bg-pink-500/20 text-pink-400 border border-pink-500/20">The Star</span>
-                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-pink-400 transition-colors uppercase tracking-tight">Equipping Employees with AI Skills</h4>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-6">Discussing the essential AI curriculum required for the modern Malaysian workforce to remain globally competitive.</p>
+                            <span class="media-tag mb-4 inline-block bg-pink-500/20 text-pink-400 border border-pink-500/20">BFM 89.9</span>
+                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-pink-400 transition-colors uppercase tracking-tight">The 5% Hurdle: Why AI Isn't Scaling</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">Warren Leow joins Enterprise Explores to discuss why only 5% of AI projects make it to production and how to bridge the adoption gap.</p>
                         </div>
-                        <a href="https://www.thestar.com.my/tech/tech-news/2024/12/16/equipping-malaysian-employees-with-essential-ai-skills" target="_blank" class="text-pink-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Read Article <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        <a href="https://www.bfm.my/content/podcast/ai-for-all-or-just-the-few" target="_blank" class="text-pink-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Listen Podcast <i data-lucide="play-circle" class="w-4 h-4"></i></a>
                     </div>
+                    <!-- Replaced Tatler with requested Star Article -->
                     <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-orange-500/30">
                         <div>
-                            <span class="media-tag mb-4 inline-block bg-orange-500/20 text-orange-400 border border-orange-500/20">Tatler Asia</span>
-                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-orange-400 transition-colors uppercase tracking-tight">What Matters To Me: Azrul Rahim</h4>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-6">A profile on Azrul Rahim's philosophy on technology, building Maideasy and beyond.</p>
+                            <span class="media-tag mb-4 inline-block bg-orange-500/20 text-orange-400 border border-orange-500/20">The Star</span>
+                            <h4 class="text-lg font-bold text-white mb-3 group-hover:text-orange-400 transition-colors uppercase tracking-tight">Equipping Employees with AI Skills</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-6">Discussing the essential AI curriculum and mindset required for the modern Malaysian workforce to lead in the age of applied intelligence.</p>
                         </div>
-                        <a href="https://www.tatlerasia.com/the-scene/people-parties/what-matters-to-me-azrul-rahim-ceo-of-maideasy" target="_blank" class="text-orange-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Read Profile <i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        <a href="https://www.thestar.com.my/tech/tech-news/2024/12/16/equipping-malaysian-employees-with-essential-ai-skills" target="_blank" class="text-orange-400 flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:underline">Read Article <i data-lucide="external-link" class="w-4 h-4"></i></a>
                     </div>
                     <div class="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-between group transition hover:bg-white/10 hover:border-pink-500/30">
                         <div>
@@ -697,6 +774,34 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Community Section (NEW) -->
+        <section id="community" class="py-24 bg-slate-900 text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">The <span class="text-pink-400">Executive</span> Network</h2>
+                    <p class="text-slate-400 text-lg">Your tuition includes 3 months of priority access to our private support channels.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-black border border-slate-800 p-8 rounded-3xl">
+                        <i data-lucide="life-buoy" class="w-10 h-10 text-pink-400 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-3">Faculty Support</h3>
+                        <p class="text-slate-500 text-sm">Direct line to our trainers to map out automation strategies and unblock technical issues.</p>
+                    </div>
+                    <div class="bg-black border border-slate-800 p-8 rounded-3xl">
+                        <i data-lucide="library" class="w-10 h-10 text-orange-400 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-3">Knowledge Base</h3>
+                        <p class="text-slate-500 text-sm">Access to execution insights, change management ROI calculators, and AI policy templates.</p>
+                    </div>
+                    <div class="bg-black border border-slate-800 p-8 rounded-3xl">
+                        <i data-lucide="users" class="w-10 h-10 text-rose-400 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-3">Community Network</h3>
+                        <p class="text-slate-500 text-sm">Join 1000+ community. Share insights, deals, and adoption challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- FAQ Section -->
         <section id="faq" class="py-24 bg-slate-50 border-t border-slate-100">
@@ -774,14 +879,14 @@
                 </div>
                 <span class="text-xl font-bold tracking-tight text-white">AITraining<span class="text-pink-500">2U</span></span>
             </div>
-            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-4">AITRAINING2U PLT (202504002669)</div>
+            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-4">AITREINING2U PLT (202504002669)</div>
             <p class="text-slate-600 text-[10px] max-w-lg mx-auto leading-relaxed">© 2026 AITraining2U. Empowering the Malaysian workforce with applied intelligence through expert-led workshops and strategic consulting.</p>
         </div>
     </footer>
 
     <!-- Sticky WhatsApp -->
     <a href="https://wa.me/60126791203" target="_blank" id="cta-sticky-whatsapp" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
-        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.038 3.284l-.54 2.317 2.357-.51c.955.615 1.911.95 3.1.95 3.182 0 5.768-2.586 5.768-5.766 0-3.18-2.586-5.766-5.767-5.766zm3.332 7.757c-.19.533-.881.862-1.393.918-.512.056-1.127.182-3.122-.596-1.995-.778-3.3-2.8-3.411-2.95-.111-.15-.815-1.082-.815-2.064 0-.982.512-1.464.693-1.666.182-.202.394-.253.527-.253s.266 0 .381.006c.121.006.284-.044.444.341.166.402.569 1.388.621 1.49.051.102.086.222.018.358-.067.137-.102.222-.203.342-.102.12-.213.268-.305.358-.102.102-.209.213-.091.416.118.203.524.862.775 1.086.326.29.596.381.802.482.203.102.321.051.444-.086.12-.137.512-.596.647-.798.137-.203.272-.17.458-.102s1.178.556 1.382.658c.204.102.34.152.389.241.05.089.05.52-.14.753zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.658 1.442 5.17L2 22l4.985-1.313c1.472.825 3.178 1.313 5.015 1.313 5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.63 0-3.14-.424-4.448-1.171l-.319-.182-3.31.871.884-3.178-.201-.32A7.957 7.957 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
     <script>
