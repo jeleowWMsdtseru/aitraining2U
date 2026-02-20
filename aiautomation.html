@@ -55,11 +55,6 @@
             color: #1e293b;
         }
         
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
         .animated-nav-bg {
             background: rgba(29, 78, 216, 0.95); /* Blue 700 to match request */
             backdrop-filter: blur(12px);
@@ -177,7 +172,6 @@
             display: block;
             animation: fadeIn 0.2s ease-out;
         }
-        /* Bridge the gap to prevent accidental closing on hover */
         .dropdown-menu::before {
             content: "";
             position: absolute;
@@ -247,11 +241,11 @@
                             <span class="font-bold block text-sm">AI Corporate Training</span>
                             <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Enterprise</span>
                         </a>
-                        <a href="aiautomation.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                        <a href="agentic.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
                             <span class="font-bold block text-sm">AI Agentic Automation</span>
                             <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Specialist</span>
                         </a>
-                        <a href="aivibecoding.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                        <a href="vibecoding.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
                             <span class="font-bold block text-sm">AI Vibe Coding</span>
                             <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Prototyping</span>
                         </a>
@@ -261,7 +255,7 @@
                 <a href="#syllabus" class="hover:text-white transition">Syllabus</a>
                 <a href="#faculty" class="hover:text-white transition">Faculty</a>
                 <a href="#faq" class="hover:text-white transition">FAQ</a>
-                <a href="https://wa.me/60126791203" id="cta-nav-register" class="bg-white text-blue-700 hover:bg-blue-50 hover:text-blue-800 transition px-5 py-2.5 rounded-full font-bold shadow-lg">Register Now</a>
+                <a href="https://wa.me/601137034050" id="cta-nav-register" class="bg-white text-blue-700 hover:bg-blue-50 hover:text-blue-800 transition px-5 py-2.5 rounded-full font-bold shadow-lg">Register Now</a>
             </div>
         </nav>
     </header>
@@ -284,10 +278,119 @@
                     <a href="#dates" id="cta-hero-schedule" class="btn-brand px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
                         View Schedule
                     </a>
-                    <a href="https://wa.me/60126791203" id="cta-hero-consult" class="bg-white hover:bg-slate-100 border border-slate-200 px-10 py-4 rounded-full font-bold text-lg text-slate-900 transition w-full sm:w-auto">
+                    <a href="https://wa.me/601137034050" id="cta-hero-consult" class="bg-white hover:bg-slate-100 border border-slate-200 px-10 py-4 rounded-full font-bold text-lg text-slate-900 transition w-full sm:w-auto">
                         Consult with Experts
                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Workshop Schedule -->
+        <section id="dates" class="py-24 bg-slate-50 border-b border-slate-200">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">Choose Your Workshop Date</h2>
+                    <p class="text-slate-500">Seats are filling up fast! Book now to secure your spot.</p>
+                </div>
+
+                <!-- Dates Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+                    
+                    <!-- Date Card 1: Public - April 2-3 -->
+                    <div class="bg-white rounded-3xl border-2 border-orange-500 p-8 shadow-xl relative overflow-hidden flex flex-col">
+                        <div class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Selling Fast</div>
+                        <div class="text-center mb-6">
+                            <p class="text-slate-500 text-xs font-bold mb-1">April 2-3, 2026</p>
+                            <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Thursday & Friday</h3>
+                            <div class="flex items-center justify-center gap-1 text-blue-600 font-bold text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i> Worq TTDI, KL
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <div class="w-full bg-slate-100 rounded-full h-2.5 mb-2">
+                                <div class="bg-orange-500 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-bold uppercase mb-6 text-slate-500">
+                                <span class="text-orange-600">75% Sold Out</span>
+                                <span>Filling fast!</span>
+                            </div>
+                            <a href="https://wa.me/601137034050?text=Hi,%20I'd%20like%20to%20book%20the%20Agentic%20AI%20workshop%20for%20April%202-3." class="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-center py-3.5 rounded-xl font-bold text-sm transition shadow-lg shadow-orange-500/20">Book Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Date Card 2: Public - April 23-24 -->
+                    <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-lg flex flex-col hover:border-blue-300 transition-colors">
+                        <div class="text-center mb-6">
+                            <p class="text-slate-500 text-xs font-bold mb-1">April 23-24, 2026</p>
+                            <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Thursday & Friday</h3>
+                            <div class="flex items-center justify-center gap-1 text-blue-600 font-bold text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i> Worq TTDI, KL
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <div class="w-full bg-slate-100 rounded-full h-2.5 mb-2">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 15%"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-bold uppercase mb-6 text-slate-500">
+                                <span class="text-green-600">15% Sold Out</span>
+                                <span>New Date Added!</span>
+                            </div>
+                            <a href="https://wa.me/601137034050?text=Hi,%20I'd%20like%20to%20book%20the%20Agentic%20AI%20workshop%20for%20April%2023-24." class="block w-full bg-slate-900 hover:bg-slate-800 text-white text-center py-3.5 rounded-xl font-bold text-sm transition shadow-lg">Book Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Date Card 3: Private Slots - March -->
+                    <div class="bg-[#1e1b4b] rounded-3xl border border-blue-900 p-8 shadow-lg flex flex-col relative overflow-hidden text-white">
+                        <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Corporate Only</div>
+                        <div class="text-center mb-6">
+                            <p class="text-blue-300 text-xs font-bold mb-1">March 2026</p>
+                            <h3 class="text-2xl font-extrabold text-white mb-2">Private Slots</h3>
+                            <div class="space-y-1 mt-4">
+                                <div class="inline-block bg-blue-900/50 px-3 py-1 rounded-lg text-sm font-bold text-blue-200 border border-blue-800">12-13 March</div>
+                                <div class="inline-block bg-blue-900/50 px-3 py-1 rounded-lg text-sm font-bold text-blue-200 border border-blue-800">26-27 March</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto pt-6">
+                            <div class="flex justify-between text-[10px] font-bold uppercase mb-6 text-blue-400">
+                                <span class="text-white"><i data-lucide="check-circle" class="w-3 h-3 inline mr-1"></i>Available</span>
+                                <span>25-35 Pax</span>
+                            </div>
+                            <a href="https://wa.me/601137034050?text=Hi,%20I'm%20interested%20in%20booking%20a%20Private%20March%20slot." class="block w-full bg-white hover:bg-slate-100 text-blue-900 text-center py-3.5 rounded-xl font-bold text-sm transition shadow-lg">Book Private Session</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Corporate Banner -->
+                <div class="bg-[#1e1b4b] rounded-[2rem] p-8 md:p-12 max-w-6xl mx-auto shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-5">
+                        <i data-lucide="building-2" class="w-64 h-64 text-white"></i>
+                    </div>
+
+                    <div class="relative z-10 lg:w-2/3">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-2 bg-orange-500 rounded-lg">
+                                <i data-lucide="building" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white">Private Corporate Training</h3>
+                        </div>
+                        <p class="text-slate-300 font-medium text-lg mb-2">Looking to upskill your entire finance or ops team?</p>
+                        <p class="text-slate-400 text-sm">Exclusive sessions available for groups of <span class="text-white font-bold">25-35 pax per class</span>. Fully claimable.</p>
+                    </div>
+
+                    <div class="relative z-10 flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                        <a href="mailto:aitraining2u@gmail.com?subject=Corporate%20Training%20Inquiry" class="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-8 rounded-xl transition shadow-lg shadow-amber-500/20">
+                            <i data-lucide="mail" class="w-5 h-5"></i> Contact Us
+                        </a>
+                        <a href="https://wa.me/601137034050?text=Hi,%20I'm%20interested%20in%20a%20Private%20Corporate%20Training%20session." class="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl transition shadow-lg shadow-green-500/20">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Corporate Sales
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -307,7 +410,7 @@
                     <div class="client-logo-card" onclick="openModal('ctos')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_CTOS.jpg?raw=true" alt="CTOS"></div>
                     <div class="client-logo-card" onclick="openModal('bfm')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_BFM.jpg?raw=true" alt="BFM"></div>
                     <div class="client-logo-card" onclick="openModal('2x')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_2x.png?raw=true" alt="2X Marketing"></div>
-                    <div class="client-logo-card bg-blue-50 border-blue-100" onclick="window.location.href='https://wa.me/60126791203'">
+                    <div class="client-logo-card bg-blue-50 border-blue-100" onclick="window.location.href='https://wa.me/601137034050'">
                         <span class="text-blue-600 font-bold text-[10px] text-center uppercase tracking-widest">Inquire</span>
                     </div>
                 </div>
@@ -344,101 +447,19 @@
                             </ul>
                         </div>
 
-                        <!-- Day 3 Optional -->
                         <div class="section-card p-8 rounded-[2rem] border-l-8 border-slate-700 bg-slate-50/50">
                             <div class="flex justify-between items-start mb-4">
                                 <h3 class="text-xl font-bold text-slate-900">Day 3 (Optional): Corporate Strategy & Rollout</h3>
                                 <span class="bg-slate-200 text-slate-700 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-slate-300">Phase 03</span>
                             </div>
                             <p class="text-slate-600 text-sm mb-4">Specifically designed for corporate consulting engagements to map organisational needs and define strategies to roll out AI across the organisation.</p>
-                            <ul class="space-y-4 text-slate-500 text-sm">
-                                <li class="flex items-start gap-3"><i data-lucide="map" class="w-5 h-5 text-slate-700 mt-0.5"></i><strong>Organizational Mapping:</strong> Identifying high-impact departments and processes for immediate AI adoption.</li>
-                                <li class="flex items-start gap-3"><i data-lucide="shield-check" class="w-5 h-5 text-slate-700 mt-0.5"></i><strong>Governance & Policy:</strong> Establishing internal AI guidelines and data security protocols for enterprise deployment.</li>
-                            </ul>
                         </div>
-                    </div>
-
-                    <!-- Private Corporate Training CTA -->
-                    <div class="mt-12 bg-white border border-slate-200 p-8 rounded-[2.5rem] text-center relative overflow-hidden group shadow-sm">
-                        <div class="absolute top-0 right-0 p-8 opacity-5 rotate-12 group-hover:rotate-0 transition-transform">
-                            <i data-lucide="users" class="w-20 h-20 text-blue-900"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Exclusive Private Corporate Training</h3>
-                        <p class="text-slate-500 text-sm mb-8 max-w-xl mx-auto">Looking for a session tailored to your specific software stack and data architecture? We offer Day 3 implementation consulting for corporate teams.</p>
-                        <a href="https://wa.me/60126791203" id="cta-corporate-session" class="btn-brand inline-flex items-center gap-3 px-8 py-3 rounded-full font-bold text-sm shadow-xl">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            Book Corporate Private Session: +6012 679 1203
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Workshop Schedule -->
-        <section id="dates" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">Workshop Calendar</h2>
-                    <p class="text-slate-500">Secure your seat for our next public sessions in Kuala Lumpur.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <!-- Date 1 - UPDATED -->
-                    <div class="section-card p-8 rounded-[2.5rem]">
-                        <div class="text-center">
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">April 2-3, 2026</p>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Thursday & Friday</h3>
-                            <div class="flex items-center justify-center gap-2 text-blue-600 font-bold text-sm mb-6">
-                                <i data-lucide="map-pin" class="w-4 h-4"></i>
-                                <span>Worq TTDI, KL</span>
-                            </div>
-                            <div class="w-full bg-slate-100 rounded-full h-1.5 mb-4">
-                                <div class="bg-blue-500 h-1.5 rounded-full" style="width: 30%"></div>
-                            </div>
-                            <div class="flex justify-between text-[10px] font-black uppercase mb-6">
-                                <span class="text-blue-600">Early Bird Open</span>
-                                <span class="text-slate-400">Limited Capacity</span>
-                            </div>
-                            <a href="https://wa.me/60126791203" id="cta-calendar-apr-early" class="btn-brand block w-full py-3 rounded-2xl font-bold text-sm">Register Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Date 2 - UPDATED -->
-                    <div class="section-card p-8 rounded-[2.5rem]">
-                        <div class="text-center">
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">April 16-17, 2026</p>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Thursday & Friday</h3>
-                            <div class="flex items-center justify-center gap-2 text-blue-600 font-bold text-sm mb-6">
-                                <i data-lucide="map-pin" class="w-4 h-4"></i>
-                                <span>Worq TTDI, KL</span>
-                            </div>
-                            <div class="w-full bg-slate-100 rounded-full h-1.5 mb-4">
-                                <div class="bg-green-500 h-1.5 rounded-full" style="width: 10%"></div>
-                            </div>
-                            <div class="flex justify-between text-[10px] font-black uppercase mb-6">
-                                <span class="text-green-600">New Session</span>
-                                <span class="text-slate-400">Available</span>
-                            </div>
-                            <a href="https://wa.me/60126791203" id="cta-calendar-apr-late" class="btn-brand block w-full py-3 rounded-2xl font-bold text-sm">Register Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Corporate -->
-                    <div class="bg-slate-900 p-8 rounded-[2.5rem] text-white shadow-2xl relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 p-6 opacity-10"><i data-lucide="building-2" class="w-16 h-16 text-blue-400"></i></div>
-                        <h3 class="text-2xl font-bold mb-4">Team Custom</h3>
-                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">Exclusive sessions for departments of 25-35 pax. Highly claimable via HRDC.</p>
-                        <ul class="space-y-3 mb-8 text-xs font-bold text-blue-400 uppercase tracking-tight">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4"></i>Customized Syllabi</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4"></i>On-Site or Off-Site</li>
-                        </ul>
-                        <a href="https://wa.me/60126791203" id="cta-calendar-team" class="bg-white text-slate-900 block text-center py-3 rounded-2xl font-bold text-sm hover:bg-blue-600 hover:text-white transition">Inquire for Teams</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Faculty Section (NEW) -->
+        <!-- Faculty Section -->
         <section id="faculty" class="py-24 bg-white border-t border-slate-100">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -474,142 +495,195 @@
             </div>
         </section>
 
-        <!-- Community Section (NEW) -->
-        <section id="community" class="py-24 bg-slate-900 text-white">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">The <span class="text-blue-400">Automation</span> Network</h2>
-                    <p class="text-slate-400 text-lg">Your tuition includes 3 months of priority access to our private support channels.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <div class="bg-black border border-slate-800 p-8 rounded-3xl">
-                        <i data-lucide="life-buoy" class="w-10 h-10 text-blue-400 mb-6"></i>
-                        <h3 class="text-xl font-bold mb-3">Faculty Support</h3>
-                        <p class="text-slate-500 text-sm">Direct line to Warren and Wei Khjan to debug code and refine logic after the workshop ends.</p>
-                    </div>
-                    <div class="bg-black border border-slate-800 p-8 rounded-3xl">
-                        <i data-lucide="library" class="w-10 h-10 text-pink-400 mb-6"></i>
-                        <h3 class="text-xl font-bold mb-3">Template Library</h3>
-                        <p class="text-slate-500 text-sm">Access to 50+ pre-built n8n workflows, prompt templates, and process maps.</p>
-                    </div>
-                    <div class="bg-black border border-slate-800 p-8 rounded-3xl">
-                        <i data-lucide="users" class="w-10 h-10 text-indigo-400 mb-6"></i>
-                        <h3 class="text-xl font-bold mb-3">Peer Network</h3>
-                        <p class="text-slate-500 text-sm">Join 500+ automation leaders. Share insights, deals, and adoption challenges.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section id="testimonials" class="py-24 bg-slate-50 border-y border-slate-100">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">Impact Reports</h2>
-                    <p class="text-slate-500">Real automation results from our alumni network.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <div class="section-card p-8 rounded-[2.5rem] relative">
-                        <i data-lucide="quote" class="absolute top-8 right-8 text-slate-50 w-12 h-12"></i>
-                        <p class="text-slate-600 italic mb-8 leading-relaxed text-sm">"The financial transformation workshop for CCM helped bridge the gap between legacy processes and automated intelligence. The ROI was realized almost immediately."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">C</div>
-                            <div>
-                                <p class="font-bold text-sm text-slate-900">Finance Director</p>
-                                <p class="text-slate-500 text-[9px] uppercase font-bold tracking-widest">CCM Duopharma</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="section-card p-8 rounded-[2.5rem] relative">
-                        <i data-lucide="quote" class="absolute top-8 right-8 text-slate-50 w-12 h-12"></i>
-                        <p class="text-slate-600 italic mb-8 leading-relaxed text-sm">"The Agentic AI course completely redefined 2X's demand gen. They are now running experiments at a velocity that was previously manual and impossible."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold">2</div>
-                            <div>
-                                <p class="font-bold text-sm text-slate-900">Head of Operations</p>
-                                <p class="text-slate-500 text-[9px] uppercase font-bold tracking-widest">2X Marketing</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="section-card p-8 rounded-[2.5rem] relative">
-                        <i data-lucide="quote" class="absolute top-8 right-8 text-slate-50 w-12 h-12"></i>
-                        <p class="text-slate-600 italic mb-8 leading-relaxed text-sm">"Managing cultural change during AI adoption is critical. We provided the framework for YYC to align their workforce with automated audit intelligence."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold">Y</div>
-                            <div>
-                                <p class="font-bold text-sm text-slate-900">Audit Partner</p>
-                                <p class="text-slate-500 text-[9px] uppercase font-bold tracking-widest">YYC Advisors</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQ Section -->
-        <section id="faq" class="py-24 bg-white">
+        <section id="faq" class="py-24 bg-white border-t border-slate-100">
             <div class="container mx-auto px-6">
-                <div class="max-w-3xl mx-auto">
+                <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
                         <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">Detailed FAQ</h2>
-                        <p class="text-slate-500">Addressing your technical and logistical concerns.</p>
+                        <p class="text-slate-500">Addressing your technical, logistical, and HRDC inquiries.</p>
                     </div>
                     
                     <div class="space-y-4">
+                        <!-- Track Record -->
                         <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
-                                <span>Do I need coding experience?</span>
+                                <span>What is your training track record?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
                             </button>
                             <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
-                                No. This program is for non-technical leaders and managers. We use visual logic (n8n) and natural language to build complex agents. No Python or Javascript knowledge is required.
+                                <p class="mb-3">Our results demonstrate our impact:</p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>Over 1,000 professionals trained</strong> across multiple industries by our stable of highly technical trainers.</li>
+                                    <li><strong>Corporate clients include</strong> Ryt Bank, Mr DIY, Zus Coffee, MyNews, CCM, CTOS along with various government agencies.</li>
+                                    <li><strong>Internationally acknowledged trainers</strong> contributing to national AI initiatives and university advisory panels.</li>
+                                    <li><strong>Proven industry impact</strong>, with trainers actively consulting Fortune 500 organizations.</li>
+                                    <li><strong>Involvement in government advisory work</strong>, including National AI Office (NAIO) and Konsortium AI Negara (KAIN).</li>
+                                </ul>
                             </div>
                         </div>
+
+                        <!-- Recognition -->
                         <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
-                                <span>What tools will we learn specifically?</span>
+                                <span>What recognition have your trainers received?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
                             </button>
                             <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
-                                Our primary stack is **n8n** (for workflow orchestration) and **OpenAI/Claude API** (for intelligence). We also cover vector databases for RAG and tools like Perplexity for research automation.
+                                <p class="mb-3">Our trainers are respected industry practitioners with:</p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Advisory roles in AI and Smart City programs.</li>
+                                    <li>Collaborations with universities and academic institutions.</li>
+                                    <li>Media features as AI subject-matter experts on national platforms.</li>
+                                    <li>Speaking engagements across the ASEAN region.</li>
+                                    <li>Ongoing consulting projects with multinational companies.</li>
+                                    <li>Active participation in startup ecosystems and accelerator initiatives.</li>
+                                </ul>
                             </div>
                         </div>
+
+                        <!-- Coding Knowledge -->
                         <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
-                                <span>Are API costs included in the workshop?</span>
+                                <span>Do I need coding knowledge to join?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
                             </button>
                             <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
-                                We provide trial credits and sandbox environments for the duration of the workshop. After the course, we'll show you how to set up your own corporate accounts for sustainable, long-term scaling.
+                                No prior programming background is necessary for most of our programs. Courses are structured to support non-technical participants, while our technical bootcamps provide step-by-step guidance from foundational to more advanced topics.
                             </div>
                         </div>
+
+                        <!-- Enrollment -->
                         <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
-                                <span>What is the Day 3 session for?</span>
+                                <span>Who can enroll in the course?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
                             </button>
                             <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
-                                Day 3 is a private corporate consulting session. We stop using generic case studies and focus purely on your internal software stack and data architecture to build a real production pilot for your firm.
+                                <p class="mb-3">We welcome participants from a wide variety of backgrounds, including:</p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Working professionals from any industry or function.</li>
+                                    <li>Individuals with basic digital literacy (e.g., email and web browsing).</li>
+                                    <li>Curious learners interested in exploring AI technologies.</li>
+                                    <li>Policy makers, sales teams, technical professionals, and business leaders.</li>
+                                    <li>Students and career switchers aiming to enter the AI space.</li>
+                                </ul>
                             </div>
                         </div>
+
+                        <!-- Software -->
                         <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
-                                <span>Is it HRDC claimable?</span>
+                                <span>Is any software installation required beforehand?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
                             </button>
                             <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
-                                Yes. 100% HRDC claimable under the SBL-Khas scheme. We provide the requisite grant documentation and final certification.
+                                No installations are needed. All tools are cloud-based and accessible via a browser. You only need: A laptop with stable internet access; An active Gmail account; An open mindset ready to explore and experiment.
                             </div>
                         </div>
+
+                        <!-- Tech Savvy -->
                         <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
-                                <span>Can I join as an individual?</span>
+                                <span>What if I’m not very tech-savvy?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
                             </button>
                             <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
-                                While our primary focus is B2B corporate teams, individual seats are available for our public workshops. However, individuals are not eligible for the private "Day 3" consulting unless requested as an add-on.
+                                That’s perfectly fine. Our programs are beginner-friendly and designed to simplify complex AI concepts. We start from the fundamentals and gradually progress, ensuring everyone can follow comfortably.
+                            </div>
+                        </div>
+
+                        <!-- Sign Up -->
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
+                                <span>How do I sign up?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                <p class="mb-2 font-bold">Registration is straightforward:</p>
+                                <ol class="list-decimal pl-5 space-y-1">
+                                    <li>Contact us via WhatsApp.</li>
+                                    <li>Receive and complete a short registration form.</li>
+                                    <li>Confirm your booking details.</li>
+                                    <li>Get your official confirmation along with course information.</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Cancellation -->
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
+                                <span>Can I cancel or change my session?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                Yes, with prior notice: Please inform us at least 5 business days in advance. You may reschedule to a future intake that suits your availability. We aim to be flexible to accommodate changing schedules.
+                            </div>
+                        </div>
+
+                        <!-- Postponed -->
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
+                                <span>What happens if the course is postponed?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                In the unlikely event of a postponement: You will be informed promptly with revised details. You may move your seat to the next available session. Alternatively, you can opt for course credit for future programs. We ensure transparent communication throughout.
+                            </div>
+                        </div>
+
+                        <!-- Refunds -->
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
+                                <span>Are refunds available?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                Our refund guidelines are: No refunds once the training has commenced. Course credits may be transferred to another session if plans change. Rescheduling is allowed with sufficient advance notice.
+                            </div>
+                        </div>
+
+                        <!-- HRDC Status -->
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
+                                <span>Is the course HRDC claimable?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed font-bold text-blue-600">
+                                Yes, the program is fully HRDC claimable under the SBL-KHAS scheme.
+                            </div>
+                        </div>
+
+                        <!-- HRDC Process -->
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
+                                <span>How does the HRDC claim process work?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                After registration, we will provide the required quotation and course outline. Your HR team must submit the grant application through the e-TRiS portal at least one day before the training date. Our team will guide you through each step.
+                            </div>
+                        </div>
+
+                        <!-- Non-HRDC -->
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
+                                <span>What if my organization is not registered with HRDC?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                You may still participate at the non-HRDC rate of RM3,200 (+SST). Group discounts are also available for 10 participants or more.
+                            </div>
+                        </div>
+
+                        <!-- Training Provider -->
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-blue-600" onclick="toggleFaq(this)">
+                                <span>Who provides this training?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                This program is delivered by <strong>AItraining2U PLT (202504002669)</strong>, a dedicated provider of practical AI and digital transformation training solutions.
                             </div>
                         </div>
                     </div>
@@ -617,118 +691,43 @@
             </div>
         </section>
 
-        <!-- Final CTA - UPDATED PRICE -->
+        <!-- Final CTA -->
         <section class="py-24 bg-slate-900">
-            <div class="container mx-auto px-6">
-                <div class="bg-gradient-to-br from-blue-600 via-indigo-600 to-pink-500 rounded-[3rem] p-12 md:p-20 text-white text-center shadow-2xl relative overflow-hidden">
-                    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                    <h2 class="text-4xl md:text-6xl font-extrabold mb-6 relative z-10 uppercase tracking-tight">Deploy Agents Now</h2>
-                    
-                    <div class="relative z-10 mb-12 space-y-2">
-                        <p class="text-white/90 text-xl md:text-2xl font-bold">
-                            RM3,500 <span class="text-lg font-normal opacity-80">(+ 8% SST)</span> <span class="text-blue-200">HRDC Claimable</span>
-                        </p>
-                        <p class="text-white/90 text-xl md:text-2xl font-bold">
-                            RM3,200 <span class="text-lg font-normal opacity-80">(+ 8% SST)</span> <span class="text-pink-200">Non-HRDC</span>
-                        </p>
-                        <p class="text-white/60 text-sm mt-4">Private corporate rates available for groups of 25+.</p>
-                    </div>
-
-                    <a href="https://wa.me/60126791203" id="cta-bottom-register" class="bg-white text-blue-600 px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-xl relative z-10">Secure My Seat</a>
-                </div>
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-12 text-white uppercase tracking-tight">Deploy Agents Now</h2>
+                <a href="https://wa.me/601137034050" class="bg-white text-blue-600 px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-xl">Secure My Seat</a>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-white py-12 border-t border-slate-100">
-        <div class="container mx-auto px-6 text-center">
-            <span class="text-sm font-extrabold tracking-tight text-slate-900 uppercase">AITraining<span class="text-blue-500">2U</span></span>
-            <p class="text-slate-400 text-[10px] mt-4 uppercase font-bold tracking-widest">AITRAINING2U PLT (202504002669)</p>
-            <p class="text-slate-500 text-[10px] mt-2">© 2026 AITraining2U. Contact: aitraining2u@gmail.com</p>
-        </div>
+    <footer class="bg-white py-12 border-t border-slate-100 text-center">
+        <span class="text-sm font-extrabold tracking-tight text-slate-900 uppercase">AITraining<span class="text-blue-500">2U</span></span>
+        <p class="text-slate-400 text-[10px] mt-4 uppercase font-bold tracking-widest">AITRAINING2U PLT (202504002669)</p>
+        <p class="text-slate-500 text-[10px] mt-2">© 2026 AITraining2U. Contact: aitraining2u@gmail.com</p>
     </footer>
 
-    <!-- Sticky WhatsApp -->
-    <a href="https://wa.me/60126791203" target="_blank" id="cta-sticky-whatsapp" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
+    <a href="https://wa.me/601137034050" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
         <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
     <script>
         lucide.createIcons();
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
         function toggleFaq(button) {
             const item = button.closest('.faq-item');
             const content = button.nextElementSibling;
             const icon = button.querySelector('svg');
             const isOpen = item.classList.contains('active');
-
             document.querySelectorAll('.faq-item').forEach(el => {
                 el.classList.remove('active');
                 el.querySelector('.accordion-content').style.maxHeight = null;
                 el.querySelector('button svg').classList.remove('rotate-180');
             });
-
             if (!isOpen) {
                 item.classList.add('active');
                 content.style.maxHeight = content.scrollHeight + "px";
                 icon.classList.add('rotate-180');
             }
-        }
-
-        const testimonials = {
-            ryt: { name: "Ryt Bank", subtitle: "Strategic Digital Banking", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Clear roadmap for AI adoption in digital banking.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            ccm: { name: "CCM", subtitle: "Operational Efficiency", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Bridged legacy processes with automated intelligence.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            mrdiy: { name: "MR. DIY", subtitle: "Retail Automation", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Focused on high-value logistical automation.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            shopee: { name: "Shopee", subtitle: "Market Intelligence", speaker: "AIT2U Team", speakerTitle: "Technical Architect Team", text: "Refined data pipelines for production AI.", img: "" },
-            yyc: { name: "YYC Advisors", subtitle: "Financial Transformation", speaker: "Chan Wei Khjan", speakerTitle: "Finance Expert", text: "Aligned workforce with automated audit intelligence.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" },
-            moneymatch: { name: "MoneyMatch", subtitle: "Fintech Innovation", speaker: "Chan Wei Khjan", speakerTitle: "Finance Expert", text: "Bridging accounting with automated data modeling.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" },
-            zus: { name: "Zus Coffee", subtitle: "Scalable Operations", speaker: "Chan Wei Khjan", speakerTitle: "Finance Expert", text: "Automated logic to manage rapid branch expansion.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" },
-            mynews: { name: "myNEWS", subtitle: "Inventory Intelligence", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Predict inventory demand trends with high precision.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            ctos: { name: "CTOS", subtitle: "Data Governance", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Deep dive into AI governance for data-heavy workflows.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            bfm: { name: "BFM 89.9", subtitle: "Industry Partnership", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Bridging academic theory with corporate practicalities.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            '2x': { name: "2X Marketing", subtitle: "Demand Gen Automation", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Redefined B2B demand gen with high velocity AI.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" }
-        };
-
-        function openModal(key) {
-            const data = testimonials[key];
-            if (!data) return;
-            document.getElementById('modal-title').innerText = data.name;
-            document.getElementById('modal-subtitle').innerText = data.subtitle;
-            document.getElementById('modal-text').innerText = `"${data.text}"`;
-            document.getElementById('modal-speaker').innerText = data.speaker;
-            document.getElementById('modal-speaker-title').innerText = data.speakerTitle;
-            const imgEl = document.getElementById('modal-speaker-img');
-            const initEl = document.getElementById('modal-speaker-init');
-            if (data.img) {
-                imgEl.src = data.img; imgEl.classList.remove('hidden'); initEl.classList.add('hidden');
-            } else {
-                imgEl.classList.add('hidden'); initEl.classList.remove('hidden'); initEl.innerText = data.speaker.charAt(0);
-            }
-            document.getElementById('testimonial-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('testimonial-modal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Fixed: Check if form exists before adding listener
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const company = document.getElementById('company').value;
-                const interest = document.getElementById('interest').value;
-                const subject = `Training Inquiry: ${company} - ${interest}`;
-                let body = `Proposal Request for ${company}\nProgram: ${interest}\n\nNotes:\n${document.getElementById('message').value}`;
-                window.location.href = `mailto:aitraining2u@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            });
         }
     </script>
 </body>
