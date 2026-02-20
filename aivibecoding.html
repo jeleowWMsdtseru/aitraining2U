@@ -12,8 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Vibe Coding & Rapid Prototyping Malaysia | HRDC Claimable</title>
-    <meta name="description" content="Learn AI Vibe Coding in Malaysia. Master Cursor, Antigravity, and Claude Code to build web apps in minutes. 2-day HRDC claimable workshop for non-technical founders and PMs.">
-    <meta name="keywords" content="AI coding Malaysia, Vibe Coding course, Cursor AI training, Antigravity, Claude Code, build apps with AI, HRDC claimable coding">
+    <meta name="description" content="Learn AI Vibe Coding in Malaysia. Master Antigravity and Claude Code to build web apps in minutes. 2-day HRDC claimable workshop for non-technical founders and PMs.">
+    <meta name="keywords" content="AI coding Malaysia, Vibe Coding course, Antigravity training, Claude Code, build apps with AI, HRDC claimable coding, GitHub deployment AI">
     
     <!-- BRAND FAVICON -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23fbbf24'/%3E%3Cstop offset='1' stop-color='%23f97316'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23a)'/%3E%3Cpath d='M10 14L16 20L22 14M16 4V20M16 28H16.01' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -44,21 +44,19 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --brand-primary: #f59e0b; /* Amber 500 */
-            --brand-secondary: #f97316; /* Orange 500 */
-            --brand-dark: #0f172a;    /* Slate 900 */
+            --brand-primary: #f59e0b;
+            --brand-secondary: #f97316;
+            --brand-dark: #0f172a;
         }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #ffffff;
             color: #0f172a;
         }
-        
         .animated-nav-bg {
-            background: rgba(251, 191, 36, 0.95); /* Amber 400 */
+            background: rgba(251, 191, 36, 0.95);
             backdrop-filter: blur(12px);
         }
-
         .hero-mesh {
             background-color: #ffffff;
             background-image: 
@@ -76,20 +74,11 @@
             color: white;
             transition: all 0.3s ease;
         }
-        .btn-brand:hover {
-            filter: brightness(1.2);
-            transform: translateY(-1px);
-            box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
-        }
         .btn-accent {
             background: linear-gradient(135deg, #fbbf24, #f97316);
             color: black;
             font-weight: 800;
             transition: all 0.3s ease;
-        }
-        .btn-accent:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.4);
         }
         .section-card {
             background: #ffffff;
@@ -111,85 +100,9 @@
             opacity: 1;
             padding-bottom: 1.5rem;
         }
-        .client-logo-card {
-            background: #ffffff;
-            border: 1px solid #fef3c7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            border-radius: 1.25rem;
-            height: 80px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .client-logo-card img {
-            max-width: 80%;
-            max-height: 70%;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.5;
-            transition: all 0.3s ease;
-        }
-        .client-logo-card:hover {
-            border-color: #f59e0b;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.2);
-        }
-        .client-logo-card:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
-        /* Modal Styles */
-        #testimonial-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-        #testimonial-modal.active {
-            display: flex;
-        }
-        .modal-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-blur: 8px;
-        }
-        .modal-content {
-            position: relative;
-            background: white;
-            color: #0f172a;
-            width: 100%;
-            max-width: 550px;
-            border-radius: 2.5rem;
-            padding: 3rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-        @keyframes modalPop {
-            from { opacity: 0; transform: scale(0.9) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        /* Dropdown Styles */
         .dropdown:hover .dropdown-menu {
             display: block;
             animation: fadeIn 0.2s ease-out;
-        }
-        /* Bridge the gap to prevent accidental closing on hover */
-        .dropdown-menu::before {
-            content: "";
-            position: absolute;
-            top: -15px;
-            left: 0;
-            width: 100%;
-            height: 15px;
-            background: transparent;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-5px); }
@@ -198,10 +111,7 @@
     </style>
 </head>
 <body class="antialiased">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header class="fixed top-0 left-0 right-0 z-50 animated-nav-bg border-b border-yellow-500/30">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -222,11 +132,11 @@
                             <span class="font-bold block text-sm">AI Corporate Training</span>
                             <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Enterprise</span>
                         </a>
-                        <a href="aiautomation.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                        <a href="agentic.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
                             <span class="font-bold block text-sm">AI Agentic Automation</span>
                             <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Specialist</span>
                         </a>
-                        <a href="aivibecoding.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                        <a href="vibecoding.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
                             <span class="font-bold block text-sm">AI Vibe Coding</span>
                             <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Prototyping</span>
                         </a>
@@ -236,7 +146,8 @@
                 <a href="#dates" class="hover:text-white transition">Dates</a>
                 <a href="#syllabus" class="hover:text-white transition">Syllabus</a>
                 <a href="#faculty" class="hover:text-white transition">Faculty</a>
-                <a href="https://forms.gle/DvghVTjt9F6P8uko9" id="cta-nav-register" target="_blank" class="bg-black text-yellow-400 hover:bg-slate-800 transition px-5 py-2.5 rounded-full font-bold shadow-lg">Register Now</a>
+                <a href="#faq" class="hover:text-white transition">FAQ</a>
+                <a href="https://wa.me/601137034050" id="cta-nav-register" target="_blank" class="bg-black text-yellow-400 hover:bg-slate-800 transition px-5 py-2.5 rounded-full font-bold shadow-lg">Register Now</a>
             </div>
         </nav>
     </header>
@@ -244,8 +155,8 @@
     <main class="pt-20">
         
         <!-- Hero Section -->
-        <section class="hero-mesh px-6 py-20 lg:py-24 overflow-hidden border-b border-yellow-100">
-            <div class="container mx-auto text-center relative z-10">
+        <section class="hero-mesh px-6 py-20 lg:py-24 overflow-hidden border-b border-yellow-100 text-center">
+            <div class="container mx-auto relative z-10">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-100 border border-yellow-200 text-yellow-800 text-xs font-black uppercase tracking-wider mb-8">
                     Rapid Prototyping Workshop
                 </div>
@@ -253,99 +164,166 @@
                     AI Vibe Coding & <br><span class="gradient-text">App Building</span>
                 </h1>
                 <p class="text-slate-600 text-lg md:text-xl font-medium max-w-3xl mx-auto mb-10">
-                    Stop planning. Start building. Learn to use <strong>Cursor</strong>, <strong>Antigravity</strong>, and <strong>Claude Code</strong> to build functional web apps in minutes—no computer science degree required.
+                    Stop planning. Start building. Learn to use <strong>Antigravity</strong> and <strong>Claude Code</strong> to build functional web apps in minutes—no computer science degree required.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-                    <a href="#projects" id="cta-hero-schedule" class="btn-accent px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
+                    <a href="#projects" class="btn-accent px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
                         See What You Will Build
                     </a>
-                    <a href="https://wa.me/60126791203" id="cta-hero-consult" class="bg-white hover:bg-yellow-50 border-2 border-slate-900 px-10 py-4 rounded-full font-bold text-lg text-slate-900 transition w-full sm:w-auto">
+                    <a href="https://wa.me/601137034050" class="bg-white hover:bg-yellow-50 border-2 border-slate-900 px-10 py-4 rounded-full font-bold text-lg text-slate-900 transition w-full sm:w-auto">
                         Talk to Instructor
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Tools Logos -->
-        <section id="tools" class="py-12 bg-yellow-50 border-b border-yellow-100">
-            <div class="container mx-auto px-6 text-center">
-                <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] mb-8">Master The Modern AI Stack</p>
-                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-80">
-                    <span class="text-2xl font-black text-slate-900 flex items-center gap-2"><i data-lucide="terminal" class="w-6 h-6"></i> Cursor</span>
-                    <span class="text-2xl font-black text-slate-900 flex items-center gap-2"><i data-lucide="layers" class="w-6 h-6"></i> Antigravity</span>
-                    <span class="text-2xl font-black text-slate-900 flex items-center gap-2"><i data-lucide="sparkles" class="w-6 h-6"></i> Claude Code</span>
-                    <span class="text-2xl font-black text-slate-900 flex items-center gap-2"><i data-lucide="database" class="w-6 h-6"></i> Supabase</span>
+        <!-- Workshop Schedule -->
+        <section id="dates" class="py-24 bg-white border-b border-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tight text-slate-900">Workshop Dates</h2>
+                    <p class="text-slate-600 font-medium">Limited spots available for the next intake.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+                    
+                    <!-- Date Card 1: Private Corporate Spot -->
+                    <div class="bg-[#0f172a] rounded-3xl border border-slate-800 p-8 shadow-xl flex flex-col relative overflow-hidden text-white">
+                        <div class="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-wider">Private Slot</div>
+                        <div class="text-center mb-6">
+                            <p class="text-yellow-400 text-xs font-black mb-1">March 28-29, 2026</p>
+                            <h3 class="text-2xl font-black mb-2">Corporate Training</h3>
+                            <div class="flex items-center justify-center gap-1 text-slate-400 font-bold text-sm">
+                                <i data-lucide="building" class="w-4 h-4"></i> At Your Office / KL
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="w-full bg-slate-800 rounded-full h-2.5 mb-2">
+                                <div class="bg-yellow-400 h-2.5 rounded-full" style="width: 100%"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-6 text-slate-500">
+                                <span class="text-yellow-400">Reserved for Teams</span>
+                                <span>25-35 Pax</span>
+                            </div>
+                            <a href="https://wa.me/601137034050?text=Hi,%20I'm%20interested%20in%20the%20Private%20Corporate%20slot%20on%20March%2028-29." class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black text-center py-3.5 rounded-xl font-bold text-sm transition">Book Private Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Date Card 2: Public Class -->
+                    <div class="bg-white rounded-3xl border-2 border-orange-500 p-8 shadow-xl relative overflow-hidden flex flex-col">
+                        <div class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-wider">Public Class</div>
+                        <div class="text-center mb-6">
+                            <p class="text-slate-500 text-xs font-black mb-1">April 11-12, 2026</p>
+                            <h3 class="text-2xl font-black text-slate-900 mb-2">Saturday & Sunday</h3>
+                            <div class="flex items-center justify-center gap-1 text-orange-600 font-bold text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i> Worq TTDI, KL
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="w-full bg-slate-100 rounded-full h-2.5 mb-2">
+                                <div class="bg-orange-500 h-2.5 rounded-full" style="width: 65%"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-6 text-slate-500">
+                                <span class="text-orange-600">65% Sold Out</span>
+                                <span>Seats Available</span>
+                            </div>
+                            <a href="https://forms.gle/DvghVTjt9F6P8uko9" class="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-center py-3.5 rounded-xl font-bold text-sm transition shadow-lg shadow-orange-500/20">Book Public Seat</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Corporate Banner -->
+                <div class="bg-[#0f172a] rounded-[2rem] p-8 md:p-12 max-w-6xl mx-auto shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-5">
+                        <i data-lucide="building-2" class="w-64 h-64 text-white"></i>
+                    </div>
+                    <div class="relative z-10 lg:w-2/3">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-2 bg-yellow-400 rounded-lg">
+                                <i data-lucide="building" class="w-6 h-6 text-black"></i>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-black text-white">Private Corporate Training</h3>
+                        </div>
+                        <p class="text-slate-300 font-medium text-lg mb-2">Looking to upskill your product team or innovation lab?</p>
+                        <p class="text-slate-400 text-sm">Exclusive sessions available for groups of <span class="text-white font-bold">15-25 pax per class</span>. Fully claimable.</p>
+                    </div>
+                    <div class="relative z-10 flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                        <a href="https://wa.me/601137034050" class="flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-xl transition shadow-lg">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Contact Us
+                        </a>
+                        <a href="https://wa.me/601137034050" class="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-8 rounded-xl transition shadow-lg">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Corporate Sales
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Project Showcase Section (NEW) -->
+        <!-- Project Showcase Section -->
         <section id="projects" class="py-24 bg-white border-b border-slate-100">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-black mb-4 uppercase tracking-tight text-slate-900">What You Will Build</h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto">You won't just learn theory. You will leave with 4 functional assets deployed to the web.</p>
+                    <p class="text-slate-500 max-w-2xl mx-auto text-center">We focus on rapid asset creation. You will leave with 4 functional projects live on GitHub.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    <!-- Project 1: Landing Page -->
-                    <div class="group relative overflow-hidden rounded-[2.5rem] border-2 border-slate-100 hover:border-yellow-400 transition duration-300">
-                        <div class="aspect-video bg-slate-100 overflow-hidden relative">
-                            <!-- Placeholder Image -->
-                            <img src="https://placehold.co/600x400/fbbf24/000000?text=Landing+Page+Project" alt="Landing Page" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
-                            <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider">Module 1</div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-black text-slate-900 mb-2">High-Converting Landing Page</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Use <strong>Antigravity</strong> to generate a responsive, modern marketing site with pricing tables and signup forms in under 10 minutes.
-                            </p>
-                        </div>
+                    <!-- Project 1 -->
+                    <div class="group relative overflow-hidden rounded-[2.5rem] border-2 border-slate-100 hover:border-yellow-400 transition duration-300 p-8 bg-yellow-50/30">
+                        <svg class="w-full h-48 mb-6 drop-shadow-xl" viewBox="0 0 400 240" fill="none">
+                            <rect width="400" height="240" rx="12" fill="white"/>
+                            <rect x="20" y="20" width="80" height="15" rx="4" fill="#E2E8F0"/>
+                            <rect x="110" y="20" width="40" height="15" rx="4" fill="#F1F5F9"/>
+                            <rect x="300" y="15" width="80" height="25" rx="12.5" fill="#F59E0B"/>
+                            <rect x="40" y="80" width="320" height="30" rx="4" fill="#1E293B"/>
+                            <rect x="140" y="160" width="120" height="40" rx="20" fill="#F97316"/>
+                        </svg>
+                        <h3 class="text-2xl font-black text-slate-900 mb-2">High-Converting Landing Page</h3>
+                        <p class="text-slate-600 text-sm">Generate a responsive site from your <strong>PRD</strong> using <strong>Antigravity</strong> and deploy it instantly via <strong>GitHub</strong>.</p>
                     </div>
 
-                    <!-- Project 2: Web App -->
-                    <div class="group relative overflow-hidden rounded-[2.5rem] border-2 border-slate-100 hover:border-orange-500 transition duration-300">
-                        <div class="aspect-video bg-slate-100 overflow-hidden relative">
-                            <!-- Placeholder Image -->
-                            <img src="https://placehold.co/600x400/f97316/ffffff?text=Functional+SaaS+App" alt="Web App" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
-                            <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider">Module 2</div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-black text-slate-900 mb-2">Functional Web Application</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Build a real CRUD application with user authentication and database connections using <strong>Cursor</strong> and <strong>Supabase</strong>.
-                            </p>
-                        </div>
+                    <!-- Project 2 -->
+                    <div class="group relative overflow-hidden rounded-[2.5rem] border-2 border-slate-100 hover:border-orange-500 transition duration-300 p-8 bg-slate-900 text-white">
+                        <svg class="w-full h-48 mb-6 drop-shadow-2xl" viewBox="0 0 400 240" fill="none">
+                            <rect width="400" height="240" rx="12" fill="#0F172A"/>
+                            <rect width="100" height="240" fill="#1E293B"/>
+                            <circle cx="50" cy="40" r="20" fill="#F59E0B"/>
+                            <rect x="120" y="30" width="260" height="180" rx="8" fill="#1E293B"/>
+                            <rect x="140" y="50" width="100" height="40" rx="4" fill="#F97316"/>
+                        </svg>
+                        <h3 class="text-2xl font-black mb-2">Functional SaaS App</h3>
+                        <p class="text-slate-400 text-sm">Build a real CRUD application using <strong>Claude Code</strong>. Manage databases with <strong>Supabase</strong> and sync everything to a <strong>GitHub</strong> repository.</p>
                     </div>
 
-                    <!-- Project 3: Analytics Tool -->
-                    <div class="group relative overflow-hidden rounded-[2.5rem] border-2 border-slate-100 hover:border-yellow-400 transition duration-300">
-                        <div class="aspect-video bg-slate-100 overflow-hidden relative">
-                            <!-- Placeholder Image -->
-                            <img src="https://placehold.co/600x400/fbbf24/000000?text=Analytics+Dashboard" alt="Analytics Tool" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
-                            <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider">Module 3</div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-black text-slate-900 mb-2">Analytics Dashboard</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Create a data visualization tool that ingests CSVs or connects to APIs to display real-time charts and insights using <strong>Claude Code</strong>.
-                            </p>
-                        </div>
+                    <!-- Project 3: Analytics Dashboard (Restored) -->
+                    <div class="group relative overflow-hidden rounded-[2.5rem] border-2 border-slate-100 hover:border-yellow-400 transition duration-300 p-8 bg-white border-2 border-slate-50">
+                        <svg class="w-full h-48 mb-6" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="20" width="110" height="60" rx="8" fill="#FFFBEB" stroke="#F59E0B"/>
+                            <rect x="145" y="20" width="110" height="60" rx="8" fill="#F0F9FF" stroke="#0EA5E9"/>
+                            <rect x="270" y="20" width="110" height="60" rx="8" fill="#F0FDF4" stroke="#22C55E"/>
+                            <path d="M20 200 L60 160 L100 180 L140 130 L180 150 L220 100 L260 120 L300 90 L340 110 L380 70" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="20" y="210" width="360" height="10" rx="5" fill="#F1F5F9"/>
+                        </svg>
+                        <h3 class="text-2xl font-black text-slate-900 mb-2">Analytics Dashboard</h3>
+                        <p class="text-slate-600 text-sm">Create a data visualization tool that ingests CSVs or connects to APIs to display real-time charts and insights using <strong>Claude Code</strong>.</p>
                     </div>
 
-                    <!-- Project 4: Utility Apps -->
-                    <div class="group relative overflow-hidden rounded-[2.5rem] border-2 border-slate-100 hover:border-orange-500 transition duration-300">
-                        <div class="aspect-video bg-slate-100 overflow-hidden relative">
-                            <!-- Placeholder Image -->
-                            <img src="https://placehold.co/600x400/f97316/ffffff?text=Utility+Tools" alt="Utility App" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
-                            <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider">Module 4</div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-black text-slate-900 mb-2">Internal Utility Tools</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">
-                                Build calculators, workflow automations, or internal trackers to solve specific business problems rapidly.
-                            </p>
-                        </div>
+                    <!-- Project 4: Utility Tools (Restored) -->
+                    <div class="group relative overflow-hidden rounded-[2.5rem] border-2 border-slate-100 hover:border-orange-500 transition duration-300 p-8 bg-slate-50">
+                        <svg class="w-full h-48 mb-6" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="40" y="40" width="140" height="160" rx="16" fill="white" stroke="#E2E8F0"/>
+                            <rect x="60" y="60" width="100" height="30" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+                            <rect x="60" y="100" width="45" height="45" rx="8" fill="#F59E0B"/>
+                            <rect x="115" y="100" width="45" height="45" rx="8" fill="#F1F5F9"/>
+                            <rect x="60" y="155" width="100" height="25" rx="12.5" fill="#F97316"/>
+                            <rect x="220" y="60" width="140" height="40" rx="20" fill="white" stroke="#E2E8F0"/>
+                            <circle cx="340" cy="80" r="14" fill="#22C55E"/>
+                            <rect x="220" y="120" width="140" height="40" rx="20" fill="white" stroke="#E2E8F0"/>
+                            <circle cx="240" cy="140" r="14" fill="#CBD5E1"/>
+                        </svg>
+                        <h3 class="text-2xl font-black text-slate-900 mb-2">Internal Utility Tools</h3>
+                        <p class="text-slate-600 text-sm">Build calculators, workflow automations, or internal trackers to solve specific business problems rapidly using <strong>Claude Code</strong>.</p>
                     </div>
                 </div>
             </div>
@@ -356,95 +334,51 @@
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl font-black text-slate-900 mb-12 text-center uppercase tracking-tight">Vibe Coding Curriculum</h2>
-                    
                     <div class="space-y-8">
+                        <!-- Day 1 -->
                         <div class="section-card p-8 rounded-[2rem] border-l-8 border-l-yellow-400 bg-white">
                             <div class="flex justify-between items-start mb-4">
-                                <h3 class="text-xl font-black text-slate-900">Day 1: The Modern AI Stack & UI</h3>
+                                <h3 class="text-xl font-black text-slate-900">Day 1: PRD Drafting & UI Engineering</h3>
                                 <span class="bg-yellow-400 text-black text-[10px] font-black uppercase px-3 py-1 rounded-full">Phase 01</span>
                             </div>
                             <ul class="space-y-4 text-slate-700 text-sm font-medium">
-                                <li class="flex items-start gap-3"><i data-lucide="layers" class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>Rapid UI with Antigravity:</strong> Using Antigravity to generate full-stack scaffolds and responsive frontends instantly.</li>
-                                <li class="flex items-start gap-3"><i data-lucide="terminal" class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>Claude Code CLI:</strong> Learn to interact with your codebase via natural language in the terminal to refactor and debug.</li>
-                                <li class="flex items-start gap-3"><i data-lucide="layout-template" class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>Build Outcome:</strong> Publish a high-converting Landing Page and a simple Utility App.</li>
+                                <li class="flex items-start gap-3"><i data-lucide="file-text" class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>PRD Architecting:</strong> Learning to draft comprehensive Product Requirements Documents with AI to prevent "scope creep".</li>
+                                <li class="flex items-start gap-3"><i data-lucide="layers" class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>Rapid UI with Antigravity:</strong> Using Antigravity to generate full-stack scaffolds and responsive frontends instantly from your PRD.</li>
+                                <li class="flex items-start gap-3"><i data-lucide="github" class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>Initial GitHub Setup:</strong> Creating repositories and understanding basic version control for AI-generated code.</li>
                             </ul>
                         </div>
 
+                        <!-- Day 2 -->
                         <div class="section-card p-8 rounded-[2rem] border-l-8 border-l-orange-500 bg-white">
                             <div class="flex justify-between items-start mb-4">
-                                <h3 class="text-xl font-black text-slate-900">Day 2: Logic, Data & Deployment</h3>
+                                <h3 class="text-xl font-black text-slate-900">Day 2: Logic, Database & Deployment</h3>
                                 <span class="bg-orange-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">Phase 02</span>
                             </div>
                             <ul class="space-y-4 text-slate-700 text-sm font-medium">
-                                <li class="flex items-start gap-3"><i data-lucide="code-2" class="w-5 h-5 text-orange-600 mt-0.5"></i><strong>Complex Logic:</strong> Using Cursor to refine Claude Code outputs and implement complex business logic.</li>
-                                <li class="flex items-start gap-3"><i data-lucide="database" class="w-5 h-5 text-orange-600 mt-0.5"></i><strong>Data & Auth:</strong> Connecting Supabase for user authentication and real-time database storage.</li>
-                                <li class="flex items-start gap-3"><i data-lucide="rocket" class="w-5 h-5 text-orange-600 mt-0.5"></i><strong>Build Outcome:</strong> Deploy a fully Functional Web Application and an Analytics Dashboard.</li>
+                                <li class="flex items-start gap-3"><i data-lucide="terminal" class="w-5 h-5 text-orange-600 mt-0.5"></i><strong>Claude Code Orchestration:</strong> Using Claude Code to refactor logic, handle API calls, and build complex feature sets.</li>
+                                <li class="flex items-start gap-3"><i data-lucide="database" class="w-5 h-5 text-orange-600 mt-0.5"></i><strong>Cloud Database & Auth:</strong> Connecting Supabase for persistent data storage and secure user authentication.</li>
+                                <li class="flex items-start gap-3"><i data-lucide="rocket" class="w-5 h-5 text-orange-600 mt-0.5"></i><strong>GitHub CI/CD Deployment:</strong> Mastering automated deployments so every code change goes live instantly.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Private Corporate Training CTA -->
                     <div class="mt-12 bg-slate-900 border border-slate-800 p-8 rounded-[2.5rem] text-center relative overflow-hidden group shadow-xl">
                         <div class="absolute top-0 right-0 p-8 opacity-10 rotate-12 group-hover:rotate-0 transition-transform">
                             <i data-lucide="cpu" class="w-20 h-20 text-yellow-400"></i>
                         </div>
                         <h3 class="text-2xl font-black text-white mb-2">Private Innovation Sprints</h3>
                         <p class="text-slate-400 text-sm mb-8 max-w-xl mx-auto">Want your product team to prototype 10x faster? We run private 2-day hackathons for corporate innovation labs.</p>
-                        <a href="https://wa.me/60126791203" id="cta-corporate-session" class="btn-accent inline-flex items-center gap-3 px-8 py-3 rounded-full font-bold text-sm shadow-lg">
+                        <a href="https://wa.me/601137034050" class="btn-accent inline-flex items-center gap-3 px-8 py-3 rounded-full font-bold text-sm shadow-lg">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            Book Corporate Hackathon: +6012 679 1203
+                            Contact Us
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Workshop Schedule -->
-        <section id="dates" class="py-24 bg-yellow-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tight text-slate-900">Upcoming Sprints</h2>
-                    <p class="text-slate-600 font-medium">Limited seats. Small cohort size for maximum hands-on support.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <!-- Date 1 -->
-                    <div class="section-card p-8 rounded-[2.5rem] bg-white">
-                        <div class="text-center">
-                            <p class="text-xs font-black text-orange-500 uppercase tracking-widest mb-2">April 11-12, 2026</p>
-                            <h3 class="text-2xl font-black text-slate-900 mb-4">Saturday & Sunday</h3>
-                            <div class="flex items-center justify-center gap-2 text-slate-600 font-bold text-sm mb-6">
-                                <i data-lucide="map-pin" class="w-4 h-4"></i>
-                                <span>Worq TTDI, KL</span>
-                            </div>
-                            <div class="w-full bg-slate-100 rounded-full h-1.5 mb-4">
-                                <div class="bg-yellow-400 h-1.5 rounded-full" style="width: 45%"></div>
-                            </div>
-                            <div class="flex justify-between text-[10px] font-black uppercase mb-6">
-                                <span class="text-yellow-600">Filling Fast</span>
-                                <span class="text-slate-400">12 Seats Left</span>
-                            </div>
-                            <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-calendar-apr" class="btn-brand block w-full py-3 rounded-2xl font-bold text-sm">Register Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Corporate -->
-                    <div class="bg-black p-8 rounded-[2.5rem] text-white shadow-2xl relative overflow-hidden group border border-slate-800">
-                        <div class="absolute top-0 right-0 p-6 opacity-20"><i data-lucide="rocket" class="w-16 h-16 text-yellow-400"></i></div>
-                        <h3 class="text-2xl font-black mb-4 text-yellow-400">Team Sprint</h3>
-                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">Dedicated sessions for Product, Marketing, or Innovation teams (15-25 pax).</p>
-                        <ul class="space-y-3 mb-8 text-xs font-bold text-white uppercase tracking-tight">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-yellow-400"></i>Bring Your Own Ideas</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-yellow-400"></i>Build Internal Tools</li>
-                        </ul>
-                        <a href="https://wa.me/60126791203" id="cta-calendar-team" class="bg-white text-black block text-center py-3 rounded-2xl font-bold text-sm hover:bg-yellow-400 transition">Inquire for Teams</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Faculty Section -->
-        <section id="faculty" class="py-24 bg-white border-t border-slate-100">
+        <!-- Faculty Section (RESTORED) -->
+        <section id="faculty" class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-black mb-4 uppercase tracking-tight text-slate-900">Your Instructors</h2>
@@ -452,7 +386,6 @@
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                    <!-- Marcus Chia -->
                     <div class="group cursor-pointer">
                         <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-2xl shadow-yellow-500/20 border-2 border-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Marcus.jpg?raw=true" alt="Marcus Chia" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
@@ -461,10 +394,9 @@
                                 <p class="text-yellow-400 font-bold tracking-widest text-xs uppercase">UI/UX Director + Product Manager</p>
                             </div>
                         </div>
-                        <p class="text-slate-800 text-sm leading-relaxed px-4 font-medium">Expert in translating user needs into functional AI-driven interfaces. Teaches how to use Antigravity and Cursor to build polished, user-centric apps without a design team.</p>
+                        <p class="text-slate-800 text-sm leading-relaxed px-4 font-medium text-center">Expert in translating user needs into functional AI-driven interfaces. Teaches how to use Antigravity and Claude Code to build polished, user-centric apps.</p>
                     </div>
 
-                    <!-- Tze Jin -->
                     <div class="group cursor-pointer">
                         <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-2xl shadow-orange-500/20 border-2 border-slate-100">
                             <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_TzeJin.jpg?raw=true" alt="Tze Jin" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
@@ -473,84 +405,92 @@
                                 <p class="text-orange-400 font-bold tracking-widest text-xs uppercase">AI & ML Specialist</p>
                             </div>
                         </div>
-                        <p class="text-slate-800 text-sm leading-relaxed px-4 font-medium">Deep expertise in machine learning and backend logic. Guides participants on integrating complex AI reasoning with Claude Code and database structures into their projects.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Community Section (NEW) -->
-        <section id="community" class="py-24 bg-black text-white">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tight">The <span class="text-yellow-400">Builder's</span> Network</h2>
-                    <p class="text-slate-400 text-lg">Your tuition includes 3 months of priority access to our private support channels.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
-                        <i data-lucide="life-buoy" class="w-10 h-10 text-yellow-400 mb-6"></i>
-                        <h3 class="text-xl font-bold mb-3">Faculty Support</h3>
-                        <p class="text-slate-500 text-sm">Direct line to Marcus and Tze Jin to debug code and refine logic after the workshop ends.</p>
-                    </div>
-                    <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
-                        <i data-lucide="library" class="w-10 h-10 text-orange-400 mb-6"></i>
-                        <h3 class="text-xl font-bold mb-3">Code Library</h3>
-                        <p class="text-slate-500 text-sm">Access to 50+ pre-built React components, Supabase schemas, and Claude Code prompts.</p>
-                    </div>
-                    <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
-                        <i data-lucide="users" class="w-10 h-10 text-red-400 mb-6"></i>
-                        <h3 class="text-xl font-bold mb-3">Peer Network</h3>
-                        <p class="text-slate-500 text-sm">Join 500+ builders. Share insights, deals, and adoption challenges.</p>
+                        <p class="text-slate-800 text-sm leading-relaxed px-4 font-medium text-center">Deep expertise in machine learning and backend logic. Guides participants on integrating complex AI reasoning and database structures.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-24 bg-white">
+        <section id="faq" class="py-24 bg-white border-t border-slate-100">
             <div class="container mx-auto px-6">
-                <div class="max-w-3xl mx-auto">
+                <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
                         <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">FAQ</h2>
-                        <p class="text-slate-500">Addressing your technical concerns.</p>
+                        <p class="text-slate-500">Everything you need to know about our training protocols and impact.</p>
                     </div>
-                    
+
                     <div class="space-y-4">
-                        <div class="faq-item bg-yellow-50 rounded-2xl border border-yellow-100 overflow-hidden">
+                        <!-- Track Record -->
+                        <div class="faq-item bg-yellow-50/50 rounded-2xl border border-yellow-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
-                                <span>Do I need to know how to code?</span>
+                                <span>What is your training track record?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
                             </button>
-                            <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed pb-4">
-                                Absolutely not. This course is designed for "Vibe Coders" — people who use AI to write the code. You need logic and creativity, not syntax knowledge.
+                            <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed">
+                                <p class="mb-3">Our results demonstrate our impact:</p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>Over 1,000 professionals trained</strong> across multiple industries by our stable of highly technical trainers.</li>
+                                    <li><strong>Corporate clients include</strong> Ryt Bank, Mr DIY, Zus Coffee, MyNews, CCM, CTOS along with various government agencies.</li>
+                                    <li><strong>Internationally acknowledged trainers</strong> contributing to national AI initiatives and university advisory panels.</li>
+                                    <li><strong>Proven industry impact</strong>, with trainers actively consulting Fortune 500 organizations.</li>
+                                    <li><strong>Involvement in government advisory work</strong>, including National AI Office (NAIO) and Konsortium AI Negara (KAIN).</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="faq-item bg-yellow-50 rounded-2xl border border-yellow-100 overflow-hidden">
+
+                        <!-- Recognition -->
+                        <div class="faq-item bg-yellow-50/50 rounded-2xl border border-yellow-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
-                                <span>What will I build by the end?</span>
+                                <span>What recognition have your trainers received?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
                             </button>
-                            <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed pb-4">
-                                You will build a fully functional web application with a database. Examples include a CRM, a Project Tracker, a Directory, or a Dashboard. It will be live on the internet.
+                            <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed">
+                                Our trainers are respected industry practitioners with advisory roles in AI programs, media features as subject-matter experts, and ongoing consulting for Fortune 500 organizations.
                             </div>
                         </div>
-                        <div class="faq-item bg-yellow-50 rounded-2xl border border-yellow-100 overflow-hidden">
+
+                        <!-- Coding Knowledge -->
+                        <div class="faq-item bg-yellow-50/50 rounded-2xl border border-yellow-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
-                                <span>Do I need to pay for the tools?</span>
+                                <span>Do I need coding knowledge to join?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
                             </button>
                             <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed pb-4">
-                                Most tools (Cursor, Antigravity, Claude Code) have free tiers or trial periods that are sufficient for learning. We will guide you on how to maximize these during the workshop.
+                                No prior programming background is necessary. This course uses "Vibe Coding" methods where AI handles the syntax while you focus on the <strong>PRD</strong> and logic.
                             </div>
                         </div>
-                        <div class="faq-item bg-yellow-50 rounded-2xl border border-yellow-100 overflow-hidden">
+
+                        <!-- Enrollment -->
+                        <div class="faq-item bg-yellow-50/50 rounded-2xl border border-yellow-100 overflow-hidden">
                             <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
-                                <span>Is it HRDC claimable?</span>
+                                <span>Who can enroll in the course?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
                             </button>
-                            <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed pb-4">
-                                Yes. 100% HRDC claimable under the SBL-Khas scheme. We provide the requisite grant documentation and final certification.
+                            <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed">
+                                We welcome working professionals, product managers, founders, business leaders, and anyone with basic digital literacy interested in rapid prototyping.
+                            </div>
+                        </div>
+
+                        <!-- Software -->
+                        <div class="faq-item bg-yellow-50/50 rounded-2xl border border-yellow-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
+                                <span>Is any software installation required beforehand?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed">
+                                Most tools are cloud-based. You will need a laptop with stable internet, an active GitHub account, and access to a browser. We will setup Claude Code and Antigravity during the session.
+                            </div>
+                        </div>
+
+                        <!-- HRDC Status -->
+                        <div class="faq-item bg-yellow-50/50 rounded-2xl border border-yellow-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
+                                <span>Is the course HRDC claimable?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-700 text-sm leading-relaxed font-bold text-orange-600">
+                                Yes, the program is 100% HRDC claimable under the SBL-KHAS scheme.
                             </div>
                         </div>
                     </div>
@@ -560,55 +500,38 @@
 
         <!-- Final CTA -->
         <section class="py-24 bg-slate-900">
-            <div class="container mx-auto px-6">
-                <div class="bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 rounded-[3rem] p-12 md:p-20 text-black text-center shadow-2xl relative overflow-hidden">
-                    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                    <h2 class="text-4xl md:text-6xl font-black mb-6 relative z-10 uppercase tracking-tight">Start Building</h2>
-                    
-                    <div class="relative z-10 mb-12 space-y-2">
-                        <p class="text-black/90 text-xl md:text-2xl font-bold">
-                            RM3,500 <span class="text-lg font-normal opacity-80">(+ 8% SST)</span> <span class="text-white bg-black/20 px-2 py-1 rounded">HRDC Claimable</span>
-                        </p>
-                        <p class="text-black/90 text-xl md:text-2xl font-bold">
-                            RM3,200 <span class="text-lg font-normal opacity-80">(+ 8% SST)</span> <span class="text-white bg-black/20 px-2 py-1 rounded">Non-HRDC</span>
-                        </p>
+            <div class="container mx-auto px-6 text-center">
+                <div class="bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 rounded-[3rem] p-12 md:p-20 text-black shadow-2xl relative overflow-hidden">
+                    <h2 class="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tight text-white">Start Building</h2>
+                    <div class="mb-12 text-white">
+                        <p class="text-xl md:text-2xl font-bold">RM3,500 <span class="text-lg font-normal opacity-80">(+ 8% SST)</span> <span class="bg-black/20 px-2 py-1 rounded">HRDC Claimable</span></p>
+                        <p class="text-xl md:text-2xl font-bold">RM3,200 <span class="text-lg font-normal opacity-80">(+ 8% SST)</span> <span class="bg-black/20 px-2 py-1 rounded">Non-HRDC</span></p>
                     </div>
-
-                    <a href="https://forms.gle/DvghVTjt9F6P8uko9" target="_blank" id="cta-bottom-register" class="bg-black text-yellow-400 px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-xl relative z-10">Secure My Seat</a>
+                    <a href="https://wa.me/601137034050" class="bg-black text-yellow-400 px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-xl">Contact Us on WhatsApp</a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-white py-12 border-t border-slate-100">
-        <div class="container mx-auto px-6 text-center">
-            <span class="text-sm font-extrabold tracking-tight text-slate-900 uppercase">AITraining<span class="text-yellow-500">2U</span></span>
-            <p class="text-slate-400 text-[10px] mt-4 uppercase font-bold tracking-widest">AITRAINING2U PLT (202504002669)</p>
-            <p class="text-slate-500 text-[10px] mt-2">© 2026 AITraining2U. Contact: aitraining2u@gmail.com</p>
-        </div>
+    <footer class="bg-white py-12 border-t border-slate-100 text-center">
+        <span class="text-sm font-extrabold tracking-tight text-slate-900 uppercase">AITraining<span class="text-yellow-500">2U</span></span>
+        <p class="text-slate-400 text-[10px] mt-4 uppercase font-bold tracking-widest">AITRAINING2U PLT (202504002669)</p>
+        <p class="text-slate-500 text-[10px] mt-2">© 2026 AITraining2U. Contact: aitraining2u@gmail.com</p>
     </footer>
-
-    <!-- WhatsApp Button (Green Sticky) -->
-    <a href="https://wa.me/60126791203" target="_blank" id="cta-sticky-whatsapp" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
-        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    </a>
 
     <script>
         lucide.createIcons();
-        
         function toggleFaq(button) {
             const item = button.closest('.faq-item');
             const content = button.nextElementSibling;
             const icon = button.querySelector('svg');
             const isOpen = item.classList.contains('active');
-
             document.querySelectorAll('.faq-item').forEach(el => {
                 el.classList.remove('active');
                 el.querySelector('.accordion-content').style.maxHeight = null;
                 el.querySelector('button svg').classList.remove('rotate-180');
             });
-
             if (!isOpen) {
                 item.classList.add('active');
                 content.style.maxHeight = content.scrollHeight + "px";
