@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AITraining2U - Financial Institutions & Departments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-image: radial-gradient(circle at top right, rgba(251, 146, 60, 0.08) 0%, transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border-color: #fbcfe8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-pink-100 selection:text-pink-900">
+
+    <!-- Navigation (Simplified for standalone page) -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center mr-3 shadow-md">
+                        <span class="text-white font-bold text-xl tracking-tighter">AI</span>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Training<span class="text-pink-500">2U</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-slate-600 hover:text-pink-500 font-medium transition-colors text-sm">Back to Home</a>
+                    <a href="#contact" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-sm">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center space-x-2 bg-pink-50 border border-pink-100 rounded-full px-4 py-2 mb-8 shadow-sm">
+                    <span class="flex h-2 w-2 rounded-full bg-pink-500 animate-pulse"></span>
+                    <span class="text-sm font-semibold text-pink-700 tracking-wide uppercase">For Financial Institutions & Departments</span>
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-black tracking-tight text-slate-900 mb-8 leading-tight">
+                    Secure AI for <br/>
+                    <span class="gradient-text">Financial Operations</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto font-light">
+                    Automate data gathering, complex reconciliations, and compliance reporting. Equip your finance team to build secure, agentic workflows that save hours while strictly adhering to regulatory standards.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-full font-bold transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 text-lg flex items-center justify-center">
+                        Secure Your Workshop
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="py-10 border-y border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm font-semibold text-slate-400 uppercase tracking-widest mb-8">Trusted by forward-thinking teams across industries</p>
+            <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale">
+                <!-- Placeholder for logos -->
+                <div class="flex items-center space-x-2"><i data-lucide="building-2" class="w-6 h-6"></i><span class="font-bold text-xl">BankCorp</span></div>
+                <div class="flex items-center space-x-2"><i data-lucide="landmark" class="w-6 h-6"></i><span class="font-bold text-xl">CapitalTrust</span></div>
+                <div class="flex items-center space-x-2"><i data-lucide="pie-chart" class="w-6 h-6"></i><span class="font-bold text-xl">InvestCo</span></div>
+                <div class="flex items-center space-x-2"><i data-lucide="briefcase" class="w-6 h-6"></i><span class="font-bold text-xl">GlobalFinance</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Bottleneck -->
+    <section class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-black text-slate-900 mb-6">The Financial Bottleneck</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Finance departments spend countless hours manually extracting data from disjointed systems, reconciling spreadsheets, and drafting compliance reports. This manual heavy-lifting leaves little time for actual strategic analysis and exposes the firm to human error.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="mt-16">
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mb-6 shadow-md shadow-pink-500/20">
+                            <i data-lucide="database" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3">Automated Data Gathering</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Deploy AI to securely scrape market data, extract line items from thousands of PDF invoices, and pull transaction histories via APIs, centralizing it all automatically.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mb-6 shadow-md shadow-pink-500/20">
+                            <i data-lucide="git-compare" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3">Intelligent Reconciliation</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Stop manual ledger matching. Build workflows where AI compares bank statements against internal ERP records, auto-flagging discrepancies and formatting the output for review.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mb-6 shadow-md shadow-pink-500/20">
+                            <i data-lucide="line-chart" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3">Advanced Financial Analysis</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Feed clean data into secure LLMs to instantly perform variance analysis, spot spending trends across departments, and generate preliminary risk assessment narratives.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mb-6 shadow-md shadow-pink-500/20">
+                            <i data-lucide="presentation" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3">Automated Reporting</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Generate compliant board packs and management reports in seconds. AI translates raw data sheets into structured, visualized, and perfectly formatted executive summaries.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mb-6 shadow-md shadow-pink-500/20">
+                            <i data-lucide="shield-check" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3">Compliance & Security</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Build pipelines that automatically scan internal communications and documents to redact PII (Personally Identifiable Information) and ensure regulatory compliance before sharing.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mb-6 shadow-md shadow-pink-500/20">
+                            <i data-lucide="lock" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3">Secure Communication</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Create secure, internal AI chatbots that allow staff to query company financial policies or client portfolios without exposing sensitive data to public AI models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Structure -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-slate-50 -skew-x-12 translate-x-1/4"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl lg:text-4xl font-black text-slate-900 mb-6">A 2-Day Implementation Masterclass</h2>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        This is not a theoretical seminar. Your financial analysts, accountants, and IT staff will learn to build, test, and deploy highly secure AI workflows using real-world financial scenarios.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center border border-pink-200">
+                                    <span class="text-pink-600 font-bold text-sm">1</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-slate-900 mb-2">Day 1: AI Foundations & Secure Data</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">Master the fundamentals of prompting LLMs with a heavy focus on data privacy. Learn how to securely sanitize financial data, extract insights from complex PDFs (annual reports, contracts), and build RAG systems for internal policy querying.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200">
+                                    <span class="text-orange-600 font-bold text-sm">2</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-slate-900 mb-2">Day 2: Financial Pipelines & Automation</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">Dive into n8n to connect your existing tools (Google Workspace, Office 365, internal databases). Build autonomous agents that gather data, run reconciliations, generate visual dashboards, and draft compliance reports automatically.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 w-full">
+                    <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500 to-orange-500 rounded-bl-full opacity-20"></div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Who Should Attend?</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-3 flex-shrink-0"></i>
+                                <span>Chief Financial Officers (CFOs)</span>
+                            </li>
+                            <li class="flex items-center text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-3 flex-shrink-0"></i>
+                                <span>Financial Analysts & Planners</span>
+                            </li>
+                            <li class="flex items-center text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-3 flex-shrink-0"></i>
+                                <span>Risk & Compliance Officers</span>
+                            </li>
+                            <li class="flex items-center text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-3 flex-shrink-0"></i>
+                                <span>Accountants & Auditors</span>
+                            </li>
+                            <li class="flex items-center text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-pink-500 mr-3 flex-shrink-0"></i>
+                                <span>Finance IT & Operations Leads</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What They Get -->
+    <section class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-black text-slate-900 mb-4">What Every Participant Gets</h2>
+                <p class="text-slate-600">Everything needed to continue building secure financial workflows post-training.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-pink-300 transition-colors text-center shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mx-auto mb-6 shadow-md shadow-pink-500/20">
+                        <i data-lucide="brain" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-3 text-lg">Strong Foundation</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Master the core principles of AI logic, agentic orchestration, and structured prompting with a focus on data security.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-orange-300 transition-colors text-center shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mx-auto mb-6 shadow-md shadow-pink-500/20">
+                        <i data-lucide="award" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-3 text-lg">Official Certification</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Receive a verifiable certificate of completion to validate your team's new technical capabilities.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-blue-300 transition-colors text-center shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mx-auto mb-6 shadow-md shadow-pink-500/20">
+                        <i data-lucide="git-merge" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-3 text-lg">Ready Workflows</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Take home deployable n8n templates and custom prompt libraries built during the session.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-green-300 transition-colors text-center shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mx-auto mb-6 shadow-md shadow-pink-500/20">
+                        <i data-lucide="users" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-3 text-lg">Community Support</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Gain lifetime access to our private alumni groups for ongoing troubleshooting and networking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-black text-slate-900 mb-6">Learn from Industry Experts</h2>
+                <p class="text-lg text-slate-600">Our trainers blend deep technical expertise with enterprise implementation experience.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Warren -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-xl shadow-pink-500/10 border-2 border-slate-100 bg-white">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" alt="Warren Leow" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-6 pt-24">
+                            <h3 class="text-2xl font-black text-white mb-1">Warren Leow</h3>
+                            <p class="text-pink-400 font-bold tracking-widest text-[10px] uppercase">Founder & Strategy Lead</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed px-2 text-center">Former management consultant at Bain & Company. Founder of multiple tech startups with exits. Specialist in connecting business strategy with agentic AI implementations.</p>
+                </div>
+
+                <!-- Wei Khjan -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-xl shadow-orange-500/10 border-2 border-slate-100 bg-white">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" alt="Chan Wei Khjan" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-6 pt-24">
+                            <h3 class="text-2xl font-black text-white mb-1">Chan Wei Khjan</h3>
+                            <p class="text-orange-400 font-bold tracking-widest text-[10px] uppercase">Finance & Process Transformation Lead</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed px-2 text-center">Former Audit Partner at YYC. Expert in financial process automation and governance. Leads the technical implementation of n8n workflows for enterprise teams.</p>
+                </div>
+
+                <!-- Marcus -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-xl shadow-blue-500/10 border-2 border-slate-100 bg-white">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Marcus.jpg?raw=true" alt="Marcus Chia" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-6 pt-24">
+                            <h3 class="text-2xl font-black text-white mb-1">Marcus Chia</h3>
+                            <p class="text-blue-400 font-bold tracking-widest text-[10px] uppercase">UI/UX & Product Lead</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed px-2 text-center">Expert in translating user needs into functional AI-driven interfaces. Teaches how to use Antigravity and Claude Code to build polished, user-centric apps.</p>
+                </div>
+
+                <!-- Tze Jin -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-xl shadow-green-500/10 border-2 border-slate-100 bg-white">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_TzeJin.jpg?raw=true" alt="Tze Jin" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-6 pt-24">
+                            <h3 class="text-2xl font-black text-white mb-1">Tze Jin</h3>
+                            <p class="text-green-400 font-bold tracking-widest text-[10px] uppercase">AI & ML Specialist</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed px-2 text-center">Deep expertise in machine learning and backend logic. Guides participants on integrating complex AI reasoning and database structures.</p>
+                </div>
+
+                <!-- Ruey Fong -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-xl shadow-indigo-500/10 border-2 border-slate-100 bg-white">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Ruey.jpg?raw=true" alt="Ruey Fong" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-6 pt-24">
+                            <h3 class="text-2xl font-black text-white mb-1">Ruey Fong</h3>
+                            <p class="text-indigo-400 font-bold tracking-widest text-[10px] uppercase">Whatsapp and Technical Specialist</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed px-2 text-center">Specialist in designing robust AI architectures for large-scale enterprise deployments, ensuring secure and scalable systems.</p>
+                </div>
+
+                <!-- Shah Mijanur -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-xl shadow-teal-500/10 border-2 border-slate-100 bg-white">
+                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Shah%20Mijanur.jpeg?raw=true" alt="Shah Mijanur Rahman" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80'">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-6 pt-24">
+                            <h3 class="text-2xl font-black text-white mb-1">Shah Mijanur Rahman</h3>
+                            <p class="text-teal-400 font-bold tracking-widest text-[10px] uppercase">Cybersecurity and Agentic Security Expert</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed px-2 text-center">Expert in data pipelines, database management, and RAG integration, optimizing how AI agents retrieve and process internal knowledge securely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-slate-900/90"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Modernize Your Finance Operations</h2>
+            <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-light">
+                Stop wasting time on manual reconciliation and data entry. Equip your team with the skills to build compliant AI workflows. Let's discuss a custom curriculum.
+            </p>
+            <form class="max-w-md mx-auto space-y-4 text-left">
+                <div>
+                    <input type="text" placeholder="Your Name" class="w-full px-5 py-4 rounded-xl bg-white/10 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all">
+                </div>
+                <div>
+                    <input type="email" placeholder="Work Email" class="w-full px-5 py-4 rounded-xl bg-white/10 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all">
+                </div>
+                <div>
+                    <input type="text" placeholder="Institution / Company" class="w-full px-5 py-4 rounded-xl bg-white/10 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all">
+                </div>
+                <button type="button" class="w-full px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex justify-center items-center">
+                    Request Syllabus & Pricing
+                    <i data-lucide="send" class="ml-2 w-5 h-5"></i>
+                </button>
+                <p class="text-center text-xs text-slate-500 mt-4">We respect your privacy and enforce strict confidentiality protocols.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0 opacity-50 hover:opacity-100 transition-opacity cursor-pointer" onclick="window.location.href='index.html'">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center mr-2">
+                    <span class="text-white font-bold text-xs">AI</span>
+                </div>
+                <span class="font-bold text-lg text-white tracking-tight">Training<span class="text-pink-500">2U</span></span>
+            </div>
+            <div class="text-sm text-center md:text-left">
+                &copy; <script>document.write(new Date().getFullYear())</script> AITraining2U. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Simple form interaction (prevent default for demo)
+        document.querySelector('button[type="button"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i data-lucide="check" class="w-5 h-5 mr-2"></i> Request Sent';
+            lucide.createIcons();
+            this.classList.replace('from-pink-500', 'from-emerald-500');
+            this.classList.replace('to-orange-500', 'to-emerald-600');
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                lucide.createIcons();
+                this.classList.replace('from-emerald-500', 'from-pink-500');
+                this.classList.replace('to-emerald-600', 'to-orange-500');
+                document.querySelectorAll('input').forEach(input => input.value = '');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
