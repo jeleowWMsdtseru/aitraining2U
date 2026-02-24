@@ -437,6 +437,20 @@
                             <p class="text-xs text-slate-500 leading-relaxed pr-8">Build secure architectures, data governance policies, and ensure strict privacy compliance.</p>
                         </div>
                     </label>
+
+                    <label class="cursor-pointer block group">
+                        <input type="radio" name="program" value="Bespoke Custom Training" class="peer sr-only">
+                        <div class="radio-card p-4 rounded-xl relative">
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex items-center gap-3 pr-8 mb-1">
+                                <span class="font-bold text-slate-900 text-sm">Bespoke Custom Training</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700 px-2 py-1 rounded">Custom</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Tailored AI syllabus designed specifically for your organization's tech stack and industry needs.</p>
+                        </div>
+                    </label>
                 </div>
 
                 <!-- User Details -->
@@ -456,6 +470,18 @@
                     <div>
                         <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Company</label>
                         <input type="text" id="lead-company" required placeholder="Company Sdn Bhd" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Estimated Pax</label>
+                        <input type="number" id="lead-pax" placeholder="e.g. 25" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">HRDC Claim</label>
+                        <select id="lead-hrdc" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-600 outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="Yes">Yes, HRDC Claimable</option>
+                            <option value="No">No, Direct Payment</option>
+                            <option value="Not Sure">Not sure yet</option>
+                        </select>
                     </div>
                 </div>
 
@@ -1083,18 +1109,44 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-slate-50 p-10 rounded-[2rem] border border-slate-200">
-                        <form id="contact-form" class="space-y-5">
-                            <input type="text" id="company" placeholder="Organization Name" required class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
-                            <input type="text" id="person" placeholder="Contact Person" required class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
-                            <input type="email" id="email" placeholder="Work Email" required class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
-                            <select id="interest" class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-600">
-                                <option>AI Agentic Automation + Consulting (2+1 Day)</option>
-                                <option>AI Agentic Security & Data Governance (1 Day)</option>
-                                <option>Public Workshop: AI Agentic Automation</option>
-                            </select>
-                            <textarea id="message" rows="3" placeholder="Estimated Pax & Preferred Dates" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500"></textarea>
-                            <button type="submit" id="cta-form-submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg">Get Training Quote</button>
+                    <div class="bg-slate-50 p-8 md:p-10 rounded-[2rem] border border-slate-200">
+                        <form id="footer-lead-form" class="space-y-4">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Quick Enquiry</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <input type="text" id="footer-name" required placeholder="Full Name" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white transition-all">
+                                </div>
+                                <div>
+                                    <input type="email" id="footer-email" required placeholder="Work Email" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white transition-all">
+                                </div>
+                                <div>
+                                    <input type="text" id="footer-company" required placeholder="Company Name" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white transition-all">
+                                </div>
+                                <div>
+                                    <input type="tel" id="footer-phone" placeholder="WhatsApp No." class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white transition-all">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <select id="footer-program" class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-600 outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+                                    <option value="" disabled selected>Select Program of Interest...</option>
+                                    <option value="Agentic Automation (Public)">AI Agentic Automation (Public Class)</option>
+                                    <option value="Vibe Coding (Prototyping)">AI Vibe Coding (Public Class)</option>
+                                    <option value="Automation + Consulting (Private)">AI Automation + Consulting (Private)</option>
+                                    <option value="Security & Governance (1-Day)">AI Security & Data Governance (1-Day)</option>
+                                    <option value="Bespoke Custom Training">Bespoke Custom Training</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <textarea id="footer-message" rows="3" placeholder="How can we help? Any specific dates or pax estimation? (Optional)" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg mt-2 shadow-lg shadow-pink-500/30 flex items-center justify-center gap-2">
+                                Send Message <i data-lucide="send" class="w-5 h-5"></i>
+                            </button>
+                            <p class="text-center text-xs text-slate-400 mt-2"><i data-lucide="lock" class="w-3 h-3 inline"></i> Your information is kept strictly confidential.</p>
                         </form>
                     </div>
                 </div>
@@ -1205,12 +1257,16 @@
 
             // Gather data
             const data = new FormData();
-            data.append('formType', 'Lead Enquiry Modal');
-            data.append('program', document.querySelector('input[name="program"]:checked').value);
-            data.append('name', document.getElementById('lead-name').value);
-            data.append('email', document.getElementById('lead-email').value);
-            data.append('phone', document.getElementById('lead-phone').value);
-            data.append('company', document.getElementById('lead-company').value);
+            data.append('formType', 'Footer Quick Form');
+            data.append('program', document.getElementById('footer-program').value || 'General Enquiry');
+            data.append('name', document.getElementById('footer-name').value);
+            data.append('email', document.getElementById('footer-email').value);
+            data.append('phone', document.getElementById('footer-phone').value);
+            data.append('company', document.getElementById('footer-company').value);
+            data.append('message', document.getElementById('footer-message').value);
+            // Leaving pax and HRDC blank for the quick footer form
+            data.append('pax', ''); 
+            data.append('hrdc', '');
 
             // Send to Google Apps Script
             fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
@@ -1235,10 +1291,10 @@
                 });
         });
 
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        document.getElementById('footer-lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;
-            const btn = document.getElementById('cta-form-submit');
+            const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             
             if (SCRIPT_URL.includes('YOUR_SCRIPT_ID') || !SCRIPT_URL.startsWith('http')) {
@@ -1247,17 +1303,20 @@
             }
 
             // Show loading state
-            btn.innerHTML = 'Sending...';
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin inline-block mr-2"></i> Submitting...';
             btn.disabled = true;
 
             // Gather data
             const data = new FormData();
-            data.append('formType', 'Footer Contact Form');
-            data.append('company', document.getElementById('company').value);
-            data.append('name', document.getElementById('person').value);
-            data.append('email', document.getElementById('email').value);
-            data.append('interest', document.getElementById('interest').value);
-            data.append('message', document.getElementById('message').value);
+            data.append('formType', 'Footer Enquiry Form');
+            data.append('program', document.querySelector('input[name="footer-program"]:checked').value);
+            data.append('name', document.getElementById('footer-name').value);
+            data.append('email', document.getElementById('footer-email').value);
+            data.append('phone', document.getElementById('footer-phone').value);
+            data.append('company', document.getElementById('footer-company').value);
+            data.append('pax', document.getElementById('footer-pax').value);
+            data.append('hrdc', document.getElementById('footer-hrdc').value);
+            data.append('message', '');
 
             // Send to Google Apps Script
             fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
@@ -1268,8 +1327,8 @@
                             <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mx-auto mb-4">
                                 <i data-lucide="check-circle" class="w-8 h-8"></i>
                             </div>
-                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Message Received!</h4>
-                            <p class="text-slate-500 text-sm">We'll get back to you within 24 hours.</p>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Enquiry Sent!</h4>
+                            <p class="text-slate-500 text-sm">We'll get back to you with the course outline and quotation shortly.</p>
                         </div>
                     `;
                     lucide.createIcons();
