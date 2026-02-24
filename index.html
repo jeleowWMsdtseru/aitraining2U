@@ -207,6 +207,44 @@
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
+        /* Lead Form Modal Styles */
+        #lead-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        #lead-modal.active {
+            display: flex;
+        }
+        .lead-modal-content {
+            background: white;
+            width: 100%;
+            max-width: 650px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            position: relative;
+            z-index: 201;
+        }
+        .radio-card {
+            border: 2px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+        .radio-card:hover {
+            border-color: #cbd5e1;
+            background-color: #f8fafc;
+        }
+        input[type="radio"]:checked + .radio-card {
+            border-color: #ec4899;
+            background-color: #fff1f2;
+        }
+
         /* Triangle Diagram Styles */
         .triangle-container {
             position: relative;
@@ -329,6 +367,106 @@
         </div>
     </div>
 
+    <!-- Lead Form Modal -->
+    <div id="lead-modal">
+        <div class="modal-overlay" onclick="closeLeadModal()"></div>
+        <div class="lead-modal-content p-8 md:p-10">
+            <button onclick="closeLeadModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition bg-slate-100 hover:bg-slate-200 rounded-full p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 class="text-3xl font-extrabold text-slate-900 mb-2">Enquire Now</h3>
+            <p class="text-slate-500 text-sm mb-8">Select a program below to get the full course outline, quotation, and secure your booking.</p>
+
+            <form id="lead-form-modal" class="space-y-6">
+                <!-- Course Selection (Radio Cards) -->
+                <div class="space-y-3">
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Select Program</label>
+                    
+                    <label class="cursor-pointer block group">
+                        <input type="radio" name="program" value="Financial Transformation (Public)" class="peer sr-only" required>
+                        <div class="radio-card p-4 rounded-xl relative">
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex items-center gap-3 pr-8 mb-1">
+                                <span class="font-bold text-slate-900 text-sm">AI Agentic Financial Transformation</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-600 px-2 py-1 rounded">Public</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Master AI automation for financial operations, reporting, and analysis. (2-3 April 2026)</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer block group">
+                        <input type="radio" name="program" value="Automation + Consulting (Private)" class="peer sr-only">
+                        <div class="radio-card p-4 rounded-xl relative">
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex items-center gap-3 pr-8 mb-1">
+                                <span class="font-bold text-slate-900 text-sm">AI Agentic Automation + Consulting</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-800 text-white px-2 py-1 rounded">Private</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Build autonomous agents with a dedicated private session to map your internal architecture.</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer block group">
+                        <input type="radio" name="program" value="Security & Governance (1-Day)" class="peer sr-only">
+                        <div class="radio-card p-4 rounded-xl relative">
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex items-center gap-3 pr-8 mb-1">
+                                <span class="font-bold text-slate-900 text-sm">AI Agentic Security & Data Governance</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-yellow-900 px-2 py-1 rounded">1-Day</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Build secure architectures, data governance policies, and ensure strict privacy compliance.</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer block group">
+                        <input type="radio" name="program" value="Vibe Coding (Prototyping)" class="peer sr-only">
+                        <div class="radio-card p-4 rounded-xl relative">
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex items-center gap-3 pr-8 mb-1">
+                                <span class="font-bold text-slate-900 text-sm">AI Vibe Coding + Rapid Prototyping</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-purple-100 text-purple-700 px-2 py-1 rounded">Prototyping</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Learn to build functional apps in minutes using Cursor, Replit, and v0. (11-12 April 2026)</p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- User Details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Full Name</label>
+                        <input type="text" id="lead-name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Work Email</label>
+                        <input type="email" id="lead-email" required placeholder="john@company.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">WhatsApp No.</label>
+                        <input type="tel" id="lead-phone" required placeholder="+60123456789" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Company</label>
+                        <input type="text" id="lead-company" required placeholder="Company Sdn Bhd" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg mt-4 shadow-lg shadow-pink-500/30 flex items-center justify-center gap-2">
+                    Submit Enquiry <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+                <p class="text-center text-xs text-slate-400 mt-2"><i data-lucide="lock" class="w-3 h-3 inline"></i> Your information is kept strictly confidential.</p>
+            </form>
+        </div>
+    </div>
+
     <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-rose-50 animated-header-bg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
@@ -380,7 +518,7 @@
                 <a href="#team" class="hover:text-pink-500 transition">Our Faculty</a>
                 <a href="#media" class="hover:text-pink-500 transition">Media</a>
                 <a href="#faq" class="hover:text-pink-500 transition">FAQ</a>
-                <a href="https://wa.me/601137034050" id="cta-nav-inquire" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Inquire Now</a>
+                <button onclick="openLeadModal()" id="cta-nav-inquire" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Enquire Now</button>
             </div>
 
             <button id="menu-toggle" class="lg:hidden text-slate-900">
@@ -404,9 +542,9 @@
                     AITraining2U brings specialized private AI training and change management consulting directly to your team. Specialized for 25-35 pax with 100% HRD Corp claimable options.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-                    <a href="#courses" id="cta-hero-programs" class="btn-brand px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
-                        View Training Programs
-                    </a>
+                    <button onclick="openLeadModal()" id="cta-hero-programs" class="btn-brand px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
+                        Book Training Program
+                    </button>
                     <div class="flex items-center gap-4">
                         <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/HRDC-AITraining2U.jpeg?raw=true" alt="HRD Corp Registered" class="h-14 bg-white p-1 rounded-lg">
                     </div>
@@ -484,20 +622,20 @@
                         <a href="agentic.html" id="cta-course-agentic" class="btn-brand text-center py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">Contact Us</a>
                     </div>
 
-                    <!-- Course 3 (Strategy) - COLOR MODIFIED TO BRIGHT YELLOW -->
+                    <!-- Course 3 (Security & Governance) - COLOR MODIFIED TO BRIGHT YELLOW -->
                     <div class="relative bg-yellow-400 rounded-[2.5rem] p-10 border-2 border-yellow-500 flex flex-col justify-between transition hover:shadow-2xl hover:scale-[1.02] hover:border-yellow-600">
                         <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-slate-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">Corporate Strategy</span>
+                            <span class="bg-slate-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">Cybersecurity & Governance</span>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Strategy <br>+ Implementation</h3>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Agentic Security <br>& Data Governance</h3>
                             <div class="inline-block bg-white/40 border border-yellow-600 px-4 py-1 rounded-full text-slate-900 text-[10px] font-bold mb-6 uppercase tracking-wider">
-                                Custom Corporate Scope
+                                1 Day Class
                             </div>
                             <p class="text-slate-800 text-xs mb-8 leading-relaxed font-bold">
-                                End-to-end consulting to deploy AI workflows across your existing tools. Focused on Financial Ops, Change Management, and long-term tech ROI.
+                                Learn to build secure agentic architectures, implement robust data governance policies, and ensure strict privacy compliance for enterprise AI deployments.
                             </p>
-                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-slate-800/70"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-slate-800/70"><i data-lucide="shield-check" class="w-4 h-4"></i> Essential for IT & Security Teams</div>
                         </div>
                         <a href="https://wa.me/601137034050" id="cta-course-strategy" class="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-colors uppercase tracking-wider shadow-lg">Contact Us</a>
                     </div>
@@ -827,8 +965,8 @@
                     <div class="client-logo-card" onclick="openModal('ctos')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_CTOS.jpg?raw=true" alt="CTOS"></div>
                     <div class="client-logo-card" onclick="openModal('bfm')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_BFM.jpg?raw=true" alt="BFM"></div>
                     <div class="client-logo-card" onclick="openModal('2x')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_2x.png?raw=true" alt="2X Marketing"></div>
-                    <div class="client-logo-card bg-rose-50 border-rose-200" onclick="window.location.href='#contact'">
-                        <span class="text-rose-500 font-bold text-[10px] text-center uppercase tracking-widest">Inquire Now</span>
+                    <div class="client-logo-card bg-rose-50 border-rose-200" onclick="openLeadModal()">
+                        <span class="text-rose-500 font-bold text-[10px] text-center uppercase tracking-widest">Enquire Now</span>
                     </div>
                 </div>
 
@@ -939,7 +1077,7 @@
                             <input type="email" id="email" placeholder="Work Email" required class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500">
                             <select id="interest" class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-600">
                                 <option>AI Agentic Automation + Consulting (2+1 Day)</option>
-                                <option>AI Strategy + Implementation (Custom)</option>
+                                <option>AI Agentic Security & Data Governance (1 Day)</option>
                                 <option>Public Workshop: Financial Transformation</option>
                             </select>
                             <textarea id="message" rows="3" placeholder="Estimated Pax & Preferred Dates" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500"></textarea>
@@ -1022,13 +1160,113 @@
             document.body.style.overflow = '';
         }
 
+        function openLeadModal() {
+            document.getElementById('lead-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeLeadModal() {
+            document.getElementById('lead-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // --- GOOGLE SHEETS & EMAIL INTEGRATION ---
+        // REPLACE THIS URL with your deployed Google Apps Script Web App URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx5XV7sKmBDJLgPp0etzzYRgN-sk82kFcEtx7xMCYZ1nDJezUqqNV9GstbDuW5_kFll/exec';
+
+        document.getElementById('lead-form-modal').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            if (SCRIPT_URL.includes('YOUR_SCRIPT_ID') || !SCRIPT_URL.startsWith('http')) {
+                alert('Please configure the SCRIPT_URL variable with your Google Apps Script URL to enable submissions.');
+                return;
+            }
+
+            // Show loading state
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin inline-block mr-2"></i> Submitting...';
+            btn.disabled = true;
+
+            // Gather data
+            const data = new FormData();
+            data.append('formType', 'Lead Enquiry Modal');
+            data.append('program', document.querySelector('input[name="program"]:checked').value);
+            data.append('name', document.getElementById('lead-name').value);
+            data.append('email', document.getElementById('lead-email').value);
+            data.append('phone', document.getElementById('lead-phone').value);
+            data.append('company', document.getElementById('lead-company').value);
+
+            // Send to Google Apps Script
+            fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
+                .then(() => {
+                    // Show Success Message
+                    form.innerHTML = `
+                        <div class="text-center py-8">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mx-auto mb-4">
+                                <i data-lucide="check-circle" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Enquiry Sent!</h4>
+                            <p class="text-slate-500 text-sm">Thank you. We will send the course outline and quotation to your email shortly.</p>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    alert('There was an error submitting your form. Please try again or contact us on WhatsApp.');
+                });
+        });
+
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const company = document.getElementById('company').value;
-            const interest = document.getElementById('interest').value;
-            const subject = `Training Inquiry: ${company} - ${interest}`;
-            let body = `Proposal Request for ${company}\nProgram: ${interest}\n\nNotes:\n${document.getElementById('message').value}`;
-            window.location.href = `mailto:aitraining2u@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const form = e.target;
+            const btn = document.getElementById('cta-form-submit');
+            const originalText = btn.innerHTML;
+            
+            if (SCRIPT_URL.includes('YOUR_SCRIPT_ID') || !SCRIPT_URL.startsWith('http')) {
+                alert('Please configure the SCRIPT_URL variable with your Google Apps Script URL to enable submissions.');
+                return;
+            }
+
+            // Show loading state
+            btn.innerHTML = 'Sending...';
+            btn.disabled = true;
+
+            // Gather data
+            const data = new FormData();
+            data.append('formType', 'Footer Contact Form');
+            data.append('company', document.getElementById('company').value);
+            data.append('name', document.getElementById('person').value);
+            data.append('email', document.getElementById('email').value);
+            data.append('interest', document.getElementById('interest').value);
+            data.append('message', document.getElementById('message').value);
+
+            // Send to Google Apps Script
+            fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
+                .then(() => {
+                    // Show Success Message
+                    form.innerHTML = `
+                        <div class="text-center py-10 bg-white rounded-2xl border border-slate-100">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mx-auto mb-4">
+                                <i data-lucide="check-circle" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Message Received!</h4>
+                            <p class="text-slate-500 text-sm">We'll get back to you within 24 hours.</p>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    alert('There was an error submitting your form. Please try again or contact us on WhatsApp.');
+                });
         });
     </script>
 </body>
