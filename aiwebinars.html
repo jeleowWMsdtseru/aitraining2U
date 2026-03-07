@@ -173,7 +173,7 @@
                 calStart: "20260307T100000",
                 calEnd: "20260307T120000",
                 meetLink: "https://meet.google.com/uqb-ykqs-wco",
-                calLink: null, // Dynamic generation
+                calLink: null,
                 slotsLeft: 12,
                 session: 1,
                 isFree: true
@@ -204,7 +204,7 @@
                 speaker: "Warren Leow",
                 speakerTitle: "Founder & Strategy Lead",
                 speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true",
-                image: "https://images.unsplash.com/photo-1557426325-a8e236531981?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=800&q=80",
                 description: "Automate lead scoring and personalized outreach at scale with autonomous agents that represent your brand.",
                 displayDate: "Mon, 24 Mar",
                 displayTime: "10:00am - 12:00pm",
@@ -285,16 +285,10 @@
         let currentView = 'upcoming';
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHNqStlRYuzOYCMZxfdxNaRr_rFNaKZWIQdC5ypnXVZwanArlZiEbh-mFNN-CnDy2A/exec';
 
-        /**
-         * Get Current Date/Time in Kuala Lumpur
-         */
         function getKLTime() {
             return new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kuala_Lumpur"}));
         }
 
-        /**
-         * Update the UI view (Toggle between Upcoming and Past)
-         */
         function updateView(view) {
             currentView = view;
             const btnUpcoming = document.getElementById('btn-upcoming');
@@ -311,9 +305,6 @@
             renderGrid();
         }
 
-        /**
-         * Render the Webinar Cards
-         */
         function renderGrid() {
             const grid = document.getElementById('webinar-grid');
             const now = getKLTime();
@@ -373,16 +364,12 @@
             lucide.createIcons();
         }
 
-        /**
-         * Handle "Add to Calendar" button click
-         */
         function handleRegClick(id) {
             const webinar = webinars.find(w => w.id === id);
             if (!webinar) return;
 
             currentWebinar = webinar;
             
-            // Urgency decrement logic
             const counterElement = document.getElementById(`count-${id}`);
             if (counterElement) {
                 let currentVal = parseInt(counterElement.innerText);
@@ -395,7 +382,6 @@
                 }
             }
 
-            // Open Modal
             document.getElementById('form-content').style.display = 'block';
             document.getElementById('success-content').style.display = 'none';
             document.getElementById('calendar-modal').classList.add('active');
@@ -408,9 +394,6 @@
             document.body.style.overflow = '';
         }
 
-        /**
-         * Generate Dynamic Calendar Links after registration
-         */
         function generateCalendarLinks() {
             const { title, calStart, calEnd, speaker, meetLink, calLink } = currentWebinar;
             const dialIn = "Dial: +1 502-530-1014 PIN: 425 195 383#";
@@ -419,7 +402,6 @@
             const details = `AITraining2U: ${title}\n\nSpeaker: ${speaker}\n\nVideo Call: ${meetLink}\n${dialIn}\nMore Numbers: ${morePhones}`;
             const location = meetLink;
             
-            // Use hardcoded calendar link if available, otherwise generate template
             const gLink = calLink || `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('AIT2U: ' + title)}&dates=${calStart}/${calEnd}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&ctz=Asia/Kuala_Lumpur`;
             
             const icalData = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${calStart}\nDTEND:${calEnd}\nSUMMARY:AIT2U: ${title}\nDESCRIPTION:${details.replace(/\n/g, '\\n')}\nLOCATION:${location}\nEND:VEVENT\nEND:VCALENDAR`;
@@ -440,13 +422,20 @@
             btn.disabled = true;
             lucide.createIcons();
 
+            // CAPTURE DATE AND TIMESTAMP IN KL TIME
+            const now = getKLTime();
+            const klDate = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            const klTime = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
             const data = new FormData();
-            data.append('formType', 'Webinar Lead');
-            data.append('program', currentWebinar.title);
-            data.append('name', document.getElementById('reg-name').value);
-            data.append('email', document.getElementById('reg-email').value);
-            data.append('phone', document.getElementById('reg-phone').value);
-            data.append('company', document.getElementById('reg-company').value);
+            // Match requested Google Sheet columns exactly
+            data.append('Date', klDate);
+            data.append('Time Stamp', klTime);
+            data.append('Event', currentWebinar.title);
+            data.append('Company Name', document.getElementById('reg-company').value);
+            data.append('Name', document.getElementById('reg-name').value);
+            data.append('Email', document.getElementById('reg-email').value);
+            data.append('Whatsapp Number', document.getElementById('reg-phone').value);
 
             fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
                 .then(() => {
@@ -462,7 +451,6 @@
                 });
         });
 
-        // Initial render
         window.onload = () => updateView('upcoming');
     </script>
 </body>
