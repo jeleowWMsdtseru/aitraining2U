@@ -29,8 +29,9 @@
         .btn-brand { background: linear-gradient(135deg, #ec4899, #f97316); color: white; transition: all 0.3s ease; }
         .btn-brand:hover { filter: brightness(1.1); transform: translateY(-1px); }
         
-        .webinar-card { background: #ffffff; border: 1px solid #f1f5f9; border-radius: 2rem; overflow: hidden; transition: all 0.4s ease; }
+        .webinar-card { background: #ffffff; border: 1px solid #f1f5f9; border-radius: 2rem; overflow: hidden; transition: all 0.4s ease; height: 100%; display: flex; flex-direction: column; }
         .webinar-card:hover { transform: translateY(-8px); border-color: #ec4899; box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.1); }
+        .webinar-card.past-event { filter: grayscale(0.5); opacity: 0.8; }
 
         /* Modal */
         #calendar-modal { display: none; position: fixed; inset: 0; z-index: 200; align-items: center; justify-content: center; padding: 1.5rem; }
@@ -40,14 +41,10 @@
         
         #success-content { display: none; }
 
-        .urgency-badge {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
+        .urgency-badge { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+
+        .toggle-btn.active { background-color: var(--brand-primary); color: white; }
     </style>
 </head>
 <body class="antialiased">
@@ -87,155 +84,19 @@
             </div>
         </section>
 
+        <!-- Toggle Section -->
+        <div class="container mx-auto px-6 pt-12 text-center">
+            <div class="inline-flex p-1 bg-slate-100 rounded-2xl">
+                <button id="btn-upcoming" onclick="updateView('upcoming')" class="toggle-btn active px-8 py-3 rounded-xl font-bold text-sm transition-all uppercase tracking-wider">Upcoming</button>
+                <button id="btn-past" onclick="updateView('past')" class="toggle-btn px-8 py-3 rounded-xl font-bold text-sm transition-all uppercase tracking-wider">Past Events</button>
+            </div>
+        </div>
+
         <!-- Webinar Grid -->
-        <section class="py-20 bg-white">
+        <section class="py-12 bg-white">
             <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    
-                    <!-- 1. Finance (7 Mar) -->
-                    <div class="webinar-card flex flex-col h-full">
-                        <div class="relative aspect-video bg-slate-100">
-                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Finance Automation" class="w-full h-full object-cover">
-                            <div class="absolute top-4 left-4 bg-pink-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session 1</div>
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">FREE</div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <div class="flex items-center gap-2 text-pink-500 text-xs font-bold mb-1 uppercase">
-                                <i data-lucide="calendar" class="w-4 h-4"></i> Sat, 7 Mar • 10:00am - 12:00pm
-                            </div>
-                            <div class="text-[10px] font-bold text-orange-600 mb-3 flex items-center gap-1 uppercase urgency-badge">
-                                <i data-lucide="users" class="w-3 h-3"></i> Only <span id="count-finance-1">12</span> slots left / 100
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-3">AI Automation for Finance Processes</h3>
-                            <p class="text-slate-500 text-sm mb-6 flex-1">How to use AI for real automation across visualisation, reconciliation, and analysis with n8n and Claude Code.</p>
-                            <div class="flex items-center gap-3 mb-6 pt-6 border-t border-slate-50">
-                                <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100">
-                                <div><p class="text-sm font-bold text-slate-900">Wei Khjan</p><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Auditor & MIA Accountant</p></div>
-                            </div>
-                            <button onclick="openReg('Finance Automation', '20260307T100000', '20260307T120000', 'Wei Khjan', 'count-finance-1', 'https://meet.google.com/uqb-ykqs-wco', 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=AIT2U: AI Automation for Finance&dates=20260307T100000/20260307T120000&details=Google Meet: https://meet.google.com/uqb-ykqs-wco&location=https://meet.google.com/uqb-ykqs-wco&ctz=Asia/Kuala_Lumpur')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>
-                        </div>
-                    </div>
-
-                    <!-- 2. Vibe Coding (17 Mar) -->
-                    <div class="webinar-card flex flex-col h-full">
-                        <div class="relative aspect-video bg-slate-100">
-                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Vibe Coding" class="w-full h-full object-cover">
-                            <div class="absolute top-4 left-4 bg-pink-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session 1</div>
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">FREE</div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <div class="flex items-center gap-2 text-pink-500 text-xs font-bold mb-1 uppercase">
-                                <i data-lucide="calendar" class="w-4 h-4"></i> Tue, 17 Mar • 9:00pm - 10:30pm
-                            </div>
-                            <div class="text-[10px] font-bold text-orange-600 mb-3 flex items-center gap-1 uppercase urgency-badge">
-                                <i data-lucide="users" class="w-3 h-3"></i> Only <span id="count-vibe">18</span> slots left / 100
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-3">Vibe Coding for Non-Techies</h3>
-                            <p class="text-slate-500 text-sm mb-6 flex-1">Build web apps in minutes using Cursor and Claude without manual coding. Perfect for founders and PMs.</p>
-                            <div class="flex items-center gap-3 mb-6 pt-6 border-t border-slate-50">
-                                <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Marcus.jpg?raw=true" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100">
-                                <div><p class="text-sm font-bold text-slate-900">Marcus Chia</p><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">UI/UX & Product Lead</p></div>
-                            </div>
-                            <button onclick="openReg('Vibe Coding for Non-Techies', '20260317T210000', '20260317T223000', 'Marcus Chia', 'count-vibe', 'https://meet.google.com/iym-pxqa-fuf', 'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MXNwczgxMHRjdGZ2djR0MWd0NG11N2JsdHEgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>
-                        </div>
-                    </div>
-
-                    <!-- 3. Sales (24 Mar) -->
-                    <div class="webinar-card flex flex-col h-full">
-                        <div class="relative aspect-video bg-slate-100">
-                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/FB%20OG%20image.png?raw=true" alt="Sales AI" class="w-full h-full object-cover">
-                            <div class="absolute top-4 left-4 bg-pink-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session 1</div>
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">FREE</div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <div class="flex items-center gap-2 text-pink-500 text-xs font-bold mb-1 uppercase">
-                                <i data-lucide="calendar" class="w-4 h-4"></i> Mon, 24 Mar • 10:00am - 12:00pm
-                            </div>
-                            <div class="text-[10px] font-bold text-orange-600 mb-3 flex items-center gap-1 uppercase urgency-badge">
-                                <i data-lucide="users" class="w-3 h-3"></i> Only <span id="count-sales">7</span> slots left / 100
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-3">AI Automation for Sales Outreach</h3>
-                            <p class="text-slate-500 text-sm mb-6 flex-1">Automate lead scoring and personalized outreach at scale with autonomous agents that represent your brand.</p>
-                            <div class="flex items-center gap-3 mb-6 pt-6 border-t border-slate-50">
-                                <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100">
-                                <div><p class="text-sm font-bold text-slate-900">Warren Leow</p><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Founder & Strategy Lead</p></div>
-                            </div>
-                            <button onclick="openReg('AI Agentic Sales Outreach', '20260324T100000', '20260324T120000', 'Warren Leow', 'count-sales', 'https://meet.google.com/tra-mveb-dyd', 'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N2ZxNGRhaWJ1dW45bG83ZjRtN2NhYWtrZGwgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>
-                        </div>
-                    </div>
-
-                    <!-- 4. Finance (26 Mar) -->
-                    <div class="webinar-card flex flex-col h-full">
-                        <div class="relative aspect-video bg-slate-100">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Finance Automation" class="w-full h-full object-cover">
-                            <div class="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session 2</div>
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">FREE</div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <div class="flex items-center gap-2 text-pink-500 text-xs font-bold mb-1 uppercase">
-                                <i data-lucide="calendar" class="w-4 h-4"></i> Thu, 26 Mar • 10:00am - 12:00pm
-                            </div>
-                            <div class="text-[10px] font-bold text-orange-600 mb-3 flex items-center gap-1 uppercase urgency-badge">
-                                <i data-lucide="users" class="w-3 h-3"></i> Only <span id="count-finance-2">22</span> slots left / 100
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-3">AI Automation for Finance Processes</h3>
-                            <p class="text-slate-500 text-sm mb-6 flex-1">Qualified auditor Wei Khjan shows how to use AI for reconciliation, analysis, and visualization with n8n and Claude Code.</p>
-                            <div class="flex items-center gap-3 mb-6 pt-6 border-t border-slate-50">
-                                <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100">
-                                <div><p class="text-sm font-bold text-slate-900">Wei Khjan</p><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Auditor & MIA Accountant</p></div>
-                            </div>
-                            <button onclick="openReg('Finance Automation (S2)', '20260326T100000', '20260326T120000', 'Wei Khjan', 'count-finance-2', 'https://meet.google.com/ien-vkpi-ajm', 'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N2cyZDM3aHM3cjloaDZkaTJjM2p0OWxqaGggaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>
-                        </div>
-                    </div>
-
-                    <!-- 5. Whatsapp (7 Apr) -->
-                    <div class="webinar-card flex flex-col h-full">
-                        <div class="relative aspect-video bg-slate-100">
-                            <img src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=800&q=80" alt="Whatsapp AI Marketing" class="w-full h-full object-cover">
-                            <div class="absolute top-4 left-4 bg-pink-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session 1</div>
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">FREE</div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <div class="flex items-center gap-2 text-pink-500 text-xs font-bold mb-1 uppercase">
-                                <i data-lucide="calendar" class="w-4 h-4"></i> Tue, 7 Apr • 10:00am - 12:00pm
-                            </div>
-                            <div class="text-[10px] font-bold text-orange-600 mb-3 flex items-center gap-1 uppercase urgency-badge">
-                                <i data-lucide="users" class="w-3 h-3"></i> Only <span id="count-whatsapp">14</span> slots left / 100
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-3">AI Marketing with Whatsapp Integration</h3>
-                            <p class="text-slate-500 text-sm mb-6 flex-1">Automating customer conversations and lead qualifying directly on WhatsApp using intelligent AI agents.</p>
-                            <div class="flex items-center gap-3 mb-6 pt-6 border-t border-slate-50">
-                                <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Ruey.jpg?raw=true" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100">
-                                <div><p class="text-sm font-bold text-slate-900">Ruey Liuh</p><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Technical Specialist</p></div>
-                            </div>
-                            <button onclick="openReg('AI Marketing with Whatsapp', '20260407T100000', '20260407T120000', 'Ruey Liuh', 'count-whatsapp', 'https://meet.google.com/pyt-qpvh-msy', 'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTdlZ29rN2NwZ2s4aDc4ZzA3dmIwcXBpaDQgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>
-                        </div>
-                    </div>
-
-                    <!-- 6. Change Management (11 Apr) -->
-                    <div class="webinar-card flex flex-col h-full">
-                        <div class="relative aspect-video bg-slate-100">
-                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Change Management" class="w-full h-full object-cover">
-                            <div class="absolute top-4 left-4 bg-pink-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session 1</div>
-                            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">FREE</div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <div class="flex items-center gap-2 text-pink-500 text-xs font-bold mb-1 uppercase">
-                                <i data-lucide="calendar" class="w-4 h-4"></i> Sat, 11 Apr • 10:00am - 12:00pm
-                            </div>
-                            <div class="text-[10px] font-bold text-orange-600 mb-3 flex items-center gap-1 uppercase urgency-badge">
-                                <i data-lucide="users" class="w-3 h-3"></i> Only <span id="count-change">9</span> slots left / 100
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-3">AI Strategic Change Management</h3>
-                            <p class="text-slate-500 text-sm mb-6 flex-1">Navigating the cultural and operational shift required for successful AI adoption within corporate environments.</p>
-                            <div class="flex items-center gap-3 mb-6 pt-6 border-t border-slate-50">
-                                <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100">
-                                <div><p class="text-sm font-bold text-slate-900">Warren Leow</p><p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Founder & Strategy Lead</p></div>
-                            </div>
-                            <button onclick="openReg('AI Strategic Change Management', '20260411T100000', '20260411T120000', 'Warren Leow', 'count-change', 'https://meet.google.com/hmv-yvnf-mqt', 'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MHBkZGU5M2pncHAxMzRicDgyOGRhNGZudDkgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>
-                        </div>
-                    </div>
-
+                <div id="webinar-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- Dynamic Content Injected Here -->
                 </div>
             </div>
         </section>
@@ -276,10 +137,10 @@
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 mb-4 break-all text-[10px] font-mono text-slate-400 select-all" id="meet-link-display">
-                    Link: https://meet.google.com/uqb-ykqs-wco
+                    Link: Loading...
                 </div>
                 
-                <a id="meet-join-btn" href="https://meet.google.com/uqb-ykqs-wco" target="_blank" class="block w-full btn-brand py-4 rounded-xl font-bold text-sm uppercase text-center shadow-lg">Join Google Meet</a>
+                <a id="meet-join-btn" href="#" target="_blank" class="block w-full btn-brand py-4 rounded-xl font-bold text-sm uppercase text-center shadow-lg">Join Google Meet</a>
                 <button onclick="closeCalendarModal()" class="mt-4 w-full text-xs font-bold text-slate-400 hover:text-slate-600 transition uppercase tracking-widest">Close</button>
             </div>
         </div>
@@ -292,24 +153,241 @@
     </footer>
 
     <script>
+        /**
+         * Webinar Data Store
+         * All dates are defined in Malaysia Time (UTC+8)
+         */
+        const webinars = [
+            {
+                id: "finance-1",
+                title: "AI Automation for Finance Processes",
+                speaker: "Wei Khjan",
+                speakerTitle: "Auditor & MIA Accountant",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true",
+                image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80",
+                description: "How to use AI for real automation across visualisation, reconciliation, and analysis with n8n and Claude Code.",
+                displayDate: "Sat, 7 Mar",
+                displayTime: "10:00am - 12:00pm",
+                startTime: "2026-03-07T10:00:00+08:00",
+                endTime: "2026-03-07T12:00:00+08:00",
+                calStart: "20260307T100000",
+                calEnd: "20260307T120000",
+                meetLink: "https://meet.google.com/uqb-ykqs-wco",
+                calLink: null, // Dynamic generation
+                slotsLeft: 12,
+                session: 1,
+                isFree: true
+            },
+            {
+                id: "vibe-1",
+                title: "Vibe Coding for Non-Techies",
+                speaker: "Marcus Chia",
+                speakerTitle: "UI/UX & Product Lead",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Marcus.jpg?raw=true",
+                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+                description: "Build web apps in minutes using Cursor and Claude without manual coding. Perfect for founders and PMs.",
+                displayDate: "Tue, 17 Mar",
+                displayTime: "9:00pm - 10:30pm",
+                startTime: "2026-03-17T21:00:00+08:00",
+                endTime: "2026-03-17T22:30:00+08:00",
+                calStart: "20260317T210000",
+                calEnd: "20260317T223000",
+                meetLink: "https://meet.google.com/iym-pxqa-fuf",
+                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MXNwczgxMHRjdGZ2djR0MWd0NG11N2JsdHEgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
+                slotsLeft: 18,
+                session: 1,
+                isFree: true
+            },
+            {
+                id: "sales-1",
+                title: "AI Automation for Sales Outreach",
+                speaker: "Warren Leow",
+                speakerTitle: "Founder & Strategy Lead",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true",
+                image: "https://images.unsplash.com/photo-1557426325-a8e236531981?auto=format&fit=crop&w=800&q=80",
+                description: "Automate lead scoring and personalized outreach at scale with autonomous agents that represent your brand.",
+                displayDate: "Mon, 24 Mar",
+                displayTime: "10:00am - 12:00pm",
+                startTime: "2026-03-24T10:00:00+08:00",
+                endTime: "2026-03-24T12:00:00+08:00",
+                calStart: "20260324T100000",
+                calEnd: "20260324T120000",
+                meetLink: "https://meet.google.com/tra-mveb-dyd",
+                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N2ZxNGRhaWJ1dW45bG83ZjRtN2NhYWtrZGwgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
+                slotsLeft: 7,
+                session: 1,
+                isFree: true
+            },
+            {
+                id: "finance-2",
+                title: "AI Automation for Finance Processes (S2)",
+                speaker: "Wei Khjan",
+                speakerTitle: "Auditor & MIA Accountant",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+                description: "Qualified auditor Wei Khjan shows how to use AI for reconciliation, analysis, and visualization with n8n and Claude Code.",
+                displayDate: "Thu, 26 Mar",
+                displayTime: "10:00am - 12:00pm",
+                startTime: "2026-03-26T10:00:00+08:00",
+                endTime: "2026-03-26T12:00:00+08:00",
+                calStart: "20260326T100000",
+                calEnd: "20260326T120000",
+                meetLink: "https://meet.google.com/ien-vkpi-ajm",
+                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N2cyZDM3aHM3cjloaDZkaTJjM2p0OWxqaGggaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
+                slotsLeft: 22,
+                session: 2,
+                isFree: true
+            },
+            {
+                id: "whatsapp-1",
+                title: "AI Marketing with Whatsapp Integration",
+                speaker: "Ruey Liuh",
+                speakerTitle: "Technical Specialist",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Ruey.jpg?raw=true",
+                image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=800&q=80",
+                description: "Automating customer conversations and lead qualifying directly on WhatsApp using intelligent AI agents.",
+                displayDate: "Tue, 7 Apr",
+                displayTime: "10:00am - 12:00pm",
+                startTime: "2026-04-07T10:00:00+08:00",
+                endTime: "2026-04-07T12:00:00+08:00",
+                calStart: "20260407T100000",
+                calEnd: "20260407T120000",
+                meetLink: "https://meet.google.com/pyt-qpvh-msy",
+                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTdlZ29rN2NwZ2s4aDc4ZzA3dmIwcXBpaDQgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
+                slotsLeft: 14,
+                session: 1,
+                isFree: true
+            },
+            {
+                id: "change-1",
+                title: "AI Strategic Change Management",
+                speaker: "Warren Leow",
+                speakerTitle: "Founder & Strategy Lead",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
+                description: "Navigating the cultural and operational shift required for successful AI adoption within corporate environments.",
+                displayDate: "Sat, 11 Apr",
+                displayTime: "10:00am - 12:00pm",
+                startTime: "2026-04-11T10:00:00+08:00",
+                endTime: "2026-04-11T12:00:00+08:00",
+                calStart: "20260411T100000",
+                calEnd: "20260411T120000",
+                meetLink: "https://meet.google.com/hmv-yvnf-mqt",
+                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MHBkZGU5M2pncHAxMzRicDgyOGRhNGZudDkgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
+                slotsLeft: 9,
+                session: 1,
+                isFree: true
+            }
+        ];
+
         lucide.createIcons();
         let currentWebinar = null;
+        let currentView = 'upcoming';
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHNqStlRYuzOYCMZxfdxNaRr_rFNaKZWIQdC5ypnXVZwanArlZiEbh-mFNN-CnDy2A/exec';
 
         /**
-         * Logic to handle the "Add to Calendar" button click.
-         * Decrements the "fake" slots count for visual urgency.
+         * Get Current Date/Time in Kuala Lumpur
          */
-        function openReg(title, start, end, speaker, counterId, meetLink, calLink) {
-            currentWebinar = { title, start, end, speaker, meetLink, calLink };
+        function getKLTime() {
+            return new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kuala_Lumpur"}));
+        }
+
+        /**
+         * Update the UI view (Toggle between Upcoming and Past)
+         */
+        function updateView(view) {
+            currentView = view;
+            const btnUpcoming = document.getElementById('btn-upcoming');
+            const btnPast = document.getElementById('btn-past');
+
+            if (view === 'upcoming') {
+                btnUpcoming.classList.add('active');
+                btnPast.classList.remove('active');
+            } else {
+                btnUpcoming.classList.remove('active');
+                btnPast.classList.add('active');
+            }
+
+            renderGrid();
+        }
+
+        /**
+         * Render the Webinar Cards
+         */
+        function renderGrid() {
+            const grid = document.getElementById('webinar-grid');
+            const now = getKLTime();
+            grid.innerHTML = '';
+
+            const filtered = webinars.filter(webinar => {
+                const eventEnd = new Date(webinar.endTime);
+                return currentView === 'upcoming' ? eventEnd > now : eventEnd <= now;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-20 text-center text-slate-400 font-bold uppercase tracking-widest">No ${currentView} events scheduled</div>`;
+                return;
+            }
+
+            filtered.forEach(webinar => {
+                const card = document.createElement('div');
+                card.className = `webinar-card webinar-item group ${currentView === 'past' ? 'past-event' : ''}`;
+                
+                const badge = currentView === 'past' 
+                    ? `<div class="absolute top-4 left-4 bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session Concluded</div>`
+                    : `<div class="absolute top-4 left-4 bg-pink-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session ${webinar.session}</div>`;
+
+                card.innerHTML = `
+                    <div class="relative aspect-video bg-slate-100 overflow-hidden">
+                        <img src="${webinar.image}" alt="${webinar.title}" class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700">
+                        ${badge}
+                        ${webinar.isFree ? `<div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">FREE</div>` : ''}
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex items-center gap-2 text-${currentView === 'past' ? 'slate-400' : 'pink-500'} text-xs font-bold mb-1 uppercase">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> ${webinar.displayDate} ${currentView === 'past' ? '(Concluded)' : `• ${webinar.displayTime}`}
+                        </div>
+                        ${currentView === 'upcoming' ? `
+                            <div class="text-[10px] font-bold text-orange-600 mb-3 flex items-center gap-1 uppercase urgency-badge">
+                                <i data-lucide="users" class="w-3 h-3"></i> Only <span id="count-${webinar.id}">${webinar.slotsLeft}</span> slots left / 100
+                            </div>
+                        ` : ''}
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">${webinar.title}</h3>
+                        <p class="text-slate-500 text-sm mb-6 flex-1">${webinar.description}</p>
+                        <div class="flex items-center gap-3 mb-6 pt-6 border-t border-slate-50">
+                            <img src="${webinar.speakerImg}" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100">
+                            <div>
+                                <p class="text-sm font-bold text-slate-900">${webinar.speaker}</p>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">${webinar.speakerTitle}</p>
+                            </div>
+                        </div>
+                        ${currentView === 'upcoming' 
+                            ? `<button onclick="handleRegClick('${webinar.id}')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>`
+                            : `<button disabled class="w-full bg-slate-100 text-slate-400 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider cursor-not-allowed">Registration Closed</button>`
+                        }
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
             
-            // Urgency trigger: Decrease the number visually
-            const counterElement = document.getElementById(counterId);
+            lucide.createIcons();
+        }
+
+        /**
+         * Handle "Add to Calendar" button click
+         */
+        function handleRegClick(id) {
+            const webinar = webinars.find(w => w.id === id);
+            if (!webinar) return;
+
+            currentWebinar = webinar;
+            
+            // Urgency decrement logic
+            const counterElement = document.getElementById(`count-${id}`);
             if (counterElement) {
                 let currentVal = parseInt(counterElement.innerText);
                 if (currentVal > 1) {
                     counterElement.innerText = currentVal - 1;
-                    // Flash the element briefly to draw attention to the change
                     counterElement.parentElement.classList.add('scale-110', 'text-red-600');
                     setTimeout(() => {
                         counterElement.parentElement.classList.remove('scale-110', 'text-red-600');
@@ -317,6 +395,7 @@
                 }
             }
 
+            // Open Modal
             document.getElementById('form-content').style.display = 'block';
             document.getElementById('success-content').style.display = 'none';
             document.getElementById('calendar-modal').classList.add('active');
@@ -329,26 +408,26 @@
             document.body.style.overflow = '';
         }
 
+        /**
+         * Generate Dynamic Calendar Links after registration
+         */
         function generateCalendarLinks() {
-            const { title, start, end, speaker, meetLink, calLink } = currentWebinar;
+            const { title, calStart, calEnd, speaker, meetLink, calLink } = currentWebinar;
+            const dialIn = "Dial: +1 502-530-1014 PIN: 425 195 383#";
+            const morePhones = "https://tel.meet/uqb-ykqs-wco?pin=9763124140281";
             
-            // If user provided a specific hardcoded cal link, use it for Google
-            if (calLink) {
-                document.getElementById('cal-google').href = calLink;
-            } else {
-                // Fallback generator
-                const details = `Webinar: ${title}\nSpeaker: ${speaker}\nGoogle Meet Link: ${meetLink}`;
-                const location = meetLink;
-                const gLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('AIT2U: ' + title)}&dates=${start}/${end}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&ctz=Asia/Kuala_Lumpur`;
-                document.getElementById('cal-google').href = gLink;
-            }
-
-            // Always generate a basic iCal for the other button
-            const icalData = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${start}\nDTEND:${end}\nSUMMARY:AIT2U: ${title}\nDESCRIPTION:Speaker: ${speaker}\\nLink: ${meetLink}\nLOCATION:${meetLink}\nEND:VEVENT\nEND:VCALENDAR`;
+            const details = `AITraining2U: ${title}\n\nSpeaker: ${speaker}\n\nVideo Call: ${meetLink}\n${dialIn}\nMore Numbers: ${morePhones}`;
+            const location = meetLink;
+            
+            // Use hardcoded calendar link if available, otherwise generate template
+            const gLink = calLink || `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('AIT2U: ' + title)}&dates=${calStart}/${calEnd}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&ctz=Asia/Kuala_Lumpur`;
+            
+            const icalData = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${calStart}\nDTEND:${calEnd}\nSUMMARY:AIT2U: ${title}\nDESCRIPTION:${details.replace(/\n/g, '\\n')}\nLOCATION:${location}\nEND:VEVENT\nEND:VCALENDAR`;
             const iLink = `data:text/calendar;charset=utf8,${encodeURIComponent(icalData)}`;
+
+            document.getElementById('cal-google').href = gLink;
             document.getElementById('cal-ical').href = iLink;
 
-            // Update success display
             document.getElementById('meet-link-display').innerText = `Link: ${meetLink}`;
             document.getElementById('meet-join-btn').href = meetLink;
         }
@@ -382,6 +461,9 @@
                     lucide.createIcons();
                 });
         });
+
+        // Initial render
+        window.onload = () => updateView('upcoming');
     </script>
 </body>
 </html>
