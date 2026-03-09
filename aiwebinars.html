@@ -283,7 +283,9 @@
         lucide.createIcons();
         let currentWebinar = null;
         let currentView = 'upcoming';
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHNqStlRYuzOYCMZxfdxNaRr_rFNaKZWIQdC5ypnXVZwanArlZiEbh-mFNN-CnDy2A/exec';
+        
+        // UPDATED SCRIPT URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWopUI78CPkXOdFGpfGR2NzSroc0BzNAjdXI2iT9BxQuY7PU1ZHPT12iUJ8KRC_Hi0/exec';
 
         function getKLTime() {
             return new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kuala_Lumpur"}));
@@ -422,13 +424,11 @@
             btn.disabled = true;
             lucide.createIcons();
 
-            // CAPTURE DATE AND TIMESTAMP IN KL TIME
             const now = getKLTime();
             const klDate = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
             const klTime = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
             const data = new FormData();
-            // Match requested Google Sheet columns exactly
             data.append('Date', klDate);
             data.append('Time Stamp', klTime);
             data.append('Event', currentWebinar.title);
