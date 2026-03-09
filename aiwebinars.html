@@ -114,7 +114,7 @@
                 <form id="calendar-lead-form" class="space-y-4">
                     <input type="text" id="reg-name" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
                     <input type="email" id="reg-email" required placeholder="Work Email" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                    <input type="tel" id="reg-phone" required placeholder="WhatsApp Number" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                    <input type="tel" id="reg-phone" required placeholder="WhatsApp Number (e.g. +60...)" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
                     <input type="text" id="reg-company" required placeholder="Company Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
                     <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2">Get Invite & Link <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
                 </form>
@@ -316,7 +316,7 @@
         let currentWebinar = null;
         let currentView = 'upcoming';
         
-        // UPDATED SCRIPT URL
+        // SCRIPT URL
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzH7uKqlK5qh__ZzrX_nZcB2cxwMhRlWkTQKtK1QhooAAtgNkVlrFSH6dfqgdOD47OcrQ/exec';
 
         function getKLTime() {
@@ -448,7 +448,23 @@
             data.append('Company Name', document.getElementById('reg-company').value);
             data.append('Name', document.getElementById('reg-name').value);
             data.append('Email', document.getElementById('reg-email').value);
-            data.append('Whatsapp Number', document.getElementById('reg-phone').value);
+
+            // AUTO-FORMAT WHATSAPP NUMBER
+            let whatsapp = document.getElementById('reg-phone').value.trim();
+            
+            // Remove common formatting characters
+            whatsapp = whatsapp.replace(/[\s\-\(\)]/g, '');
+
+            if (!whatsapp.startsWith('+')) {
+                if (whatsapp.startsWith('0')) {
+                    // Malaysian prefix conversion: 012... -> +6012...
+                    whatsapp = '+6' + whatsapp;
+                } else if (whatsapp.length > 5) {
+                    // Fallback: If no + and no leading 0, assume it's a code-less number and prepend +
+                    whatsapp = '+' + whatsapp;
+                }
+            }
+            data.append('Whatsapp Number', whatsapp);
             
             data.append('meetLink', currentWebinar.meetLink);
             data.append('calStart', currentWebinar.calStart);
