@@ -66,15 +66,37 @@
         }
 
         .animated-nav-bg {
-            background: rgba(251, 191, 36, 0.95);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
-        .hero-mesh {
-            background-color: #ffffff;
-            background-image:
-                radial-gradient(at 0% 0%, rgba(251, 191, 36, 0.2) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.2) 0px, transparent 50%);
+        .hero-light {
+            background: #fffbf0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-light::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 55%;
+            height: 110%;
+            background: radial-gradient(ellipse, rgba(251, 191, 36, 0.15) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-light::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 45%;
+            height: 90%;
+            background: radial-gradient(ellipse, rgba(249, 115, 22, 0.08) 0%, transparent 65%);
+            pointer-events: none;
         }
 
         .gradient-text {
@@ -95,6 +117,13 @@
             color: black;
             font-weight: 800;
             transition: all 0.3s ease;
+        }
+
+        .hero-grid-bg {
+            background-image:
+                linear-gradient(rgba(245, 158, 11, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(245, 158, 11, 0.06) 1px, transparent 1px);
+            background-size: 52px 52px;
         }
 
         .section-card {
@@ -161,99 +190,81 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
 
-    <header class="fixed top-0 left-0 right-0 z-50 animated-nav-bg border-b border-yellow-500/30">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center shadow-md">
-                    <i data-lucide="code-2" class="text-yellow-400 w-5 h-5"></i>
+    <header class="fixed top-0 left-0 right-0 z-50 animated-nav-bg border-b border-amber-200/40 shadow-sm">
+        <nav class="container mx-auto px-6 py-3.5 flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center shadow-md shadow-yellow-500/20">
+                    <i data-lucide="zap" class="text-white w-5 h-5"></i>
                 </div>
                 <a href="index.html" class="text-xl font-black tracking-tight text-slate-900">AITraining<span
-                        class="text-white">2U</span></a>
+                        class="text-amber-600">2U</span></a>
             </div>
 
-            <div class="hidden lg:flex items-center space-x-8 text-sm font-bold text-slate-900">
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-bold text-slate-600">
                 <div class="relative dropdown group">
-                    <button class="flex items-center gap-1 hover:text-white transition py-2 font-black">
+                    <button class="flex items-center gap-1 hover:text-amber-600 transition py-2 font-black text-slate-700">
                         Programs <i data-lucide="chevron-down" class="w-4 h-4"></i>
                     </button>
                     <div
                         class="dropdown-menu absolute hidden top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl p-2 mt-2 z-50">
                         <a href="index.html"
-                            class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            class="block px-4 py-3 rounded-xl hover:bg-amber-50 transition text-slate-700">
                             <span class="font-bold block text-sm">AI Corporate Training</span>
                             <span
                                 class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Enterprise</span>
                         </a>
                         <a href="aiautomation.html"
-                            class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            class="block px-4 py-3 rounded-xl hover:bg-amber-50 transition text-slate-700">
                             <span class="font-bold block text-sm">AI Agentic Automation</span>
                             <span
                                 class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Specialist</span>
                         </a>
                         <a href="aivibecoding.html"
-                            class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">AI Vibe Coding</span>
+                            class="block px-4 py-3 rounded-xl bg-amber-50 transition text-slate-700">
+                            <span class="font-bold block text-sm text-amber-700">AI Vibe Coding</span>
                             <span
-                                class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Prototyping</span>
+                                class="text-[10px] text-amber-500 uppercase tracking-wider font-bold">Prototyping</span>
                         </a>
                     </div>
                 </div>
-                <a href="#dates" class="hover:text-white transition">Dates</a>
-                <a href="#syllabus" class="hover:text-white transition">Syllabus</a>
-                <a href="#faculty" class="hover:text-white transition">Faculty</a>
-                <a href="#faq" class="hover:text-white transition">FAQ</a>
+                <a href="#dates" class="hover:text-amber-600 transition">Dates</a>
+                <a href="#syllabus" class="hover:text-amber-600 transition">Syllabus</a>
+                <a href="#faculty" class="hover:text-amber-600 transition">Faculty</a>
+                <a href="#faq" class="hover:text-amber-600 transition">FAQ</a>
                 <a href="https://wa.me/60126791203" id="cta-nav-register" target="_blank"
-                    class="bg-black text-yellow-400 hover:bg-slate-800 transition px-5 py-2.5 rounded-full font-bold shadow-lg">Register
+                    class="bg-slate-900 text-white hover:bg-slate-800 px-5 py-2.5 rounded-full font-bold shadow-lg hover:scale-105 transition-all">Register
                     Now</a>
             </div>
         </nav>
     </header>
 
-    <main class="pt-20">
+    <main class="pt-0">
 
         <!-- Hero Section -->
-        <section class="hero-mesh px-6 py-20 lg:py-24 overflow-hidden border-b border-yellow-100 text-center relative">
-            <!-- Animated Background SVG -->
-            <div id="vibe-bg"
-                class="absolute inset-0 z-0 opacity-20 pointer-events-none flex justify-center items-center">
-                <svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g id="code-nodes" fill="none" stroke="#f59e0b" stroke-width="2">
-                        <circle cx="200" cy="150" r="10" />
-                        <circle cx="600" cy="200" r="15" />
-                        <circle cx="300" cy="450" r="12" />
-                        <circle cx="500" cy="400" r="8" />
-                        <path id="path1" d="M 200 150 Q 400 100 600 200" stroke-dasharray="5 5" />
-                        <path id="path2" d="M 600 200 Q 550 350 500 400" stroke-dasharray="5 5" />
-                        <path id="path3" d="M 500 400 Q 400 450 300 450" stroke-dasharray="5 5" />
-                        <path id="path4" d="M 300 450 Q 250 300 200 150" stroke-dasharray="5 5" />
+        <section class="hero-light px-6 pt-28 pb-16 lg:pt-36 lg:pb-20 text-center relative border-b border-amber-100">
+            <!-- Grid background -->
+            <div class="absolute inset-0 hero-grid-bg pointer-events-none"></div>
 
-                        <!-- Decorative code brackets -->
-                        <text x="150" y="200" font-family="monospace" font-size="24" fill="#f59e0b" opacity="0.5">{
-                            }</text>
-                        <text x="600" y="300" font-family="monospace" font-size="32" fill="#ea580c"
-                            opacity="0.3">&lt;/&gt;</text>
-                        <text x="350" y="350" font-family="monospace" font-size="20" fill="#d97706" opacity="0.4">()
-                            =&gt;</text>
-                    </g>
-                </svg>
-            </div>
+            <!-- Fade-out at bottom -->
+            <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none z-[1]"></div>
+
             <div class="container mx-auto relative z-10">
                 <div
-                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-100 border border-yellow-200 text-yellow-800 text-xs font-black uppercase tracking-wider mb-8">
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 border border-amber-200 text-amber-800 text-xs font-black uppercase tracking-wider mb-8">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
                     Rapid Product Building Workshop
                 </div>
                 <h1
                     class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-8 text-slate-900">
-                    AI Vibe Coding & <br><span class="gradient-text">App Building</span>
+                    AI Vibe Coding &<br><span class="gradient-text">App Building</span>
                 </h1>
-                <p class="text-slate-600 text-lg md:text-xl font-medium max-w-3xl mx-auto mb-10">
-                    Plan smarter, build faster. Learn to leverage top <strong>AI coding agents</strong> to go from
-                    concept to functional web apps in minutes—friendly for non-technical people.
+                <p class="text-slate-500 text-lg md:text-xl font-medium max-w-3xl mx-auto mb-10">
+                    Plan smarter, build faster. Learn to leverage top <strong class="text-slate-900">AI coding agents</strong> to go from
+                    concept to functional web apps in minutes — friendly for non-technical people.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="https://forms.gle/3Z42ywS4HRCa1MHE8" target="_blank"
-                        class="btn-accent px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto hover:scale-105 shadow-xl shadow-yellow-500/20">
+                        class="btn-accent px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto hover:scale-105 shadow-lg shadow-amber-400/25 transition-transform">
                         Book Now
                     </a>
                     <a href="https://drive.google.com/file/d/1PoZqhR5iepdlO4zTN57DKA6n7CLIFART/view?usp=drive_link"
@@ -264,92 +275,6 @@
                 </div>
 
 
-                <!-- Hero App Mockups Composition -->
-                <div class="mt-24 w-full relative">
-                    <div class="text-center mb-10">
-                        <p class="text-xs font-black text-amber-600 uppercase tracking-widest mb-3">Unlimited
-                            Possibilities with AI Vibe Coding</p>
-                        <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Build any app you
-                            can imagine</h2>
-                    </div>
-
-                    <div
-                        class="relative w-full max-w-5xl mx-auto h-[280px] sm:h-[350px] lg:h-[450px] flex justify-center hero-mockup-trigger perspective-1000 mt-12">
-
-                        <!-- The dark base that unites them -->
-                        <div
-                            class="absolute bottom-[-10%] left-[2%] right-[2%] md:left-[5%] md:right-[5%] h-[75%] bg-slate-900 rounded-t-[2rem] md:rounded-t-[3rem] z-0 shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.3)]">
-                        </div>
-
-                        <!-- 1. Far Left (Outer Left) -->
-                        <div
-                            class="hero-mockup-card absolute top-[20%] left-[2%] md:left-[5%] w-[25%] md:w-[22%] rounded-xl overflow-hidden shadow-2xl z-10 hover:-translate-y-2 hover:rotate-0 transition-all duration-500 transform -rotate-6 origin-bottom border border-slate-700/50 hidden md:block">
-                            <div class="bg-slate-800 border-b border-slate-700 px-2 py-1.5 flex gap-1 items-center">
-                                <div class="w-1.5 h-1.5 rounded-full bg-slate-600"></div>
-                                <div class="w-1.5 h-1.5 rounded-full bg-slate-600"></div>
-                                <div class="w-1.5 h-1.5 rounded-full bg-slate-600"></div>
-                            </div>
-                            <img src="Supern8n.jpeg"
-                                class="w-full h-[150px] md:h-[220px] object-cover object-left opacity-70 hover:opacity-100 transition-opacity">
-                        </div>
-
-                        <!-- 2. Mid Left (Inner Left) -->
-                        <div
-                            class="hero-mockup-card absolute top-[10%] left-[8%] md:left-[18%] w-[40%] md:w-[32%] rounded-t-xl rounded-b overflow-hidden shadow-2xl z-20 hover:-translate-y-3 hover:rotate-0 transition-all duration-500 transform -rotate-3 origin-bottom border border-slate-200">
-                            <div class="bg-slate-100 border-b border-slate-200 px-2 py-2 flex gap-1 items-center">
-                                <div class="w-2 h-2 rounded-full bg-red-400"></div>
-                                <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
-                                <div class="w-2 h-2 rounded-full bg-green-400"></div>
-                            </div>
-                            <img src="SuperCFO.jpeg"
-                                class="w-full h-[200px] sm:h-[250px] lg:h-[320px] object-cover object-top opacity-90 hover:opacity-100 transition-opacity">
-                        </div>
-
-                        <!-- 4. Mid Right (Inner Right) -->
-                        <div
-                            class="hero-mockup-card absolute top-[10%] right-[8%] md:right-[18%] w-[40%] md:w-[32%] rounded-t-xl rounded-b overflow-hidden shadow-2xl z-20 hover:-translate-y-3 hover:rotate-0 transition-all duration-500 transform rotate-3 origin-bottom border border-slate-200">
-                            <div class="bg-slate-100 border-b border-slate-200 px-2 py-2 flex gap-1 items-center">
-                                <div class="w-2 h-2 rounded-full bg-red-400"></div>
-                                <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
-                                <div class="w-2 h-2 rounded-full bg-green-400"></div>
-                            </div>
-                            <img src="Superhomes.jpeg"
-                                class="w-full h-[200px] sm:h-[250px] lg:h-[320px] object-cover object-top opacity-90 hover:opacity-100 transition-opacity">
-                        </div>
-
-                        <!-- 5. Far Right (Outer Right) -->
-                        <div
-                            class="hero-mockup-card absolute top-[20%] right-[2%] md:right-[5%] w-[25%] md:w-[22%] rounded-xl overflow-hidden shadow-2xl z-10 hover:-translate-y-2 hover:rotate-0 transition-all duration-500 transform rotate-6 origin-bottom border border-slate-700/50 hidden md:block">
-                            <div class="bg-slate-800 border-b border-slate-700 px-2 py-1.5 flex gap-1 items-center">
-                                <div class="w-1.5 h-1.5 rounded-full bg-slate-600"></div>
-                                <div class="w-1.5 h-1.5 rounded-full bg-slate-600"></div>
-                                <div class="w-1.5 h-1.5 rounded-full bg-slate-600"></div>
-                            </div>
-                            <img src="Supern8n.jpeg"
-                                class="w-full h-[150px] md:h-[220px] object-cover object-right opacity-70 hover:opacity-100 transition-opacity">
-                        </div>
-
-                        <!-- 3. Center (Main Form) -->
-                        <div
-                            class="hero-mockup-card absolute top-[-5%] left-1/2 -translate-x-1/2 w-[65%] md:w-[45%] rounded-t-xl rounded-b sm:rounded-2xl overflow-hidden border border-slate-300 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] z-30 hover:-translate-y-6 transition-transform duration-500 bg-white">
-                            <div
-                                class="bg-slate-50 border-b border-slate-200 px-3 py-2.5 flex justify-center items-center relative gap-1.5 hidden sm:flex">
-                                <div class="absolute left-3 flex gap-1.5">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
-                                </div>
-                                <div
-                                    class="bg-white border border-slate-200 w-2/3 md:w-1/2 h-6 rounded-md flex items-center justify-center text-[11px] text-slate-800 font-bold shadow-sm flex gap-1">
-                                    <i data-lucide="lock" class="w-3 h-3 text-slate-400"></i> superjobs.ai
-                                </div>
-                            </div>
-                            <img src="Superjobs.jpeg"
-                                class="w-full h-[220px] sm:h-[300px] lg:h-[400px] object-cover object-top">
-                        </div>
-
-                    </div>
-                </div>
 
             </div>
         </section>
@@ -361,42 +286,39 @@
                     & developer tools</p>
                 <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
 
-                    <!-- Claude Code -->
+                    <!-- Claude Code (Anthropic logo) -->
                     <div
                         class="flex items-center gap-2.5 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-105 cursor-default">
-                        <img src="https://cdn.simpleicons.org/anthropic/D97757" alt="Claude Code" class="w-7 h-7">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="#D4A27F" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.827 3.52h3.603L24 20.48h-3.603zm-7.258 0L0 20.48h3.602l1.585-4.2h7.063l1.585 4.2h3.603L10.869 3.52zm-.588 10.2 2.288-6.06 2.288 6.06z"/>
+                        </svg>
                         <span class="font-bold text-slate-800 text-lg tracking-tight">Claude Code</span>
                     </div>
 
-                    <!-- AntiGravity -->
+                    <!-- AntiGravity (rocket icon) -->
                     <div
                         class="flex items-center gap-2.5 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-105 cursor-default">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0f172a"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
-                            <path
-                                d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-                            <path
-                                d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5-4 5-4s2.92 3.38 4 5h-4z" />
-                        </svg>
+                        <i data-lucide="rocket" class="w-6 h-6 text-slate-800"></i>
                         <span class="font-bold text-slate-800 text-lg tracking-tight">AntiGravity</span>
                     </div>
 
-                    <!-- Google AI Studio -->
+                    <!-- Google AI Studio (Google "G" logo) -->
                     <div
                         class="flex items-center gap-2.5 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-105 cursor-default">
-                        <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google AI Studio" class="w-6 h-6">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
                         <span class="font-bold text-slate-800 text-lg tracking-tight">Google AI Studio</span>
                     </div>
 
-                    <!-- GPT-5.4-Codex -->
+                    <!-- GPT-5.4-Codex (OpenAI logo) -->
                     <div
                         class="flex items-center gap-2.5 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-105 cursor-default">
-                        <svg role="img" viewBox="0 0 24 24" fill="#10A37F" class="w-6 h-6"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <title>OpenAI</title>
-                            <path
-                                d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2057 5.9894 5.9894 0 0 0 3.9928-2.9001 6.0462 6.0462 0 0 0-.7426-7.0731zM8.4369 16.9205a4.4816 4.4816 0 0 1-2.2272-3.8562 4.4087 4.4087 0 0 1 2.2277-3.8344 4.394 4.394 0 0 1 4.4239 0L14.7 10.3c.1215-.07.195-.1981.1965-.3374v-3.729c0-.4472-.361-.8097-.8077-.8097A4.4005 4.4005 0 0 1 9.6841 3.235a4.4262 4.4262 0 0 1-2.203-3.812A4.4005 4.4005 0 0 1 11.2335.795l1.8317 1.0571c.1214.07.1947.1983.1959.3377v3.7438c0 .4456.36.8066.8055.8066h3.663c.4455 0 .8055.361.8055.8066A4.4005 4.4005 0 0 1 14.3927 11.8a4.4262 4.4262 0 0 1-2.203 3.812v.0001a4.4005 4.4005 0 0 1-3.7528-.0004v-.0002.0001l-1.8385-1.061-.0003-.0002.0003.0002h-.0001a4.396 4.396 0 0 1-2.1834.4219zm11.3962-4.9927A4.4449 4.4449 0 0 1 22 13.4312v3.7197c0 .4472-.361.8097-.8077.8097a4.398 4.398 0 0 1-4.4047-2.189 4.4262 4.4262 0 0 1-2.203-3.8121 4.4005 4.4005 0 0 1 3.754-.4219l1.8386 1.061c.1215.07.2882.07.4097 0 .1216-.07.1951-.1981.1966-.3375v-3.7423c0-.4456.36-.8066.8054-.8066a4.4005 4.4005 0 0 1 3.9676 1.5794l-1.848-1.0664-.0002-.0001.0002.0001a4.4442 4.4442 0 0 1-.4182.2619zM2.8135 12.0163a4.4816 4.4816 0 0 1 1.0841-4.2862 4.4087 4.4087 0 0 1 4.4363-2.1384 4.394 4.394 0 0 1 2.2119 3.831L8.7112 10.4c-.1214.07-.2882.07-.4097 0-.1216-.07-.1951-.1981-.1966-.3375v-3.7423c0-.4456-.36-.8066-.8054-.8066H3.6366c-.4455 0-.8055.361-.8055.8066a4.4005 4.4005 0 0 1 3.9676 1.5794L4.9507 8.966l-.0002-.0001.0002.0001a4.4442 4.4442 0 0 1-.4182.2619zm15.4674.2045a4.4816 4.4816 0 0 1-1.0841 4.2862 4.4087 4.4087 0 0 1-4.4363 2.1384 4.394 4.394 0 0 1-2.2119-3.831l1.8346-1.06c.1214-.07.2882-.07.4097 0 .1216.07.1951.1981.1966.3375v3.7423c0 .4456.36.8066.8054.8066H20.3634c.4455 0 .8055-.361.8055-.8066a4.4005 4.4005 0 0 1-3.9676-1.5794l1.848 1.0664.0002.0001-.0002-.0001a4.4442 4.4442 0 0 1 .4182-.2619zm-3.6626 4.8876a4.4816 4.4816 0 0 1-4.2862 1.0841 4.4087 4.4087 0 0 1-2.1384-4.4363 4.394 4.394 0 0 1 3.831-2.2119l-1.06-1.8346c-.07-.1214-.07-.2882 0-.4097.07-.1216.1981-.1951.3375-.1966h3.7423c.4456 0 .8066.36.8066.8054V12.0163c0 .4455-.361.8055-.8066.8055a4.4005 4.4005 0 0 1-1.5794-3.9676l1.0664 1.848.0001.0002-.0001-.0002a4.4442 4.4442 0 0 1-.2619 .4182zm-4.3824 1.8484v.0001A4.4005 4.4005 0 0 1 6.551 16.5l.0003-.0001-.0003.0001a4.4442 4.4442 0 0 1 .262-.4182 4.4816 4.4816 0 0 1 4.2862-1.0841 4.4087 4.4087 0 0 1 2.1384 4.4363 4.394 4.394 0 0 1-3.831 2.2119L10.467 19.8113c.07.1214.07.2882 0 .4097-.07.1216-.1981.1951-.3375.1966H6.3872c-.4456 0-.8066-.36-.8066-.8054V15.869c0-.4455.361-.8055.8066-.8055a4.4005 4.4005 0 0 1 1.5794 3.9676l1.0664-1.848c.1215-.2246.3323-.3773.5794-.4182zm4.182-13.4116v-.0001a4.4005 4.4005 0 0 1 3.9142 2.4l-.0003.0001.0003-.0001a4.4442 4.4442 0 0 1-.262.4182 4.4816 4.4816 0 0 1-4.2862 1.0841 4.4087 4.4087 0 0 1-2.1384-4.4363 4.394 4.394 0 0 1 3.831-2.2119l1.06 1.8346c-.07-.1214-.07-.2882 0-.4097.07-.1216.1981-.1951.3375-.1966h3.7423c.4456 0 .8066.36.8066.8054V7.5191c0 .4455-.361.8055-.8066.8055A4.4005 4.4005 0 0 1 13.9877 4.357l-1.0664 1.848c-.1215.2246-.3323.3773-.5794.4182zM12 15.0116A3.0116 3.0116 0 1 1 12 8.9884a3.0116 3.0116 0 0 1 0 6.0232z" />
+                        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="#000000" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.993-2.9 6.046 6.046 0 0 0-.743-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071.005l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.896zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071-.005l4.83 2.786a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.657zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/>
                         </svg>
                         <span class="font-bold text-slate-800 text-lg tracking-tight">GPT-5.4-Codex</span>
                     </div>
@@ -406,7 +328,9 @@
                     <!-- Claude Opus 4.6 -->
                     <div
                         class="flex items-center gap-2 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-105 cursor-default border border-slate-200 bg-white px-4 py-2 rounded-full shadow-sm">
-                        <img src="https://cdn.simpleicons.org/anthropic/D97757" alt="Opus" class="w-4 h-4">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="#D4A27F" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.827 3.52h3.603L24 20.48h-3.603zm-7.258 0L0 20.48h3.602l1.585-4.2h7.063l1.585 4.2h3.603L10.869 3.52zm-.588 10.2 2.288-6.06 2.288 6.06z"/>
+                        </svg>
                         <span class="font-bold text-slate-800 text-sm">Opus <span
                                 class="text-slate-500">4.6</span></span>
                     </div>
@@ -414,7 +338,9 @@
                     <!-- Sonnet 4.6 -->
                     <div
                         class="flex items-center gap-2 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-105 cursor-default border border-slate-200 bg-white px-4 py-2 rounded-full shadow-sm">
-                        <img src="https://cdn.simpleicons.org/anthropic/D97757" alt="Sonnet" class="w-4 h-4">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="#D4A27F" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.827 3.52h3.603L24 20.48h-3.603zm-7.258 0L0 20.48h3.602l1.585-4.2h7.063l1.585 4.2h3.603L10.869 3.52zm-.588 10.2 2.288-6.06 2.288 6.06z"/>
+                        </svg>
                         <span class="font-bold text-slate-800 text-sm">Sonnet <span
                                 class="text-slate-500">4.6</span></span>
                     </div>
@@ -422,7 +348,9 @@
                     <!-- Gemini 3.1 Pro -->
                     <div
                         class="flex items-center gap-2 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-105 cursor-default border border-slate-200 bg-white px-4 py-2 rounded-full shadow-sm">
-                        <img src="https://cdn.simpleicons.org/googlegemini/8E75B2" alt="Gemini" class="w-4 h-4">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C12 6.627 17.373 12 24 12 17.373 12 12 17.373 12 24 12 17.373 6.627 12 0 12 6.627 12 12 6.627 12 0Z" fill="#8E75B2"/>
+                        </svg>
                         <span class="font-bold text-slate-800 text-sm">Gemini <span class="text-slate-500">3.1
                                 Pro</span></span>
                     </div>
@@ -440,7 +368,7 @@
                     <p class="text-slate-600 font-medium">Limited spots available for the next intake.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+                <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
 
                     <!-- Date Card 1: Private Corporate Spot -->
                     <div
@@ -518,95 +446,168 @@
                     </div>
                     <div class="relative z-10 flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
                         <a href="https://wa.me/60126791203"
-                            class="flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-xl transition shadow-lg">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i> Contact Us
+                            class="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-xl transition shadow-lg whitespace-nowrap">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            <span>Contact Us</span>
                         </a>
                         <a href="https://wa.me/60126791203"
-                            class="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-8 rounded-xl transition shadow-lg">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i> Corporate Sales
+                            class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-8 rounded-xl transition shadow-lg whitespace-nowrap">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            <span>Corporate Sales</span>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Project Showcase Section -->
-        <section id="projects" class="py-24 bg-slate-50 border-b border-slate-200">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">What
-                        You'll Build</h2>
-                    <p class="text-slate-500 text-lg">Visualizing real-world AI logic. Here are examples of actual
-                        production-ready workflows and agentic pipelines we cover.</p>
+        <!-- What You'll Build Section -->
+        <section id="projects" class="py-24 bg-white border-b border-slate-100 relative overflow-hidden">
+            <!-- Subtle background accent -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-amber-50 opacity-50 blur-3xl pointer-events-none"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <!-- Section header -->
+                <div class="text-center mb-14 max-w-3xl mx-auto">
+                    <p class="text-[11px] font-black text-amber-600 uppercase tracking-widest mb-3">Student Portfolio Showcase</p>
+                    <h2 class="text-3xl md:text-5xl font-black mb-5 tracking-tight text-slate-900">What You'll Build</h2>
+                    <p class="text-slate-500 text-lg">Real projects built by workshop participants in just 2 days — from finance dashboards to interactive maps.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <!-- Project 1 -->
-                    <div
-                        class="workflow-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group cursor-pointer lg:col-span-2">
-                        <div class="h-64 overflow-hidden bg-slate-100 border-b border-slate-100 relative">
-                            <img src="CineBoard_Asset.png" alt="CineBoard Pro Asset Manager"
-                                class="w-full h-full object-cover transition-transform duration-500 object-top">
+                <!-- Live App Mockups (dark tray) -->
+                <div class="relative w-full max-w-6xl mx-auto mb-20 hero-mockup-trigger">
+                    <div class="text-center mb-6">
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Full-stack apps deployed to production</p>
+                    </div>
+                    <!-- 3-column showcase grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <!-- SuperCFO -->
+                        <div class="hero-mockup-card group rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <div class="bg-slate-50 border-b border-slate-200 px-3 py-2 flex items-center relative">
+                                <div class="flex gap-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                                </div>
+                                <div class="mx-auto bg-white border border-slate-200 h-5 rounded px-3 flex items-center text-[10px] text-slate-500 font-medium">supercfo.app</div>
+                            </div>
+                            <img src="./SuperCFO.jpeg" alt="SuperCFO Finance Dashboard" class="w-full aspect-video object-cover object-top">
+                            <div class="p-4 border-t border-slate-100">
+                                <p class="text-sm font-bold text-slate-900">SuperCFO</p>
+                                <p class="text-xs text-slate-400">AI Finance Dashboard</p>
+                            </div>
                         </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span class="text-indigo-500 font-bold text-[10px] uppercase tracking-widest mb-2">AI Asset
-                                Manager</span>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">CineBoard Pro: Asset Bundle</h3>
-                            <p class="text-slate-500 text-sm mt-auto">A robust platform for managing AI-generated
-                                assets, characters, and sprites. Built to streamline production pipelines using
-                                <strong>Claude Code</strong> and modern web frameworks.</p>
+                        <!-- SuperJobs -->
+                        <div class="hero-mockup-card group rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <div class="bg-slate-50 border-b border-slate-200 px-3 py-2 flex items-center relative">
+                                <div class="flex gap-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                                </div>
+                                <div class="mx-auto bg-white border border-slate-200 h-5 rounded px-3 flex items-center text-[10px] text-slate-500 font-medium gap-1">
+                                    <i data-lucide="lock" class="w-2.5 h-2.5 text-slate-400"></i> superjobs.ai
+                                </div>
+                            </div>
+                            <img src="./Superjobs.jpeg" alt="SuperJobs Job Platform" class="w-full aspect-video object-cover object-top">
+                            <div class="p-4 border-t border-slate-100">
+                                <p class="text-sm font-bold text-slate-900">SuperJobs</p>
+                                <p class="text-xs text-slate-400">AI Job Matching Platform</p>
+                            </div>
+                        </div>
+                        <!-- SuperHomes -->
+                        <div class="hero-mockup-card group rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <div class="bg-slate-50 border-b border-slate-200 px-3 py-2 flex items-center relative">
+                                <div class="flex gap-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                                </div>
+                                <div class="mx-auto bg-white border border-slate-200 h-5 rounded px-3 flex items-center text-[10px] text-slate-500 font-medium">superhomes.my</div>
+                            </div>
+                            <img src="./Superhomes.jpeg" alt="SuperHomes Property Platform" class="w-full aspect-video object-cover object-top">
+                            <div class="p-4 border-t border-slate-100">
+                                <p class="text-sm font-bold text-slate-900">SuperHomes</p>
+                                <p class="text-xs text-slate-400">Smart Property Search</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Cards Grid -->
+                <div class="text-center mb-10">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">More examples from the workshop</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                    <!-- Project 1 -->
+                    <div class="workflow-card group bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl hover:border-amber-200 transition-all duration-300 hover:-translate-y-1">
+                        <div class="h-56 overflow-hidden bg-slate-100 relative">
+                            <img src="./CineBoard_Asset.png" alt="CineBoard Pro Asset Manager"
+                                class="w-full h-full object-cover transition-transform duration-500 object-top">
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-indigo-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">AI Asset Manager</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3">
+                                <span class="bg-white/90 backdrop-blur-sm text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-full border border-slate-200">Claude Code</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-slate-900 mb-1.5">CineBoard Pro: Asset Bundle</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">A platform for managing AI-generated assets, characters, and sprites — built to streamline production pipelines.</p>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div
-                        class="workflow-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group cursor-pointer">
-                        <div class="h-64 overflow-hidden bg-slate-100 border-b border-slate-100 relative">
-                            <img src="Super_Illustration.png" alt="Super Illustration Gallery"
+                    <div class="workflow-card group bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl hover:border-amber-200 transition-all duration-300 hover:-translate-y-1">
+                        <div class="h-56 overflow-hidden bg-slate-100 relative">
+                            <img src="./Super_Illustration.png" alt="Super Illustration Gallery"
                                 class="w-full h-full object-cover transition-transform duration-500 object-left-top">
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-pink-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">AI Generator</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3">
+                                <span class="bg-white/90 backdrop-blur-sm text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-full border border-slate-200">AntiGravity</span>
+                            </div>
                         </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span class="text-pink-500 font-bold text-[10px] uppercase tracking-widest mb-2">AI
-                                Generator</span>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Super Illustration Gallery</h3>
-                            <p class="text-slate-500 text-sm mt-auto">Build an interactive gallery for generating and
-                                curating high-end SaaS visual assets using different art directions, entirely scaffolded
-                                with <strong>Antigravity</strong>.</p>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-slate-900 mb-1.5">Super Illustration Gallery</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">An interactive gallery for generating and curating high-end SaaS visual assets using different art directions.</p>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div
-                        class="workflow-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group cursor-pointer">
-                        <div class="h-64 overflow-hidden bg-slate-100 border-b border-slate-100 relative">
-                            <img src="Malaysia_Voting.png" alt="Malaysia Voting Areas Map"
+                    <div class="workflow-card group bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl hover:border-amber-200 transition-all duration-300 hover:-translate-y-1">
+                        <div class="h-56 overflow-hidden bg-slate-100 relative">
+                            <img src="./Malaysia_Voting.png" alt="Malaysia Voting Areas Map"
                                 class="w-full h-full object-cover transition-transform duration-500 object-left-top">
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Interactive Maps</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3">
+                                <span class="bg-white/90 backdrop-blur-sm text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-full border border-slate-200">Claude Code</span>
+                            </div>
                         </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span
-                                class="text-emerald-500 font-bold text-[10px] uppercase tracking-widest mb-2">Interactive
-                                Maps</span>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Geospatial Data Visualization</h3>
-                            <p class="text-slate-500 text-sm mt-auto">Create a complex, interactive mapping tool that
-                                visualizes granular constituency data across regions using powerful charting libraries
-                                and <strong>Claude Code</strong>.</p>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-slate-900 mb-1.5">Geospatial Data Visualization</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">A complex, interactive mapping tool that visualizes granular constituency data across Malaysian regions.</p>
                         </div>
                     </div>
 
                     <!-- Project 4 -->
-                    <div
-                        class="workflow-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group cursor-pointer lg:col-span-2">
-                        <div class="h-64 overflow-hidden bg-slate-100 border-b border-slate-100 relative">
-                            <img src="CineBoard_Storyboard.png" alt="CineBoard Pro Storyboard"
+                    <div class="workflow-card group bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl hover:border-amber-200 transition-all duration-300 hover:-translate-y-1">
+                        <div class="h-56 overflow-hidden bg-slate-100 relative">
+                            <img src="./CineBoard_Storyboard.png" alt="CineBoard Pro Storyboard"
                                 class="w-full h-full object-cover transition-transform duration-500 object-top">
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-blue-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Production Tool</span>
+                            </div>
+                            <div class="absolute bottom-3 right-3">
+                                <span class="bg-white/90 backdrop-blur-sm text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-full border border-slate-200">Claude Code</span>
+                            </div>
                         </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Production
-                                Tool</span>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">AI Storyboard Architect</h3>
-                            <p class="text-slate-500 text-sm mt-auto">Develop a cinematic pre-visualization dashboard.
-                                Arrange scenes, define camera angles, and manage prompt engineering directly within the
-                                web app.</p>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-slate-900 mb-1.5">AI Storyboard Architect</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">A cinematic pre-visualization dashboard to arrange scenes, define camera angles, and manage prompt engineering.</p>
                         </div>
                     </div>
                 </div>
@@ -616,78 +617,104 @@
         <!-- Syllabus Flow -->
         <section id="syllabus" class="py-24 bg-white border-b border-slate-100">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">Vibe Coding
                             Curriculum</h2>
                         <p class="text-slate-500">A structured, hands-on approach to mastering rapid prototyping.</p>
                     </div>
 
-                    <div class="space-y-8">
-                        <!-- Day 1 -->
-                        <div class="section-card p-8 rounded-[2rem] border-l-8 border-yellow-400 bg-white">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3 class="text-xl font-black text-slate-900">Day 1: PRD Drafting & UI Engineering</h3>
-                                <span
-                                    class="bg-yellow-100 text-yellow-600 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-yellow-200">Phase
-                                    01</span>
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+                        <!-- Left: Core Curriculum (Day 1 & Day 2) -->
+                        <div class="lg:col-span-3 space-y-6">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-amber-100 text-amber-700 text-xs font-bold uppercase px-3 py-1 rounded-full border border-amber-200">Core Program</span>
+                                <span class="text-slate-400 text-xs">Fixed 2-Day Curriculum</span>
                             </div>
-                            <ul class="space-y-4 text-slate-500 text-sm">
-                                <li class="flex items-start gap-3"><i data-lucide="file-text"
-                                        class="w-5 h-5 text-yellow-500 mt-0.5"></i><strong>PRD Architecting:</strong>
-                                    Learning to draft comprehensive Product Requirements Documents with AI to prevent
-                                    "scope creep".</li>
-                                <li class="flex items-start gap-3"><i data-lucide="layers"
-                                        class="w-5 h-5 text-yellow-500 mt-0.5"></i><strong>Rapid UI with
-                                        Antigravity:</strong> Using Antigravity to generate full-stack scaffolds and
-                                    responsive frontends instantly from your PRD.</li>
-                                <li class="flex items-start gap-3"><i data-lucide="github"
-                                        class="w-5 h-5 text-yellow-500 mt-0.5"></i><strong>Initial GitHub
-                                        Setup:</strong> Creating repositories and understanding basic version control
-                                    for AI-generated code.</li>
-                            </ul>
+
+                            <!-- Day 1 -->
+                            <div class="section-card p-7 rounded-2xl border border-yellow-200 bg-gradient-to-br from-yellow-50/80 to-white shadow-sm">
+                                <div class="flex justify-between items-start mb-5">
+                                    <h3 class="text-lg font-black text-slate-900">Day 1: PRD Drafting & UI Engineering</h3>
+                                    <span class="bg-yellow-100 text-yellow-600 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-yellow-200 shrink-0 ml-3">Phase 01</span>
+                                </div>
+                                <ul class="space-y-4 text-slate-500 text-sm">
+                                    <li class="flex items-start gap-3"><i data-lucide="file-text" class="w-5 h-5 text-yellow-500 mt-0.5 shrink-0"></i><span><strong>PRD Architecting:</strong> Learning to draft comprehensive Product Requirements Documents with AI to prevent "scope creep".</span></li>
+                                    <li class="flex items-start gap-3"><i data-lucide="layers" class="w-5 h-5 text-yellow-500 mt-0.5 shrink-0"></i><span><strong>Rapid UI with Antigravity:</strong> Using Antigravity to generate full-stack scaffolds and responsive frontends instantly from your PRD.</span></li>
+                                    <li class="flex items-start gap-3"><i data-lucide="github" class="w-5 h-5 text-yellow-500 mt-0.5 shrink-0"></i><span><strong>Initial GitHub Setup:</strong> Creating repositories and understanding basic version control for AI-generated code.</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Day 2 -->
+                            <div class="section-card p-7 rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50/80 to-white shadow-sm">
+                                <div class="flex justify-between items-start mb-5">
+                                    <h3 class="text-lg font-black text-slate-900">Day 2: Logic, Database & Deployment</h3>
+                                    <span class="bg-orange-100 text-orange-600 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-orange-200 shrink-0 ml-3">Phase 02</span>
+                                </div>
+                                <ul class="space-y-4 text-slate-500 text-sm">
+                                    <li class="flex items-start gap-3"><i data-lucide="terminal" class="w-5 h-5 text-orange-500 mt-0.5 shrink-0"></i><span><strong>Claude Code Orchestration:</strong> Using Claude Code to refactor logic, handle API calls, and build complex feature sets.</span></li>
+                                    <li class="flex items-start gap-3"><i data-lucide="database" class="w-5 h-5 text-orange-500 mt-0.5 shrink-0"></i><span><strong>Cloud Database & Auth:</strong> Connecting Supabase for persistent data storage and secure user authentication.</span></li>
+                                    <li class="flex items-start gap-3"><i data-lucide="rocket" class="w-5 h-5 text-orange-500 mt-0.5 shrink-0"></i><span><strong>GitHub CI/CD Deployment:</strong> Mastering automated deployments so every code change goes live instantly.</span></li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <!-- Day 2 -->
-                        <div class="section-card p-8 rounded-[2rem] border-l-8 border-orange-500 bg-white">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3 class="text-xl font-black text-slate-900">Day 2: Logic, Database & Deployment</h3>
-                                <span
-                                    class="bg-orange-100 text-orange-600 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-orange-200">Phase
-                                    02</span>
+                        <!-- Right: Private Innovation Sprints -->
+                        <div class="lg:col-span-2 flex flex-col">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-slate-800 text-white text-xs font-bold uppercase px-3 py-1 rounded-full">Corporate</span>
+                                <span class="text-slate-400 text-xs">For Teams & Innovation Labs</span>
                             </div>
-                            <ul class="space-y-4 text-slate-500 text-sm">
-                                <li class="flex items-start gap-3"><i data-lucide="terminal"
-                                        class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>Claude Code
-                                        Orchestration:</strong> Using Claude Code to refactor logic, handle API calls,
-                                    and build complex feature sets.</li>
-                                <li class="flex items-start gap-3"><i data-lucide="database"
-                                        class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>Cloud Database &
-                                        Auth:</strong> Connecting Supabase for persistent data storage and secure user
-                                    authentication.</li>
-                                <li class="flex items-start gap-3"><i data-lucide="rocket"
-                                        class="w-5 h-5 text-orange-500 mt-0.5"></i><strong>GitHub CI/CD
-                                        Deployment:</strong> Mastering automated deployments so every code change goes
-                                    live instantly.</li>
-                            </ul>
-                        </div>
 
-                        <!-- Hackathon -->
-                        <div class="section-card p-8 rounded-[2rem] border-l-8 border-slate-700 bg-slate-50/50">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3 class="text-xl font-bold text-slate-900">Private Innovation Sprints</h3>
-                                <span
-                                    class="bg-slate-200 text-slate-700 text-[10px] font-black uppercase px-3 py-1 rounded-full border border-slate-300">Phase
-                                    03</span>
+                            <div class="section-card flex-1 p-7 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 shadow-lg relative overflow-hidden">
+                                <!-- Subtle accent glow -->
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl"></div>
+
+                                <div class="relative z-10">
+                                    <div class="flex items-center gap-2 mb-4">
+                                        <i data-lucide="building-2" class="w-5 h-5 text-amber-400"></i>
+                                        <h3 class="text-xl font-black text-white">Private Innovation Sprints</h3>
+                                    </div>
+
+                                    <p class="text-slate-300 text-sm leading-relaxed mb-6">Want your product team to prototype 10x faster? We run private 2-day hackathons for corporate innovation labs.</p>
+
+                                    <div class="space-y-4 mb-8">
+                                        <div class="flex items-start gap-3">
+                                            <div class="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center shrink-0">
+                                                <i data-lucide="target" class="w-4 h-4 text-amber-400"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-white text-sm font-semibold">Custom Problem Statements</p>
+                                                <p class="text-slate-400 text-xs">Tailored to your company's actual challenges</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center shrink-0">
+                                                <i data-lucide="users" class="w-4 h-4 text-amber-400"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-white text-sm font-semibold">Team-Based Sprints</p>
+                                                <p class="text-slate-400 text-xs">Cross-functional teams build functional MVPs</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center shrink-0">
+                                                <i data-lucide="presentation" class="w-4 h-4 text-amber-400"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-white text-sm font-semibold">Demo Day & Judging</p>
+                                                <p class="text-slate-400 text-xs">Pitch prototypes to leadership for real feedback</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="https://wa.me/60126791203" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-sm px-5 py-3 rounded-xl transition-all duration-200 shadow-lg shadow-amber-500/20 group">
+                                        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.597-.832-6.332-2.22l-.144-.114-3.325 1.114 1.114-3.325-.114-.144A9.935 9.935 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                                        <span>Contact Us</span>
+                                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <p class="text-slate-600 text-sm mb-4">Want your product team to prototype 10x faster? We
-                                run private 2-day hackathons for corporate innovation labs. Learn to build functional
-                                MVPs rapidly and effectively.</p>
-                            <a href="https://wa.me/60126791203"
-                                class="text-yellow-600 font-bold hover:text-yellow-700 text-sm flex items-center gap-1 group">
-                                Contact Us <i data-lucide="arrow-right"
-                                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -712,7 +739,7 @@
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                     </div>
-                    <img src="Photo%20collage.jpg" alt="AITraining2U Workshop Experience Collage"
+                    <img src="./Photo%20collage.jpg" alt="AITraining2U Workshop Experience Collage"
                         class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]">
                 </div>
             </div>
@@ -726,11 +753,11 @@
                     <p class="text-slate-500">Builders who ship. Not just teachers.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     <div class="group cursor-pointer">
                         <div
                             class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-2xl shadow-yellow-500/20 border-2 border-slate-100">
-                            <img src="Profile_Marcus.jpg" alt="Marcus Chia"
+                            <img src="./Profile_Marcus.jpg" alt="Marcus Chia"
                                 class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
                             <div
                                 class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/70 to-transparent p-10 pt-32">
@@ -747,7 +774,7 @@
                     <div class="group cursor-pointer">
                         <div
                             class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-2xl shadow-orange-500/20 border-2 border-slate-100">
-                            <img src="Profile_TzeJin.jpg" alt="Tze Jin"
+                            <img src="./Profile_TzeJin.jpg" alt="Tze Jin"
                                 class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
                             <div
                                 class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/70 to-transparent p-10 pt-32">
@@ -819,7 +846,7 @@
                         <div class="absolute inset-0 bg-yellow-400/20 blur-3xl rounded-full transform rotate-3"></div>
                         <div
                             class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white hover:scale-[1.02] transition-transform duration-500">
-                            <img src="HRDC-AITraining2U.jpeg" alt="HRDC Claimable Process Flowchart"
+                            <img src="./HRDC-AITraining2U.jpeg" alt="HRDC Claimable Process Flowchart"
                                 class="w-full h-auto object-cover">
                         </div>
                         <p class="text-center text-xs text-slate-500 mt-4 font-bold uppercase tracking-widest">Training
@@ -832,7 +859,7 @@
         <!-- FAQ Section -->
         <section id="faq" class="py-24 bg-white border-t border-slate-100">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
                         <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">FAQ</h2>
                         <p class="text-slate-500">Everything you need to know about our training protocols and impact.
@@ -969,30 +996,43 @@
         </section>
 
         <!-- Final CTA -->
-        <section class="py-24 bg-slate-900">
-            <div class="container mx-auto px-6 text-center">
-                <div
-                    class="bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 rounded-[3rem] p-12 md:p-20 text-black shadow-2xl relative overflow-hidden">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-8 uppercase tracking-tight text-white">Start
-                        Building</h2>
-                    <div class="mb-10 text-white flex flex-col gap-4 items-center">
-                        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                            <p class="text-xl md:text-2xl font-bold">RM3,500 <span
-                                    class="text-base font-normal opacity-80">(+ 8% SST)</span></p>
-                            <span
-                                class="bg-black/20 px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase">HRDC
-                                Claimable</span>
+        <section class="py-16 bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="relative rounded-[2rem] overflow-hidden shadow-2xl max-w-6xl mx-auto">
+                    <!-- Gradient base -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500"></div>
+
+                    <!-- Subtle concentric rings SVG -->
+                    <svg class="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                        <circle cx="50%" cy="50%" r="120" fill="none" stroke="white" stroke-width="1"/>
+                        <circle cx="50%" cy="50%" r="200" fill="none" stroke="white" stroke-width="0.8"/>
+                        <circle cx="50%" cy="50%" r="300" fill="none" stroke="white" stroke-width="0.5"/>
+                        <circle cx="50%" cy="50%" r="420" fill="none" stroke="white" stroke-width="0.3"/>
+                    </svg>
+
+                    <!-- Soft light wash -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/10"></div>
+
+                    <div class="relative z-10 text-center py-14 md:py-16 px-8">
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-8 uppercase tracking-tight text-white">Start Building</h2>
+
+                        <div class="mb-8 text-white flex flex-col gap-3 items-center">
+                            <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                                <p class="text-xl md:text-2xl font-bold">RM3,500 <span class="text-base font-normal opacity-80">(+ 8% SST)</span></p>
+                                <span class="bg-black/20 px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase">HRDC Claimable</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                                <p class="text-xl md:text-2xl font-bold">RM3,200 <span class="text-base font-normal opacity-80">(+ 8% SST)</span></p>
+                                <span class="bg-black/20 px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase">Non-HRDC</span>
+                            </div>
                         </div>
-                        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                            <p class="text-xl md:text-2xl font-bold">RM3,200 <span
-                                    class="text-base font-normal opacity-80">(+ 8% SST)</span></p>
-                            <span
-                                class="bg-black/20 px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase">Non-HRDC</span>
-                        </div>
+
+                        <a href="https://wa.me/60126791203" class="inline-flex items-center gap-2.5 bg-black text-yellow-400 px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-200 shadow-xl group">
+                            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.597-.832-6.332-2.22l-.144-.114-3.325 1.114 1.114-3.325-.114-.144A9.935 9.935 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                            <span>Contact Us on WhatsApp</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
                     </div>
-                    <a href="https://wa.me/60126791203"
-                        class="bg-black text-yellow-400 px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-xl">Contact
-                        Us on WhatsApp</a>
                 </div>
             </div>
         </section>
