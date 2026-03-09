@@ -173,7 +173,6 @@
                 calStart: "20260307T100000",
                 calEnd: "20260307T120000",
                 meetLink: "https://meet.google.com/uqb-ykqs-wco",
-                calLink: null,
                 slotsLeft: 12,
                 session: 1,
                 isFree: true
@@ -193,7 +192,6 @@
                 calStart: "20260317T210000",
                 calEnd: "20260317T223000",
                 meetLink: "https://meet.google.com/iym-pxqa-fuf",
-                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MXNwczgxMHRjdGZ2djR0MWd0NG11N2JsdHEgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
                 slotsLeft: 18,
                 session: 1,
                 isFree: true
@@ -204,7 +202,7 @@
                 speaker: "Warren Leow",
                 speakerTitle: "Founder & Strategy Lead",
                 speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true",
-                image: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
                 description: "Automate lead scoring and personalized outreach at scale with autonomous agents that represent your brand.",
                 displayDate: "Mon, 24 Mar",
                 displayTime: "10:00am - 12:00pm",
@@ -213,7 +211,6 @@
                 calStart: "20260324T100000",
                 calEnd: "20260324T120000",
                 meetLink: "https://meet.google.com/tra-mveb-dyd",
-                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N2ZxNGRhaWJ1dW45bG83ZjRtN2NhYWtrZGwgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
                 slotsLeft: 7,
                 session: 1,
                 isFree: true
@@ -233,7 +230,6 @@
                 calStart: "20260326T100000",
                 calEnd: "20260326T120000",
                 meetLink: "https://meet.google.com/ien-vkpi-ajm",
-                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N2cyZDM3aHM3cjloaDZkaTJjM2p0OWxqaGggaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
                 slotsLeft: 22,
                 session: 2,
                 isFree: true
@@ -253,7 +249,6 @@
                 calStart: "20260407T100000",
                 calEnd: "20260407T120000",
                 meetLink: "https://meet.google.com/pyt-qpvh-msy",
-                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTdlZ29rN2NwZ2s4aDc4ZzA3dmIwcXBpaDQgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
                 slotsLeft: 14,
                 session: 1,
                 isFree: true
@@ -273,7 +268,6 @@
                 calStart: "20260411T100000",
                 calEnd: "20260411T120000",
                 meetLink: "https://meet.google.com/hmv-yvnf-mqt",
-                calLink: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MHBkZGU5M2pncHAxMzRicDgyOGRhNGZudDkgaGlAYWl0cmFpbmluZzJ1LmNvbQ&tmsrc=hi%40aitraining2u.com",
                 slotsLeft: 9,
                 session: 1,
                 isFree: true
@@ -284,7 +278,6 @@
         let currentWebinar = null;
         let currentView = 'upcoming';
         
-        // UPDATED SCRIPT URL
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWopUI78CPkXOdFGpfGR2NzSroc0BzNAjdXI2iT9BxQuY7PU1ZHPT12iUJ8KRC_Hi0/exec';
 
         function getKLTime() {
@@ -397,15 +390,17 @@
         }
 
         function generateCalendarLinks() {
-            const { title, calStart, calEnd, speaker, meetLink, calLink } = currentWebinar;
+            const { title, calStart, calEnd, speaker, meetLink } = currentWebinar;
             const dialIn = "Dial: +1 502-530-1014 PIN: 425 195 383#";
-            const morePhones = "https://tel.meet/uqb-ykqs-wco?pin=9763124140281";
             
-            const details = `AITraining2U: ${title}\n\nSpeaker: ${speaker}\n\nVideo Call: ${meetLink}\n${dialIn}\nMore Numbers: ${morePhones}`;
+            // Constructing a CLEAN description for the invite
+            const details = `AITraining2U: ${title}\n\nSpeaker: ${speaker}\n\nVideo Call Link: ${meetLink}\n\n${dialIn}`;
             const location = meetLink;
             
-            const gLink = calLink || `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('AIT2U: ' + title)}&dates=${calStart}/${calEnd}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&ctz=Asia/Kuala_Lumpur`;
+            // GOOGLE CALENDAR TEMPLATE
+            const gLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('AIT2U: ' + title)}&dates=${calStart}/${calEnd}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&ctz=Asia/Kuala_Lumpur`;
             
+            // ICAL FILE GENERATOR
             const icalData = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${calStart}\nDTEND:${calEnd}\nSUMMARY:AIT2U: ${title}\nDESCRIPTION:${details.replace(/\n/g, '\\n')}\nLOCATION:${location}\nEND:VEVENT\nEND:VCALENDAR`;
             const iLink = `data:text/calendar;charset=utf8,${encodeURIComponent(icalData)}`;
 
