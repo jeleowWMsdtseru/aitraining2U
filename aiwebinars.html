@@ -153,9 +153,6 @@
     </footer>
 
     <script>
-        /**
-         * Webinar Data Store
-         */
         const webinars = [
             {
                 id: "finance-1",
@@ -319,7 +316,8 @@
         let currentWebinar = null;
         let currentView = 'upcoming';
         
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWopUI78CPkXOdFGpfGR2NzSroc0BzNAjdXI2iT9BxQuY7PU1ZHPT12iUJ8KRC_Hi0/exec';
+        // UPDATED SCRIPT URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzH7uKqlK5qh__ZzrX_nZcB2cxwMhRlWkTQKtK1QhooAAtgNkVlrFSH6dfqgdOD47OcrQ/exec';
 
         function getKLTime() {
             return new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kuala_Lumpur"}));
@@ -435,7 +433,6 @@
         document.getElementById('calendar-lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = e.target.querySelector('button');
-            const originalText = btn.innerHTML;
             btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin inline-block mr-2"></i> Registering...';
             btn.disabled = true;
             lucide.createIcons();
@@ -453,7 +450,6 @@
             data.append('Email', document.getElementById('reg-email').value);
             data.append('Whatsapp Number', document.getElementById('reg-phone').value);
             
-            // Add details for the email bot
             data.append('meetLink', currentWebinar.meetLink);
             data.append('calStart', currentWebinar.calStart);
             data.append('calEnd', currentWebinar.calEnd);
@@ -470,8 +466,6 @@
                     lucide.createIcons();
                 })
                 .catch(() => {
-                    // Even if fetch returns error due to CORS in preview, transition to success 
-                    // since no-cors means it likely worked on the backend.
                     generateCalendarLinks();
                     document.getElementById('form-content').style.display = 'none';
                     document.getElementById('success-content').style.display = 'block';
