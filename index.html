@@ -93,10 +93,40 @@
         .faq-item.active .faq-content { max-height: 300px; padding-bottom: 1.5rem; }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
         .faq-icon { transition: transform 0.3s; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #128c7e;
+            box-shadow: 0 15px 30px rgba(18, 140, 126, 0.4);
+        }
     </style>
 </head>
 <body class="antialiased">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/601137034050" target="_blank" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
 
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-rose-50 animated-header-bg">
@@ -208,69 +238,69 @@
                 </div>
                 
                 <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <!-- Agentic Automation (Public) -->
-                    <div class="relative bg-blue-50/30 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-blue-900 transition hover:shadow-2xl hover:bg-white hover:border-blue-800">
+                    <!-- Agentic Automation (Public) - UPDATED TO SOLID BLUE -->
+                    <div class="relative bg-blue-600 text-white rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-blue-700 transition hover:shadow-2xl hover:bg-blue-700 hover:border-blue-800">
                         <div class="absolute top-0 right-0 p-6">
                             <span class="bg-blue-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-blue-900/20">Public Class</span>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Agentic <br>Automation</h3>
+                            <h3 class="text-2xl font-bold mb-4 leading-tight">AI Agentic <br>Automation</h3>
                             <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-blue-800">
+                                <div class="flex items-center gap-2 text-blue-100">
                                     <i data-lucide="calendar" class="w-4 h-4"></i>
                                     <span class="text-xs font-bold uppercase tracking-wide">2-3 April 2026 (Worq TTDI)</span>
                                 </div>
                             </div>
-                            <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">Master AI agentic automation specifically for financial operations, high-speed reporting, and advanced fiscal analysis.</p>
-                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-blue-900/70 mb-8"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
+                            <p class="text-blue-50 text-xs mb-8 leading-relaxed font-medium">Master AI agentic automation specifically for financial operations, high-speed reporting, and advanced fiscal analysis.</p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-white/70 mb-8"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
                         <div class="flex flex-col xl:flex-row gap-3">
-                            <a href="https://www.aitraining2u.com/aiautomation.html" class="flex-1 bg-white border-2 border-blue-900 hover:bg-blue-50 text-blue-900 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
-                            <button onclick="openLeadModal()" class="flex-1 bg-blue-900 hover:bg-blue-800 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-blue-900/20 transition-all uppercase tracking-wider">Book Now</button>
+                            <a href="https://www.aitraining2u.com/aiautomation.html" class="flex-1 bg-white hover:bg-blue-50 text-blue-900 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
+                            <button onclick="openLeadModal()" class="flex-1 bg-blue-900 hover:bg-blue-950 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-blue-900/20 transition-all uppercase tracking-wider">Book Now</button>
                         </div>
                     </div>
 
-                    <!-- Vibe Coding (Public) -->
-                    <div class="relative bg-purple-50/30 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-purple-500 transition hover:shadow-2xl hover:bg-white hover:border-purple-600">
+                    <!-- Vibe Coding (Public) - UPDATED TO SOLID YELLOW -->
+                    <div class="relative bg-yellow-400 text-slate-900 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-yellow-500 transition hover:shadow-2xl hover:bg-yellow-500 hover:border-yellow-600">
                         <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-purple-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-purple-500/20">Rapid Prototyping</span>
+                            <span class="bg-slate-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-purple-500/20">Public Class</span>
                         </div>
                         <div>
                             <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Vibe Coding <br>+ Rapid Prototyping</h3>
                             <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-purple-600">
+                                <div class="flex items-center gap-2 text-slate-800">
                                     <i data-lucide="calendar" class="w-4 h-4"></i>
                                     <span class="text-xs font-bold uppercase tracking-wide">11-12 April 2026 (WORQ Subang)</span>
                                 </div>
                             </div>
-                            <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">Learn to build functional apps in minutes using AntiGravity, Claude Code, and Other Vibe Coding tools. Designed for non-technical founders and product managers.</p>
-                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-purple-700/70 mb-8"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
+                            <p class="text-slate-800 text-xs mb-8 leading-relaxed font-bold">Learn to build functional apps in minutes using AntiGravity, Claude Code, and Other Vibe Coding tools. Designed for non-technical founders and product managers.</p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-slate-700 mb-8"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
                         <div class="flex flex-col xl:flex-row gap-3">
-                            <a href="https://www.aitraining2u.com/aivibecoding.html" class="flex-1 bg-white border-2 border-purple-500 hover:bg-purple-50 text-purple-600 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
-                            <button onclick="openLeadModal()" class="flex-1 bg-purple-500 hover:bg-purple-600 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-purple-500/20 transition-all uppercase tracking-wider">Book Now</button>
+                            <a href="https://www.aitraining2u.com/aivibecoding.html" class="flex-1 bg-white hover:bg-slate-100 text-slate-900 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
+                            <button onclick="openLeadModal()" class="flex-1 bg-slate-900 hover:bg-slate-950 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-slate-900/20 transition-all uppercase tracking-wider">Book Now</button>
                         </div>
                     </div>
 
-                    <!-- AI Marketing + Whatsapp (Public) -->
-                    <div class="relative bg-green-50/30 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-green-500 transition hover:shadow-2xl hover:bg-white hover:border-green-600">
+                    <!-- AI Marketing + Whatsapp (Public) - UPDATED TO SOLID GREEN -->
+                    <div class="relative bg-green-600 text-white rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-green-700 transition hover:shadow-2xl hover:bg-green-700 hover:border-green-800">
                         <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-green-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-green-500/20">Public Class</span>
+                            <span class="bg-green-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-green-500/20">Public Class</span>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Marketing <br>+ Whatsapp Masterclass</h3>
+                            <h3 class="text-2xl font-bold mb-4 leading-tight">AI Marketing <br>+ Whatsapp Masterclass</h3>
                             <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-green-600">
+                                <div class="flex items-center gap-2 text-green-100">
                                     <i data-lucide="calendar" class="w-4 h-4"></i>
                                     <span class="text-xs font-bold uppercase tracking-wide">25-26 April 2026 (WORQ Subang)</span>
                                 </div>
                             </div>
-                            <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">Automate lead qualification and customer support on WhatsApp. Integrate AI agents directly into your marketing funnel.</p>
-                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-green-700/70 mb-8"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
+                            <p class="text-green-50 text-xs mb-8 leading-relaxed font-medium">Automate lead qualification and customer support on WhatsApp. Integrate AI agents directly into your marketing funnel.</p>
+                            <div class="flex items-center gap-2 mt-4 text-xs font-bold text-white/70 mb-8"><i data-lucide="plus-circle" class="w-4 h-4"></i> Optional: Scoping, Consulting & Implementation</div>
                         </div>
                         <div class="flex flex-col xl:flex-row gap-3">
-                            <a href="https://www.aitraining2u.com/whatsappagents.html" class="flex-1 bg-white border-2 border-green-500 hover:bg-green-50 text-green-600 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
-                            <button onclick="openLeadModal()" class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-green-500/20 transition-all uppercase tracking-wider">Book Now</button>
+                            <a href="https://www.aitraining2u.com/whatsappagents.html" class="flex-1 bg-white hover:bg-green-50 text-green-900 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
+                            <button onclick="openLeadModal()" class="flex-1 bg-green-900 hover:bg-green-950 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-green-900/20 transition-all uppercase tracking-wider">Book Now</button>
                         </div>
                     </div>
 
@@ -323,7 +353,7 @@
                     <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Rapid ROI Framework</h2>
                     <p class="text-slate-500">Our proven deployment hierarchy designed for immediate business value and cultural adoption.</p>
                 </div>
-                <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
+                <div class="flex flex-col lg:grid-cols-2 items-center justify-center gap-16">
                     <!-- The fade-in SVG -->
                     <div class="triangle-container fade-in">
                         <svg class="triangle-svg" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -335,7 +365,7 @@
                             <text x="200" y="295" text-anchor="middle" fill="#991b1b" class="triangle-label" font-size="18">Awareness</text>
                         </svg>
                     </div>
-                    <div class="lg:w-1/2 space-y-8">
+                    <div class="space-y-8">
                         <div class="flex gap-6 items-start">
                             <div class="w-12 h-12 rounded-2xl bg-pink-500 flex items-center justify-center text-white font-bold shrink-0">01</div>
                             <div>
