@@ -378,10 +378,15 @@
                                 <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">${webinar.speakerTitle}</p>
                             </div>
                         </div>
-                        ${currentView === 'upcoming' 
-                            ? `<button onclick="handleRegClick('${webinar.id}')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>`
-                            : `<button disabled class="w-full bg-slate-100 text-slate-400 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider cursor-not-allowed">Registration Closed</button>`
-                        }
+                        <div class="space-y-3">
+                            ${currentView === 'upcoming' 
+                                ? `<button onclick="handleRegClick('${webinar.id}')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>`
+                                : `<button disabled class="w-full bg-slate-100 text-slate-400 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider cursor-not-allowed">Registration Closed</button>`
+                            }
+                            <a href="${webinar.meetLink}" target="_blank" class="w-full border-2 border-slate-200 text-slate-600 hover:bg-slate-50 py-3 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="video" class="w-4 h-4"></i> Google Meet Link
+                            </a>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(card);
