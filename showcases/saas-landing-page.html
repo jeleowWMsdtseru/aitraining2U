@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>LaunchPad - Ship Products 10x Faster with AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#22c55e',
+            'primary-dark': '#16a34a',
+            cta: '#22c55e',
+            surface: '#0a0a0a',
+            'surface-light': '#fafafa',
+            ink: '#e2e8f0',
+            'ink-dark': '#1a202c',
+          },
+          fontFamily: {
+            heading: ['"Space Grotesk"', 'sans-serif'],
+            body: ['"DM Sans"', 'sans-serif'],
+          },
+          borderRadius: {
+            'xl': '16px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
+    .bento-tile { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .bento-tile:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15); }
+    .nav-link { transition: color 0.2s ease; }
+    .cta-btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .cta-btn:hover { transform: translateY(-1px); }
+    .glow-green { text-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.2); }
+    .border-glow:hover { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.1); }
+  </style>
+</head>
+<body class="bg-surface text-ink antialiased">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-[1280px] mx-auto px-10 h-[72px] flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-[10px] bg-primary flex items-center justify-center">
+          <svg class="w-5 h-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.58-5.84L18 2m-3 3l-3 3"/>
+          </svg>
+        </div>
+        <span class="font-heading text-xl font-bold text-white tracking-tight">LaunchPad</span>
+      </div>
+      <div class="flex items-center gap-10">
+        <a href="#features" class="nav-link text-sm font-medium text-white/50 hover:text-primary cursor-pointer">Features</a>
+        <a href="#pricing" class="nav-link text-sm font-medium text-white/50 hover:text-primary cursor-pointer">Pricing</a>
+        <a href="#about" class="nav-link text-sm font-medium text-white/50 hover:text-primary cursor-pointer">About</a>
+        <a href="#blog" class="nav-link text-sm font-medium text-white/50 hover:text-primary cursor-pointer">Blog</a>
+      </div>
+      <a href="#" class="cta-btn bg-primary hover:bg-primary-dark text-black text-sm font-semibold px-6 py-2.5 rounded-[10px] shadow-md shadow-primary/20 cursor-pointer">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-[140px] pb-28 bg-surface">
+    <div class="max-w-[1280px] mx-auto px-10">
+      <div class="grid grid-cols-12 gap-10 items-center">
+        <!-- Left: Copy -->
+        <div class="col-span-5">
+          <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-7">
+            <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <span class="text-xs font-semibold text-primary tracking-wide uppercase">Now in Public Beta</span>
+          </div>
+          <h1 class="font-heading text-[52px] font-bold text-white leading-[1.1] tracking-tight mb-6">
+            Ship Products<br>10x Faster<br>
+            <span class="text-primary glow-green">with AI</span>
+          </h1>
+          <p class="font-body text-lg text-white/50 leading-relaxed mb-10 max-w-md">
+            The AI-powered platform that helps teams build, test, and deploy production-ready applications in minutes instead of months.
+          </p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="cta-btn bg-primary hover:bg-primary-dark text-black font-semibold px-8 py-3.5 rounded-[12px] text-base shadow-lg shadow-primary/25 cursor-pointer">Start Free Trial</a>
+            <a href="#" class="cta-btn border-2 border-primary/40 hover:border-primary text-primary/80 hover:text-primary font-semibold px-8 py-3.5 rounded-[12px] text-base flex items-center gap-2.5 cursor-pointer">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Watch Demo
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Bento Product Mockup -->
+        <div class="col-span-7">
+          <div class="grid grid-cols-4 grid-rows-3 gap-4 h-[480px]">
+
+            <!-- Chart Tile (spans 2 cols, 2 rows) -->
+            <div class="bento-tile border-glow col-span-2 row-span-2 bg-[#1a1a1a] rounded-[16px] border border-white/5 shadow-sm p-6 flex flex-col cursor-pointer">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <p class="text-xs font-medium text-white/40 uppercase tracking-wider">Revenue</p>
+                  <p class="font-heading text-2xl font-bold text-white mt-1">$48,920</p>
+                </div>
+                <div class="flex items-center gap-1 bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                  +24.5%
+                </div>
+              </div>
+              <div class="flex-1 flex items-end gap-1.5 pt-2">
+                <div class="flex-1 rounded-t-md bg-primary/15 h-[35%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/20 h-[52%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/15 h-[40%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/25 h-[68%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/20 h-[55%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/30 h-[72%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/25 h-[60%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/35 h-[80%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/30 h-[65%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/40 h-[88%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary/50 h-[92%]"></div>
+                <div class="flex-1 rounded-t-md bg-primary h-[100%]"></div>
+              </div>
+            </div>
+
+            <!-- Stats Tile (spans 2 cols, 1 row) -->
+            <div class="bento-tile col-span-2 row-span-1 bg-primary rounded-[16px] shadow-sm p-6 flex items-center gap-6 cursor-pointer">
+              <div class="flex-1">
+                <p class="text-xs font-medium text-black/50 uppercase tracking-wider">Active Users</p>
+                <p class="font-heading text-3xl font-bold text-black mt-1">2,847</p>
+              </div>
+              <div class="w-px h-10 bg-black/20"></div>
+              <div class="flex-1">
+                <p class="text-xs font-medium text-black/50 uppercase tracking-wider">Uptime</p>
+                <p class="font-heading text-3xl font-bold text-black mt-1">99.9%</p>
+              </div>
+            </div>
+
+            <!-- Code Tile (spans 2 cols, 2 rows) -->
+            <div class="bento-tile border-glow col-span-2 row-span-2 bg-[#111111] rounded-[16px] border border-white/5 shadow-sm p-5 flex flex-col cursor-pointer">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-400/80"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-400/80"></div>
+                <div class="w-3 h-3 rounded-full bg-primary/80"></div>
+                <span class="ml-2 text-xs text-white/30 font-mono">deploy.ts</span>
+              </div>
+              <div class="flex-1 font-mono text-[11px] leading-[1.7] text-white/70 space-y-0.5">
+                <p><span class="text-primary">import</span> <span class="text-[#4ade80]">{ deploy }</span> <span class="text-primary">from</span> <span class="text-[#86efac]">'@launchpad/sdk'</span>;</p>
+                <p class="mt-2"><span class="text-primary">const</span> <span class="text-white">app</span> = <span class="text-primary">await</span> <span class="text-[#4ade80]">deploy</span>({</p>
+                <p class="pl-4"><span class="text-white/50">name:</span> <span class="text-[#86efac]">'my-app'</span>,</p>
+                <p class="pl-4"><span class="text-white/50">region:</span> <span class="text-[#86efac]">'us-east-1'</span>,</p>
+                <p class="pl-4"><span class="text-white/50">scaling:</span> <span class="text-[#86efac]">'auto'</span>,</p>
+                <p class="pl-4"><span class="text-white/50">ai:</span> <span class="text-primary">true</span>,</p>
+                <p>});</p>
+                <p class="mt-2"><span class="text-primary/40">// Deployed in 1.2s</span></p>
+              </div>
+            </div>
+
+            <!-- Notification Tile (spans 2 cols, 1 row) -->
+            <div class="bento-tile border-glow col-span-2 row-span-1 bg-[#1a1a1a] rounded-[16px] border border-white/5 shadow-sm p-5 flex flex-col gap-2.5 cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-white">Build Successful</p>
+                  <p class="text-xs text-white/40">Production deploy completed - 1.2s</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-white">3 New Pull Requests</p>
+                  <p class="text-xs text-white/40">AI-generated code ready for review</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="bg-[#111111] border-y border-white/5 py-14">
+    <div class="max-w-[1280px] mx-auto px-10">
+      <p class="text-center text-xs font-semibold text-white/25 uppercase tracking-[0.2em] mb-10">Trusted by innovative teams worldwide</p>
+      <div class="flex items-center justify-center gap-20">
+        <span class="font-heading text-2xl font-bold text-white/15 tracking-tight cursor-default">Acme</span>
+        <span class="font-heading text-2xl font-bold text-white/15 tracking-tight cursor-default">Globex</span>
+        <span class="font-heading text-2xl font-bold text-white/15 tracking-tight cursor-default">Initech</span>
+        <span class="font-heading text-2xl font-bold text-white/15 tracking-tight cursor-default">Hooli</span>
+        <span class="font-heading text-2xl font-bold text-white/15 tracking-tight cursor-default">Pied Piper</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="bg-surface-light py-28">
+    <div class="max-w-[1280px] mx-auto px-10">
+      <div class="text-center mb-16">
+        <p class="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-4">Features</p>
+        <h2 class="font-heading text-[40px] font-bold text-ink-dark tracking-tight mb-5">Everything you need to ship fast</h2>
+        <p class="font-body text-lg text-ink-dark/50 max-w-2xl mx-auto leading-relaxed">Our platform combines cutting-edge AI with battle-tested infrastructure to accelerate every stage of development.</p>
+      </div>
+      <div class="grid grid-cols-3 gap-6">
+        <!-- Feature 1: AI Code Gen -->
+        <div class="bento-tile bg-white rounded-[16px] p-8 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 rounded-[12px] bg-primary/10 flex items-center justify-center mb-7">
+            <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-ink-dark mb-3">AI Code Generation</h3>
+          <p class="font-body text-ink-dark/50 leading-relaxed text-[15px]">Generate production-ready code from natural language. Our AI understands your codebase context and writes clean, tested code following your team's conventions.</p>
+        </div>
+        <!-- Feature 2: Smart Deploy -->
+        <div class="bento-tile bg-white rounded-[16px] p-8 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 rounded-[12px] bg-primary/10 flex items-center justify-center mb-7">
+            <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-ink-dark mb-3">Smart Deployment</h3>
+          <p class="font-body text-ink-dark/50 leading-relaxed text-[15px]">One-click deployments with auto-scaling, rollbacks, and health checks. Deploy to any cloud with zero-downtime releases and intelligent traffic routing.</p>
+        </div>
+        <!-- Feature 3: Team Collab -->
+        <div class="bento-tile bg-white rounded-[16px] p-8 border border-gray-100 shadow-sm cursor-pointer">
+          <div class="w-14 h-14 rounded-[12px] bg-primary/10 flex items-center justify-center mb-7">
+            <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-ink-dark mb-3">Team Collaboration</h3>
+          <p class="font-body text-ink-dark/50 leading-relaxed text-[15px]">Real-time collaboration designed for modern teams. Shared workspaces, code reviews, and async communication keep everyone aligned and productive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="bg-[#0a0a0a] py-20">
+    <div class="max-w-[1280px] mx-auto px-10">
+      <div class="grid grid-cols-4 gap-6">
+        <div class="bento-tile bg-[#1a1a1a] rounded-[16px] p-8 text-center border border-white/5 cursor-default">
+          <div class="font-heading text-[44px] font-bold text-primary glow-green mb-2">10K+</div>
+          <div class="text-sm text-white/40 font-medium">Users</div>
+        </div>
+        <div class="bento-tile bg-[#1a1a1a] rounded-[16px] p-8 text-center border border-white/5 cursor-default">
+          <div class="font-heading text-[44px] font-bold text-primary glow-green mb-2">99.9%</div>
+          <div class="text-sm text-white/40 font-medium">Uptime</div>
+        </div>
+        <div class="bento-tile bg-[#1a1a1a] rounded-[16px] p-8 text-center border border-white/5 cursor-default">
+          <div class="font-heading text-[44px] font-bold text-primary glow-green mb-2">150+</div>
+          <div class="text-sm text-white/40 font-medium">Integrations</div>
+        </div>
+        <div class="bento-tile bg-[#1a1a1a] rounded-[16px] p-8 text-center border border-white/5 cursor-default">
+          <div class="font-heading text-[44px] font-bold text-primary glow-green mb-2">4.9</div>
+          <div class="text-sm text-white/40 font-medium">Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-[#111111] py-28">
+    <div class="max-w-3xl mx-auto px-10 text-center">
+      <h2 class="font-heading text-[40px] font-bold text-white tracking-tight mb-5">Ready to ship faster?</h2>
+      <p class="font-body text-lg text-white/50 mb-12 leading-relaxed">Join thousands of teams already building with LaunchPad. Start your free 14-day trial today.</p>
+      <div class="flex items-center justify-center gap-4">
+        <a href="#" class="cta-btn bg-primary hover:bg-primary-dark text-black font-semibold px-8 py-3.5 rounded-[12px] text-base shadow-lg shadow-primary/25 cursor-pointer">Start Free Trial</a>
+        <a href="#" class="cta-btn border-2 border-primary/40 hover:border-primary text-white/60 hover:text-primary font-semibold px-8 py-3.5 rounded-[12px] text-base cursor-pointer">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0a0a0a] border-t border-white/5 py-12">
+    <div class="max-w-[1280px] mx-auto px-10 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
+          <svg class="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.58-5.84L18 2m-3 3l-3 3"/>
+          </svg>
+        </div>
+        <span class="font-heading text-white text-sm font-semibold">LaunchPad</span>
+      </div>
+      <p class="text-sm text-white/30">&copy; 2026 LaunchPad Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

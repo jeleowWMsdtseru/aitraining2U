@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>TableCraft - Restaurant Reservation Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#9b1b30',
+            cta: '#9b1b30',
+            surface: '#faf8f5',
+            ink: '#1a1210',
+            sidebar: '#1a0a0a',
+            'sidebar-hover': '#2d1215',
+            gold: '#d4a017',
+            'gold-light': '#e8c040',
+            'gold-dark': '#b8880e',
+            'appetizing': '#9b1b30',
+            'warm-gold': '#d4a017',
+            wine: '#9b1b30',
+            'wine-light': '#c4253e',
+            'wine-dark': '#7a1526',
+          },
+          fontFamily: {
+            display: ['"Playfair Display SC"', 'serif'],
+            body: ['Karla', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Karla', sans-serif; }
+    .font-display { font-family: 'Playfair Display SC', serif; }
+    .table-element { transition: transform 250ms ease, box-shadow 250ms ease; }
+    .table-element:hover { transform: scale(1.1); box-shadow: 0 8px 24px rgba(212,160,23,0.25); }
+    .nav-item { transition: background-color 200ms ease, color 200ms ease; }
+    .stat-card { transition: transform 250ms ease, box-shadow 250ms ease; }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,10,10,0.1); }
+    .reservation-row { transition: background-color 200ms ease; }
+    .heatmap-cell { transition: transform 200ms ease, opacity 200ms ease; }
+    .heatmap-cell:hover { transform: scaleY(1.08); opacity: 0.85; }
+  </style>
+</head>
+<body class="bg-surface min-h-screen flex" style="min-width:1440px;">
+
+  <!-- Dark Elegant Sidebar -->
+  <aside class="w-[260px] bg-sidebar text-white flex flex-col min-h-screen fixed top-0 left-0 bottom-0 z-20">
+    <!-- Logo -->
+    <div class="px-7 py-7 border-b border-white/8">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-light to-gold-dark flex items-center justify-center shadow-lg shadow-gold/20">
+          <svg class="w-6 h-6 text-sidebar" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h4l3-7 4 14 3-7h4"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-display text-xl font-bold tracking-wide text-gold-light">TableCraft</h1>
+          <p class="text-[11px] text-gray-500 font-body tracking-wide mt-0.5">Reservation System</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 py-6 space-y-1.5">
+      <a href="#" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl bg-gold/15 text-gold border border-gold/20 cursor-pointer">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm10 0a1 1 0 011-1h4a1 1 0 011 1v5a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/>
+        </svg>
+        <span class="text-sm font-semibold font-body">Dashboard</span>
+      </a>
+      <a href="#" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-gray-400 hover:bg-sidebar-hover hover:text-white cursor-pointer">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <span class="text-sm font-medium font-body">Reservations</span>
+        <span class="ml-auto text-[10px] bg-gold/20 text-gold px-2.5 py-1 rounded-full font-bold">24</span>
+      </a>
+      <a href="#" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-gray-400 hover:bg-sidebar-hover hover:text-white cursor-pointer">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <line x1="3" y1="9" x2="21" y2="9"/>
+          <line x1="9" y1="21" x2="9" y2="9"/>
+        </svg>
+        <span class="text-sm font-medium font-body">Floor Plan</span>
+      </a>
+      <a href="#" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-gray-400 hover:bg-sidebar-hover hover:text-white cursor-pointer">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <span class="text-sm font-medium font-body">Menu</span>
+      </a>
+      <a href="#" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-gray-400 hover:bg-sidebar-hover hover:text-white cursor-pointer">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span class="text-sm font-medium font-body">Guests</span>
+      </a>
+      <a href="#" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-gray-400 hover:bg-sidebar-hover hover:text-white cursor-pointer">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        <span class="text-sm font-medium font-body">Analytics</span>
+      </a>
+      <a href="#" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-gray-400 hover:bg-sidebar-hover hover:text-white cursor-pointer">
+        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <span class="text-sm font-medium font-body">Settings</span>
+      </a>
+    </nav>
+
+    <!-- User Profile -->
+    <div class="px-5 py-5 border-t border-white/8">
+      <div class="flex items-center gap-3 px-2 cursor-pointer">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-light to-gold-dark flex items-center justify-center text-sm font-bold text-sidebar shadow-lg shadow-gold/15">MC</div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-white truncate font-body">Marco Castellano</p>
+          <p class="text-[11px] text-gray-500 font-body">Floor Manager</p>
+        </div>
+        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/>
+        </svg>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-[260px] flex-1 min-h-screen">
+    <!-- Top Header Bar -->
+    <header class="bg-[#faf8f5]/80 backdrop-blur-sm border-b border-[#e8ddd0] px-10 py-6 flex items-center justify-between sticky top-0 z-10">
+      <div>
+        <h2 class="font-display text-2xl font-bold text-ink tracking-wide">Dashboard</h2>
+        <p class="text-sm text-[#8a7e72] mt-1 font-body">Wednesday, March 11, 2026 &mdash; Dinner Service</p>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="relative">
+          <svg class="w-4.5 h-4.5 text-[#8a7e72] absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input type="text" placeholder="Search guests..." class="pl-10 pr-4 py-2.5 border border-[#e0d5c8] rounded-xl text-sm font-body bg-surface focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold w-60 transition-all duration-200">
+        </div>
+        <div class="relative cursor-pointer">
+          <div class="w-10 h-10 rounded-xl bg-surface flex items-center justify-center border border-[#e0d5c8] hover:bg-[#f0ebe4] transition-colors duration-200">
+            <svg class="w-5 h-5 text-[#8a7e72]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+            </svg>
+          </div>
+          <span class="absolute -top-1 -right-1 w-5 h-5 bg-wine text-white text-[10px] rounded-full flex items-center justify-center font-bold">3</span>
+        </div>
+        <a href="#" class="bg-wine text-white px-5 py-2.5 rounded-xl text-sm font-semibold font-body hover:bg-wine-dark transition-colors duration-200 cursor-pointer shadow-sm shadow-wine/20">+ New Booking</a>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="p-10 space-y-8">
+
+      <!-- Stats Row -->
+      <div class="grid grid-cols-4 gap-6">
+        <!-- Today's Reservations -->
+        <div class="stat-card bg-white rounded-2xl p-6 border border-[#e8ddd0] shadow-sm cursor-pointer" style="border-left: 3px solid #d4a017;">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#d4a017]/20 to-[#d4a017]/5 flex items-center justify-center">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <span class="text-[11px] text-[#16a34a] font-bold bg-[#16a34a]/10 px-2.5 py-1 rounded-full font-body">+12%</span>
+          </div>
+          <p class="text-sm text-[#8a7e72] font-medium font-body tracking-wide">Today's Reservations</p>
+          <p class="text-4xl font-bold text-ink mt-1.5 font-display">24</p>
+        </div>
+
+        <!-- Guests Expected -->
+        <div class="stat-card bg-white rounded-2xl p-6 border border-[#e8ddd0] shadow-sm cursor-pointer" style="border-left: 3px solid #9b1b30;">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-wine/10 to-wine/5 flex items-center justify-center">
+              <svg class="w-6 h-6 text-wine" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <span class="text-[11px] text-[#16a34a] font-bold bg-[#16a34a]/10 px-2.5 py-1 rounded-full font-body">+8%</span>
+          </div>
+          <p class="text-sm text-[#8a7e72] font-medium font-body tracking-wide">Guests Expected</p>
+          <p class="text-4xl font-bold text-ink mt-1.5 font-display">86</p>
+        </div>
+
+        <!-- Tables Available -->
+        <div class="stat-card bg-white rounded-2xl p-6 border border-[#e8ddd0] shadow-sm cursor-pointer" style="border-left: 3px solid #16a34a;">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#16a34a]/10 to-[#16a34a]/5 flex items-center justify-center">
+              <svg class="w-6 h-6 text-[#16a34a]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+            </div>
+            <span class="text-[11px] text-[#8a7e72] font-bold bg-[#f0ebe4] px-2.5 py-1 rounded-full font-body">60% full</span>
+          </div>
+          <p class="text-sm text-[#8a7e72] font-medium font-body tracking-wide">Tables Available</p>
+          <p class="text-4xl font-bold text-ink mt-1.5 font-display">8<span class="text-xl text-[#c4b8a8] font-normal">/20</span></p>
+        </div>
+
+        <!-- Revenue -->
+        <div class="stat-card bg-white rounded-2xl p-6 border border-[#e8ddd0] shadow-sm cursor-pointer" style="border-left: 3px solid #d4a017;">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gold/15 to-gold/5 flex items-center justify-center">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <span class="text-[11px] text-[#16a34a] font-bold bg-[#16a34a]/10 px-2.5 py-1 rounded-full font-body">+18%</span>
+          </div>
+          <p class="text-sm text-[#8a7e72] font-medium font-body tracking-wide">Revenue</p>
+          <p class="text-4xl font-bold text-ink mt-1.5 font-display">$4,280</p>
+        </div>
+      </div>
+
+      <!-- Middle Row: Floor Plan + Upcoming Reservations -->
+      <div class="grid grid-cols-5 gap-6">
+
+        <!-- Floor Plan -->
+        <div class="col-span-3 bg-white rounded-2xl border border-[#e8ddd0] shadow-sm">
+          <div class="px-7 py-5 border-b border-[#e8ddd0] flex items-center justify-between">
+            <div>
+              <h3 class="font-display text-lg font-bold text-ink tracking-wide">Floor Plan</h3>
+              <p class="text-xs text-[#8a7e72] mt-1 font-body">Main Dining Room &mdash; Live Status</p>
+            </div>
+            <div class="flex gap-5 text-xs font-body font-medium text-[#8a7e72]">
+              <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#16a34a] shadow-sm shadow-[#16a34a]/40"></span> Available</span>
+              <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#d4a017] shadow-sm shadow-[#d4a017]/40"></span> Reserved</span>
+              <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#9b1b30] shadow-sm shadow-[#9b1b30]/40"></span> Occupied</span>
+              <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#9ca3af]"></span> Maintenance</span>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="bg-gradient-to-b from-surface to-[#f5f0ea] rounded-2xl border border-dashed border-[#d8cfc2] p-8 relative" style="min-height:340px;">
+              <!-- Zone labels -->
+              <div class="absolute top-3 left-5 text-[9px] text-[#8a7e72] uppercase tracking-[0.2em] font-body font-bold">Window Side</div>
+              <div class="absolute bottom-3 left-5 text-[9px] text-[#8a7e72] uppercase tracking-[0.2em] font-body font-bold">Bar Side</div>
+              <div class="absolute top-3 right-5 text-[9px] text-[#8a7e72] uppercase tracking-[0.2em] font-body font-bold">Entrance</div>
+
+              <!-- Tables Grid -->
+              <div class="grid grid-cols-5 gap-x-6 gap-y-8 pt-6">
+                <!-- Row 1: Window 2-tops -->
+                <!-- T1 Available -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-14 h-14 rounded-full bg-[#16a34a]/10 border-[2.5px] border-[#16a34a] flex items-center justify-center shadow-md shadow-[#16a34a]/15">
+                    <span class="text-xs font-bold text-[#16a34a] font-body">T1</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">2 seats</span>
+                </div>
+                <!-- T2 Reserved -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-14 h-14 rounded-full bg-[#d4a017]/10 border-[2.5px] border-[#d4a017] flex items-center justify-center shadow-md shadow-[#d4a017]/15">
+                    <span class="text-xs font-bold text-[#a07d0e] font-body">T2</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">2 seats</span>
+                </div>
+                <!-- T3 Occupied -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-14 h-14 rounded-full bg-[#9b1b30]/10 border-[2.5px] border-[#9b1b30] flex items-center justify-center shadow-md shadow-[#9b1b30]/15">
+                    <span class="text-xs font-bold text-[#9b1b30] font-body">T3</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">2 seats</span>
+                </div>
+                <!-- T4 Available -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-14 h-14 rounded-full bg-[#16a34a]/10 border-[2.5px] border-[#16a34a] flex items-center justify-center shadow-md shadow-[#16a34a]/15">
+                    <span class="text-xs font-bold text-[#16a34a] font-body">T4</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">2 seats</span>
+                </div>
+                <!-- T5 Occupied -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-14 h-14 rounded-full bg-[#9b1b30]/10 border-[2.5px] border-[#9b1b30] flex items-center justify-center shadow-md shadow-[#9b1b30]/15">
+                    <span class="text-xs font-bold text-[#9b1b30] font-body">T5</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">2 seats</span>
+                </div>
+
+                <!-- Row 2: Center 4-tops (rectangles) -->
+                <!-- T6 Reserved -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-[4.2rem] h-11 rounded-lg bg-[#d4a017]/10 border-[2.5px] border-[#d4a017] flex items-center justify-center shadow-md shadow-[#d4a017]/15">
+                    <span class="text-xs font-bold text-[#a07d0e] font-body">T6</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">4 seats</span>
+                </div>
+                <!-- T7 Available -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-[4.2rem] h-11 rounded-lg bg-[#16a34a]/10 border-[2.5px] border-[#16a34a] flex items-center justify-center shadow-md shadow-[#16a34a]/15">
+                    <span class="text-xs font-bold text-[#16a34a] font-body">T7</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">4 seats</span>
+                </div>
+                <!-- T8 Occupied -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-[4.2rem] h-11 rounded-lg bg-[#9b1b30]/10 border-[2.5px] border-[#9b1b30] flex items-center justify-center shadow-md shadow-[#9b1b30]/15">
+                    <span class="text-xs font-bold text-[#9b1b30] font-body">T8</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">4 seats</span>
+                </div>
+                <!-- T9 Available -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-[4.2rem] h-11 rounded-lg bg-[#16a34a]/10 border-[2.5px] border-[#16a34a] flex items-center justify-center shadow-md shadow-[#16a34a]/15">
+                    <span class="text-xs font-bold text-[#16a34a] font-body">T9</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">4 seats</span>
+                </div>
+                <!-- T10 Reserved -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-[4.2rem] h-11 rounded-lg bg-[#d4a017]/10 border-[2.5px] border-[#d4a017] flex items-center justify-center shadow-md shadow-[#d4a017]/15">
+                    <span class="text-xs font-bold text-[#a07d0e] font-body">T10</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">4 seats</span>
+                </div>
+
+                <!-- Row 3: Bar-side tables + large rounds -->
+                <!-- T11 Maintenance -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-[4.2rem] h-11 rounded-lg bg-[#9ca3af]/10 border-[2.5px] border-[#9ca3af] flex items-center justify-center shadow-sm">
+                    <span class="text-xs font-bold text-[#9ca3af] font-body">T11</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">4 seats</span>
+                </div>
+                <!-- T12 Occupied -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-[4.2rem] h-11 rounded-lg bg-[#9b1b30]/10 border-[2.5px] border-[#9b1b30] flex items-center justify-center shadow-md shadow-[#9b1b30]/15">
+                    <span class="text-xs font-bold text-[#9b1b30] font-body">T12</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">4 seats</span>
+                </div>
+                <!-- T13 Available -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-14 h-14 rounded-full bg-[#16a34a]/10 border-[2.5px] border-[#16a34a] flex items-center justify-center shadow-md shadow-[#16a34a]/15">
+                    <span class="text-xs font-bold text-[#16a34a] font-body">T13</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">2 seats</span>
+                </div>
+                <!-- T14 Reserved -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-14 h-14 rounded-full bg-[#d4a017]/10 border-[2.5px] border-[#d4a017] flex items-center justify-center shadow-md shadow-[#d4a017]/15">
+                    <span class="text-xs font-bold text-[#a07d0e] font-body">T14</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">2 seats</span>
+                </div>
+                <!-- T15 Available -->
+                <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                  <div class="w-14 h-14 rounded-full bg-[#16a34a]/10 border-[2.5px] border-[#16a34a] flex items-center justify-center shadow-md shadow-[#16a34a]/15">
+                    <span class="text-xs font-bold text-[#16a34a] font-body">T15</span>
+                  </div>
+                  <span class="text-[10px] text-[#8a7e72] font-body font-medium">2 seats</span>
+                </div>
+
+                <!-- Row 4: Large party tables -->
+                <div class="col-span-2 flex justify-center">
+                  <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                    <div class="w-20 h-20 rounded-full bg-[#d4a017]/10 border-[2.5px] border-[#d4a017] flex items-center justify-center shadow-md shadow-[#d4a017]/15">
+                      <span class="text-xs font-bold text-[#a07d0e] font-body">T16</span>
+                    </div>
+                    <span class="text-[10px] text-[#8a7e72] font-body font-medium">8 seats</span>
+                  </div>
+                </div>
+                <div class="flex justify-center">
+                  <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                    <div class="w-[4.5rem] h-11 rounded-lg bg-[#9b1b30]/10 border-[2.5px] border-[#9b1b30] flex items-center justify-center shadow-md shadow-[#9b1b30]/15">
+                      <span class="text-xs font-bold text-[#9b1b30] font-body">T17</span>
+                    </div>
+                    <span class="text-[10px] text-[#8a7e72] font-body font-medium">4 seats</span>
+                  </div>
+                </div>
+                <div class="col-span-2 flex justify-center">
+                  <div class="flex flex-col items-center gap-2 table-element cursor-pointer">
+                    <div class="w-20 h-20 rounded-full bg-[#16a34a]/10 border-[2.5px] border-[#16a34a] flex items-center justify-center shadow-md shadow-[#16a34a]/15">
+                      <span class="text-xs font-bold text-[#16a34a] font-body">T18</span>
+                    </div>
+                    <span class="text-[10px] text-[#8a7e72] font-body font-medium">8 seats</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Reservations -->
+        <div class="col-span-2 bg-white rounded-2xl border border-[#e8ddd0] shadow-sm flex flex-col">
+          <div class="px-7 py-5 border-b border-[#e8ddd0] flex items-center justify-between">
+            <div>
+              <h3 class="font-display text-lg font-bold text-ink tracking-wide">Upcoming</h3>
+              <p class="text-xs text-[#8a7e72] mt-1 font-body">Next 5 bookings tonight</p>
+            </div>
+            <a href="#" class="text-xs text-gold font-bold font-body hover:text-gold-dark transition-colors duration-200 cursor-pointer">View All</a>
+          </div>
+          <div class="flex-1 divide-y divide-[#f0ebe4]">
+            <!-- Reservation 1 -->
+            <div class="reservation-row px-7 py-4 hover:bg-gold/[0.03] cursor-pointer">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#9b1b30] to-[#7a1526] flex items-center justify-center text-white text-[11px] font-bold font-body shadow-sm">ES</div>
+                  <div>
+                    <p class="text-sm font-semibold text-ink font-body">Elena Santoro</p>
+                    <p class="text-[11px] text-[#8a7e72] font-body">Party of 4 &middot; Table 6</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-bold text-ink font-display">7:00 PM</p>
+                  <span class="inline-block text-[9px] font-bold bg-[#d4a017]/15 text-[#a07d0e] px-2 py-0.5 rounded-full font-body uppercase tracking-wide">Confirmed</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-[#8a7e72] italic ml-12 font-body">Anniversary dinner, window seat preferred</p>
+            </div>
+
+            <!-- Reservation 2 -->
+            <div class="reservation-row px-7 py-4 hover:bg-gold/[0.03] cursor-pointer">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#d4a017] to-[#b8880e] flex items-center justify-center text-white text-[11px] font-bold font-body shadow-sm">JW</div>
+                  <div>
+                    <p class="text-sm font-semibold text-ink font-body">James Whitfield</p>
+                    <p class="text-[11px] text-[#8a7e72] font-body">Party of 2 &middot; Table 2</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-bold text-ink font-display">7:30 PM</p>
+                  <span class="inline-block text-[9px] font-bold bg-[#d4a017]/15 text-[#a07d0e] px-2 py-0.5 rounded-full font-body uppercase tracking-wide">Confirmed</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-[#8a7e72] italic ml-12 font-body">Nut allergy, please inform kitchen</p>
+            </div>
+
+            <!-- Reservation 3 -->
+            <div class="reservation-row px-7 py-4 hover:bg-gold/[0.03] cursor-pointer">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#16a34a] to-[#0d7a37] flex items-center justify-center text-white text-[11px] font-bold font-body shadow-sm">PN</div>
+                  <div>
+                    <p class="text-sm font-semibold text-ink font-body">Priya Nair</p>
+                    <p class="text-[11px] text-[#8a7e72] font-body">Party of 8 &middot; Table 16</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-bold text-ink font-display">7:45 PM</p>
+                  <span class="inline-block text-[9px] font-bold bg-[#d4a017]/20 text-[#d4a017] px-2 py-0.5 rounded-full font-body uppercase tracking-wide">VIP</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-[#8a7e72] italic ml-12 font-body">Birthday celebration, cake at 9pm</p>
+            </div>
+
+            <!-- Reservation 4 -->
+            <div class="reservation-row px-7 py-4 hover:bg-gold/[0.03] cursor-pointer">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#c4713e] to-[#9b5a2e] flex items-center justify-center text-white text-[11px] font-bold font-body shadow-sm">DM</div>
+                  <div>
+                    <p class="text-sm font-semibold text-ink font-body">David Mitchell</p>
+                    <p class="text-[11px] text-[#8a7e72] font-body">Party of 4 &middot; Table 10</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-bold text-ink font-display">8:00 PM</p>
+                  <span class="inline-block text-[9px] font-bold bg-[#d4a017]/15 text-[#a07d0e] px-2 py-0.5 rounded-full font-body uppercase tracking-wide">Confirmed</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-[#8a7e72] italic ml-12 font-body">Vegetarian menu requested</p>
+            </div>
+
+            <!-- Reservation 5 -->
+            <div class="reservation-row px-7 py-4 hover:bg-gold/[0.03] cursor-pointer">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#9b1b30] to-[#c4253e] flex items-center justify-center text-white text-[11px] font-bold font-body shadow-sm">LK</div>
+                  <div>
+                    <p class="text-sm font-semibold text-ink font-body">Laura Kim</p>
+                    <p class="text-[11px] text-[#8a7e72] font-body">Party of 2 &middot; Table 1</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-bold text-ink font-display">8:30 PM</p>
+                  <span class="inline-block text-[9px] font-bold bg-[#9ca3af]/15 text-[#8a7e72] px-2 py-0.5 rounded-full font-body uppercase tracking-wide">Pending</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-[#8a7e72] italic ml-12 font-body">First-time guest, referred by Whitfield</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Time-Slot Heatmap -->
+      <div class="bg-white rounded-2xl border border-[#e8ddd0] shadow-sm">
+        <div class="px-7 py-5 border-b border-[#e8ddd0] flex items-center justify-between">
+          <div>
+            <h3 class="font-display text-lg font-bold text-ink tracking-wide">Reservation Heatmap</h3>
+            <p class="text-xs text-[#8a7e72] mt-1 font-body">Booking density by hour &mdash; Today</p>
+          </div>
+          <div class="flex gap-4 text-xs font-body font-medium text-[#8a7e72]">
+            <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded-md bg-[#16a34a]/15 border border-[#16a34a]/25"></span> Light</span>
+            <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded-md bg-[#d4a017]/30 border border-[#d4a017]/40"></span> Moderate</span>
+            <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded-md bg-[#d4a017]/70 border border-[#d4a017]/80"></span> Busy</span>
+            <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded-md bg-[#9b1b30] border border-[#9b1b30]/80"></span> Peak</span>
+          </div>
+        </div>
+        <div class="px-7 py-6">
+          <div class="flex gap-2">
+            <!-- 11 AM - Light -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#16a34a]/10 border border-[#16a34a]/20 flex items-center justify-center">
+                <span class="text-sm font-bold text-[#16a34a] font-body">2</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">11 AM</span>
+            </div>
+            <!-- 12 PM - Busy -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#d4a017]/60 border border-[#d4a017]/70 flex items-center justify-center">
+                <span class="text-sm font-bold text-white font-body">8</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">12 PM</span>
+            </div>
+            <!-- 1 PM - Peak -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#9b1b30] border border-[#9b1b30]/80 flex items-center justify-center shadow-md shadow-[#9b1b30]/20">
+                <span class="text-sm font-bold text-white font-body">12</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">1 PM</span>
+            </div>
+            <!-- 2 PM - Busy -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#d4a017]/60 border border-[#d4a017]/70 flex items-center justify-center">
+                <span class="text-sm font-bold text-white font-body">7</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">2 PM</span>
+            </div>
+            <!-- 3 PM - Light -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#16a34a]/10 border border-[#16a34a]/20 flex items-center justify-center">
+                <span class="text-sm font-bold text-[#16a34a] font-body">1</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">3 PM</span>
+            </div>
+            <!-- 4 PM - Light -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#16a34a]/10 border border-[#16a34a]/20 flex items-center justify-center">
+                <span class="text-sm font-bold text-[#16a34a] font-body">0</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">4 PM</span>
+            </div>
+            <!-- 5 PM - Moderate -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#d4a017]/30 border border-[#d4a017]/40 flex items-center justify-center">
+                <span class="text-sm font-bold text-[#8a6d0a] font-body">3</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">5 PM</span>
+            </div>
+            <!-- 6 PM - Moderate -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#d4a017]/30 border border-[#d4a017]/40 flex items-center justify-center">
+                <span class="text-sm font-bold text-[#8a6d0a] font-body">5</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">6 PM</span>
+            </div>
+            <!-- 7 PM - Peak -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#9b1b30] border border-[#9b1b30]/80 flex items-center justify-center shadow-md shadow-[#9b1b30]/20">
+                <span class="text-sm font-bold text-white font-body">14</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">7 PM</span>
+            </div>
+            <!-- 8 PM - Peak -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#9b1b30] border border-[#9b1b30]/80 flex items-center justify-center shadow-md shadow-[#9b1b30]/20">
+                <span class="text-sm font-bold text-white font-body">11</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">8 PM</span>
+            </div>
+            <!-- 9 PM - Busy -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#d4a017]/60 border border-[#d4a017]/70 flex items-center justify-center">
+                <span class="text-sm font-bold text-white font-body">6</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">9 PM</span>
+            </div>
+            <!-- 10 PM - Moderate -->
+            <div class="flex-1 flex flex-col items-center gap-2.5 heatmap-cell cursor-pointer">
+              <div class="w-full h-20 rounded-xl bg-[#d4a017]/30 border border-[#d4a017]/40 flex items-center justify-center">
+                <span class="text-sm font-bold text-[#8a6d0a] font-body">3</span>
+              </div>
+              <span class="text-[10px] text-[#8a7e72] font-bold font-body tracking-wide">10 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

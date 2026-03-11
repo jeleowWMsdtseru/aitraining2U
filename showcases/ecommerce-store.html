@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>NovaMart - Electronics Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ea580c',
+            'primary-dark': '#c2410c',
+            cta: '#ea580c',
+            'cta-dark': '#c2410c',
+            surface: '#fffaf5',
+            ink: '#292524',
+            fresh: '#0d9488',
+            amber: '#f59e0b',
+          },
+          fontFamily: {
+            heading: ['Rubik', 'sans-serif'],
+            body: ['Nunito Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Nunito Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Rubik', sans-serif; }
+
+    .geo-1 {
+      background:
+        linear-gradient(135deg, #ea580c 0%, #ea580c 50%, #f97316 50%, #f97316 100%);
+    }
+    .geo-2 {
+      background:
+        linear-gradient(150deg, #fb923c 0%, #fb923c 40%, #f59e0b 40%, #f59e0b 70%, #292524 70%, #292524 100%);
+    }
+    .geo-3 {
+      background:
+        linear-gradient(120deg, #a8a29e 0%, #a8a29e 55%, #d6d3d1 55%, #d6d3d1 100%);
+    }
+    .geo-4 {
+      background:
+        linear-gradient(160deg, #dc2626 0%, #dc2626 45%, #fb923c 45%, #fb923c 100%);
+    }
+    .geo-5 {
+      background:
+        linear-gradient(135deg, #f59e0b 0%, #f59e0b 50%, #ea580c 50%, #ea580c 100%);
+    }
+    .geo-6 {
+      background:
+        linear-gradient(140deg, #c2410c 0%, #c2410c 60%, #b45309 60%, #b45309 100%);
+    }
+
+    .product-card {
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(234, 88, 12, 0.15);
+    }
+
+    .btn-cart {
+      transition: background-color 200ms ease, transform 200ms ease;
+    }
+    .btn-cart:hover {
+      transform: scale(1.02);
+    }
+
+    .fav-btn {
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+    .fav-btn:hover svg {
+      color: #E11D48;
+    }
+
+    .nav-link {
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+
+    .filter-section {
+      border-left: 4px solid #ea580c;
+    }
+
+    .ribbon-sale {
+      background: #dc2626;
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    }
+    .ribbon-new {
+      background: #0d9488;
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    }
+
+    .price-track {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, #ea580c 0%, #ea580c 60%, #E2E8F0 60%, #E2E8F0 100%);
+      outline: none;
+    }
+    .price-track::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ea580c;
+      border: 3px solid white;
+      box-shadow: 0 2px 6px rgba(234, 88, 12, 0.35);
+      cursor: pointer;
+    }
+
+    /* geometric accent shapes */
+    .geo-accent::before {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.12);
+      transform: rotate(45deg);
+      top: -20px;
+      right: 20px;
+    }
+    .geo-accent::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      bottom: 15px;
+      left: 15px;
+    }
+  </style>
+</head>
+<body class="bg-surface text-ink" style="min-width:1440px;">
+
+  <!-- Top Navbar -->
+  <header class="bg-ink sticky top-0 z-50" style="border-bottom: 4px solid #ea580c;">
+    <div class="max-w-[1440px] mx-auto px-8 py-4 flex items-center gap-8">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 shrink-0 cursor-pointer group">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center" style="clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <span class="font-heading text-2xl font-extrabold text-white tracking-tight">Nova<span class="text-cta">Mart</span></span>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="flex-1 max-w-2xl">
+        <div class="relative flex">
+          <input type="text" placeholder="Search products, brands..." class="w-full bg-white/10 border-2 border-white/20 rounded-l-lg pl-5 pr-4 py-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/15 font-body" style="transition: border-color 200ms ease, background 200ms ease;" />
+          <button class="bg-cta hover:bg-cta-dark text-white px-5 rounded-r-lg cursor-pointer flex items-center justify-center" style="transition: background-color 200ms ease;">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Icons -->
+      <div class="flex items-center gap-6 shrink-0">
+        <!-- Cart -->
+        <a href="#" class="relative flex items-center gap-2 text-white hover:text-cta cursor-pointer" style="transition: color 200ms ease;">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+          </svg>
+          <span class="absolute -top-2 left-3.5 bg-cta text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-ink">3</span>
+          <span class="text-sm font-semibold font-body hidden xl:inline">Cart</span>
+        </a>
+        <!-- User -->
+        <a href="#" class="flex items-center gap-2 text-white hover:text-cta cursor-pointer" style="transition: color 200ms ease;">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span class="text-sm font-semibold font-body hidden xl:inline">Account</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Nav Bar -->
+  <nav class="bg-white border-b-2 border-gray-200 shadow-sm">
+    <div class="max-w-[1440px] mx-auto px-8 flex items-center gap-0">
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-bold font-heading text-white bg-primary cursor-pointer border-b-4 border-primary-dark">Hot Deals</a>
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-semibold font-heading text-ink hover:text-primary hover:bg-orange-50 cursor-pointer border-b-4 border-transparent hover:border-primary">Laptops</a>
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-semibold font-heading text-ink hover:text-primary hover:bg-orange-50 cursor-pointer border-b-4 border-transparent hover:border-primary">Smartphones</a>
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-semibold font-heading text-ink hover:text-primary hover:bg-orange-50 cursor-pointer border-b-4 border-transparent hover:border-primary">Audio</a>
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-semibold font-heading text-ink hover:text-primary hover:bg-orange-50 cursor-pointer border-b-4 border-transparent hover:border-primary">Accessories</a>
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-semibold font-heading text-ink hover:text-primary hover:bg-orange-50 cursor-pointer border-b-4 border-transparent hover:border-primary">Smart Home</a>
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-semibold font-heading text-ink hover:text-primary hover:bg-orange-50 cursor-pointer border-b-4 border-transparent hover:border-primary">Gaming</a>
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-semibold font-heading text-ink hover:text-primary hover:bg-orange-50 cursor-pointer border-b-4 border-transparent hover:border-primary">Wearables</a>
+      <a href="#" class="nav-link px-5 py-3.5 text-sm font-semibold font-heading text-ink hover:text-primary hover:bg-orange-50 cursor-pointer border-b-4 border-transparent hover:border-primary">Office</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-[1440px] mx-auto px-8" style="padding-top: 48px; padding-bottom: 48px;">
+    <div class="flex" style="gap: 48px;">
+
+      <!-- Left Sidebar: Filters -->
+      <aside class="w-72 shrink-0">
+        <div class="bg-white rounded-lg border-2 border-gray-200 overflow-hidden shadow-sm">
+
+          <!-- Categories Filter -->
+          <div class="filter-section p-6" style="margin: 16px; margin-bottom: 0; border-radius: 6px; background: #fff7ed;">
+            <h3 class="font-heading font-bold text-ink text-base mb-4 flex items-center justify-between">
+              Categories
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </h3>
+            <ul class="space-y-3 text-sm font-body">
+              <li><a href="#" class="flex justify-between text-ink/70 hover:text-primary cursor-pointer font-semibold" style="transition: color 200ms ease;"><span>Headphones & Audio</span><span class="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded">24</span></a></li>
+              <li><a href="#" class="flex justify-between text-primary font-bold cursor-pointer"><span>All Electronics</span><span class="bg-primary text-white text-xs font-bold px-2 py-0.5 rounded">128</span></a></li>
+              <li><a href="#" class="flex justify-between text-ink/70 hover:text-primary cursor-pointer font-semibold" style="transition: color 200ms ease;"><span>Wearables</span><span class="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded">18</span></a></li>
+              <li><a href="#" class="flex justify-between text-ink/70 hover:text-primary cursor-pointer font-semibold" style="transition: color 200ms ease;"><span>Computer Accessories</span><span class="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded">42</span></a></li>
+              <li><a href="#" class="flex justify-between text-ink/70 hover:text-primary cursor-pointer font-semibold" style="transition: color 200ms ease;"><span>Desk & Office</span><span class="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded">31</span></a></li>
+              <li><a href="#" class="flex justify-between text-ink/70 hover:text-primary cursor-pointer font-semibold" style="transition: color 200ms ease;"><span>Smart Home</span><span class="bg-primary/10 text-primary text-xs font-bold px-2 py-0.5 rounded">13</span></a></li>
+            </ul>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="filter-section p-6" style="margin: 16px; margin-bottom: 0; border-radius: 6px; background: #fff7ed;">
+            <h3 class="font-heading font-bold text-ink text-base mb-4 flex items-center justify-between">
+              Price Range
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </h3>
+            <input type="range" min="0" max="500" value="300" class="price-track mb-4" />
+            <div class="flex items-center gap-3 text-sm font-body font-bold">
+              <div class="flex-1 bg-white border-2 border-gray-200 rounded-md px-3 py-2 text-center text-ink">$0</div>
+              <span class="text-primary font-black text-lg">&mdash;</span>
+              <div class="flex-1 bg-white border-2 border-primary rounded-md px-3 py-2 text-center text-primary">$300</div>
+            </div>
+          </div>
+
+          <!-- Brand Filter -->
+          <div class="filter-section p-6" style="margin: 16px; margin-bottom: 0; border-radius: 6px; background: #fff7ed;">
+            <h3 class="font-heading font-bold text-ink text-base mb-4 flex items-center justify-between">
+              Brand
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </h3>
+            <ul class="space-y-3 text-sm font-body">
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" checked class="w-5 h-5 rounded border-2 border-gray-300 text-primary focus:ring-primary accent-[#ea580c]" />
+                  <span class="text-ink font-semibold">TechPro</span>
+                  <span class="text-ink/50 ml-auto font-bold">12</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-5 h-5 rounded border-2 border-gray-300 text-primary focus:ring-primary accent-[#ea580c]" />
+                  <span class="text-ink font-semibold">SoundMax</span>
+                  <span class="text-ink/50 ml-auto font-bold">8</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" checked class="w-5 h-5 rounded border-2 border-gray-300 text-primary focus:ring-primary accent-[#ea580c]" />
+                  <span class="text-ink font-semibold">ErgoDesk</span>
+                  <span class="text-ink/50 ml-auto font-bold">15</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-5 h-5 rounded border-2 border-gray-300 text-primary focus:ring-primary accent-[#ea580c]" />
+                  <span class="text-ink font-semibold">KeyCraft</span>
+                  <span class="text-ink/50 ml-auto font-bold">6</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" class="w-5 h-5 rounded border-2 border-gray-300 text-primary focus:ring-primary accent-[#ea580c]" />
+                  <span class="text-ink font-semibold">LumiHome</span>
+                  <span class="text-ink/50 ml-auto font-bold">9</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Rating Filter -->
+          <div class="filter-section p-6" style="margin: 16px; border-radius: 6px; background: #fff7ed;">
+            <h3 class="font-heading font-bold text-ink text-base mb-4 flex items-center justify-between">
+              Rating
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+            </h3>
+            <ul class="space-y-3 text-sm font-body">
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="radio" name="rating" checked class="w-5 h-5 border-2 border-gray-300 text-primary focus:ring-primary accent-[#ea580c]" />
+                  <span class="flex gap-0.5">
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </span>
+                  <span class="text-ink/50 font-semibold">& up</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="radio" name="rating" class="w-5 h-5 border-2 border-gray-300 text-primary focus:ring-primary accent-[#ea580c]" />
+                  <span class="flex gap-0.5">
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </span>
+                  <span class="text-ink/50 font-semibold">& up</span>
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="radio" name="rating" class="w-5 h-5 border-2 border-gray-300 text-primary focus:ring-primary accent-[#ea580c]" />
+                  <span class="flex gap-0.5">
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </span>
+                  <span class="text-ink/50 font-semibold">& up</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Clear Filters -->
+        <button class="w-full mt-4 py-3 text-sm font-heading font-bold text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white cursor-pointer" style="transition: background-color 200ms ease, color 200ms ease;">
+          Clear All Filters
+        </button>
+      </aside>
+
+      <!-- Product Area -->
+      <div class="flex-1 min-w-0">
+
+        <!-- Toolbar -->
+        <div class="flex items-center justify-between mb-8 bg-white rounded-lg border-2 border-gray-200 px-6 py-4 shadow-sm">
+          <p class="text-sm font-body text-ink/60 font-semibold">Showing <span class="font-extrabold text-ink">6</span> of <span class="font-extrabold text-ink">128</span> products</p>
+          <div class="flex items-center gap-4">
+            <span class="text-sm text-ink/50 font-semibold font-body">Sort by:</span>
+            <select class="text-sm border-2 border-gray-200 rounded-lg px-4 py-2.5 bg-white text-ink font-semibold font-body focus:outline-none focus:border-primary cursor-pointer" style="transition: border-color 200ms ease;">
+              <option>Featured</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Newest First</option>
+              <option>Best Sellers</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Grid 3x2 -->
+        <div class="grid grid-cols-3" style="gap: 32px;">
+
+          <!-- Product 1: Wireless Headphones (SALE) -->
+          <div class="product-card bg-white rounded-lg border-2 border-gray-200 overflow-hidden group cursor-pointer">
+            <div class="relative">
+              <div class="h-56 geo-1 geo-accent flex items-center justify-center relative overflow-hidden">
+                <!-- Headphones SVG icon -->
+                <svg class="w-20 h-20 text-white/90 drop-shadow-lg" style="transition: transform 200ms ease;" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M3 18v-6a9 9 0 0118 0v6"/>
+                  <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3v5zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3v5z"/>
+                </svg>
+              </div>
+              <!-- SALE Ribbon -->
+              <span class="ribbon-sale absolute top-4 left-0 text-white text-xs font-heading font-black px-4 py-1.5 tracking-wider">SALE</span>
+              <!-- Favorite -->
+              <button class="fav-btn absolute top-4 right-4 w-10 h-10 bg-white rounded-lg flex items-center justify-center cursor-pointer shadow-md border-2 border-gray-100">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-ink text-lg mb-2 group-hover:text-primary" style="transition: color 200ms ease;">Wireless Headphones</h3>
+              <div class="flex items-center gap-1 mb-3">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="text-xs text-ink/40 font-semibold ml-1">(2,847)</span>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="font-heading font-black text-2xl text-ink">$79.99</span>
+                <span class="text-sm text-ink/40 line-through font-semibold">$129.99</span>
+                <span class="text-xs font-heading font-bold text-white bg-red-500 px-2 py-1 rounded" style="clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);">-38%</span>
+              </div>
+              <button class="btn-cart w-full bg-cta hover:bg-cta-dark text-white text-sm font-heading font-bold py-3 rounded-lg cursor-pointer flex items-center justify-center gap-2 border-b-4 border-orange-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2: Smart Watch (NEW) -->
+          <div class="product-card bg-white rounded-lg border-2 border-gray-200 overflow-hidden group cursor-pointer">
+            <div class="relative">
+              <div class="h-56 geo-2 geo-accent flex items-center justify-center relative overflow-hidden">
+                <svg class="w-20 h-20 text-white/90 drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="7"/>
+                  <polyline points="12 9 12 12 13.5 13.5"/>
+                  <path d="M16.51 17.35l-.35 3.83a2 2 0 01-2 1.82H9.83a2 2 0 01-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 019.83 1h4.35a2 2 0 012 1.82l.35 3.83"/>
+                </svg>
+              </div>
+              <span class="ribbon-new absolute top-4 left-0 text-white text-xs font-heading font-black px-4 py-1.5 tracking-wider">NEW</span>
+              <button class="fav-btn absolute top-4 right-4 w-10 h-10 bg-white rounded-lg flex items-center justify-center cursor-pointer shadow-md border-2 border-gray-100">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-ink text-lg mb-2 group-hover:text-primary" style="transition: color 200ms ease;">Smart Watch</h3>
+              <div class="flex items-center gap-1 mb-3">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="text-xs text-ink/40 font-semibold ml-1">(1,203)</span>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="font-heading font-black text-2xl text-ink">$249.00</span>
+              </div>
+              <button class="btn-cart w-full bg-cta hover:bg-cta-dark text-white text-sm font-heading font-bold py-3 rounded-lg cursor-pointer flex items-center justify-center gap-2 border-b-4 border-orange-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3: Laptop Stand -->
+          <div class="product-card bg-white rounded-lg border-2 border-gray-200 overflow-hidden group cursor-pointer">
+            <div class="relative">
+              <div class="h-56 geo-3 geo-accent flex items-center justify-center relative overflow-hidden">
+                <svg class="w-20 h-20 text-white/90 drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M2 17l10 3 10-3"/>
+                  <path d="M6 13l6-8 6 8"/>
+                  <line x1="6" y1="13" x2="6" y2="17"/>
+                  <line x1="18" y1="13" x2="18" y2="17"/>
+                </svg>
+              </div>
+              <button class="fav-btn absolute top-4 right-4 w-10 h-10 bg-white rounded-lg flex items-center justify-center cursor-pointer shadow-md border-2 border-gray-100">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-ink text-lg mb-2 group-hover:text-primary" style="transition: color 200ms ease;">Laptop Stand</h3>
+              <div class="flex items-center gap-1 mb-3">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="text-xs text-ink/40 font-semibold ml-1">(956)</span>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="font-heading font-black text-2xl text-ink">$49.99</span>
+              </div>
+              <button class="btn-cart w-full bg-cta hover:bg-cta-dark text-white text-sm font-heading font-bold py-3 rounded-lg cursor-pointer flex items-center justify-center gap-2 border-b-4 border-orange-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4: Mechanical Keyboard (SALE) -->
+          <div class="product-card bg-white rounded-lg border-2 border-gray-200 overflow-hidden group cursor-pointer">
+            <div class="relative">
+              <div class="h-56 geo-4 geo-accent flex items-center justify-center relative overflow-hidden">
+                <svg class="w-20 h-20 text-white/90 drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
+                  <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01"/>
+                  <path d="M6 12h.01M10 12h.01M14 12h.01M18 12h.01"/>
+                  <path d="M8 16h8"/>
+                </svg>
+              </div>
+              <span class="ribbon-sale absolute top-4 left-0 text-white text-xs font-heading font-black px-4 py-1.5 tracking-wider">SALE</span>
+              <button class="fav-btn absolute top-4 right-4 w-10 h-10 bg-white rounded-lg flex items-center justify-center cursor-pointer shadow-md border-2 border-gray-100">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-ink text-lg mb-2 group-hover:text-primary" style="transition: color 200ms ease;">Mechanical Keyboard</h3>
+              <div class="flex items-center gap-1 mb-3">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="text-xs text-ink/40 font-semibold ml-1">(3,412)</span>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="font-heading font-black text-2xl text-ink">$89.99</span>
+                <span class="text-sm text-ink/40 line-through font-semibold">$119.99</span>
+                <span class="text-xs font-heading font-bold text-white bg-red-500 px-2 py-1 rounded" style="clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);">-25%</span>
+              </div>
+              <button class="btn-cart w-full bg-cta hover:bg-cta-dark text-white text-sm font-heading font-bold py-3 rounded-lg cursor-pointer flex items-center justify-center gap-2 border-b-4 border-orange-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 5: USB-C Hub (NEW) -->
+          <div class="product-card bg-white rounded-lg border-2 border-gray-200 overflow-hidden group cursor-pointer">
+            <div class="relative">
+              <div class="h-56 geo-5 geo-accent flex items-center justify-center relative overflow-hidden">
+                <svg class="w-20 h-20 text-white/90 drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <rect x="4" y="8" width="16" height="8" rx="2"/>
+                  <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                  <line x1="8" y1="16" x2="8" y2="20"/>
+                  <line x1="12" y1="16" x2="12" y2="20"/>
+                  <line x1="16" y1="16" x2="16" y2="20"/>
+                </svg>
+              </div>
+              <span class="ribbon-new absolute top-4 left-0 text-white text-xs font-heading font-black px-4 py-1.5 tracking-wider">NEW</span>
+              <button class="fav-btn absolute top-4 right-4 w-10 h-10 bg-white rounded-lg flex items-center justify-center cursor-pointer shadow-md border-2 border-gray-100">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-ink text-lg mb-2 group-hover:text-primary" style="transition: color 200ms ease;">USB-C Hub</h3>
+              <div class="flex items-center gap-1 mb-3">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="text-xs text-ink/40 font-semibold ml-1">(678)</span>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="font-heading font-black text-2xl text-ink">$34.99</span>
+              </div>
+              <button class="btn-cart w-full bg-cta hover:bg-cta-dark text-white text-sm font-heading font-bold py-3 rounded-lg cursor-pointer flex items-center justify-center gap-2 border-b-4 border-orange-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 6: Desk Lamp -->
+          <div class="product-card bg-white rounded-lg border-2 border-gray-200 overflow-hidden group cursor-pointer">
+            <div class="relative">
+              <div class="h-56 geo-6 geo-accent flex items-center justify-center relative overflow-hidden">
+                <svg class="w-20 h-20 text-white/90 drop-shadow-lg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M9 18h6"/>
+                  <path d="M10 22h4"/>
+                  <path d="M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"/>
+                </svg>
+              </div>
+              <button class="fav-btn absolute top-4 right-4 w-10 h-10 bg-white rounded-lg flex items-center justify-center cursor-pointer shadow-md border-2 border-gray-100">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-ink text-lg mb-2 group-hover:text-primary" style="transition: color 200ms ease;">Desk Lamp</h3>
+              <div class="flex items-center gap-1 mb-3">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="text-xs text-ink/40 font-semibold ml-1">(1,589)</span>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="font-heading font-black text-2xl text-ink">$42.00</span>
+              </div>
+              <button class="btn-cart w-full bg-cta hover:bg-cta-dark text-white text-sm font-heading font-bold py-3 rounded-lg cursor-pointer flex items-center justify-center gap-2 border-b-4 border-orange-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

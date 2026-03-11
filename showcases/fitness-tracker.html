@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440">
+    <title>FitPulse - Fitness Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Lora', 'serif'],
+                        body: ['Raleway', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#22c55e',
+                        secondary: '#06b6d4',
+                        cta: '#F97316',
+                        surface: '#f0fdf4',
+                        ink: '#1a2e1a',
+                        energy: {
+                            50: '#f0fdf4',
+                            100: '#DCFCE7',
+                            200: '#BBF7D0',
+                            300: '#86EFAC',
+                            400: '#4ADE80',
+                            500: '#22c55e',
+                            600: '#16A34A',
+                        },
+                        cyan: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f0fdf4;
+        }
+        .font-heading {
+            font-family: 'Lora', serif;
+        }
+        .progress-ring-bg {
+            fill: none;
+            stroke: #DCFCE7;
+            stroke-width: 8;
+        }
+        .progress-ring-fill {
+            fill: none;
+            stroke: #22c55e;
+            stroke-width: 8;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .bar-hover {
+            transition: transform 250ms ease, filter 250ms ease;
+        }
+        .bar-hover:hover {
+            transform: scaleY(1.08);
+            filter: brightness(1.1);
+        }
+        .card-block {
+            transition: box-shadow 250ms ease, transform 200ms ease;
+        }
+        .card-block:hover {
+            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.12);
+            transform: translateY(-2px);
+        }
+        .nav-tab {
+            transition: background-color 200ms ease, color 200ms ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Top Navbar -->
+    <nav class="bg-[#0f2417] border-b-2 border-energy-500/20 sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 bg-energy-500 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12h3l2-6 4 12 3-8 2 4h4"/>
+                        </svg>
+                    </div>
+                    <span class="font-heading text-xl font-bold text-white">FitPulse</span>
+                </div>
+
+                <!-- Nav Tabs -->
+                <div class="flex items-center gap-1">
+                    <a href="#" class="nav-tab px-5 py-2 rounded-lg text-sm font-bold bg-energy-500 text-white cursor-pointer">Dashboard</a>
+                    <a href="#" class="nav-tab px-5 py-2 rounded-lg text-sm font-semibold text-white/60 hover:bg-energy-500/20 hover:text-energy-400 cursor-pointer">Workouts</a>
+                    <a href="#" class="nav-tab px-5 py-2 rounded-lg text-sm font-semibold text-white/60 hover:bg-energy-500/20 hover:text-energy-400 cursor-pointer">Nutrition</a>
+                    <a href="#" class="nav-tab px-5 py-2 rounded-lg text-sm font-semibold text-white/60 hover:bg-energy-500/20 hover:text-energy-400 cursor-pointer">Sleep</a>
+                    <a href="#" class="nav-tab px-5 py-2 rounded-lg text-sm font-semibold text-white/60 hover:bg-energy-500/20 hover:text-energy-400 cursor-pointer">Goals</a>
+                </div>
+
+                <!-- User Avatar & Actions -->
+                <div class="flex items-center gap-5">
+                    <!-- Notification Bell -->
+                    <div class="relative cursor-pointer p-2 rounded-lg hover:bg-energy-500/20 transition duration-200">
+                        <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-cta rounded-full"></span>
+                    </div>
+                    <!-- Avatar -->
+                    <div class="flex items-center gap-3 cursor-pointer">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-energy-400 flex items-center justify-center text-white font-bold text-sm shadow-md">A</div>
+                        <div>
+                            <p class="font-semibold text-white text-sm leading-none">Alex M.</p>
+                            <p class="text-white/40 text-xs mt-0.5 font-medium">Premium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-[1440px] mx-auto px-8 py-8">
+
+        <!-- Greeting -->
+        <div class="mb-8">
+            <h1 class="font-heading text-3xl font-bold text-ink">Good Morning, Alex</h1>
+            <p class="text-ink/50 text-sm mt-2 font-medium">Wednesday, March 11, 2026 &mdash; Your wellness journey continues.</p>
+        </div>
+
+        <!-- Layout: Main + Sidebar -->
+        <div class="flex gap-8">
+
+            <!-- Main Column -->
+            <div class="flex-1 min-w-0">
+
+                <!-- Top Stats Cards -->
+                <div class="grid grid-cols-4 gap-5 mb-8">
+
+                    <!-- Steps Card with SVG Circular Progress Ring -->
+                    <div class="card-block bg-white rounded-2xl p-6 border-2 border-energy-100 shadow-sm">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="text-xs font-bold text-ink/40 uppercase tracking-widest font-body">Steps</p>
+                                <p class="text-3xl font-bold text-ink mt-1 font-heading">8,432</p>
+                                <p class="text-xs text-ink/40 mt-1 font-medium">of 10,000 goal</p>
+                            </div>
+                            <div class="relative">
+                                <svg width="72" height="72" viewBox="0 0 72 72">
+                                    <circle cx="36" cy="36" r="28" class="progress-ring-bg"/>
+                                    <!-- 84.32% of circumference (2*pi*28 = 175.93); dashoffset = 175.93 * (1 - 0.8432) = 27.56 -->
+                                    <circle cx="36" cy="36" r="28" class="progress-ring-fill"
+                                        stroke-dasharray="175.93"
+                                        stroke-dashoffset="27.56"/>
+                                </svg>
+                                <span class="absolute inset-0 flex items-center justify-center text-sm font-bold text-energy-600 font-heading">84%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1.5 text-xs text-energy-600 font-semibold">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                            </svg>
+                            12% more than yesterday
+                        </div>
+                    </div>
+
+                    <!-- Calories Burned -->
+                    <div class="card-block bg-white rounded-2xl p-6 border-2 border-cta/10 shadow-sm">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="text-xs font-bold text-ink/40 uppercase tracking-widest">Calories</p>
+                                <p class="text-3xl font-bold text-ink mt-1 font-heading">642</p>
+                                <p class="text-xs text-ink/40 mt-1 font-medium">kcal burned</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-cta/10 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="w-full bg-cta/10 rounded-full h-2.5">
+                            <div class="bg-cta h-2.5 rounded-full" style="width: 64%"></div>
+                        </div>
+                        <p class="text-xs text-ink/40 mt-2 font-medium">Goal: 1,000 kcal</p>
+                    </div>
+
+                    <!-- Heart Rate with ECG Sparkline -->
+                    <div class="card-block bg-white rounded-2xl p-6 border-2 border-red-100 shadow-sm">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="text-xs font-bold text-ink/40 uppercase tracking-widest">Heart Rate</p>
+                                <p class="text-3xl font-bold text-ink mt-1 font-heading">72 <span class="text-sm font-medium text-ink/40 font-body">bpm</span></p>
+                                <p class="text-xs text-energy-600 mt-1 font-semibold">Resting</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Mini ECG SVG sparkline -->
+                        <svg class="w-full h-10" viewBox="0 0 220 40" fill="none" preserveAspectRatio="none">
+                            <polyline points="0,22 15,22 22,20 28,24 35,18 42,26 48,14 52,30 56,8 60,28 68,18 80,22 90,20 100,24 108,16 114,28 118,6 122,28 132,20 145,22 155,20 162,24 170,14 174,30 178,8 182,28 192,20 205,22 220,22"
+                                stroke="#EF4444" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Water Intake -->
+                    <div class="card-block bg-white rounded-2xl p-6 border-2 border-cyan-100 shadow-sm">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="text-xs font-bold text-ink/40 uppercase tracking-widest">Water</p>
+                                <p class="text-3xl font-bold text-ink mt-1 font-heading">6 <span class="text-sm font-medium text-ink/40 font-body">/ 8 glasses</span></p>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C12 2 6 9 6 14a6 6 0 1012 0c0-5-6-12-6-12z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Water glasses as blocks -->
+                        <div class="flex gap-2 mt-1">
+                            <div class="flex-1 h-8 rounded-lg bg-cyan-500"></div>
+                            <div class="flex-1 h-8 rounded-lg bg-cyan-500"></div>
+                            <div class="flex-1 h-8 rounded-lg bg-cyan-500"></div>
+                            <div class="flex-1 h-8 rounded-lg bg-cyan-500"></div>
+                            <div class="flex-1 h-8 rounded-lg bg-cyan-500"></div>
+                            <div class="flex-1 h-8 rounded-lg bg-cyan-500"></div>
+                            <div class="flex-1 h-8 rounded-lg bg-cyan-100"></div>
+                            <div class="flex-1 h-8 rounded-lg bg-cyan-100"></div>
+                        </div>
+                        <p class="text-xs text-ink/40 mt-2.5 font-medium">75% of daily goal</p>
+                    </div>
+
+                </div>
+
+                <!-- Weekly Activity Chart -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-energy-100 shadow-sm mb-8">
+                    <div class="flex items-center justify-between mb-8">
+                        <div>
+                            <h2 class="font-heading text-xl font-bold text-ink">Weekly Activity</h2>
+                            <p class="text-sm text-ink/40 mt-1 font-medium">March 5 - March 11, 2026</p>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 rounded bg-energy-500"></div>
+                                <span class="text-xs text-ink/60 font-semibold">Cardio</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 rounded bg-cyan-500"></div>
+                                <span class="text-xs text-ink/60 font-semibold">Strength</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chart -->
+                    <div class="flex items-end gap-4 h-56 px-2">
+                        <!-- Y-axis labels -->
+                        <div class="flex flex-col justify-between h-full text-xs text-ink/30 font-semibold pr-3 pb-8">
+                            <span>120</span>
+                            <span>90</span>
+                            <span>60</span>
+                            <span>30</span>
+                            <span>0</span>
+                        </div>
+
+                        <!-- Mon -->
+                        <div class="flex-1 flex flex-col items-center gap-2">
+                            <div class="w-full flex gap-1.5 items-end justify-center h-48">
+                                <div class="bar-hover w-6 bg-energy-500 rounded-t-lg cursor-pointer" style="height: 65%"></div>
+                                <div class="bar-hover w-6 bg-cyan-500 rounded-t-lg cursor-pointer" style="height: 45%"></div>
+                            </div>
+                            <span class="text-xs text-ink/50 font-bold">Mon</span>
+                        </div>
+
+                        <!-- Tue -->
+                        <div class="flex-1 flex flex-col items-center gap-2">
+                            <div class="w-full flex gap-1.5 items-end justify-center h-48">
+                                <div class="bar-hover w-6 bg-energy-500 rounded-t-lg cursor-pointer" style="height: 40%"></div>
+                                <div class="bar-hover w-6 bg-cyan-500 rounded-t-lg cursor-pointer" style="height: 75%"></div>
+                            </div>
+                            <span class="text-xs text-ink/50 font-bold">Tue</span>
+                        </div>
+
+                        <!-- Wed (today - highlighted) -->
+                        <div class="flex-1 flex flex-col items-center gap-2">
+                            <div class="w-full flex gap-1.5 items-end justify-center h-48 bg-energy-50 rounded-xl py-1 border-2 border-energy-200">
+                                <div class="bar-hover w-6 bg-energy-500 rounded-t-lg cursor-pointer" style="height: 80%"></div>
+                                <div class="bar-hover w-6 bg-cyan-500 rounded-t-lg cursor-pointer" style="height: 55%"></div>
+                            </div>
+                            <span class="text-xs text-energy-600 font-extrabold">Wed</span>
+                        </div>
+
+                        <!-- Thu -->
+                        <div class="flex-1 flex flex-col items-center gap-2">
+                            <div class="w-full flex gap-1.5 items-end justify-center h-48">
+                                <div class="bar-hover w-6 bg-energy-200 rounded-t-lg cursor-pointer" style="height: 50%"></div>
+                                <div class="bar-hover w-6 bg-cyan-200 rounded-t-lg cursor-pointer" style="height: 60%"></div>
+                            </div>
+                            <span class="text-xs text-ink/30 font-bold">Thu</span>
+                        </div>
+
+                        <!-- Fri -->
+                        <div class="flex-1 flex flex-col items-center gap-2">
+                            <div class="w-full flex gap-1.5 items-end justify-center h-48">
+                                <div class="bar-hover w-6 bg-energy-200 rounded-t-lg cursor-pointer" style="height: 70%"></div>
+                                <div class="bar-hover w-6 bg-cyan-200 rounded-t-lg cursor-pointer" style="height: 35%"></div>
+                            </div>
+                            <span class="text-xs text-ink/30 font-bold">Fri</span>
+                        </div>
+
+                        <!-- Sat -->
+                        <div class="flex-1 flex flex-col items-center gap-2">
+                            <div class="w-full flex gap-1.5 items-end justify-center h-48">
+                                <div class="bar-hover w-6 bg-energy-200 rounded-t-lg cursor-pointer" style="height: 90%"></div>
+                                <div class="bar-hover w-6 bg-cyan-200 rounded-t-lg cursor-pointer" style="height: 50%"></div>
+                            </div>
+                            <span class="text-xs text-ink/30 font-bold">Sat</span>
+                        </div>
+
+                        <!-- Sun -->
+                        <div class="flex-1 flex flex-col items-center gap-2">
+                            <div class="w-full flex gap-1.5 items-end justify-center h-48">
+                                <div class="bar-hover w-6 bg-energy-200 rounded-t-lg cursor-pointer" style="height: 30%"></div>
+                                <div class="bar-hover w-6 bg-cyan-200 rounded-t-lg cursor-pointer" style="height: 20%"></div>
+                            </div>
+                            <span class="text-xs text-ink/30 font-bold">Sun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Workout Plan -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between mb-5">
+                        <h2 class="font-heading text-xl font-bold text-ink">Today's Workout Plan</h2>
+                        <a href="#" class="text-sm text-energy-500 font-bold hover:text-energy-600 cursor-pointer transition duration-200">View All</a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-5">
+
+                        <!-- Morning Run -->
+                        <div class="card-block bg-white rounded-2xl border-2 border-energy-100 shadow-sm overflow-hidden cursor-pointer">
+                            <div class="h-2 bg-energy-500"></div>
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-energy-50 flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-energy-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                        </svg>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-lg bg-amber-50 text-amber-500 text-xs font-bold">Moderate</span>
+                                </div>
+                                <h3 class="font-heading font-bold text-ink text-lg">Morning Run 5K</h3>
+                                <p class="text-sm text-ink/40 mt-1 font-medium">Outdoor cardio session</p>
+                                <div class="flex items-center gap-5 mt-5 pt-5 border-t-2 border-surface">
+                                    <div class="flex items-center gap-2 text-xs text-ink/50 font-semibold">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                        </svg>
+                                        30 min
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs text-ink/50 font-semibold">
+                                        <svg class="w-4 h-4 text-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                                        </svg>
+                                        320 kcal
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-energy-500 flex items-center justify-center">
+                                            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-xs font-bold text-energy-600">Completed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upper Body Strength -->
+                        <div class="card-block bg-white rounded-2xl border-2 border-cyan-100 shadow-sm overflow-hidden cursor-pointer">
+                            <div class="h-2 bg-cyan-500"></div>
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h2m12 0h2M6 8a2 2 0 012-2h0a2 2 0 012 2v8a2 2 0 01-2 2h0a2 2 0 01-2-2V8zm8 0a2 2 0 012-2h0a2 2 0 012 2v8a2 2 0 01-2 2h0a2 2 0 01-2-2V8z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-lg bg-red-50 text-red-500 text-xs font-bold">Hard</span>
+                                </div>
+                                <h3 class="font-heading font-bold text-ink text-lg">Upper Body</h3>
+                                <p class="text-sm text-ink/40 mt-1 font-medium">Chest, shoulders & arms</p>
+                                <div class="flex items-center gap-5 mt-5 pt-5 border-t-2 border-surface">
+                                    <div class="flex items-center gap-2 text-xs text-ink/50 font-semibold">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                        </svg>
+                                        45 min
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs text-ink/50 font-semibold">
+                                        <svg class="w-4 h-4 text-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                                        </svg>
+                                        280 kcal
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg border-2 border-cyan-500 flex items-center justify-center">
+                                            <div class="w-2.5 h-2.5 rounded bg-cyan-500"></div>
+                                        </div>
+                                        <span class="text-xs font-bold text-cyan-600">In Progress</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Evening Yoga -->
+                        <div class="card-block bg-white rounded-2xl border-2 border-cyan-100 shadow-sm overflow-hidden cursor-pointer">
+                            <div class="h-2 bg-gradient-to-r from-cyan-300 to-energy-300"></div>
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+                                        </svg>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-lg bg-energy-50 text-energy-600 text-xs font-bold">Easy</span>
+                                </div>
+                                <h3 class="font-heading font-bold text-ink text-lg">Evening Yoga</h3>
+                                <p class="text-sm text-ink/40 mt-1 font-medium">Flexibility & relaxation</p>
+                                <div class="flex items-center gap-5 mt-5 pt-5 border-t-2 border-surface">
+                                    <div class="flex items-center gap-2 text-xs text-ink/50 font-semibold">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                        </svg>
+                                        40 min
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs text-ink/50 font-semibold">
+                                        <svg class="w-4 h-4 text-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                                        </svg>
+                                        120 kcal
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg border-2 border-ink/20"></div>
+                                        <span class="text-xs font-bold text-ink/40">7:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Sidebar: Body Metrics -->
+            <div class="w-80 flex-shrink-0">
+
+                <!-- Body Metrics Card -->
+                <div class="bg-white rounded-2xl border-2 border-energy-100 shadow-sm p-6 mb-6">
+                    <h3 class="font-heading font-bold text-ink text-lg mb-5">Body Metrics</h3>
+
+                    <!-- Weight Trend Sparkline -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <p class="text-sm text-ink/50 font-semibold">Weight</p>
+                            <p class="text-sm font-bold text-ink font-heading">74.2 <span class="text-xs font-normal text-ink/40 font-body">kg</span></p>
+                        </div>
+                        <svg class="w-full h-14" viewBox="0 0 260 56" fill="none">
+                            <defs>
+                                <linearGradient id="weightGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#22c55e" stop-opacity="0.15"/>
+                                    <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,34 Q25,32 45,36 T90,30 T130,22 T175,24 T215,18 T260,15" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M0,34 Q25,32 45,36 T90,30 T130,22 T175,24 T215,18 T260,15 L260,56 L0,56 Z" fill="url(#weightGrad)"/>
+                            <circle cx="260" cy="15" r="4" fill="#22c55e"/>
+                            <circle cx="260" cy="15" r="7" fill="#22c55e" opacity="0.2"/>
+                        </svg>
+                        <div class="flex items-center gap-1.5 text-xs text-energy-600 font-bold mt-2">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7-7-7 7"/>
+                            </svg>
+                            -1.3 kg this month
+                        </div>
+                    </div>
+
+                    <div class="space-y-0">
+                        <!-- BMI -->
+                        <div class="flex items-center justify-between py-4 border-t-2 border-surface">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-energy-50 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-energy-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-ink">BMI</p>
+                                    <p class="text-xs text-energy-600 font-bold">Normal</p>
+                                </div>
+                            </div>
+                            <span class="text-2xl font-bold text-ink font-heading">23.1</span>
+                        </div>
+
+                        <!-- Body Fat -->
+                        <div class="flex items-center justify-between py-4 border-t-2 border-surface">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-ink">Body Fat</p>
+                                    <p class="text-xs text-cta font-bold">Athletic</p>
+                                </div>
+                            </div>
+                            <span class="text-2xl font-bold text-ink font-heading">16.4<span class="text-sm font-normal text-ink/40 font-body">%</span></span>
+                        </div>
+
+                        <!-- Muscle Mass -->
+                        <div class="flex items-center justify-between py-4 border-t-2 border-surface">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-ink">Muscle Mass</p>
+                                    <p class="text-xs text-cyan-600 font-bold">Above Avg</p>
+                                </div>
+                            </div>
+                            <span class="text-2xl font-bold text-ink font-heading">38.6<span class="text-sm font-normal text-ink/40 font-body">kg</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sleep Summary -->
+                <div class="bg-white rounded-2xl border-2 border-cyan-100 shadow-sm p-6 mb-6">
+                    <h3 class="font-heading font-bold text-ink text-lg mb-4">Last Night's Sleep</h3>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-ink font-heading">7h 24m</p>
+                            <p class="text-xs text-ink/40 font-medium">11:15 PM - 6:39 AM</p>
+                        </div>
+                    </div>
+                    <!-- Sleep stages bar -->
+                    <div class="flex rounded-lg overflow-hidden h-4 mb-3">
+                        <div class="bg-[#0891b2]" style="width: 15%"></div>
+                        <div class="bg-cyan-500" style="width: 25%"></div>
+                        <div class="bg-cyan-200" style="width: 45%"></div>
+                        <div class="bg-cyan-50" style="width: 15%"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-ink/40 font-semibold">
+                        <span>Deep</span>
+                        <span>REM</span>
+                        <span>Light</span>
+                        <span>Awake</span>
+                    </div>
+                </div>
+
+                <!-- Weekly Goal CTA -->
+                <div class="bg-gradient-to-br from-energy-500 to-cyan-500 rounded-2xl p-6 text-white">
+                    <h3 class="font-heading font-bold text-lg mb-2">Weekly Goal</h3>
+                    <p class="text-sm text-white/80 mb-5 font-medium">You're 82% through your weekly fitness goal. Keep going.</p>
+                    <div class="w-full bg-white/20 rounded-lg h-3 mb-3">
+                        <div class="bg-white h-3 rounded-lg" style="width: 82%"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-white/70 font-semibold">
+                        <span>4 of 5 workouts</span>
+                        <span>82%</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

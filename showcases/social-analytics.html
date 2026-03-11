@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>InsightLab - Social Media Analytics</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Fira Sans', sans-serif; background: #0a0a0f; color: #e2e8f0; }
+    .font-mono-data { font-family: 'Fira Code', monospace; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Fira Code', monospace; }
+
+    .glow-cyan { text-shadow: 0 0 16px rgba(6,182,212,0.5), 0 0 32px rgba(6,182,212,0.25); }
+    .glow-pink { text-shadow: 0 0 16px rgba(244,63,94,0.5), 0 0 32px rgba(244,63,94,0.25); }
+    .glow-green { text-shadow: 0 0 16px rgba(34,197,94,0.5), 0 0 32px rgba(34,197,94,0.25); }
+
+    .glow-box-cyan { box-shadow: 0 0 20px rgba(6,182,212,0.15), 0 0 40px rgba(6,182,212,0.05); }
+    .glow-box-pink { box-shadow: 0 0 20px rgba(244,63,94,0.15), 0 0 40px rgba(244,63,94,0.05); }
+    .glow-box-green { box-shadow: 0 0 20px rgba(34,197,94,0.15), 0 0 40px rgba(34,197,94,0.05); }
+
+    .card { background: #141420; border: 1px solid rgba(6,182,212,0.15); border-radius: 10px; transition: all 0.25s ease; }
+    .card:hover { border-color: rgba(6,182,212,0.35); box-shadow: 0 0 24px rgba(6,182,212,0.08); }
+    .stat-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .stat-card:hover { transform: translateY(-2px); }
+
+    .bar-animate { animation: barGrow 0.8s ease-out forwards; transform-origin: left; }
+    @keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    .row-hover:hover { background: rgba(6,182,212,0.06); }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.25); border-radius: 3px; }
+
+    /* Scanline overlay for cyberpunk feel */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(6,182,212,0.015) 2px, rgba(6,182,212,0.015) 4px);
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Top Navbar -->
+  <nav class="sticky top-0 z-50 border-b backdrop-blur-xl" style="border-color:rgba(6,182,212,0.15);background:rgba(10,10,15,0.92)">
+    <div class="max-w-[1400px] mx-auto px-5 h-14 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:#06b6d4;box-shadow:0 0 12px rgba(6,182,212,0.4)">
+          <svg class="w-4.5 h-4.5 text-white" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <span class="text-lg font-bold text-white tracking-tight" style="font-family:'Fira Code',monospace">Insight<span style="color:#f43f5e">Lab</span></span>
+      </div>
+
+      <!-- Center: Date Range Picker -->
+      <div class="flex items-center gap-2.5">
+        <div class="flex items-center gap-2 border rounded-lg px-3.5 py-1.5 text-sm cursor-pointer" style="background:rgba(20,20,32,0.8);border-color:rgba(6,182,212,0.2);transition:border-color 0.2s">
+          <svg class="w-4 h-4" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span class="font-mono-data text-xs" style="color:#94a3b8">Feb 09 - Mar 11, 2026</span>
+          <svg class="w-3.5 h-3.5" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </div>
+        <div class="flex border rounded-lg text-xs overflow-hidden font-mono-data" style="background:rgba(20,20,32,0.8);border-color:rgba(6,182,212,0.2)">
+          <span class="px-2.5 py-1.5 cursor-pointer hover:text-slate-300" style="color:#94a3b8;transition:color 0.2s">7D</span>
+          <span class="px-2.5 py-1.5 font-medium cursor-pointer" style="background:rgba(6,182,212,0.15);color:#06b6d4;border-left:1px solid rgba(6,182,212,0.2);border-right:1px solid rgba(6,182,212,0.2)">30D</span>
+          <span class="px-2.5 py-1.5 cursor-pointer hover:text-slate-300" style="color:#94a3b8;transition:color 0.2s">90D</span>
+          <span class="px-2.5 py-1.5 cursor-pointer hover:text-slate-300" style="color:#94a3b8;transition:color 0.2s">1Y</span>
+        </div>
+      </div>
+
+      <!-- Right: Account Selector -->
+      <div class="flex items-center gap-3.5">
+        <div class="flex items-center gap-2 border rounded-lg px-3.5 py-1.5 text-sm cursor-pointer" style="background:rgba(20,20,32,0.8);border-color:rgba(6,182,212,0.2);transition:border-color 0.2s">
+          <div class="w-5 h-5 rounded-full" style="background:#f43f5e;box-shadow:0 0 8px rgba(244,63,94,0.3)"></div>
+          <span style="color:#94a3b8">Acme Corp</span>
+          <svg class="w-3.5 h-3.5" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative cursor-pointer">
+            <svg class="w-5 h-5" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+            </svg>
+            <div class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full" style="background:#f43f5e;border:1.5px solid #0a0a0f;box-shadow:0 0 6px rgba(244,63,94,0.5)"></div>
+          </div>
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white cursor-pointer" style="background:#06b6d4;box-shadow:0 0 10px rgba(6,182,212,0.3)">JD</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-[1400px] mx-auto px-5 py-5 space-y-5">
+
+    <!-- Overview Stats Row -->
+    <div class="grid grid-cols-4 gap-4">
+      <!-- Followers -->
+      <div class="card p-4 stat-card glow-box-pink">
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="text-xs font-medium uppercase tracking-wider" style="color:#94a3b8">Followers</span>
+          <div class="w-7 h-7 rounded-md flex items-center justify-center" style="background:rgba(244,63,94,0.1)">
+            <svg class="w-3.5 h-3.5" style="color:#f43f5e" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-white font-mono-data glow-pink">128.4K</div>
+        <div class="flex items-center gap-1.5 mt-1.5">
+          <svg class="w-3.5 h-3.5" style="color:#22c55e" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+          <span class="text-xs font-semibold font-mono-data" style="color:#22c55e">+5.2%</span>
+          <span class="text-xs ml-0.5" style="color:#94a3b8">vs 30d</span>
+        </div>
+      </div>
+
+      <!-- Engagement Rate -->
+      <div class="card p-4 stat-card glow-box-cyan">
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="text-xs font-medium uppercase tracking-wider" style="color:#94a3b8">Engagement Rate</span>
+          <div class="w-7 h-7 rounded-md flex items-center justify-center" style="background:rgba(6,182,212,0.1)">
+            <svg class="w-3.5 h-3.5" style="color:#06b6d4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-white font-mono-data glow-cyan">4.8%</div>
+        <div class="flex items-center gap-1.5 mt-1.5">
+          <svg class="w-3.5 h-3.5" style="color:#22c55e" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+          <span class="text-xs font-semibold font-mono-data" style="color:#22c55e">+0.6%</span>
+          <span class="text-xs ml-0.5" style="color:#94a3b8">vs 30d</span>
+        </div>
+      </div>
+
+      <!-- Impressions -->
+      <div class="card p-4 stat-card glow-box-cyan">
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="text-xs font-medium uppercase tracking-wider" style="color:#94a3b8">Impressions</span>
+          <div class="w-7 h-7 rounded-md flex items-center justify-center" style="background:rgba(6,182,212,0.1)">
+            <svg class="w-3.5 h-3.5" style="color:#06b6d4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-white font-mono-data glow-cyan">2.1M</div>
+        <div class="flex items-center gap-1.5 mt-1.5">
+          <svg class="w-3.5 h-3.5" style="color:#22c55e" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+          <span class="text-xs font-semibold font-mono-data" style="color:#22c55e">+12.3%</span>
+          <span class="text-xs ml-0.5" style="color:#94a3b8">vs 30d</span>
+        </div>
+      </div>
+
+      <!-- Clicks -->
+      <div class="card p-4 stat-card glow-box-pink">
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="text-xs font-medium uppercase tracking-wider" style="color:#94a3b8">Link Clicks</span>
+          <div class="w-7 h-7 rounded-md flex items-center justify-center" style="background:rgba(244,63,94,0.1)">
+            <svg class="w-3.5 h-3.5" style="color:#f43f5e" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-white font-mono-data glow-pink">45.6K</div>
+        <div class="flex items-center gap-1.5 mt-1.5">
+          <svg class="w-3.5 h-3.5" style="color:#22c55e" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+          <span class="text-xs font-semibold font-mono-data" style="color:#22c55e">+8.7%</span>
+          <span class="text-xs ml-0.5" style="color:#94a3b8">vs 30d</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Engagement Chart + Audience Demographics -->
+    <div class="grid grid-cols-3 gap-4">
+      <!-- Large Engagement Area Chart -->
+      <div class="col-span-2 card p-5">
+        <div class="flex items-center justify-between mb-5">
+          <div>
+            <h2 class="text-sm font-semibold text-white uppercase tracking-wider">30-Day Engagement</h2>
+            <p class="text-xs mt-0.5" style="color:#94a3b8">Daily interactions across all platforms</p>
+          </div>
+          <div class="flex gap-4 text-xs" style="color:#94a3b8">
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-1 rounded-full inline-block" style="background:#f43f5e"></span> Likes</span>
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-1 rounded-full inline-block" style="background:#06b6d4"></span> Comments</span>
+            <span class="flex items-center gap-1.5"><span class="w-2.5 h-1 rounded-full inline-block" style="background:#22c55e"></span> Shares</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 900 270" class="w-full">
+          <defs>
+            <linearGradient id="areaRose" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.28"/>
+              <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.01"/>
+            </linearGradient>
+            <linearGradient id="areaCyan" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.01"/>
+            </linearGradient>
+            <linearGradient id="areaGreen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#22c55e" stop-opacity="0.14"/>
+              <stop offset="100%" stop-color="#22c55e" stop-opacity="0.01"/>
+            </linearGradient>
+            <filter id="glowLine">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="glowCyan">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Grid lines -->
+          <line x1="50" y1="25" x2="880" y2="25" stroke="rgba(6,182,212,0.08)" stroke-width="1"/>
+          <line x1="50" y1="75" x2="880" y2="75" stroke="rgba(6,182,212,0.08)" stroke-width="1"/>
+          <line x1="50" y1="125" x2="880" y2="125" stroke="rgba(6,182,212,0.08)" stroke-width="1"/>
+          <line x1="50" y1="175" x2="880" y2="175" stroke="rgba(6,182,212,0.08)" stroke-width="1"/>
+          <line x1="50" y1="225" x2="880" y2="225" stroke="rgba(6,182,212,0.08)" stroke-width="1"/>
+          <!-- Y-axis labels -->
+          <text x="42" y="29" text-anchor="end" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">5K</text>
+          <text x="42" y="79" text-anchor="end" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">4K</text>
+          <text x="42" y="129" text-anchor="end" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">3K</text>
+          <text x="42" y="179" text-anchor="end" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">2K</text>
+          <text x="42" y="229" text-anchor="end" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">1K</text>
+          <!-- X-axis labels -->
+          <text x="77" y="252" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">Feb 10</text>
+          <text x="215" y="252" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">Feb 15</text>
+          <text x="353" y="252" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">Feb 20</text>
+          <text x="491" y="252" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">Feb 25</text>
+          <text x="629" y="252" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">Mar 01</text>
+          <text x="767" y="252" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">Mar 06</text>
+          <text x="860" y="252" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="Fira Code, monospace">Mar 11</text>
+
+          <!-- Shares area (green) -->
+          <path d="M50,208 L77,203 L104,198 L131,206 L158,193 L185,196 L212,188 L239,193 L266,186 L293,190 L320,183 L347,188 L374,180 L401,186 L428,176 L455,183 L482,173 L509,178 L536,170 L563,176 L590,166 L617,173 L644,163 L671,168 L698,158 L725,166 L752,156 L779,160 L806,153 L833,158 L860,148 L860,235 L50,235Z" fill="url(#areaGreen)"/>
+          <polyline points="50,208 77,203 104,198 131,206 158,193 185,196 212,188 239,193 266,186 293,190 320,183 347,188 374,180 401,186 428,176 455,183 482,173 509,178 536,170 563,176 590,166 617,173 644,163 671,168 698,158 725,166 752,156 779,160 806,153 833,158 860,148" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+
+          <!-- Comments area (cyan) -->
+          <path d="M50,168 L77,160 L104,166 L131,153 L158,158 L185,146 L212,153 L239,140 L266,148 L293,136 L320,143 L347,133 L374,140 L401,126 L428,136 L455,123 L482,130 L509,116 L536,126 L563,113 L590,120 L617,108 L644,116 L671,103 L698,113 L725,100 L752,108 L779,96 L806,103 L833,93 L860,86 L860,235 L50,235Z" fill="url(#areaCyan)"/>
+          <polyline points="50,168 77,160 104,166 131,153 158,158 185,146 212,153 239,140 266,148 293,136 320,143 347,133 374,140 401,126 428,136 455,123 482,130 509,116 536,126 563,113 590,120 617,108 644,116 671,103 698,113 725,100 752,108 779,96 806,103 833,93 860,86" fill="none" stroke="#06b6d4" stroke-width="1.5" filter="url(#glowCyan)" opacity="0.8"/>
+
+          <!-- Likes area (top, pink) -->
+          <path d="M50,138 L77,126 L104,133 L131,116 L158,123 L185,106 L212,113 L239,96 L266,106 L293,93 L320,86 L347,93 L374,76 L401,86 L428,70 L455,80 L482,66 L509,76 L536,60 L563,70 L590,53 L617,63 L644,48 L671,56 L698,43 L725,53 L752,40 L779,50 L806,36 L833,46 L860,33 L860,235 L50,235Z" fill="url(#areaRose)"/>
+          <polyline points="50,138 77,126 104,133 131,116 158,123 185,106 212,113 239,96 266,106 293,93 320,86 347,93 374,76 401,86 428,70 455,80 482,66 509,76 536,60 563,70 590,53 617,63 644,48 671,56 698,43 725,53 752,40 779,50 806,36 833,46 860,33" fill="none" stroke="#f43f5e" stroke-width="2" filter="url(#glowLine)"/>
+
+          <!-- Data points -->
+          <circle cx="644" cy="48" r="3.5" fill="#f43f5e" stroke="#0a0a0f" stroke-width="2"/>
+          <circle cx="860" cy="33" r="3.5" fill="#f43f5e" stroke="#0a0a0f" stroke-width="2"/>
+          <circle cx="860" cy="86" r="3.5" fill="#06b6d4" stroke="#0a0a0f" stroke-width="2"/>
+
+          <!-- Tooltip -->
+          <rect x="622" y="14" width="88" height="26" rx="5" fill="#141420" stroke="#f43f5e" stroke-width="0.8" opacity="0.95"/>
+          <text x="666" y="25" text-anchor="middle" fill="#f43f5e" font-size="9" font-weight="600" font-family="Fira Code, monospace">4,820</text>
+          <text x="666" y="36" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="Fira Code, monospace">Feb 28</text>
+        </svg>
+      </div>
+
+      <!-- Audience Demographics -->
+      <div class="card p-5">
+        <h2 class="text-sm font-semibold text-white uppercase tracking-wider mb-0.5">Audience</h2>
+        <p class="text-xs mb-4" style="color:#94a3b8">Age groups &amp; top locations</p>
+
+        <!-- Age Groups -->
+        <div class="space-y-2.5 mb-5">
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span style="color:#e2e8f0">18 - 24</span>
+              <span class="font-mono-data" style="color:#94a3b8">34%</span>
+            </div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+              <div class="h-full rounded-full bar-animate" style="width:34%;background:#f43f5e;box-shadow:0 0 8px rgba(244,63,94,0.3)"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span style="color:#e2e8f0">25 - 34</span>
+              <span class="font-mono-data" style="color:#94a3b8">28%</span>
+            </div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+              <div class="h-full rounded-full bar-animate" style="width:28%;background:#06b6d4;box-shadow:0 0 8px rgba(6,182,212,0.3)"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span style="color:#e2e8f0">35 - 44</span>
+              <span class="font-mono-data" style="color:#94a3b8">20%</span>
+            </div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+              <div class="h-full rounded-full bar-animate" style="width:20%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.3)"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span style="color:#e2e8f0">45 - 54</span>
+              <span class="font-mono-data" style="color:#94a3b8">12%</span>
+            </div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+              <div class="h-full rounded-full bar-animate" style="width:12%;background:#3b82f6;box-shadow:0 0 8px rgba(59,130,246,0.3)"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span style="color:#e2e8f0">55+</span>
+              <span class="font-mono-data" style="color:#94a3b8">6%</span>
+            </div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+              <div class="h-full rounded-full bar-animate" style="width:6%;background:rgba(6,182,212,0.5)"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Locations -->
+        <div class="pt-4" style="border-top:1px solid rgba(6,182,212,0.1)">
+          <h3 class="text-xs font-medium mb-3 flex items-center gap-1.5 uppercase tracking-wider" style="color:#94a3b8">
+            <svg class="w-3.5 h-3.5" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            Locations
+          </h3>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between py-1 px-1.5 rounded row-hover" style="transition:background 0.2s">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5"/><path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                <span class="text-xs" style="color:#e2e8f0">United States</span>
+              </div>
+              <span class="text-xs font-medium text-white font-mono-data">38.2%</span>
+            </div>
+            <div class="flex items-center justify-between py-1 px-1.5 rounded row-hover" style="transition:background 0.2s">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5"/><path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                <span class="text-xs" style="color:#e2e8f0">United Kingdom</span>
+              </div>
+              <span class="text-xs font-medium text-white font-mono-data">14.7%</span>
+            </div>
+            <div class="flex items-center justify-between py-1 px-1.5 rounded row-hover" style="transition:background 0.2s">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5"/><path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                <span class="text-xs" style="color:#e2e8f0">Canada</span>
+              </div>
+              <span class="text-xs font-medium text-white font-mono-data">9.3%</span>
+            </div>
+            <div class="flex items-center justify-between py-1 px-1.5 rounded row-hover" style="transition:background 0.2s">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5"/><path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                <span class="text-xs" style="color:#e2e8f0">Germany</span>
+              </div>
+              <span class="text-xs font-medium text-white font-mono-data">7.1%</span>
+            </div>
+            <div class="flex items-center justify-between py-1 px-1.5 rounded row-hover" style="transition:background 0.2s">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4" style="color:#94a3b8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="1.5"/><path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                <span class="text-xs" style="color:#e2e8f0">Australia</span>
+              </div>
+              <span class="text-xs font-medium text-white font-mono-data">5.8%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform Breakdown -->
+    <div class="grid grid-cols-4 gap-4">
+      <!-- Instagram (hot pink) -->
+      <div class="card p-4 stat-card" style="border-top:2px solid #f43f5e">
+        <div class="flex items-center gap-2.5 mb-3">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#f43f5e,#e11d48);box-shadow:0 0 12px rgba(244,63,94,0.3)">
+            <svg class="w-4.5 h-4.5 text-white" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs" style="color:#94a3b8">Instagram</div>
+            <div class="text-base font-bold text-white font-mono-data">52.3K</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-medium font-mono-data" style="color:#22c55e">+6.8%</span>
+          <span class="text-xs font-mono-data" style="color:#94a3b8">30d</span>
+        </div>
+        <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+          <div class="h-full rounded-full" style="width:72%;background:linear-gradient(90deg,#f43f5e,#fb7185);box-shadow:0 0 8px rgba(244,63,94,0.3)"></div>
+        </div>
+        <div class="mt-2.5 grid grid-cols-3 gap-1.5 pt-2.5" style="border-top:1px solid rgba(6,182,212,0.1)">
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Posts</div>
+            <div class="text-xs font-semibold text-white font-mono-data">847</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Reels</div>
+            <div class="text-xs font-semibold text-white font-mono-data">124</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Stories</div>
+            <div class="text-xs font-semibold text-white font-mono-data">1.2K</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- X / Twitter (cyan) -->
+      <div class="card p-4 stat-card" style="border-top:2px solid #06b6d4">
+        <div class="flex items-center gap-2.5 mb-3">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:#141420;border:1px solid rgba(6,182,212,0.3)">
+            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs" style="color:#94a3b8">X (Twitter)</div>
+            <div class="text-base font-bold text-white font-mono-data">38.1K</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-medium font-mono-data" style="color:#22c55e">+3.2%</span>
+          <span class="text-xs font-mono-data" style="color:#94a3b8">30d</span>
+        </div>
+        <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+          <div class="h-full rounded-full" style="width:54%;background:linear-gradient(90deg,#06b6d4,#22d3ee);box-shadow:0 0 8px rgba(6,182,212,0.3)"></div>
+        </div>
+        <div class="mt-2.5 grid grid-cols-3 gap-1.5 pt-2.5" style="border-top:1px solid rgba(6,182,212,0.1)">
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Tweets</div>
+            <div class="text-xs font-semibold text-white font-mono-data">312</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Replies</div>
+            <div class="text-xs font-semibold text-white font-mono-data">1.8K</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">RTs</div>
+            <div class="text-xs font-semibold text-white font-mono-data">4.2K</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TikTok (neon green) -->
+      <div class="card p-4 stat-card" style="border-top:2px solid #22c55e">
+        <div class="flex items-center gap-2.5 mb-3">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#22c55e,#0a0a0f,#f43f5e);box-shadow:0 0 12px rgba(34,197,94,0.2)">
+            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.11v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48 6.3 6.3 0 001.83-4.48V8.74a8.26 8.26 0 004.84 1.56V6.85a4.84 4.84 0 01-1.09-.16z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs" style="color:#94a3b8">TikTok</div>
+            <div class="text-base font-bold text-white font-mono-data">24.8K</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-medium font-mono-data" style="color:#22c55e">+11.4%</span>
+          <span class="text-xs font-mono-data" style="color:#94a3b8">30d</span>
+        </div>
+        <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+          <div class="h-full rounded-full" style="width:88%;background:linear-gradient(90deg,#22c55e,#4ade80);box-shadow:0 0 8px rgba(34,197,94,0.3)"></div>
+        </div>
+        <div class="mt-2.5 grid grid-cols-3 gap-1.5 pt-2.5" style="border-top:1px solid rgba(6,182,212,0.1)">
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Videos</div>
+            <div class="text-xs font-semibold text-white font-mono-data">89</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Likes</div>
+            <div class="text-xs font-semibold text-white font-mono-data">284K</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Views</div>
+            <div class="text-xs font-semibold text-white font-mono-data">1.4M</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LinkedIn (blue - allowed) -->
+      <div class="card p-4 stat-card" style="border-top:2px solid #3b82f6">
+        <div class="flex items-center gap-2.5 mb-3">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:#3b82f6;box-shadow:0 0 12px rgba(59,130,246,0.3)">
+            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs" style="color:#94a3b8">LinkedIn</div>
+            <div class="text-base font-bold text-white font-mono-data">13.2K</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-medium font-mono-data" style="color:#22c55e">+4.5%</span>
+          <span class="text-xs font-mono-data" style="color:#94a3b8">30d</span>
+        </div>
+        <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(6,182,212,0.08)">
+          <div class="h-full rounded-full" style="width:45%;background:linear-gradient(90deg,#3b82f6,#60a5fa);box-shadow:0 0 8px rgba(59,130,246,0.3)"></div>
+        </div>
+        <div class="mt-2.5 grid grid-cols-3 gap-1.5 pt-2.5" style="border-top:1px solid rgba(6,182,212,0.1)">
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Posts</div>
+            <div class="text-xs font-semibold text-white font-mono-data">56</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Articles</div>
+            <div class="text-xs font-semibold text-white font-mono-data">12</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xs" style="color:#94a3b8">Shares</div>
+            <div class="text-xs font-semibold text-white font-mono-data">892</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Performing Posts -->
+    <div>
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h2 class="text-sm font-semibold text-white uppercase tracking-wider">Top Performing Posts</h2>
+          <p class="text-xs mt-0.5" style="color:#94a3b8">Highest engagement in the last 30 days</p>
+        </div>
+        <div class="text-xs flex items-center gap-1 cursor-pointer" style="color:#06b6d4;transition:opacity 0.2s">
+          View all
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-4">
+        <!-- Post 1 -->
+        <div class="card overflow-hidden stat-card">
+          <div class="h-40 flex items-center justify-center relative" style="background:linear-gradient(135deg,#f43f5e,#06b6d4)">
+            <div class="absolute top-2.5 left-2.5 px-2 py-0.5 bg-black/40 backdrop-blur-sm rounded text-xs font-medium flex items-center gap-1">
+              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+              Reel
+            </div>
+            <svg class="w-14 h-14 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div class="p-3.5">
+            <p class="text-xs line-clamp-2 mb-2.5 leading-relaxed" style="color:#e2e8f0">Behind the scenes of our latest product launch - the team's creative process revealed!</p>
+            <div class="grid grid-cols-4 gap-1.5 text-center">
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Likes</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#f43f5e">12.4K</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Cmts</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#06b6d4">843</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Shares</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#22c55e">2.1K</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Reach</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#22c55e">89K</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="card overflow-hidden stat-card">
+          <div class="h-40 flex items-center justify-center relative" style="background:linear-gradient(135deg,#06b6d4,#0a0a0f)">
+            <div class="absolute top-2.5 left-2.5 px-2 py-0.5 bg-black/40 backdrop-blur-sm rounded text-xs font-medium flex items-center gap-1">
+              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Thread
+            </div>
+            <div class="text-center px-5">
+              <svg class="w-9 h-9 text-white/20 mx-auto mb-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+              </svg>
+              <div class="text-white/15 text-xs font-medium tracking-widest uppercase" style="font-family:'Fira Code',monospace">Thread</div>
+            </div>
+          </div>
+          <div class="p-3.5">
+            <p class="text-xs line-clamp-2 mb-2.5 leading-relaxed" style="color:#e2e8f0">10 lessons we learned scaling from 0 to 100K followers in just 6 months. A thread...</p>
+            <div class="grid grid-cols-4 gap-1.5 text-center">
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Likes</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#f43f5e">8.9K</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Cmts</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#06b6d4">1.2K</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Shares</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#22c55e">3.4K</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Reach</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#22c55e">124K</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="card overflow-hidden stat-card">
+          <div class="h-40 flex items-center justify-center relative" style="background:linear-gradient(135deg,#22c55e,#06b6d4)">
+            <div class="absolute top-2.5 left-2.5 px-2 py-0.5 bg-black/40 backdrop-blur-sm rounded text-xs font-medium flex items-center gap-1">
+              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.11v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48 6.3 6.3 0 001.83-4.48V8.74a8.26 8.26 0 004.84 1.56V6.85a4.84 4.84 0 01-1.09-.16z"/></svg>
+              TikTok
+            </div>
+            <svg class="w-14 h-14 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div class="p-3.5">
+            <p class="text-xs line-clamp-2 mb-2.5 leading-relaxed" style="color:#e2e8f0">Day in the life at our office - you won't believe what happens at 3pm every Friday!</p>
+            <div class="grid grid-cols-4 gap-1.5 text-center">
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Likes</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#f43f5e">34.2K</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Cmts</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#06b6d4">2.8K</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Shares</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#22c55e">5.6K</div>
+              </div>
+              <div>
+                <div class="text-xs" style="color:#94a3b8">Reach</div>
+                <div class="text-xs font-semibold font-mono-data" style="color:#22c55e">412K</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer spacer -->
+    <div class="h-3"></div>
+
+  </main>
+
+</body>
+</html>
