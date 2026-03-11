@@ -83,8 +83,23 @@
                 <a href="aiwebinars.html" class="text-pink-500 font-bold">Webinars</a>
                 <button onclick="location.href='index.html#contact'" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Enquire Now</button>
             </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-900"><i data-lucide="menu" class="w-6 h-6"></i></button>
         </nav>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white transform translate-x-full transition-transform duration-300 lg:hidden">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
+            <span class="text-xl font-bold tracking-tight text-slate-900">AITraining<span class="text-pink-500">2U</span></span>
+            <button id="mobile-menu-close" class="text-slate-400 hover:text-slate-900"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
+        <div class="px-6 py-6 space-y-1">
+            <a href="index.html" class="block py-3 text-lg font-bold text-slate-900 hover:text-pink-500 transition">Home</a>
+            <a href="index.html#courses" class="block py-3 text-lg font-bold text-slate-900 hover:text-pink-500 transition">Programs</a>
+            <a href="aiwebinars.html" class="block py-3 text-lg font-bold text-pink-500 hover:text-pink-500 transition">Webinars</a>
+            <a href="index.html#contact" class="block w-full text-center btn-brand px-5 py-3 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20 mt-4">Enquire Now</a>
+        </div>
+    </div>
 
     <main class="pt-20">
         <!-- Hero Section -->
@@ -521,6 +536,15 @@
         });
 
         window.onload = () => updateView('upcoming');
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+            mobileMenuClose.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+            mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('translate-x-full')));
+        }
     </script>
 </body>
 </html>
