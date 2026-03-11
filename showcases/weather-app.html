@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440, initial-scale=1.0">
+    <title>Weather Forecast - Kuala Lumpur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: #0f172a;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Deep sky blue base gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(145deg, #1e5a8a 0%, #2d8cc4 35%, #1e5a8a 65%, #1a3a5f 100%);
+            z-index: 0;
+        }
+
+        /* Aurora blob 1 - sky blue, top-left */
+        .aurora-blob-1 {
+            position: fixed;
+            top: -10%;
+            left: -5%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.18) 0%, rgba(45, 140, 196, 0.06) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Aurora blob 2 - peach, center-right */
+        .aurora-blob-2 {
+            position: fixed;
+            top: 20%;
+            right: -10%;
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(249, 168, 124, 0.2) 0%, rgba(249, 168, 124, 0.08) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Aurora blob 3 - soft gold, center */
+        .aurora-blob-3 {
+            position: fixed;
+            top: 40%;
+            left: 25%;
+            width: 600px;
+            height: 500px;
+            background: radial-gradient(ellipse at center, rgba(252, 211, 77, 0.15) 0%, rgba(252, 211, 77, 0.06) 45%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Aurora blob 4 - warm peach, bottom-right */
+        .aurora-blob-4 {
+            position: fixed;
+            bottom: -5%;
+            right: 15%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(ellipse at center, rgba(249, 168, 124, 0.12) 0%, rgba(251, 191, 36, 0.04) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Aurora blob 5 - sky-blue/gold accent, top-right */
+        .aurora-blob-5 {
+            position: fixed;
+            top: -5%;
+            right: 20%;
+            width: 500px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.12) 0%, rgba(252, 211, 77, 0.05) 50%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glassmorphism card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-card-strong {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hourly-slot {
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .hourly-slot:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .forecast-row {
+            transition: background 0.25s ease;
+        }
+        .forecast-row:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .info-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Iridescent shimmer on main weather card */
+        .main-card-shimmer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                transparent 20%,
+                rgba(56, 189, 248, 0.04) 35%,
+                rgba(249, 168, 124, 0.04) 50%,
+                rgba(252, 211, 77, 0.03) 65%,
+                transparent 80%
+            );
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        /* Mesh gradient overlay for main card */
+        .mesh-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(251, 191, 36, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 80%, rgba(249, 168, 124, 0.04) 0%, transparent 50%);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blob-1"></div>
+    <div class="aurora-blob-2"></div>
+    <div class="aurora-blob-3"></div>
+    <div class="aurora-blob-4"></div>
+    <div class="aurora-blob-5"></div>
+
+    <div class="page-content max-w-[1440px] mx-auto px-8 py-6">
+
+        <!-- Top Bar: Location + Search -->
+        <header class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-3">
+                <!-- Location pin SVG -->
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <h1 class="text-xl font-semibold tracking-tight">Kuala Lumpur, Malaysia</h1>
+                <span class="text-white/35 text-sm ml-2 font-light">Wednesday, March 11, 2026</span>
+            </div>
+            <div class="glass-card rounded-full flex items-center px-5 py-2.5 w-80 cursor-pointer">
+                <!-- Search SVG -->
+                <svg class="w-4 h-4 text-white/35 mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input type="text" placeholder="Search city..." class="search-input bg-transparent outline-none text-sm text-white w-full font-light"/>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-12 gap-6">
+
+            <!-- ========== LEFT COLUMN (8 cols) ========== -->
+            <div class="col-span-8 space-y-6">
+
+                <!-- Current Weather Hero Card -->
+                <div class="glass-card-strong rounded-3xl p-10 relative overflow-hidden">
+                    <div class="main-card-shimmer"></div>
+                    <div class="mesh-overlay"></div>
+
+                    <div class="relative flex items-center justify-center gap-14">
+                        <!-- SVG Sun-with-Cloud Icon (hand-drawn style) -->
+                        <div class="flex-shrink-0">
+                            <svg width="170" height="140" viewBox="0 0 170 140">
+                                <defs>
+                                    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#fde68a" stop-opacity="1"/>
+                                        <stop offset="60%" stop-color="#fbbf24" stop-opacity="0.9"/>
+                                        <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.7"/>
+                                    </radialGradient>
+                                    <radialGradient id="sunHalo" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.15"/>
+                                        <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                                <!-- Sun halo -->
+                                <circle cx="62" cy="50" r="42" fill="url(#sunHalo)"/>
+                                <!-- Sun rays -->
+                                <line x1="62" y1="6" x2="62" y2="20" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="62" y1="80" x2="62" y2="90" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
+                                <line x1="26" y1="18" x2="36" y2="28" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="98" y1="18" x2="88" y2="28" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="12" y1="50" x2="26" y2="50" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="26" y1="80" x2="36" y2="70" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
+                                <!-- Sun body -->
+                                <circle cx="62" cy="50" r="24" fill="url(#sunGlow)"/>
+                                <!-- Cloud body (overlapping circles for organic shape) -->
+                                <ellipse cx="108" cy="90" rx="42" ry="22" fill="rgba(255,255,255,0.88)"/>
+                                <circle cx="82" cy="80" r="24" fill="rgba(255,255,255,0.85)"/>
+                                <circle cx="110" cy="72" r="26" fill="rgba(255,255,255,0.92)"/>
+                                <circle cx="132" cy="80" r="20" fill="rgba(255,255,255,0.87)"/>
+                                <!-- Cloud highlight -->
+                                <ellipse cx="105" cy="70" rx="18" ry="8" fill="rgba(255,255,255,0.35)"/>
+                            </svg>
+                        </div>
+
+                        <!-- Temperature + Condition -->
+                        <div class="text-left">
+                            <div class="flex items-start gap-1">
+                                <span class="text-8xl font-extralight tracking-tighter leading-none">32</span>
+                                <span class="text-3xl font-light mt-2 text-white/60">°C</span>
+                            </div>
+                            <p class="text-2xl font-light text-white/75 mt-2 tracking-tight">Partly Cloudy</p>
+                            <p class="text-sm text-white/30 mt-1 font-light">Last updated: 1:45 PM</p>
+                        </div>
+                    </div>
+
+                    <!-- Stats Row: Feels Like / Humidity / Wind / UV -->
+                    <div class="relative grid grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/10">
+                        <!-- Feels Like -->
+                        <div class="text-center">
+                            <div class="flex items-center justify-center gap-2 mb-2">
+                                <svg class="w-4.5 h-4.5 text-orange-300/70" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 6.51 6.51 0 0012 2.25a6.5 6.5 0 013.362 2.964z"/>
+                                </svg>
+                                <span class="text-[11px] text-white/35 uppercase tracking-widest font-medium">Feels Like</span>
+                            </div>
+                            <p class="text-2xl font-light">36°C</p>
+                        </div>
+                        <!-- Humidity -->
+                        <div class="text-center">
+                            <div class="flex items-center justify-center gap-2 mb-2">
+                                <svg class="w-4.5 h-4.5 text-blue-300/70" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 009-9c0-3.97-4.5-9-9-12C7.5 3 3 8.03 3 12a9 9 0 009 9z"/>
+                                </svg>
+                                <span class="text-[11px] text-white/35 uppercase tracking-widest font-medium">Humidity</span>
+                            </div>
+                            <p class="text-2xl font-light">74%</p>
+                        </div>
+                        <!-- Wind -->
+                        <div class="text-center">
+                            <div class="flex items-center justify-center gap-2 mb-2">
+                                <svg class="w-4.5 h-4.5 text-teal-300/70" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8h13a4 4 0 100-4"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16h9a4 4 0 010 4"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h17a4 4 0 01-4 4"/>
+                                </svg>
+                                <span class="text-[11px] text-white/35 uppercase tracking-widest font-medium">Wind</span>
+                            </div>
+                            <p class="text-2xl font-light">12 <span class="text-base text-white/40">km/h</span></p>
+                        </div>
+                        <!-- UV Index -->
+                        <div class="text-center">
+                            <div class="flex items-center justify-center gap-2 mb-2">
+                                <svg class="w-4.5 h-4.5 text-yellow-300/70" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="4"/>
+                                    <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/>
+                                </svg>
+                                <span class="text-[11px] text-white/35 uppercase tracking-widest font-medium">UV Index</span>
+                            </div>
+                            <p class="text-2xl font-light">8 <span class="text-base text-white/40">High</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hourly Forecast Strip -->
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-5">Hourly Forecast</h3>
+                    <div class="grid grid-cols-8 gap-2">
+
+                        <!-- 2 PM - Sunny -->
+                        <div class="hourly-slot rounded-xl py-4 px-2 text-center cursor-pointer">
+                            <p class="text-xs text-white/45 mb-3 font-medium">2 PM</p>
+                            <svg class="w-8 h-8 mx-auto mb-3" viewBox="0 0 40 40">
+                                <circle cx="20" cy="20" r="10" fill="#fbbf24" opacity="0.9"/>
+                                <circle cx="20" cy="20" r="7" fill="#fde68a"/>
+                                <line x1="20" y1="3" x2="20" y2="7" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="20" y1="33" x2="20" y2="37" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="33" y1="20" x2="37" y2="20" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="3" y1="20" x2="7" y2="20" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="29" y1="11" x2="32" y2="8" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                                <line x1="11" y1="29" x2="8" y2="32" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                            </svg>
+                            <p class="text-sm font-medium">33°</p>
+                        </div>
+
+                        <!-- 3 PM - Partly Cloudy (active) -->
+                        <div class="hourly-slot rounded-xl py-4 px-2 text-center cursor-pointer bg-white/[0.07]">
+                            <p class="text-xs text-white/45 mb-3 font-medium">3 PM</p>
+                            <svg class="w-8 h-8 mx-auto mb-3" viewBox="0 0 40 40">
+                                <circle cx="15" cy="14" r="7" fill="#fbbf24" opacity="0.7"/>
+                                <ellipse cx="24" cy="26" rx="13" ry="7" fill="rgba(255,255,255,0.82)"/>
+                                <circle cx="17" cy="22" r="8" fill="rgba(255,255,255,0.82)"/>
+                                <circle cx="29" cy="22" r="6" fill="rgba(255,255,255,0.8)"/>
+                            </svg>
+                            <p class="text-sm font-medium">32°</p>
+                        </div>
+
+                        <!-- 4 PM - Partly Cloudy -->
+                        <div class="hourly-slot rounded-xl py-4 px-2 text-center cursor-pointer">
+                            <p class="text-xs text-white/45 mb-3 font-medium">4 PM</p>
+                            <svg class="w-8 h-8 mx-auto mb-3" viewBox="0 0 40 40">
+                                <circle cx="15" cy="14" r="7" fill="#fbbf24" opacity="0.65"/>
+                                <ellipse cx="24" cy="26" rx="13" ry="7" fill="rgba(255,255,255,0.78)"/>
+                                <circle cx="17" cy="22" r="8" fill="rgba(255,255,255,0.78)"/>
+                                <circle cx="29" cy="22" r="6" fill="rgba(255,255,255,0.75)"/>
+                            </svg>
+                            <p class="text-sm font-medium">31°</p>
+                        </div>
+
+                        <!-- 5 PM - Cloudy -->
+                        <div class="hourly-slot rounded-xl py-4 px-2 text-center cursor-pointer">
+                            <p class="text-xs text-white/45 mb-3 font-medium">5 PM</p>
+                            <svg class="w-8 h-8 mx-auto mb-3" viewBox="0 0 40 40">
+                                <ellipse cx="20" cy="24" rx="15" ry="8" fill="rgba(255,255,255,0.72)"/>
+                                <circle cx="13" cy="18" r="9" fill="rgba(255,255,255,0.72)"/>
+                                <circle cx="25" cy="16" r="10" fill="rgba(255,255,255,0.76)"/>
+                                <circle cx="31" cy="20" r="6" fill="rgba(255,255,255,0.7)"/>
+                            </svg>
+                            <p class="text-sm font-medium">30°</p>
+                        </div>
+
+                        <!-- 6 PM - Rain -->
+                        <div class="hourly-slot rounded-xl py-4 px-2 text-center cursor-pointer">
+                            <p class="text-xs text-white/45 mb-3 font-medium">6 PM</p>
+                            <svg class="w-8 h-8 mx-auto mb-3" viewBox="0 0 40 40">
+                                <ellipse cx="20" cy="16" rx="14" ry="7" fill="rgba(180,200,220,0.72)"/>
+                                <circle cx="13" cy="11" r="8" fill="rgba(180,200,220,0.72)"/>
+                                <circle cx="24" cy="9" r="9" fill="rgba(180,200,220,0.76)"/>
+                                <circle cx="30" cy="14" r="5" fill="rgba(180,200,220,0.7)"/>
+                                <line x1="12" y1="26" x2="10" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+                                <line x1="20" y1="26" x2="18" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+                                <line x1="28" y1="26" x2="26" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+                            </svg>
+                            <p class="text-sm font-medium">29°</p>
+                        </div>
+
+                        <!-- 7 PM - Rain -->
+                        <div class="hourly-slot rounded-xl py-4 px-2 text-center cursor-pointer">
+                            <p class="text-xs text-white/45 mb-3 font-medium">7 PM</p>
+                            <svg class="w-8 h-8 mx-auto mb-3" viewBox="0 0 40 40">
+                                <ellipse cx="20" cy="16" rx="14" ry="7" fill="rgba(180,200,220,0.7)"/>
+                                <circle cx="13" cy="11" r="8" fill="rgba(180,200,220,0.7)"/>
+                                <circle cx="24" cy="9" r="9" fill="rgba(180,200,220,0.74)"/>
+                                <circle cx="30" cy="14" r="5" fill="rgba(180,200,220,0.68)"/>
+                                <line x1="12" y1="26" x2="10" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="20" y1="26" x2="18" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="28" y1="26" x2="26" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                            </svg>
+                            <p class="text-sm font-medium">28°</p>
+                        </div>
+
+                        <!-- 8 PM - Cloudy -->
+                        <div class="hourly-slot rounded-xl py-4 px-2 text-center cursor-pointer">
+                            <p class="text-xs text-white/45 mb-3 font-medium">8 PM</p>
+                            <svg class="w-8 h-8 mx-auto mb-3" viewBox="0 0 40 40">
+                                <ellipse cx="20" cy="24" rx="15" ry="8" fill="rgba(255,255,255,0.6)"/>
+                                <circle cx="13" cy="18" r="9" fill="rgba(255,255,255,0.6)"/>
+                                <circle cx="25" cy="16" r="10" fill="rgba(255,255,255,0.64)"/>
+                                <circle cx="31" cy="20" r="6" fill="rgba(255,255,255,0.58)"/>
+                            </svg>
+                            <p class="text-sm font-medium">28°</p>
+                        </div>
+
+                        <!-- 9 PM - Cloudy -->
+                        <div class="hourly-slot rounded-xl py-4 px-2 text-center cursor-pointer">
+                            <p class="text-xs text-white/45 mb-3 font-medium">9 PM</p>
+                            <svg class="w-8 h-8 mx-auto mb-3" viewBox="0 0 40 40">
+                                <ellipse cx="20" cy="24" rx="15" ry="8" fill="rgba(255,255,255,0.52)"/>
+                                <circle cx="13" cy="18" r="9" fill="rgba(255,255,255,0.52)"/>
+                                <circle cx="25" cy="16" r="10" fill="rgba(255,255,255,0.56)"/>
+                                <circle cx="31" cy="20" r="6" fill="rgba(255,255,255,0.5)"/>
+                            </svg>
+                            <p class="text-sm font-medium">27°</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7-Day Forecast -->
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-5">7-Day Forecast</h3>
+                    <div class="space-y-1">
+
+                        <!-- Today (highlighted) -->
+                        <div class="forecast-row flex items-center py-3 px-4 rounded-xl bg-white/[0.06] cursor-pointer">
+                            <span class="w-28 text-sm font-medium">Today</span>
+                            <svg class="w-7 h-7 mr-5 flex-shrink-0" viewBox="0 0 40 40">
+                                <circle cx="15" cy="14" r="7" fill="#fbbf24" opacity="0.7"/>
+                                <ellipse cx="24" cy="26" rx="13" ry="7" fill="rgba(255,255,255,0.82)"/>
+                                <circle cx="17" cy="22" r="8" fill="rgba(255,255,255,0.82)"/>
+                                <circle cx="29" cy="22" r="6" fill="rgba(255,255,255,0.8)"/>
+                            </svg>
+                            <span class="w-24 text-sm text-white/45 font-light">Partly Cloudy</span>
+                            <div class="flex items-center gap-3 ml-auto">
+                                <span class="text-sm font-medium w-10 text-right">33°</span>
+                                <div class="w-28 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: 75%; background: linear-gradient(90deg, #60a5fa, #f59e0b);"></div>
+                                </div>
+                                <span class="text-sm text-white/35 w-10 font-light">26°</span>
+                                <div class="flex items-center gap-1 w-14 justify-end">
+                                    <svg class="w-3 h-3 text-blue-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21a9 9 0 009-9c0-3.97-4.5-9-9-12C7.5 3 3 8.03 3 12a9 9 0 009 9z"/></svg>
+                                    <span class="text-xs text-white/35">40%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thursday -->
+                        <div class="forecast-row flex items-center py-3 px-4 rounded-xl cursor-pointer">
+                            <span class="w-28 text-sm text-white/65 font-light">Thursday</span>
+                            <svg class="w-7 h-7 mr-5 flex-shrink-0" viewBox="0 0 40 40">
+                                <ellipse cx="20" cy="16" rx="14" ry="7" fill="rgba(180,200,220,0.72)"/>
+                                <circle cx="13" cy="11" r="8" fill="rgba(180,200,220,0.72)"/>
+                                <circle cx="24" cy="9" r="9" fill="rgba(180,200,220,0.76)"/>
+                                <line x1="12" y1="26" x2="10" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+                                <line x1="20" y1="26" x2="18" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+                                <line x1="28" y1="26" x2="26" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+                            </svg>
+                            <span class="w-24 text-sm text-white/45 font-light">Rainy</span>
+                            <div class="flex items-center gap-3 ml-auto">
+                                <span class="text-sm font-medium w-10 text-right">30°</span>
+                                <div class="w-28 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: 55%; background: linear-gradient(90deg, #60a5fa, #93c5fd);"></div>
+                                </div>
+                                <span class="text-sm text-white/35 w-10 font-light">25°</span>
+                                <div class="flex items-center gap-1 w-14 justify-end">
+                                    <svg class="w-3 h-3 text-blue-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21a9 9 0 009-9c0-3.97-4.5-9-9-12C7.5 3 3 8.03 3 12a9 9 0 009 9z"/></svg>
+                                    <span class="text-xs text-white/35">80%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Friday -->
+                        <div class="forecast-row flex items-center py-3 px-4 rounded-xl cursor-pointer">
+                            <span class="w-28 text-sm text-white/65 font-light">Friday</span>
+                            <svg class="w-7 h-7 mr-5 flex-shrink-0" viewBox="0 0 40 40">
+                                <ellipse cx="20" cy="16" rx="14" ry="7" fill="rgba(180,200,220,0.72)"/>
+                                <circle cx="13" cy="11" r="8" fill="rgba(180,200,220,0.72)"/>
+                                <circle cx="24" cy="9" r="9" fill="rgba(180,200,220,0.76)"/>
+                                <line x1="10" y1="26" x2="8" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="16" y1="27" x2="14" y2="34" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="22" y1="26" x2="20" y2="33" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="28" y1="27" x2="26" y2="34" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                            </svg>
+                            <span class="w-24 text-sm text-white/45 font-light">Heavy Rain</span>
+                            <div class="flex items-center gap-3 ml-auto">
+                                <span class="text-sm font-medium w-10 text-right">29°</span>
+                                <div class="w-28 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: 45%; background: linear-gradient(90deg, #60a5fa, #93c5fd);"></div>
+                                </div>
+                                <span class="text-sm text-white/35 w-10 font-light">24°</span>
+                                <div class="flex items-center gap-1 w-14 justify-end">
+                                    <svg class="w-3 h-3 text-blue-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21a9 9 0 009-9c0-3.97-4.5-9-9-12C7.5 3 3 8.03 3 12a9 9 0 009 9z"/></svg>
+                                    <span class="text-xs text-white/35">90%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saturday -->
+                        <div class="forecast-row flex items-center py-3 px-4 rounded-xl cursor-pointer">
+                            <span class="w-28 text-sm text-white/65 font-light">Saturday</span>
+                            <svg class="w-7 h-7 mr-5 flex-shrink-0" viewBox="0 0 40 40">
+                                <ellipse cx="20" cy="24" rx="15" ry="8" fill="rgba(255,255,255,0.72)"/>
+                                <circle cx="13" cy="18" r="9" fill="rgba(255,255,255,0.72)"/>
+                                <circle cx="25" cy="16" r="10" fill="rgba(255,255,255,0.76)"/>
+                                <circle cx="31" cy="20" r="6" fill="rgba(255,255,255,0.7)"/>
+                            </svg>
+                            <span class="w-24 text-sm text-white/45 font-light">Cloudy</span>
+                            <div class="flex items-center gap-3 ml-auto">
+                                <span class="text-sm font-medium w-10 text-right">31°</span>
+                                <div class="w-28 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: 60%; background: linear-gradient(90deg, #60a5fa, #f9a87c);"></div>
+                                </div>
+                                <span class="text-sm text-white/35 w-10 font-light">25°</span>
+                                <div class="flex items-center gap-1 w-14 justify-end">
+                                    <svg class="w-3 h-3 text-blue-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21a9 9 0 009-9c0-3.97-4.5-9-9-12C7.5 3 3 8.03 3 12a9 9 0 009 9z"/></svg>
+                                    <span class="text-xs text-white/35">35%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sunday -->
+                        <div class="forecast-row flex items-center py-3 px-4 rounded-xl cursor-pointer">
+                            <span class="w-28 text-sm text-white/65 font-light">Sunday</span>
+                            <svg class="w-7 h-7 mr-5 flex-shrink-0" viewBox="0 0 40 40">
+                                <circle cx="20" cy="20" r="10" fill="#fbbf24" opacity="0.9"/>
+                                <circle cx="20" cy="20" r="7" fill="#fde68a"/>
+                                <line x1="20" y1="3" x2="20" y2="7" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="20" y1="33" x2="20" y2="37" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="33" y1="20" x2="37" y2="20" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="3" y1="20" x2="7" y2="20" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                            </svg>
+                            <span class="w-24 text-sm text-white/45 font-light">Sunny</span>
+                            <div class="flex items-center gap-3 ml-auto">
+                                <span class="text-sm font-medium w-10 text-right">34°</span>
+                                <div class="w-28 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: 82%; background: linear-gradient(90deg, #60a5fa, #f59e0b);"></div>
+                                </div>
+                                <span class="text-sm text-white/35 w-10 font-light">26°</span>
+                                <div class="flex items-center gap-1 w-14 justify-end">
+                                    <svg class="w-3 h-3 text-blue-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21a9 9 0 009-9c0-3.97-4.5-9-9-12C7.5 3 3 8.03 3 12a9 9 0 009 9z"/></svg>
+                                    <span class="text-xs text-white/35">10%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Monday -->
+                        <div class="forecast-row flex items-center py-3 px-4 rounded-xl cursor-pointer">
+                            <span class="w-28 text-sm text-white/65 font-light">Monday</span>
+                            <svg class="w-7 h-7 mr-5 flex-shrink-0" viewBox="0 0 40 40">
+                                <circle cx="15" cy="14" r="7" fill="#fbbf24" opacity="0.7"/>
+                                <ellipse cx="24" cy="26" rx="13" ry="7" fill="rgba(255,255,255,0.82)"/>
+                                <circle cx="17" cy="22" r="8" fill="rgba(255,255,255,0.82)"/>
+                                <circle cx="29" cy="22" r="6" fill="rgba(255,255,255,0.8)"/>
+                            </svg>
+                            <span class="w-24 text-sm text-white/45 font-light">Partly Cloudy</span>
+                            <div class="flex items-center gap-3 ml-auto">
+                                <span class="text-sm font-medium w-10 text-right">33°</span>
+                                <div class="w-28 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: 72%; background: linear-gradient(90deg, #60a5fa, #f59e0b);"></div>
+                                </div>
+                                <span class="text-sm text-white/35 w-10 font-light">25°</span>
+                                <div class="flex items-center gap-1 w-14 justify-end">
+                                    <svg class="w-3 h-3 text-blue-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21a9 9 0 009-9c0-3.97-4.5-9-9-12C7.5 3 3 8.03 3 12a9 9 0 009 9z"/></svg>
+                                    <span class="text-xs text-white/35">25%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tuesday -->
+                        <div class="forecast-row flex items-center py-3 px-4 rounded-xl cursor-pointer">
+                            <span class="w-28 text-sm text-white/65 font-light">Tuesday</span>
+                            <svg class="w-7 h-7 mr-5 flex-shrink-0" viewBox="0 0 40 40">
+                                <circle cx="20" cy="20" r="10" fill="#fbbf24" opacity="0.9"/>
+                                <circle cx="20" cy="20" r="7" fill="#fde68a"/>
+                                <line x1="20" y1="3" x2="20" y2="7" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="20" y1="33" x2="20" y2="37" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="33" y1="20" x2="37" y2="20" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="3" y1="20" x2="7" y2="20" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="29" y1="11" x2="32" y2="8" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                                <line x1="11" y1="29" x2="8" y2="32" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                            </svg>
+                            <span class="w-24 text-sm text-white/45 font-light">Sunny</span>
+                            <div class="flex items-center gap-3 ml-auto">
+                                <span class="text-sm font-medium w-10 text-right">35°</span>
+                                <div class="w-28 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                    <div class="h-full rounded-full" style="width: 88%; background: linear-gradient(90deg, #f59e0b, #ef4444);"></div>
+                                </div>
+                                <span class="text-sm text-white/35 w-10 font-light">27°</span>
+                                <div class="flex items-center gap-1 w-14 justify-end">
+                                    <svg class="w-3 h-3 text-blue-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21a9 9 0 009-9c0-3.97-4.5-9-9-12C7.5 3 3 8.03 3 12a9 9 0 009 9z"/></svg>
+                                    <span class="text-xs text-white/35">5%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== RIGHT SIDEBAR (4 cols) ========== -->
+            <div class="col-span-4 space-y-6">
+
+                <!-- Sunrise & Sunset Card -->
+                <div class="glass-card info-card rounded-2xl p-6">
+                    <h3 class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-5">Sunrise &amp; Sunset</h3>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-orange-400/15 flex items-center justify-center">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.5">
+                                    <path stroke-linecap="round" d="M12 3v3"/>
+                                    <circle cx="12" cy="11" r="4" opacity="0.8"/>
+                                    <line x1="4" y1="18" x2="20" y2="18" stroke-linecap="round"/>
+                                    <path stroke-linecap="round" d="M5 11h2m10 0h2" opacity="0.5"/>
+                                    <path stroke-linecap="round" d="M7.05 6.05l1.41 1.41m7.08 0l1.41-1.41" opacity="0.5"/>
+                                    <path stroke-linecap="round" d="M8 15l4-4 4 4" opacity="0.6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[11px] text-white/35 uppercase tracking-wider font-medium">Sunrise</p>
+                                <p class="text-lg font-light">7:18 AM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-sky-400/15 flex items-center justify-center">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#f9a87c" stroke-width="1.5">
+                                    <circle cx="12" cy="11" r="4" opacity="0.6"/>
+                                    <line x1="4" y1="18" x2="20" y2="18" stroke-linecap="round"/>
+                                    <path stroke-linecap="round" d="M5 11h2m10 0h2" opacity="0.4"/>
+                                    <path stroke-linecap="round" d="M7.05 6.05l1.41 1.41m7.08 0l1.41-1.41" opacity="0.4"/>
+                                    <path stroke-linecap="round" d="M8 13l4 4 4-4" opacity="0.5"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[11px] text-white/35 uppercase tracking-wider font-medium">Sunset</p>
+                                <p class="text-lg font-light">7:24 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sun arc visualization -->
+                    <div class="relative h-16 overflow-hidden">
+                        <svg class="w-full h-full" viewBox="0 0 300 70" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="sunArcGrad" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#fb923c"/>
+                                    <stop offset="50%" stop-color="#fbbf24"/>
+                                    <stop offset="100%" stop-color="#f9a87c"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M10 60 Q150 -20 290 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-dasharray="6,4"/>
+                            <path d="M10 60 Q150 -20 290 60" fill="none" stroke="url(#sunArcGrad)" stroke-width="2.5" stroke-dasharray="200" stroke-dashoffset="75"/>
+                            <circle cx="185" cy="18" r="7" fill="#fbbf24" opacity="0.9"/>
+                            <circle cx="185" cy="18" r="12" fill="#fbbf24" opacity="0.12"/>
+                            <circle cx="185" cy="18" r="18" fill="#fbbf24" opacity="0.05"/>
+                        </svg>
+                    </div>
+                    <p class="text-[11px] text-white/25 text-center mt-2 font-light">12h 6m of daylight</p>
+                </div>
+
+                <!-- Air Quality Card -->
+                <div class="glass-card info-card rounded-2xl p-6">
+                    <h3 class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-4">Air Quality Index</h3>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 rounded-2xl bg-yellow-500/12 flex items-center justify-center border border-yellow-400/10">
+                            <span class="text-2xl font-light text-yellow-300">78</span>
+                        </div>
+                        <div>
+                            <p class="text-lg font-medium text-yellow-300">Moderate</p>
+                            <p class="text-[11px] text-white/35 leading-relaxed mt-1 font-light">Acceptable air quality. Some pollutants may affect unusually sensitive individuals.</p>
+                        </div>
+                    </div>
+                    <!-- AQI scale bar -->
+                    <div class="h-2 rounded-full overflow-hidden flex">
+                        <div class="h-full w-1/6 bg-green-400"></div>
+                        <div class="h-full w-1/6 bg-yellow-400"></div>
+                        <div class="h-full w-1/6 bg-orange-400 opacity-30"></div>
+                        <div class="h-full w-1/6 bg-red-400 opacity-20"></div>
+                        <div class="h-full w-1/6 bg-amber-600 opacity-15"></div>
+                        <div class="h-full w-1/6 bg-rose-900 opacity-10"></div>
+                    </div>
+                    <div class="relative h-3">
+                        <div class="absolute w-2.5 h-2.5 bg-white rounded-full shadow-lg" style="left: 26%; top: 1px;"></div>
+                    </div>
+                </div>
+
+                <!-- Visibility Card -->
+                <div class="glass-card info-card rounded-2xl p-6">
+                    <h3 class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-4">Visibility</h3>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-400/10 flex items-center justify-center border border-cyan-300/10">
+                            <svg class="w-6 h-6 text-cyan-300/65" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-light">10 <span class="text-base text-white/35">km</span></p>
+                            <p class="text-[11px] text-white/30 mt-0.5 font-light">Clear visibility</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pressure Card -->
+                <div class="glass-card info-card rounded-2xl p-6">
+                    <h3 class="text-xs font-semibold text-white/40 uppercase tracking-[0.15em] mb-4">Pressure</h3>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-400/10 flex items-center justify-center border border-sky-300/10">
+                            <svg class="w-6 h-6 text-sky-300/65" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9"/>
+                                <path stroke-linecap="round" d="M12 7v5"/>
+                                <path stroke-linecap="round" d="M12 12l3.5 3.5"/>
+                                <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+                                <!-- Tick marks -->
+                                <line x1="12" y1="4" x2="12" y2="5" stroke-linecap="round" opacity="0.4"/>
+                                <line x1="18.36" y1="5.64" x2="17.66" y2="6.34" stroke-linecap="round" opacity="0.4"/>
+                                <line x1="20" y1="12" x2="19" y2="12" stroke-linecap="round" opacity="0.4"/>
+                                <line x1="5.64" y1="5.64" x2="6.34" y2="6.34" stroke-linecap="round" opacity="0.4"/>
+                                <line x1="4" y1="12" x2="5" y2="12" stroke-linecap="round" opacity="0.4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-light">1013 <span class="text-base text-white/35">hPa</span></p>
+                            <p class="text-[11px] text-white/30 mt-0.5 font-light">Normal pressure</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 pb-4">
+            <p class="text-[11px] text-white/15 font-light tracking-wide">Weather data for demonstration purposes only</p>
+        </footer>
+    </div>
+</body>
+</html>
