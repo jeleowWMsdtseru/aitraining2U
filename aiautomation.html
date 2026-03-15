@@ -223,6 +223,12 @@
         .workflow-card:hover img {
             transform: scale(1.05);
         }
+
+        /* Subtle Background Patterns to reduce perceived emptiness */
+        .bg-dot-pattern {
+            background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -302,7 +308,7 @@
     <main class="pt-20">
         
         <!-- Hero Section -->
-        <section class="hero-mesh px-6 py-20 lg:py-24 overflow-hidden border-b border-blue-50">
+        <section class="hero-mesh px-6 py-16 lg:py-20 overflow-hidden border-b border-blue-50">
             <div class="container mx-auto text-center relative z-10">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-xs font-bold uppercase tracking-wider mb-8">
                     <i data-lucide="users" class="w-4 h-4"></i> Over 1200+ Professionals Trained
@@ -325,9 +331,9 @@
         </section>
 
         <!-- Workshop Schedule -->
-        <section id="dates" class="py-24 bg-slate-50 border-b border-slate-200">
+        <section id="dates" class="py-16 lg:py-20 bg-slate-50 bg-dot-pattern border-b border-slate-200">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">Choose Your Workshop Date</h2>
                     <p class="text-slate-500">Seats are filling up fast! Book now to secure your spot.</p>
                 </div>
@@ -434,7 +440,7 @@
         </section>
 
         <!-- Proven Corporate Impact Logos -->
-        <section id="clients" class="py-16 bg-white border-b border-slate-100 overflow-hidden">
+        <section id="clients" class="py-12 bg-white border-b border-slate-100 overflow-hidden">
             <div class="container mx-auto px-6 mb-8">
                 <p class="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">Trusted by Malaysia's Leading Organizations</p>
             </div>
@@ -477,9 +483,9 @@
         </section>
 
         <!-- Agentic Workflows Showcase -->
-        <section id="workflows" class="py-24 bg-slate-50 border-b border-slate-200">
+        <section id="workflows" class="py-16 lg:py-20 bg-slate-50 bg-dot-pattern border-b border-slate-200">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 max-w-3xl mx-auto">
+                <div class="text-center mb-12 max-w-3xl mx-auto">
                     <h2 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">What You'll Build</h2>
                     <p class="text-slate-500 text-lg">Visualizing real-world AI logic. Here are examples of actual production-ready workflows and agentic pipelines we cover.</p>
                 </div>
@@ -573,7 +579,7 @@
         </section>
 
         <!-- Syllabus Flow -->
-        <section id="syllabus" class="py-24 bg-white border-b border-slate-100">
+        <section id="syllabus" class="py-16 lg:py-20 bg-white border-b border-slate-100">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
@@ -669,7 +675,7 @@
         </section>
 
         <!-- Photo Gallery / Experience Section -->
-        <section id="experience" class="py-24 bg-slate-900 overflow-hidden relative border-y border-slate-800">
+        <section id="experience" class="py-16 lg:py-20 bg-slate-900 overflow-hidden relative border-y border-slate-800">
             <div class="absolute inset-0 bg-blue-900/10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent"></div>
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-12">
@@ -685,9 +691,9 @@
         </section>
 
         <!-- Faculty Section -->
-        <section id="faculty" class="py-24 bg-white border-t border-slate-100">
+        <section id="faculty" class="py-16 lg:py-20 bg-white border-t border-slate-100">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-12">
                     <h2 class="text-3xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">Lead Faculty</h2>
                     <p class="text-slate-500">Learn from Malaysia's top AI practitioners.</p>
                 </div>
@@ -733,10 +739,10 @@
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-24 bg-white border-t border-slate-100">
+        <section id="faq" class="py-16 lg:py-20 bg-white border-t border-slate-100">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-12">
                         <h2 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">Detailed FAQ</h2>
                         <p class="text-slate-500">Addressing your technical, logistical, and HRDC inquiries.</p>
                     </div>
@@ -929,7 +935,7 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-24 bg-slate-50 border-t border-slate-200">
+        <section id="about" class="py-16 lg:py-20 bg-slate-50 bg-dot-pattern border-t border-slate-200">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-6">
@@ -953,7 +959,7 @@
         </section>
 
         <!-- Final CTA -->
-        <section class="py-24 bg-slate-900">
+        <section class="py-16 lg:py-20 bg-slate-900">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl md:text-6xl font-extrabold mb-12 text-white uppercase tracking-tight">Deploy Agents Now</h2>
                 <a href="https://forms.gle/3Z42ywS4HRCa1MHE8" target="_blank" class="bg-white text-blue-600 px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-xl">Secure My Seat</a>
