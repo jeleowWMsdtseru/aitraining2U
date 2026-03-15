@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+dl:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1425055582697450');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1425055582697450&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Manifesto | AITraining2U - Empowering 100,000 Malaysians</title>
+    <meta name="description" content="The AITraining2U Manifesto: Our mission to equip 100,000 Malaysians with practical AI skills. Practical. Proven. Purposeful.">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="AITraining2U Manifesto | Empowering 100,000 Malaysians">
+    <meta property="og:description" content="Our vision for Malaysia's AI-ready workforce. No guru fluff, just practical results.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/jeleowWMsdtseru/aitraining2U/main/FB%20OG%20image.png">
+    <meta property="og:url" content="https://aitraining2u.com/manifesto.html">
+    <meta property="og:type" content="website">
+    
+    <!-- BRAND FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23a)'/%3E%3Cpath d='M17 6L11 16H16L14 26L22 14H17L19 6Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --brand-primary: #ec4899;
+            --brand-secondary: #f97316;
+            --brand-dark: #1e1b4b;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #1e293b; }
+        
+        @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .animated-header-bg { background: linear-gradient(-45deg, #ffffff, #fff1f2, #fffafb, #ffffff); background-size: 400% 400%; animation: gradientMove 15s ease infinite; }
+        .hero-mesh { background-color: var(--brand-dark); background-image: radial-gradient(at 0% 0%, rgba(236, 72, 153, 0.2) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.2) 0px, transparent 50%); }
+        .gradient-text { background: linear-gradient(135deg, #ec4899, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .btn-brand { background: linear-gradient(135deg, #ec4899, #f97316); color: white; transition: all 0.3s ease; }
+        .btn-brand:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.4); }
+        
+        .section-card { background: #ffffff; border: 1px solid #f1f5f9; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .section-card:hover { border-color: #ec4899; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); }
+
+        .dropdown:hover .dropdown-menu { display: block; animation: fadeIn 0.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Modals */
+        #lead-modal { display: none; position: fixed; inset: 0; z-index: 200; align-items: center; justify-content: center; padding: 1.5rem; }
+        #lead-modal.active { display: flex; }
+        .modal-overlay { position: absolute; inset: 0; background: rgba(30, 27, 75, 0.85); backdrop-blur: 8px; }
+        .lead-modal-content { position: relative; background: white; width: 100%; max-width: 650px; max-height: 90vh; overflow-y: auto; border-radius: 2rem; padding: 2.5rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; z-index: 201; }
+        @keyframes modalPop { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+        .radio-card { border: 2px solid #e2e8f0; transition: all 0.2s; }
+        input[type="checkbox"]:checked + .radio-card { border-color: #ec4899; background-color: #fff1f2; }
+
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); background-color: #128c7e; }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/601137034050" target="_blank" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24" class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.553 4.189 1.606 6.06L0 24l6.117-1.605a11.837 11.837 0 005.925 1.577h.005c6.632 0 12.032-5.398 12.035-12.032.002-3.218-1.248-6.242-3.514-8.508z"/>
+        </svg>
+    </a>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-rose-50 animated-header-bg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="zap" class="text-white w-5 h-5"></i>
+                </div>
+                <a href="index.html" class="text-xl font-bold tracking-tight text-slate-900">AITraining<span class="text-pink-500">2U</span></a>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <div class="relative dropdown group">
+                    <button class="flex items-center gap-1 hover:text-pink-500 transition font-bold py-2">
+                        Programs <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl p-2 mt-2">
+                        <a href="index.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Corporate Training</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Enterprise</span>
+                        </a>
+                        <a href="aiautomation.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Agentic Automation</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Specialist</span>
+                        </a>
+                        <a href="aivibecoding.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Vibe Coding</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Prototyping</span>
+                        </a>
+                        <a href="aimarketing.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Marketing & Whatsapp</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Automation</span>
+                        </a>
+                        <a href="aianalytics.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Analytics</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Insights</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="index.html#team" class="hover:text-pink-500 transition font-bold py-2">Our Faculty</a>
+                <a href="aiwebinars.html" class="hover:text-pink-500 transition font-bold py-2">FREE Webinars</a>
+                <button onclick="openLeadModal()" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Enquire Now</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="hero-mesh text-white px-6 py-20 lg:py-32 overflow-hidden">
+            <div class="container mx-auto text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.2em] mb-8">
+                    Our Mission
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8 max-w-5xl mx-auto">
+                    The AITraining2U Manifesto: <br><span class="gradient-text">Empowering 100,000 Malaysians</span>
+                </h1>
+                <p class="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto font-medium leading-relaxed">
+                    The future of work isn't "coming"—it is already here. As artificial intelligence reshapes industries, Malaysia stands at a crossroads.
+                </p>
+            </div>
+        </section>
+
+        <!-- Manifesto Introduction -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="prose prose-lg prose-slate mx-auto">
+                    <p class="text-2xl font-bold text-slate-900 leading-snug mb-8">
+                        We believe the difference between being left behind and leading the charge is practical, accessible education.
+                    </p>
+                    <p class="text-slate-600 mb-12">
+                        At AITraining2U PLT, our mission is clear: To equip 100,000 Malaysians with the AI skills they need to thrive in a digital-first economy.
+                    </p>
+                </div>
+
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">Our Core Pillars</h2>
+                    <p class="text-slate-500">We aren't here to sell a dream; we are here to build your capability. Our philosophy is rooted in four uncompromising standards:</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-24">
+                    <div class="section-card p-8 rounded-[2.5rem]">
+                        <div class="w-12 h-12 bg-pink-50 rounded-2xl flex items-center justify-center text-pink-500 mb-6">
+                            <i data-lucide="hammer" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-tight">Practicality Above All</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Theory is useless if you can’t apply it the next morning. Our programs focus on tools, workflows, and strategies that integrate immediately into your daily work.</p>
+                    </div>
+
+                    <div class="section-card p-8 rounded-[2.5rem]">
+                        <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 mb-6">
+                            <i data-lucide="target" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-tight">Results-Focused, No "Guru" Fluff</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">We have zero interest in "guru-style" hype or empty motivational speeches. You won't find vague promises here—only high-ROI skills. We measure our success by your output, not our charisma.</p>
+                    </div>
+
+                    <div class="section-card p-8 rounded-[2.5rem]">
+                        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500 mb-6">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-tight">Fit for Purpose & Easy to Follow</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">We don't believe in "one size fits all." Our training is designed to be lean, relevant, and specifically tailored to the challenges Malaysians face in the modern workforce.</p>
+                    </div>
+
+                    <div class="section-card p-8 rounded-[2.5rem]">
+                        <div class="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center text-green-500 mb-6">
+                            <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-tight">Real Impact & High ROI</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Upskilling is an investment of your most precious resource: time. We ensure every hour spent training with us translates into increased efficiency and measurable value.</p>
+                    </div>
+                </div>
+
+                <!-- National Agenda Section -->
+                <div class="bg-slate-50 rounded-[3rem] p-10 md:p-16 mb-24 border border-slate-100">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">Driving the National Agenda</h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        We don't operate in a vacuum. We are proud to be an active part of <strong>Konsortium AI Negara (KAIN)</strong>, a collective dedicated to pushing the AI ecosystem agenda for Malaysia.
+                    </p>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        By aligning with KAIN, we ensure our training remains at the forefront of national innovation, helping to cement Malaysia’s position as a regional leader in the AI revolution.
+                    </p>
+                </div>
+
+                <!-- The Pledge -->
+                <div class="text-center mb-24">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 uppercase tracking-tight">The 100,000 Malaysian Pledge</h2>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
+                        We are committed to democratizing AI. Whether you are a small business owner in Ipoh, a corporate professional in KL, or a freelancer in Kuching, we provide the bridge to the future.
+                    </p>
+                    <div class="inline-block p-1 bg-gradient-to-r from-pink-500 to-orange-500 rounded-3xl">
+                        <div class="bg-white px-8 py-6 rounded-[1.4rem]">
+                            <p class="text-xl font-black text-slate-900">Our Goal: 100,000 Malaysians who are no longer intimidated by AI, but empowered by it.</p>
+                        </div>
+                    </div>
+                    <p class="mt-12 text-slate-500 max-w-2xl mx-auto italic">
+                        "We promise a learning experience that is down-to-earth, unapologetically effective, and built for results. No jargon, no gatekeeping—just the skills to win."
+                    </p>
+                </div>
+
+                <!-- Final Call -->
+                <div class="border-t border-slate-100 pt-16">
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">The Future is Yours to Build</h2>
+                    <p class="text-slate-600 mb-12">The AI revolution shouldn't be something that happens to us; it should be something that happens for us. Let’s get to work.</p>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-slate-50">
+                        <div>
+                            <p class="text-slate-900 font-bold text-lg mb-1">Warren Leow</p>
+                            <p class="text-slate-500 text-sm">Founder of AITraining2U PLT (202504002669)</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-slate-400 font-black text-xs uppercase tracking-widest">AITraining2U PLT</span>
+                            <div class="h-8 w-[1px] bg-slate-200"></div>
+                            <span class="text-slate-900 font-bold italic">Practical. Proven. Purposeful.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#020617] py-16 text-slate-500 border-t border-slate-900">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="zap" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">AITraining<span class="text-pink-500">2U</span></span>
+            </div>
+            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-4">AITRAINING2U PLT (202504002669)</div>
+            <div class="flex items-center justify-center gap-6 mt-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+                <a href="privacy.html" class="hover:text-pink-400 transition">Privacy Policy</a>
+                <span class="text-slate-800">|</span>
+                <a href="terms.html" class="hover:text-pink-400 transition">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lead Form Modal (Consistent with index) -->
+    <div id="lead-modal">
+        <div class="modal-overlay" onclick="closeLeadModal()"></div>
+        <div class="lead-modal-content">
+            <button onclick="closeLeadModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition bg-slate-100 hover:bg-slate-200 rounded-full p-2"><i data-lucide="x" class="w-5 h-5"></i></button>
+            <h3 class="text-3xl font-extrabold text-slate-900 mb-2">Enquire Now</h3>
+            <form id="lead-form-modal" class="space-y-6 mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="lead-name" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                    <input type="email" id="lead-email" required placeholder="Work Email" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                    <input type="tel" id="lead-phone" required placeholder="WhatsApp No." class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                    <input type="text" id="lead-company" required placeholder="Company Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                </div>
+                <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2">Submit Enquiry <i data-lucide="arrow-right" class="w-5 h-5"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function openLeadModal() { document.getElementById('lead-modal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeLeadModal() { document.getElementById('lead-modal').classList.remove('active'); document.body.style.overflow = ''; }
+        
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHNqStlRYuzOYCMZxfdxNaRr_rFNaKZWIQdC5ypnXVZwanArlZiEbh-mFNN-CnDy2A/exec';
+        document.getElementById('lead-form-modal').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Submitting...'; btn.disabled = true;
+            const data = new FormData();
+            data.append('formType', 'Manifesto Lead');
+            data.append('name', document.getElementById('lead-name').value);
+            data.append('email', document.getElementById('lead-email').value);
+            data.append('phone', document.getElementById('lead-phone').value);
+            data.append('company', document.getElementById('lead-company').value);
+            fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' }).then(() => {
+                e.target.innerHTML = '<div class="text-center py-8"><h4 class="text-2xl font-bold mb-2">Enquiry Sent!</h4><p class="text-slate-500">We will get back to you shortly.</p></div>';
+            });
+        });
+    </script>
+</body>
+</html>
