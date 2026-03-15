@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+dl:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1425055582697450');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1425055582697450&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for Data Analytics Workshop Malaysia | HRDC Claimable Course</title>
+    <meta name="description" content="Master AI for Data Analytics in this 2-day intensive workshop. Learn Power BI, Looker Studio, and Python via AI to transform your business decisions. HRDC Claimable.">
+    <meta name="keywords" content="AI analytics Malaysia, data science course, Power BI training, Looker Studio workshop, HRDC claimable training, python for data analytics">
+    
+    <!-- BRAND FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23f97316'/%3E%3Cstop offset='1' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23a)'/%3E%3Cpath d='M17 6L11 16H16L14 26L22 14H17L19 6Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --brand-primary: #f97316; 
+            --brand-accent: #ec4899; 
+            --brand-blue: #3b82f6;      
+            --brand-dark: #1e1b4b;    
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+        .animated-nav-bg {
+            background: rgba(249, 115, 22, 0.95);
+            backdrop-filter: blur(12px);
+        }
+        .hero-mesh {
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #f97316, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-brand {
+            background: linear-gradient(135deg, #f97316, #ec4899);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-brand:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.4);
+        }
+        .section-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .section-card:hover {
+            border-color: #f97316;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+        .ticker-ribbon {
+            background: #1e1b4b;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 1rem 0;
+        }
+        .ticker-track {
+            display: inline-flex;
+            animation: ticker 25s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .bento-img {
+            transition: transform 0.5s ease;
+        }
+        .bento-card:hover .bento-img {
+            transform: scale(1.05);
+        }
+        .faq-item.active .accordion-content {
+            max-height: 800px;
+            opacity: 1;
+            padding-bottom: 1.5rem;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease-out;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="fixed top-0 left-0 right-0 z-50 animated-nav-bg border-b border-orange-600">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md">
+                    <i data-lucide="bar-chart-big" class="text-orange-600 w-5 h-5"></i>
+                </div>
+                <a href="index.html" class="text-xl font-bold tracking-tight text-white">AITraining<span class="text-orange-100">2U</span></a>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-orange-50">
+                <div class="relative dropdown group">
+                    <button class="flex items-center gap-1 hover:text-white transition py-2 font-bold">
+                        Programs <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl p-2 mt-2">
+                        <a href="index.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI for Data Analytics</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Business Intelligence</span>
+                        </a>
+                        <a href="#" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
+                            <span class="font-bold block text-sm">AI Agentic Automation</span>
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Workflows</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="#visuals" class="hover:text-white transition">Visualize</a>
+                <a href="#dates" class="hover:text-white transition">Dates</a>
+                <a href="#syllabus" class="hover:text-white transition">Syllabus</a>
+                <a href="#faculty" class="hover:text-white transition">Faculty</a>
+                <a href="mailto:hi@aitraining2u.com" class="bg-white text-orange-600 hover:bg-orange-50 transition px-5 py-2.5 rounded-full font-bold shadow-lg">Enquire Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="hero-mesh px-6 py-16 lg:py-24 border-b border-orange-50">
+            <div class="container mx-auto text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 text-xs font-bold uppercase tracking-wider mb-8">
+                    <i data-lucide="database" class="w-4 h-4"></i> AI & Data-Driven Decision Making
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8 text-slate-900">
+                    Master AI for <span class="gradient-text">Data Analytics</span>: <br>Transform Your Business in 2 Days
+                </h1>
+                <p class="text-slate-500 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+                    Gain critical AI and data science skills to drive smarter decisions, accelerate growth, and uncover the hidden opportunities in your data.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                    <a href="mailto:hi@aitraining2u.com" class="btn-brand px-12 py-5 rounded-full font-black text-xl w-full sm:w-auto shadow-xl">
+                        Enquire for Dates
+                    </a>
+                    <a href="https://docs.google.com/presentation/d/1nYU6FEzrdnCKkIQPkoe4Q8ODBYjFJPljFdiWWu-FIe0/edit?usp=sharing" target="_blank" class="bg-slate-900 hover:bg-slate-800 px-12 py-5 rounded-full font-black text-xl text-white transition w-full sm:w-auto shadow-lg">
+                        Download Brochure
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ticker Ribbon -->
+        <div class="ticker-ribbon">
+            <div class="ticker-track">
+                <div class="flex items-center space-x-12 px-6">
+                    <span class="text-white font-black text-xl uppercase tracking-tighter flex items-center">
+                        <i data-lucide="bar-chart-3" class="w-6 h-6 mr-3 text-orange-400"></i> Microsoft Power BI
+                    </span>
+                    <span class="text-slate-600 font-bold text-2xl">/</span>
+                    <span class="text-white font-black text-xl uppercase tracking-tighter flex items-center">
+                        <i data-lucide="pie-chart" class="w-6 h-6 mr-3 text-pink-400"></i> Google Looker Studio
+                    </span>
+                    <span class="text-slate-600 font-bold text-2xl">/</span>
+                    <span class="text-white font-black text-xl uppercase tracking-tighter flex items-center">
+                        <i data-lucide="code-2" class="w-6 h-6 mr-3 text-blue-400"></i> Python via AI
+                    </span>
+                    <span class="text-slate-600 font-bold text-2xl">/</span>
+                </div>
+                <div class="flex items-center space-x-12 px-6">
+                    <span class="text-white font-black text-xl uppercase tracking-tighter flex items-center">
+                        <i data-lucide="bar-chart-3" class="w-6 h-6 mr-3 text-orange-400"></i> Microsoft Power BI
+                    </span>
+                    <span class="text-slate-600 font-bold text-2xl">/</span>
+                    <span class="text-white font-black text-xl uppercase tracking-tighter flex items-center">
+                        <i data-lucide="pie-chart" class="w-6 h-6 mr-3 text-pink-400"></i> Google Looker Studio
+                    </span>
+                    <span class="text-slate-600 font-bold text-2xl">/</span>
+                    <span class="text-white font-black text-xl uppercase tracking-tighter flex items-center">
+                        <i data-lucide="code-2" class="w-6 h-6 mr-3 text-blue-400"></i> Python via AI
+                    </span>
+                    <span class="text-slate-600 font-bold text-2xl">/</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workshop Date Section -->
+        <section id="dates" class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">Upcoming Workshop</h2>
+                    <p class="text-slate-500">Subang sessions are highly sought after. Get on the waitlist for our 2026 intake.</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto">
+                    <div class="bg-white rounded-[2.5rem] border-4 border-orange-500 p-10 shadow-2xl relative overflow-hidden text-center transform hover:scale-[1.01] transition-transform">
+                        <div class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-6 py-2 rounded-bl-3xl uppercase tracking-widest tracking-widest">Waitlist Open</div>
+                        
+                        <p class="text-orange-600 text-sm font-black uppercase tracking-[0.2em] mb-2">2026 Intake</p>
+                        <h3 class="text-4xl font-extrabold text-slate-900 mb-2 italic tracking-tight">Dates to be confirmed</h3>
+                        <p class="text-lg font-bold text-slate-500 mb-6 italic">Secure your priority slot now</p>
+                        
+                        <div class="flex items-center justify-center gap-2 text-slate-900 font-extrabold text-xl mb-8">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-orange-500"></i> WORQ Subang, Selangor
+                        </div>
+                        
+                        <div class="w-full bg-slate-100 rounded-full h-3 mb-4 shadow-inner">
+                            <div class="bg-orange-500 h-3 rounded-full shadow-lg transition-all duration-1000" style="width: 25%"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-black uppercase mb-10 tracking-widest px-2">
+                            <span class="text-orange-600 flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> Schedule Pending</span>
+                            <span class="text-slate-400">25% Seats Pre-Sold</span>
+                        </div>
+
+                        <a href="mailto:hi@aitraining2u.com" class="block w-full bg-slate-900 hover:bg-black text-white py-6 rounded-2xl font-black text-2xl transition shadow-xl">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visualize Success Bento Section -->
+        <section id="visuals" class="py-16 lg:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">Visualize Your Success</h2>
+                    <p class="text-slate-500 text-lg">Build professional, production-grade AI dashboards like these from Day 1.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto">
+                    <div class="md:col-span-8 md:row-span-2 bento-card bg-slate-50 rounded-[2.5rem] overflow-hidden shadow-sm border border-slate-100 group relative min-h-[400px]">
+                        <img src="https://github.com/jeleowWMsdtseru/aianalytics/raw/main/dashboard%201" class="w-full h-full object-cover bento-img" alt="Sales Intelligence">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90 p-8 flex flex-col justify-end">
+                            <h3 class="text-2xl font-extrabold text-white mb-1">Sales Performance Intelligence</h3>
+                            <p class="text-slate-300 text-sm">Predictive forecasting and deep trend analysis built in Power BI.</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 bento-card bg-orange-50 rounded-[2rem] overflow-hidden shadow-sm border border-orange-100 group relative min-h-[200px]">
+                        <img src="https://github.com/jeleowWMsdtseru/aianalytics/raw/refs/heads/main/dashboard%202" class="w-full h-full object-cover bento-img" alt="Customer Loyalty">
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center">
+                            <p class="text-white font-bold">Customer Loyalty AI</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 bento-card bg-pink-50 rounded-[2rem] overflow-hidden shadow-sm border border-pink-100 group relative min-h-[200px]">
+                        <img src="https://github.com/jeleowWMsdtseru/aianalytics/raw/refs/heads/main/dashboard%203" class="w-full h-full object-cover bento-img" alt="Inventory">
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center">
+                            <p class="text-white font-bold">Inventory Optimization</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8 bento-card bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-xl group relative min-h-[250px]">
+                        <img src="https://github.com/jeleowWMsdtseru/aianalytics/raw/refs/heads/main/dashboard%205" class="w-full h-full object-cover bento-img opacity-60" alt="Executive">
+                        <div class="absolute inset-0 p-10 flex flex-col justify-center">
+                            <h3 class="text-3xl font-black text-white mb-2 uppercase italic tracking-tighter">Operational Executive Dashboard</h3>
+                            <p class="text-orange-200 font-medium">Holistic real-time tracking for C-level decision making.</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 bento-card bg-blue-50 rounded-[2rem] overflow-hidden shadow-sm border border-blue-100 group relative min-h-[250px]">
+                        <img src="https://github.com/jeleowWMsdtseru/aianalytics/raw/refs/heads/main/dashboard%204" class="w-full h-full object-cover bento-img" alt="Marketing ROI">
+                        <div class="absolute inset-0 bg-slate-900/40 p-6 flex items-end">
+                            <p class="text-white font-black uppercase text-xs tracking-widest">Marketing ROI Insights</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Will Benefit Section -->
+        <section id="audience" class="py-16 lg:py-24 bg-slate-50 border-y border-slate-200">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+                    <div>
+                        <h2 class="text-4xl font-extrabold text-slate-900 mb-8 uppercase tracking-tight">Who Will Benefit?</h2>
+                        <p class="text-slate-500 text-lg mb-10 leading-relaxed font-medium">This workshop is designed for leaders and analysts who want to turn raw data into strategic assets.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm transition hover:border-orange-300">
+                                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center shrink-0">
+                                    <i data-lucide="line-chart" class="text-orange-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Business Analysts</h4>
+                                    <p class="text-slate-500 text-sm">Ready to evolve into predictive, AI-driven insight roles.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm transition hover:border-pink-300">
+                                <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center shrink-0">
+                                    <i data-lucide="landmark" class="text-pink-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Finance Leaders</h4>
+                                    <p class="text-slate-500 text-sm">Aiming to build automated forecasting models and trackers.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm transition hover:border-blue-300">
+                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
+                                    <i data-lucide="users-2" class="text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Marketing Strategists</h4>
+                                    <p class="text-slate-500 text-sm">Leveraging data for hyper-personalized audience targeting.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-tr from-orange-500 to-pink-500 opacity-20 blur-2xl rounded-full"></div>
+                        <img src="https://thelead.io/wp-content/uploads/2020/07/Web-development-illustration-1march-july-06.png" class="relative rounded-3xl shadow-2xl" alt="Analytics illustration">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Syllabus Section -->
+        <section id="syllabus" class="py-16 lg:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">A Hands-On AI Journey</h2>
+                        <p class="text-slate-500 font-medium leading-relaxed">Transition from descriptive reporting to predictive AI analytics. Real business cases only.</p>
+                    </div>
+
+                    <div class="space-y-12">
+                        <div class="section-card p-10 rounded-[2.5rem] border-l-8 border-orange-500 bg-orange-50/20">
+                            <div class="flex justify-between items-center mb-8">
+                                <h3 class="text-2xl font-black text-slate-900">Day 1: Mastering Data Fundamentals</h3>
+                                <span class="bg-orange-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Foundation</span>
+                            </div>
+                            <ul class="space-y-6">
+                                <li class="flex items-start gap-4 text-slate-700">
+                                    <div class="w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0 mt-1 font-bold text-xs">1</div>
+                                    <div><strong class="text-slate-900">The Modern Data Scientist's Workflow:</strong> Question-to-Insight framework.</div>
+                                </li>
+                                <li class="flex items-start gap-4 text-slate-700">
+                                    <div class="w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0 mt-1 font-bold text-xs">2</div>
+                                    <div><strong class="text-slate-900">Advanced ETL:</strong> Cleansing messy data & integrating CSV/Excel sources.</div>
+                                </li>
+                                <li class="flex items-start gap-4 text-slate-700">
+                                    <div class="w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0 mt-1 font-bold text-xs">3</div>
+                                    <div><strong class="text-slate-900">Database Mastery:</strong> Architecting and scripting relational SQL databases.</div>
+                                </li>
+                                <li class="flex items-start gap-4 text-slate-700">
+                                    <div class="w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center shrink-0 mt-1 font-bold text-xs">4</div>
+                                    <div><strong class="text-slate-900">Web Intelligence:</strong> Ethical scraping and harnessing APIs for unique datasets.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="section-card p-10 rounded-[2.5rem] border-l-8 border-pink-500 bg-pink-50/20">
+                            <div class="flex justify-between items-center mb-8">
+                                <h3 class="text-2xl font-black text-slate-900">Day 2: AI-Powered Analytics & Strategy</h3>
+                                <span class="bg-pink-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Advanced</span>
+                            </div>
+                            <ul class="space-y-6">
+                                <li class="flex items-start gap-4 text-slate-700">
+                                    <div class="w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center shrink-0 mt-1 font-bold text-xs">5</div>
+                                    <div><strong class="text-slate-900">Practical Machine Learning:</strong> Supervised & Unsupervised models for business ROI.</div>
+                                </li>
+                                <li class="flex items-start gap-4 text-slate-700">
+                                    <div class="w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center shrink-0 mt-1 font-bold text-xs">6</div>
+                                    <div><strong class="text-slate-900">Sentiment Analytics:</strong> Extracting logic from text and reviews with NLP.</div>
+                                </li>
+                                <li class="flex items-start gap-4 text-slate-700">
+                                    <div class="w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center shrink-0 mt-1 font-bold text-xs">7</div>
+                                    <div><strong class="text-slate-900">Applied AI Analytics:</strong> Deep learning applied to real-world business bottlenecks.</div>
+                                </li>
+                                <li class="flex items-start gap-4 text-slate-700">
+                                    <div class="w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center shrink-0 mt-1 font-bold text-xs">8</div>
+                                    <div><strong class="text-slate-900">Executive Data Storytelling:</strong> Crafting narratives that drive board-level decisions.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Experience -->
+        <section id="experience" class="py-16 lg:py-20 bg-slate-900 overflow-hidden relative border-y border-slate-800">
+            <div class="absolute inset-0 bg-orange-900/10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/40 via-transparent to-transparent"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-12 text-white">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Experience the Workshop</h2>
+                    <p class="text-orange-200">High-energy environment where teams actually build analytics solutions, not just listen.</p>
+                </div>
+                
+                <div class="max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-700/50 group relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                    <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Photo%20collage.jpg?raw=true" alt="Workshop Experience Collage" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]">
+                </div>
+            </div>
+        </section>
+
+        <!-- Lead Faculty Section -->
+        <section id="faculty" class="py-16 lg:py-24 bg-white border-t border-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">Lead Faculty</h2>
+                    <p class="text-slate-500 font-medium">Learn from Malaysia's top AI and Data Science practitioners.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Dr Poo Kuan Hoong -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-2xl shadow-blue-500/10">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_DrPoo.jpeg?raw=true" alt="Dr Poo Kuan Hoong" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-10 pt-32">
+                                <h3 class="text-2xl font-bold text-white mb-1 leading-tight">Poo Kuan Hoong (KH)</h3>
+                                <p class="text-blue-400 font-bold tracking-widest text-xs uppercase">AI & Data Science Specialist</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed px-4 font-medium">Deep expertise in AI/ML and Data Science platforms. Specialist in production-ready analytics solutions—spanning modern data engineering, MLOps, and predictive workflows.</p>
+                    </div>
+                     <!-- Wei Khjan -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-2xl shadow-pink-500/10">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" alt="Chan Wei Khjan" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-10 pt-32">
+                                <h3 class="text-3xl font-bold text-white mb-1">Chan Wei Khjan</h3>
+                                <p class="text-pink-400 font-bold tracking-widest text-xs uppercase">Financial Analytics Lead</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed px-4 font-medium">Former Audit Partner at YYC. Expert in financial process analytics and reporting. Leads the implementation of automated data pipelines for enterprise finance teams.</p>
+                    </div>
+                    <!-- Warren -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-6 relative shadow-2xl shadow-orange-500/10">
+                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" alt="Warren Leow" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-105">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-10 pt-32">
+                                <h3 class="text-3xl font-bold text-white mb-1">Warren Leow</h3>
+                                <p class="text-orange-400 font-bold tracking-widest text-xs uppercase">Strategy & Lead Trainer</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed px-4 font-medium">Bain & Company alumnus. Startup founder. Specialist in connecting business strategy with data-driven AI implementations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 lg:py-24 bg-white border-t border-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-extrabold text-slate-900 uppercase tracking-tight">Detailed FAQ</h2>
+                        <p class="text-slate-500 font-medium">Addressing your technical, logistical, and HRDC analytics inquiries.</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
+                                <span>What is the difference between Business Intelligence (BI) and Data Science?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                <p class="mb-3">While BI focuses on the <strong>past</strong> (Descriptive Analytics—what happened?), Data Science focuses on the <strong>future</strong> (Predictive & Prescriptive Analytics—what will happen?).</p>
+                                <p>Our workshop teaches you to bridge both, using Power BI for reporting and Python-driven AI models for forecasting.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
+                                <span>Is Python really necessary if I already use Power BI?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                Yes, for advanced AI capabilities. While Power BI is excellent for visualization, Python allows you to build custom machine learning models, handle complex data transformations that DAX can't easily do, and automate scraping or API integrations. We show you how to embed Python scripts directly into your Power BI reports.
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
+                                <span>What's the difference between AI Analytics and traditional Excel reporting?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                Traditional Excel reporting is manual, prone to error, and static. AI Analytics automates the ETL process, handles massive datasets that Excel can't, and most importantly, moves from "reporting what happened" to "predicting trends" using algorithms like linear regression or random forests.
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
+                                <span>Do I need to be a programmer to learn AI Analytics?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                No prior programming background is necessary. We teach you how to leverage AI (like ChatGPT or DeepSeek) to write the code for you, ensuring non-technical participants can build production-ready dashboards and predictive models.
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
+                                <span>How do we handle data privacy during the training?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                We prioritize data security. If you bring your own company data, we recommend using anonymized or dummy datasets. We also teach best practices for data masking and how to use local AI models that keep your sensitive data off public servers.
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <button class="w-full p-6 flex justify-between items-center text-left font-bold text-slate-900 transition hover:text-orange-600" onclick="toggleFaq(this)">
+                                <span>Is this program HRDC claimable?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-orange-500 transition-transform"></i>
+                            </button>
+                            <div class="accordion-content px-6 text-slate-500 text-sm leading-relaxed">
+                                Yes, the program is <strong>100% HRDC claimable</strong> under the SBL-KHAS scheme for eligible Malaysian companies. We provide all necessary documentation for your HR team to submit the grant application via the e-TRiS portal.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-16 lg:py-24 bg-slate-50 border-t border-slate-200">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight text-slate-900">Course Fee</h2>
+                    <p class="text-slate-500 text-lg">Transparent pricing for your AI transformation journey.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-slate-900 rounded-[2rem] border border-slate-800 p-8 shadow-xl flex flex-col hover:border-orange-500/50 transition-all hover:shadow-orange-500/10">
+                        <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center mb-6 border border-slate-700">
+                            <i data-lucide="bar-chart" class="w-6 h-6 text-orange-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Self-Funded (non-HRDC)</h3>
+                        <p class="text-slate-400 text-sm mb-6 h-10">Accelerate your analytics career</p>
+                        <div class="bg-slate-800/50 rounded-xl p-4 flex justify-between items-center mb-8 border border-slate-700">
+                            <span class="text-2xl font-extrabold text-white">RM 3,200</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">+8% SST</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-orange-400 shrink-0"></i><span class="text-slate-300 text-sm">2-day in-person analytics training</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-orange-400 shrink-0"></i><span class="text-slate-300 text-sm">Python & Power BI templates library</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-orange-400 shrink-0"></i><span class="text-slate-300 text-sm">Certificate of Completion</span></li>
+                        </ul>
+                        <a href="mailto:hi@aitraining2u.com" class="block w-full text-center py-4 rounded-xl font-bold text-white bg-orange-600 hover:bg-orange-500 transition shadow-lg text-lg">Sign Up</a>
+                    </div>
+
+                    <div class="bg-orange-600 rounded-[2rem] border border-orange-500 p-8 shadow-2xl relative flex flex-col hover:-translate-y-1 transition-all">
+                        <div class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-white text-orange-600 text-[10px] font-extrabold px-5 py-2 rounded-full uppercase tracking-widest shadow-md">Most Popular</div>
+                        <div class="w-12 h-12 bg-orange-500 border border-orange-400 rounded-xl flex items-center justify-center mb-6 mt-2 shadow-inner">
+                            <i data-lucide="rocket" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">HRDC-Claimable</h3>
+                        <p class="text-orange-100 text-sm mb-6 h-10">Upskill with your company's grant</p>
+                        <div class="bg-orange-700/50 rounded-xl p-4 flex justify-between items-center mb-8 border border-orange-800">
+                            <span class="text-2xl font-extrabold text-white">RM 3,500</span>
+                            <span class="text-[10px] font-bold text-orange-200 uppercase tracking-widest">+8% SST</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-white shrink-0"></i><span class="text-white font-medium text-sm">Full documentation for HRDC grant approval</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-white shrink-0"></i><span class="text-white font-medium text-sm">3-month post-training support group</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-white shrink-0"></i><span class="text-white font-medium text-sm">Admission to AI Learning Community</span></li>
+                        </ul>
+                        <a href="mailto:hi@aitraining2u.com" class="block w-full text-center py-4 rounded-xl font-extrabold text-orange-600 bg-white hover:bg-slate-100 transition shadow-xl text-lg">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-16 lg:py-24 bg-slate-900 text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight uppercase">Your Data Holds the Key. <br>It's Time to Unlock It.</h2>
+                <p class="text-orange-200 text-xl max-w-2xl mx-auto mb-12 font-medium">Join the waitlist to receive our 2026 workshop schedule. Fully HRDC Claimable.</p>
+                <a href="mailto:hi@aitraining2u.com" class="btn-brand px-16 py-6 rounded-full font-black text-2xl hover:scale-105 transition shadow-2xl inline-block tracking-tight">Enquire for Dates</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white py-12 border-t border-slate-100 text-center">
+        <span class="text-sm font-black tracking-tight text-slate-900 uppercase">AITraining<span class="text-orange-600">2U</span></span>
+        <p class="text-slate-400 text-[10px] mt-4 uppercase font-bold tracking-widest">AITRAINING2U PLT (202504002669)</p>
+        <p class="text-slate-500 text-[10px] mt-2">© 2026 AITraining2U. Contact: hi@aitraining2u.com</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/601137034050" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <script>
+        lucide.createIcons();
+        function toggleFaq(button) {
+            const item = button.closest('.faq-item');
+            const icon = button.querySelector('svg');
+            const isOpen = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('active');
+                el.querySelector('button svg').classList.remove('rotate-180');
+            });
+            if (!isOpen) {
+                item.classList.add('active');
+                icon.classList.add('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
