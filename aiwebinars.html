@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+dl:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming AI Webinars | AITraining2U</title>
+    <meta name="description" content="Join our expert-led AI webinars to learn about automation, finance transformation, and rapid prototyping.">
+    
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -26,18 +24,6 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AITraining2U | Enterprise AI Solutions & Corporate Training</title>
-    <meta name="description" content="AITraining2U provides specialized private AI training for corporate teams. HRD Corp claimable. Expert-led automation and strategy consulting for Malaysian enterprises.">
-    
-    <!-- Social Media Meta Tags -->
-    <meta property="og:title" content="AITraining2U | Enterprise AI Solutions & Corporate Training">
-    <meta property="og:description" content="Specialized private AI training and change management consulting directly for your team. 100% HRD Corp claimable.">
-    <meta property="og:image" content="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/FB%20OG%20image.png?raw=true">
-    <meta property="og:url" content="https://aitraining2u.com">
-    <meta property="og:type" content="website">
-    
     <!-- BRAND FAVICON -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23a)'/%3E%3Cpath d='M17 6L11 16H16L14 26L22 14H17L19 6Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
 
@@ -55,98 +41,31 @@
         }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #1e293b; }
         
-        @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .animated-header-bg { background: linear-gradient(-45deg, #ffffff, #fff1f2, #fffafb, #ffffff); background-size: 400% 400%; animation: gradientMove 15s ease infinite; }
+        .animated-header-bg { background: linear-gradient(-45deg, #ffffff, #fff1f2, #fffafb, #ffffff); background-size: 400% 400%; }
         .hero-mesh { background-color: var(--brand-dark); background-image: radial-gradient(at 0% 0%, rgba(236, 72, 153, 0.2) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.2) 0px, transparent 50%); }
         .gradient-text { background: linear-gradient(135deg, #ec4899, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .btn-brand { background: linear-gradient(135deg, #ec4899, #f97316); color: white; transition: all 0.3s ease; }
-        .btn-brand:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.4); }
-        .section-card { background: #ffffff; border: 1px solid #f1f5f9; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .section-card:hover { border-color: #ec4899; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); }
+        .btn-brand:hover { filter: brightness(1.1); transform: translateY(-1px); }
         
-        .marquee-container { background: #fffafa; border-y: 1px solid #fee2e2; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .marquee-inner { display: flex; width: fit-content; animation: scroll 45s linear infinite; }
-        
-        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .media-tag { background: #fff1f2; color: #e11d48; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
-        
-        .client-logo-card { background: #ffffff; border: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: center; padding: 1.25rem; border-radius: 1.5rem; height: 100px; transition: all 0.3s ease; overflow: hidden; cursor: pointer; position: relative; }
-        .client-logo-card img { max-width: 85%; max-height: 75%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease; }
-        .client-logo-card:hover { border-color: #ec4899; transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.1); }
-        .client-logo-card:hover img { filter: grayscale(0%); opacity: 1; }
-        
-        /* Modals */
-        #testimonial-modal, #lead-modal { display: none; position: fixed; inset: 0; z-index: 200; align-items: center; justify-content: center; padding: 1.5rem; }
-        #testimonial-modal.active, #lead-modal.active { display: flex; }
+        .webinar-card { background: #ffffff; border: 1px solid #f1f5f9; border-radius: 2rem; overflow: hidden; transition: all 0.4s ease; height: 100%; display: flex; flex-direction: column; }
+        .webinar-card:hover { transform: translateY(-8px); border-color: #ec4899; box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.1); }
+        .webinar-card.past-event { filter: grayscale(0.5); opacity: 0.8; }
+
+        /* Modal */
+        #calendar-modal { display: none; position: fixed; inset: 0; z-index: 200; align-items: center; justify-content: center; padding: 1.5rem; }
+        #calendar-modal.active { display: flex; }
         .modal-overlay { position: absolute; inset: 0; background: rgba(30, 27, 75, 0.85); backdrop-blur: 8px; }
-        .modal-content, .lead-modal-content { position: relative; background: white; width: 100%; border-radius: 2.5rem; padding: 3rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; z-index: 201; }
-        .modal-content { max-width: 550px; }
-        .lead-modal-content { max-width: 650px; max-height: 90vh; overflow-y: auto; border-radius: 2rem; padding: 2.5rem; }
-        @keyframes modalPop { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-
-        /* Lead Form Radios */
-        .radio-card { border: 2px solid #e2e8f0; transition: all 0.2s; }
-        .radio-card:hover { border-color: #cbd5e1; background-color: #f8fafc; }
-        input[type="radio"]:checked + .radio-card,
-        input[type="checkbox"]:checked + .radio-card { border-color: #ec4899; background-color: #fff1f2; }
-
-        /* Triangle Diagram */
-        .triangle-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; }
-        .triangle-svg { width: 100%; height: auto; filter: drop-shadow(0 10px 20px rgba(236, 72, 153, 0.1)); }
-        .triangle-segment { transition: all 0.4s ease; cursor: pointer; stroke: white; stroke-width: 2; }
-        .triangle-segment:hover { filter: brightness(1.1); transform: translateY(-5px); }
-        .triangle-label { font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; pointer-events: none; }
-
-        /* Dropdown & Accordion */
-        .dropdown:hover .dropdown-menu { display: block; animation: fadeIn 0.2s ease-out; }
-        .dropdown-menu::before { content: ""; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        .modal-content { position: relative; background: white; width: 100%; max-width: 500px; border-radius: 2rem; padding: 2.5rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); z-index: 201; }
         
-        .faq-item { border-bottom: 1px solid #f1f5f9; }
-        .faq-trigger { width: 100%; text-align: left; padding: 1.5rem 0; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #0f172a; transition: color 0.3s; }
-        .faq-trigger:hover { color: #ec4899; }
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s; color: #64748b; font-size: 0.875rem; line-height: 1.6; }
-        .faq-item.active .faq-content { max-height: 300px; padding-bottom: 1.5rem; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
-        .faq-icon { transition: transform 0.3s; }
+        #success-content { display: none; }
 
-        /* Floating WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1) translateY(-5px);
-            background-color: #128c7e;
-            box-shadow: 0 15px 30px rgba(18, 140, 126, 0.4);
-        }
+        .urgency-badge { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+
+        .toggle-btn.active { background-color: var(--brand-primary); color: white; }
     </style>
 </head>
 <body class="antialiased">
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/601137034050" target="_blank" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
-        <svg viewBox="0 0 24 24" class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.553 4.189 1.606 6.06L0 24l6.117-1.605a11.837 11.837 0 005.925 1.577h.005c6.632 0 12.032-5.398 12.035-12.032.002-3.218-1.248-6.242-3.514-8.508z"/>
-        </svg>
-    </a>
 
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-rose-50 animated-header-bg">
@@ -159,741 +78,449 @@
             </div>
             
             <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-600">
-                <div class="relative dropdown group">
-                    <button class="flex items-center gap-1 hover:text-pink-500 transition font-bold py-2">
-                        Programs <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                    </button>
-                    <div class="dropdown-menu absolute hidden top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl p-2 mt-2">
-                        <a href="index.html" class="block px-4 py-3 rounded-xl bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">AI Corporate Training</span>
-                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Enterprise</span>
-                        </a>
-                        <a href="aiautomation.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">AI Agentic Automation</span>
-                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Specialist</span>
-                        </a>
-                        <a href="aivibecoding.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">AI Vibe Coding</span>
-                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Prototyping</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="relative dropdown group">
-                    <button class="flex items-center gap-1 hover:text-pink-500 transition font-bold py-2">
-                        Industries <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                    </button>
-                    <div class="dropdown-menu absolute hidden top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl p-2 mt-2">
-                        <a href="airealestate.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">Real Estate</span>
-                        </a>
-                        <a href="aiecommerce.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">E-commerce</span>
-                        </a>
-                        <a href="airetail.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">Retail & Ops</span>
-                        </a>
-                        <a href="ailegal.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">Legal & Prof. Services</span>
-                        </a>
-                        <a href="aifinance.html" class="block px-4 py-3 rounded-xl hover:bg-slate-50 transition text-slate-700">
-                            <span class="font-bold block text-sm">Finance & Banking</span>
-                        </a>
-                    </div>
-                </div>
-                <a href="#team" class="hover:text-pink-500 transition">Our Faculty</a>
-                <a href="aiwebinars.html" class="hover:text-pink-500 transition">FREE Webinars</a>
-                <a href="#faq" class="hover:text-pink-500 transition">FAQ</a>
-                <button onclick="openLeadModal()" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Enquire Now</button>
+                <a href="index.html" class="hover:text-pink-500 transition">Home</a>
+                <a href="index.html#courses" class="hover:text-pink-500 transition">Programs</a>
+                <a href="aiwebinars.html" class="text-pink-500 font-bold">Webinars</a>
+                <button onclick="location.href='index.html#contact'" class="btn-brand px-5 py-2.5 rounded-full text-white font-semibold shadow-lg shadow-pink-500/20">Enquire Now</button>
             </div>
-            <button class="lg:hidden text-slate-900"><i data-lucide="menu" class="w-6 h-6"></i></button>
         </nav>
     </header>
 
     <main class="pt-20">
         <!-- Hero Section -->
-        <section id="hero" class="hero-mesh text-white px-6 py-20 lg:py-24 overflow-hidden border-b border-pink-500/10">
+        <section class="hero-mesh text-white px-6 py-20 overflow-hidden">
             <div class="container mx-auto text-center relative z-10">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-wider mb-8">
-                    Direct Corporate Implementation
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-wider mb-6">
+                    Live Knowledge Sharing
                 </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8">
-                    AI Automation & <span class="gradient-text">Strategic Change</span> <br>In Your Office
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+                    Expert-Led <span class="gradient-text">AI Webinars</span>
                 </h1>
-                <p class="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto mb-10">
-                    AITraining2U brings specialized private AI training and change management consulting directly to your team. Specialized for 25-35 pax with 100% HRD Corp claimable options.
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    Deep dives into practical AI applications. Learn from auditors, founders, and engineers how to actually implement AI in your workflow.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-                    <button onclick="openLeadModal()" class="btn-brand px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
-                        Book Training Program
-                    </button>
-                    <div class="flex items-center gap-4">
-                        <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/HRDC-AITraining2U.jpeg?raw=true" alt="HRD Corp Registered" class="h-14 bg-white p-1 rounded-lg">
-                    </div>
-                </div>
             </div>
         </section>
 
-        <!-- Trust Marquee -->
-        <div class="marquee-container py-5 overflow-hidden">
-            <div class="marquee-inner text-slate-500 font-bold text-xs uppercase tracking-[0.2em]">
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> HRD Corp Registered</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Bespoke Consulting</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Localized Case Studies</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Enterprise Adoption Roadmaps</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Post-Training Support</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> HRD Corp Registered</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Bespoke Consulting</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Localized Case Studies</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-orange-500"></i> Enterprise Adoption Roadmaps</span>
-                <span class="mx-12 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-pink-500"></i> Post-Training Support</span>
+        <!-- Toggle Section -->
+        <div class="container mx-auto px-6 pt-12 text-center">
+            <div class="inline-flex p-1 bg-slate-100 rounded-2xl">
+                <button id="btn-upcoming" onclick="updateView('upcoming')" class="toggle-btn active px-8 py-3 rounded-xl font-bold text-sm transition-all uppercase tracking-wider">Upcoming</button>
+                <button id="btn-past" onclick="updateView('past')" class="toggle-btn px-8 py-3 rounded-xl font-bold text-sm transition-all uppercase tracking-wider">Past Events</button>
             </div>
         </div>
 
-        <!-- Programs -->
-        <section id="courses" class="py-24 bg-white">
+        <!-- Webinar Grid -->
+        <section class="py-12 bg-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Training Programs</h2>
-                    <p class="text-slate-500 max-w-xl mx-auto">High-impact workshops for corporate teams and public participants.</p>
-                </div>
-                
-                <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    <!-- Agentic Automation (Public) -->
-                    <div class="relative bg-blue-600 text-white rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-blue-700 transition hover:shadow-2xl hover:bg-blue-700 hover:border-blue-800">
-                        <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-blue-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-blue-900/20">Public Class</span>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4 leading-tight">AI Agentic <br>Automation with N8N & Claude</h3>
-                            <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-blue-100">
-                                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wide">2-3 April 2026 (Worq TTDI)</span>
-                                </div>
-                            </div>
-                            <p class="text-blue-50 text-xs mb-8 leading-relaxed font-medium">Master AI agentic automation specifically for reconciliation, OCR processing, financial operations, analysis & reporting, and advanced fiscal analysis.</p>
-                        </div>
-                        <div class="flex flex-col xl:flex-row gap-3">
-                            <a href="https://www.aitraining2u.com/aiautomation.html" class="flex-1 bg-white hover:bg-blue-50 text-blue-900 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
-                            <button onclick="openLeadModal()" class="flex-1 bg-blue-900 hover:bg-blue-950 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-blue-900/20 transition-all uppercase tracking-wider">Book Now</button>
-                        </div>
-                    </div>
-
-                    <!-- Vibe Coding (Public) -->
-                    <div class="relative bg-yellow-400 text-slate-900 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-yellow-500 transition hover:shadow-2xl hover:bg-yellow-500 hover:border-yellow-600">
-                        <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-slate-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-purple-500/20">Public Class</span>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Vibe Coding <br>+ Rapid Prototyping</h3>
-                            <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-slate-800">
-                                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wide">11-12 April 2026 (WORQ Subang)</span>
-                                </div>
-                            </div>
-                            <p class="text-slate-800 text-xs mb-8 leading-relaxed font-bold">Learn to build functional apps in minutes using AntiGravity, Claude Code, and Other Vibe Coding tools. Designed for non-technical founders and product managers.</p>
-                        </div>
-                        <div class="flex flex-col xl:flex-row gap-3">
-                            <a href="https://www.aitraining2u.com/aivibecoding.html" class="flex-1 bg-white hover:bg-slate-100 text-slate-900 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
-                            <button onclick="openLeadModal()" class="flex-1 bg-slate-900 hover:bg-slate-950 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-slate-900/20 transition-all uppercase tracking-wider">Book Now</button>
-                        </div>
-                    </div>
-
-                    <!-- AI Marketing + Whatsapp (Public) -->
-                    <div class="relative bg-green-600 text-white rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-green-700 transition hover:shadow-2xl hover:bg-green-700 hover:border-green-800">
-                        <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-green-900 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-green-500/20">Public Class</span>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4 leading-tight">AI Marketing <br>+ Whatsapp Masterclass</h3>
-                            <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-green-100">
-                                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wide">25-26 April 2026 (WORQ Subang)</span>
-                                </div>
-                            </div>
-                            <p class="text-green-50 text-xs mb-8 leading-relaxed font-medium">Automate lead qualification and customer support on WhatsApp. Integrate AI agents directly into your marketing funnel.</p>
-                        </div>
-                        <div class="flex flex-col xl:flex-row gap-3">
-                            <a href="https://www.aitraining2u.com/whatsappagents.html" class="flex-1 bg-white hover:bg-green-50 text-green-900 text-center py-3.5 rounded-2xl font-bold text-sm transition-all uppercase tracking-wider">Course Info</a>
-                            <button onclick="openLeadModal()" class="flex-1 bg-green-900 hover:bg-green-950 text-white text-center py-3.5 rounded-2xl font-bold text-sm shadow-lg shadow-green-900/20 transition-all uppercase tracking-wider">Book Now</button>
-                        </div>
-                    </div>
-
-                    <!-- Private Consulting - SOLID RED -->
-                    <div class="relative bg-red-600 text-white rounded-[2.5rem] p-10 border-2 border-red-700 flex flex-col justify-between transition hover:shadow-2xl hover:bg-red-700 hover:border-red-800">
-                        <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-gradient-to-r from-pink-500 to-orange-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg shadow-red-900/20">Dedicated Session</span>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4 leading-tight">AI Automation with <br>OpenClaw & Multi Agent Orchestration</h3>
-                            <div class="inline-block bg-red-900/30 border border-red-400 px-4 py-1 rounded-full text-white text-[10px] font-bold mb-6 uppercase tracking-wider">
-                                2 Days Workshop + 1 Day Consultation
-                            </div>
-                            <p class="text-red-50 text-xs mb-8 leading-relaxed font-medium">Build autonomous agents that handle repetitive tasks with intelligent orchestration systems such as OpenClaw, Claude Code & Perplexity Computer. Map these tools to your internal architecture.</p>
-                        </div>
-                        <button onclick="openLeadModal()" class="bg-white text-red-600 hover:bg-red-50 text-center py-4 rounded-2xl font-bold text-sm transition-colors uppercase tracking-wider shadow-lg">Enquire Now</button>
-                    </div>
-
-                    <!-- Security & Governance (1 Day) - SOLID BLACK -->
-                    <div class="relative bg-slate-900 rounded-[2.5rem] p-10 text-white flex flex-col justify-between border border-white/5 transition hover:shadow-2xl hover:-translate-y-1">
-                        <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-slate-800 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full border border-white/10">Cybersecurity & Governance</span>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4 leading-tight">AI Agentic Security <br>& Data Governance</h3>
-                            <div class="inline-block bg-red-900/30 border border-red-400 px-4 py-1 rounded-full text-white text-[10px] font-bold mb-6 uppercase tracking-wider">
-                                2 Days Workshop + 1 Day Consultation
-                            </div>
-                            <p class="text-slate-400 text-xs mb-8 leading-relaxed">Learn to build secure agentic architectures, implement robust governance policies, understand security risks, safeguard data security and ensure strict privacy compliance.</p>
-                        </div>
-                        <button onclick="openLeadModal()" class="btn-brand text-center py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">Enquire Now</button>
-                    </div>
-
-                    <!-- AI Board and C-suite Executive Course -->
-                    <div class="relative bg-blue-50/50 rounded-[2.5rem] p-10 flex flex-col justify-between border-2 border-blue-500 transition hover:shadow-2xl hover:-translate-y-1">
-                        <div class="absolute top-0 right-0 p-6">
-                            <span class="bg-blue-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full shadow-lg">C-Suite & Board</span>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">AI Board and <br>C-suite Executive Course</h3>
-                            <div class="space-y-2 mb-6">
-                                <div class="flex items-center gap-2 text-blue-600">
-                                    <div class="inline-block bg-red-900/30 border border-red-400 px-4 py-1 rounded-full text-white text-[10px] font-bold mb-6 uppercase tracking-wider">
-                                1 Day Workshop
-                            </div>
-                                </div>
-                            </div>
-                            <p class="text-slate-600 text-xs mb-8 leading-relaxed font-medium">Catered to C-suites and leadership to be aware of what's possible with AI within their industry in a single day with hands-on and interactive demonstrations of possibilities.</p>
-                        </div>
-                        <button onclick="openLeadModal()" class="bg-blue-600 hover:bg-blue-700 text-white text-center py-4 rounded-2xl font-bold text-sm shadow-lg transition-all uppercase tracking-wider">Enquire Now</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Rapid ROI Framework Section -->
-        <section id="roi-framework" class="py-24 bg-slate-50 border-y border-slate-100">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center mb-16">
-                    <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Rapid ROI Framework</h2>
-                    <p class="text-slate-500">Our proven deployment hierarchy designed for immediate business value and cultural adoption.</p>
-                </div>
-                <div class="flex flex-col lg:grid-cols-2 items-center justify-center gap-16">
-                    <!-- The fade-in SVG -->
-                    <div class="triangle-container fade-in">
-                        <svg class="triangle-svg" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path class="triangle-segment" d="M20 340 H380 L320 230 H80 Z" fill="#fecdd3" />
-                            <path class="triangle-segment" d="M83 225 H317 L266 130 H134 Z" fill="#fb923c" />
-                            <path class="triangle-segment" d="M200 10 L263 125 H137 Z" fill="#ec4899" />
-                            <text x="200" y="90" text-anchor="middle" fill="white" class="triangle-label" font-size="12">Strategy</text>
-                            <text x="200" y="190" text-anchor="middle" fill="white" class="triangle-label" font-size="15">Roll-out</text>
-                            <text x="200" y="295" text-anchor="middle" fill="#991b1b" class="triangle-label" font-size="18">Awareness</text>
-                        </svg>
-                    </div>
-                    <div class="space-y-8">
-                        <div class="flex gap-6 items-start">
-                            <div class="w-12 h-12 rounded-2xl bg-pink-500 flex items-center justify-center text-white font-bold shrink-0">01</div>
-                            <div>
-                                <h4 class="text-xl font-extrabold text-slate-900 uppercase tracking-tight">Strategy</h4>
-                                <p class="text-slate-500 text-sm mt-1">Executive alignment, tool selection, and mapping critical high-ROI business processes for automation.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6 items-start">
-                            <div class="w-12 h-12 rounded-2xl bg-orange-500 flex items-center justify-center text-white font-bold shrink-0">02</div>
-                            <div>
-                                <h4 class="text-xl font-extrabold text-slate-900 uppercase tracking-tight">Roll-out</h4>
-                                <p class="text-slate-500 text-sm mt-1">Implementation of AI agents in core departments. Live deployment and technical integration with internal systems.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6 items-start">
-                            <div class="w-12 h-12 rounded-2xl bg-rose-200 flex items-center justify-center text-rose-800 font-bold shrink-0">03</div>
-                            <div>
-                                <h4 class="text-xl font-extrabold text-slate-900 uppercase tracking-tight">Awareness</h4>
-                                <p class="text-slate-500 text-sm mt-1">Organization-wide training, change management, and cultural shift to ensure long-term adoption and scale.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- HRDC Claims -->
-        <section id="hrdc-claims" class="py-24 bg-white border-b border-slate-100">
-            <div class="container mx-auto px-6 max-w-6xl flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2">
-                    <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/HRDC-AITraining2U.jpeg?raw=true" class="w-full rounded-[2.5rem] shadow-2xl border border-slate-100">
-                </div>
-                <div class="lg:w-1/2">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-[0.2em] mb-6">Employer Assurance</div>
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">100% HRD Corp <br><span class="text-blue-600">Claimable</span></h2>
-                    <p class="text-slate-500 text-lg mb-8 leading-relaxed">As a registered provider, our corporate programs are covered under the **SBL-Khas** scheme. Utilize your levy to upskill employees without out-of-pocket expenses.</p>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">01</div>
-                            <div><h4 class="font-bold text-slate-900 text-sm uppercase">Inquiry & Proposal</h4><p class="text-slate-500 text-xs mt-1">Contact us for a tailored proposal and quotation.</p></div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">02</div>
-                            <div><h4 class="font-bold text-slate-900 text-sm uppercase">Grant Application</h4><p class="text-slate-500 text-xs mt-1">Submit via the e-TRiS portal using our provider code.</p></div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs">03</div>
-                            <div><h4 class="font-bold text-slate-900 text-sm uppercase">Execution & Claim</h4><p class="text-slate-500 text-xs mt-1">We handle the post-training claim process directly with HRD Corp.</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Faculty Section -->
-        <section id="team" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">World-Class Faculty</h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto">Our trainers bring decades of experience from management consulting, multi-million dollar tech exits, and specialized data transformation.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
-                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
-                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" alt="Warren Leow" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-900">Warren Leow</h3>
-                            <p class="text-pink-600 text-sm font-bold mb-4">Founder & Strategy Lead</p>
-                            <p class="text-slate-500 text-xs leading-relaxed">Former management consultant at Bain & Company. Founder of multiple tech startups with exits. Specialist in connecting business strategy with agentic AI implementations.</p>
-                        </div>
-                    </div>
-                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
-                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
-                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" alt="Chan Wei Khjan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-900">Chan Wei Khjan</h3>
-                            <p class="text-pink-600 text-sm font-bold mb-4">Finance & Process Transformation Lead</p>
-                            <p class="text-slate-500 text-xs leading-relaxed">Former Audit Partner at YYC. Expert in financial process automation and governance. Leads the technical implementation of n8n workflows for enterprise teams.</p>
-                        </div>
-                    </div>
-                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
-                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
-                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Marcus.jpg?raw=true" alt="Marcus Chia" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-900">Marcus Chia</h3>
-                            <p class="text-pink-600 text-sm font-bold mb-4">UI/UX & Product Lead</p>
-                            <p class="text-slate-500 text-xs leading-relaxed">Expert in translating user needs into functional AI-driven interfaces. Teaches how to use Antigravity and Claude Code to build polished, user-centric apps.</p>
-                        </div>
-                    </div>
-                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
-                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
-                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_TzeJin.jpg?raw=true" alt="Tze Jin" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-900">Tze Jin</h3>
-                            <p class="text-pink-600 text-sm font-bold mb-4">AI & ML Specialist</p>
-                            <p class="text-slate-500 text-xs leading-relaxed">Deep expertise in machine learning and backend logic. Guides participants on integrating complex AI reasoning and database structures.</p>
-                        </div>
-                    </div>
-                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
-                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
-                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Ruey.jpg?raw=true" alt="Choong Ruey Liuh" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-900">Choong Ruey Liuh</h3>
-                            <p class="text-pink-600 text-sm font-bold mb-4">Whatsapp and Technical Specialist</p>
-                            <p class="text-slate-500 text-xs leading-relaxed">Specialist in designing robust AI architectures for large-scale enterprise deployments, ensuring secure and scalable systems.</p>
-                        </div>
-                    </div>
-                    <div class="section-card p-0 rounded-3xl overflow-hidden group">
-                        <div class="aspect-[4/5] overflow-hidden bg-slate-100">
-                            <img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Shah%20Mijanur.jpeg?raw=true" alt="Shah Mijanur" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80'">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-900">Shah Mijanur</h3>
-                            <p class="text-pink-600 text-sm font-bold mb-4">Cybersecurity & Agentic Security Expert</p>
-                            <p class="text-slate-500 text-xs leading-relaxed">Expert in data pipelines, database management, and RAG integration, optimizing how AI agents retrieve and process internal knowledge securely.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="py-24 bg-slate-50 border-t border-slate-100">
-            <div class="container mx-auto px-6 max-w-3xl">
-                <div class="text-center mb-16">
-                    <h2 class="text-slate-900 text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">Common Inquiries</h2>
-                    <p class="text-slate-500">Everything you need to know about our training protocols and impact.</p>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
-                        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Is this training HRD Corp claimable?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
-                        <div class="faq-content">Yes. All our corporate programs are 100% HRD Corp claimable under the SBL-Khas scheme. We provide the full documentation required for your grant application and handle the claims process directly.</div>
-                    </div>
-                    <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
-                        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What is your training track record and USP?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
-                        <div class="faq-content">Our core USP is our focus on immediate business ROI and agentic workflow deployment, rather than just basic ChatGPT prompting. We have trained over 1,000 professionals, and our corporate clients include leading brands like MR. DIY, Shopee, CTOS, BFM 89.9, and various government agencies.</div>
-                    </div>
-                    <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
-                        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What are the qualifications of your trainers?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
-                        <div class="faq-content">Our faculty consists strictly of industry practitioners, not academics. They include former Bain & Company management consultants, active tech founders, and specialized audit partners. Our trainers are also internationally acknowledged, sitting on national AI advisory boards.</div>
-                    </div>
-                    <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
-                        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Can you customize the syllabus for our industry?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
-                        <div class="faq-content">Absolutely. For private corporate sessions, we conduct a pre-training audit to tailor use cases to your specific industry (e.g., retail, finance, real estate, logistics) and your company's existing software stack.</div>
-                    </div>
-                    <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
-                        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What happens after the training ends? (Enterprise Support)</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
-                        <div class="faq-content">Your tuition includes 3 months of priority post-training enterprise support via a dedicated channel. Our faculty helps troubleshoot technical issues and assist with change management as your employees deploy live automations.</div>
-                    </div>
-                    <div class="faq-item bg-white px-8 py-2 rounded-[2rem] border border-slate-100 shadow-sm transition hover:border-pink-500/20">
-                        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Do participants receive professional certification?</span><i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-pink-500"></i></button>
-                        <div class="faq-content">Yes. Participants who successfully complete the workshop and build their assigned agentic workflows will be awarded a Professional Certificate of Competency in AI Automation.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Clients/Impact Section -->
-        <section id="clients" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-slate-900 text-3xl font-extrabold uppercase tracking-tight">Proven Corporate Impact</h2>
-                    <p class="text-slate-500 mt-2">Click any partner logo below to see our trainer's impact.</p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-7xl mx-auto mb-16">
-                    <div class="client-logo-card" onclick="openModal('ryt')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Ryt%20Bank.png?raw=true" alt="Ryt Bank"></div>
-                    <div class="client-logo-card" onclick="openModal('ccm')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_CCM.jpg?raw=true" alt="CCM"></div>
-                    <div class="client-logo-card" onclick="openModal('mrdiy')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Mr%20DIY.png?raw=true" alt="MR. DIY"></div>
-                    <div class="client-logo-card" onclick="openModal('shopee')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Shopee.png?raw=true" alt="Shopee"></div>
-                    <div class="client-logo-card" onclick="openModal('yyc')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_YYC.png?raw=true" alt="YYC Advisors"></div>
-                    <div class="client-logo-card" onclick="openModal('moneymatch')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_MoneyMatch.png?raw=true" alt="MoneyMatch"></div>
-                    <div class="client-logo-card" onclick="openModal('zus')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Zus%20Coffee.png?raw=true" alt="Zus Coffee"></div>
-                    <div class="client-logo-card" onclick="openModal('mynews')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_Mynews.webp?raw=true" alt="myNEWS"></div>
-                    <div class="client-logo-card" onclick="openModal('ctos')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_CTOS.jpg?raw=true" alt="CTOS"></div>
-                    <div class="client-logo-card" onclick="openModal('bfm')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_BFM.jpg?raw=true" alt="BFM"></div>
-                    <div class="client-logo-card" onclick="openModal('2x')"><img src="https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Logo_2x.png?raw=true" alt="2X Marketing"></div>
-                    <div class="client-logo-card bg-rose-50 border-rose-200" onclick="openLeadModal()">
-                        <span class="text-rose-500 font-bold text-[10px] text-center uppercase tracking-widest">Enquire Now</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Contact Section -->
-        <section id="contact" class="py-24 bg-white border-t border-slate-100">
-            <div class="container mx-auto px-6 max-w-5xl grid lg:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-4xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">Ready to <br><span class="gradient-text">Modernize?</span></h2>
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-pink-600"><i data-lucide="mail"></i></div>
-                            <span class="font-bold text-slate-700 text-lg">hi@aitraining2u.com</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-orange-600"><i data-lucide="phone"></i></div>
-                            <span class="font-bold text-slate-700 text-lg">+6011-37034050</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-slate-50 p-8 md:p-10 rounded-[2rem] border border-slate-200">
-                    <form id="footer-lead-form" class="space-y-4">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Quick Enquiry</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" id="footer-name" required placeholder="Full Name" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                            <input type="email" id="footer-email" required placeholder="Work Email" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                            <input type="text" id="footer-company" required placeholder="Company Name" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                            <input type="tel" id="footer-phone" placeholder="WhatsApp No." class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                        </div>
-                        <select id="footer-program" class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-600 outline-none focus:ring-2 focus:ring-pink-500">
-                            <option value="" disabled selected>Select Program of Interest...</option>
-                            <option value="Agentic Automation (Public)">AI Agentic Automation (Public Class)</option>
-                            <option value="Vibe Coding (Prototyping)">AI Vibe Coding (Public Class)</option>
-                            <option value="AI Marketing + Whatsapp (Public)">AI Marketing + Whatsapp (Public Class)</option>
-                            <option value="Automation + Consulting (Private)">AI Automation + Consulting (Private)</option>
-                            <option value="Security & Governance (1-Day)">AI Security & Data Governance (1-Day)</option>
-                            <option value="AI Board & C-suite Executive Course">AI Board & C-suite Executive Course (1-Day)</option>
-                            <option value="Bespoke Custom Training">Bespoke Custom Training</option>
-                        </select>
-                        <textarea id="footer-message" rows="3" placeholder="How can we help? Any specific dates or pax estimation? (Optional)" class="w-full px-5 py-4 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white"></textarea>
-                        <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg mt-2 shadow-lg flex items-center justify-center gap-2">Send Message <i data-lucide="send" class="w-5 h-5"></i></button>
-                    </form>
+                <div id="webinar-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- Dynamic Content Injected Here -->
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-[#020617] py-16 text-slate-500 border-t border-slate-900">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex items-center justify-center gap-2 mb-6">
-                <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg flex items-center justify-center">
-                    <i data-lucide="zap" class="text-white w-5 h-5"></i>
-                </div>
-                <span class="text-xl font-bold tracking-tight text-white">AITraining<span class="text-pink-500">2U</span></span>
-            </div>
-            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-4">AITRAINING2U PLT (202504002669)</div>
+    <!-- Calendar Lead Modal -->
+    <div id="calendar-modal">
+        <div class="modal-overlay" onclick="closeCalendarModal()"></div>
+        <div class="modal-content">
+            <button onclick="closeCalendarModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition bg-slate-100 hover:bg-slate-200 rounded-full p-2"><i data-lucide="x" class="w-5 h-5"></i></button>
             
-            <div class="flex flex-col items-center justify-center mb-6">
-                <p class="text-slate-400 text-xs font-bold uppercase tracking-widest flex items-center gap-1 mb-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Training Ground (Worq TTDI)</p>
-                <p class="text-slate-500 text-[10px] max-w-md mx-auto leading-relaxed">Lot 1.02, Level 1, Glo Damansara Shopping Mall, 699, Jln Damansara, Taman Tun Dr Ismail, 60000 Kuala Lumpur</p>
+            <div id="form-content">
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Register Now</h3>
+                <p class="text-slate-500 text-sm mb-6">Enter your details to receive the meeting link and add the session to your calendar.</p>
+                <form id="calendar-lead-form" class="space-y-4">
+                    <input type="text" id="reg-name" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                    <input type="email" id="reg-email" required placeholder="Work Email" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                    <input type="tel" id="reg-phone" required placeholder="WhatsApp Number (e.g. +60...)" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                    <input type="text" id="reg-company" required placeholder="Company Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
+                    <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2">Get Invite & Link <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                </form>
             </div>
 
-            <p class="text-slate-600 text-[10px] max-w-lg mx-auto leading-relaxed">© 2026 AITraining2U. Empowering the Malaysian workforce with applied intelligence through expert-led workshops and strategic consulting.</p>
-            
-            <!-- Legal Links -->
-            <div class="flex items-center justify-center gap-6 mt-8 text-[10px] font-bold uppercase tracking-[0.2em]">
-                <a href="https://www.aitraining2u.com/privacy.html" class="hover:text-pink-400 transition">Privacy Policy</a>
-                <span class="text-slate-800">|</span>
-                <a href="https://www.aitraining2u.com/terms.html" class="hover:text-pink-400 transition">Terms & Conditions</a>
+            <div id="success-content">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mx-auto mb-4"><i data-lucide="check-circle" class="w-8 h-8"></i></div>
+                    <h4 class="text-2xl font-bold text-slate-900 mb-2">Registration Confirmed!</h4>
+                    <p class="text-slate-500 text-sm mb-8">An invite has been sent to your email. You can also save it below.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <a id="cal-google" href="#" target="_blank" class="flex items-center justify-center gap-2 bg-slate-50 border border-slate-200 py-3 rounded-xl text-xs font-bold hover:bg-white transition">
+                        <i data-lucide="calendar"></i> Google
+                    </a>
+                    <a id="cal-ical" href="#" target="_blank" class="flex items-center justify-center gap-2 bg-slate-50 border border-slate-200 py-3 rounded-xl text-xs font-bold hover:bg-white transition">
+                        <i data-lucide="download"></i> iCal / Outlook
+                    </a>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 mb-4 break-all text-[10px] font-mono text-slate-400 select-all" id="meet-link-display">
+                    Link: Loading...
+                </div>
+                
+                <a id="meet-join-btn" href="#" target="_blank" class="block w-full btn-brand py-4 rounded-xl font-bold text-sm uppercase text-center shadow-lg">Join Google Meet</a>
+                <button onclick="closeCalendarModal()" class="mt-4 w-full text-xs font-bold text-slate-400 hover:text-slate-600 transition uppercase tracking-widest">Close</button>
             </div>
-        </div>
-    </footer>
-
-    <!-- Lead Form Modal -->
-    <div id="lead-modal">
-        <div class="modal-overlay" onclick="closeLeadModal()"></div>
-        <div class="lead-modal-content p-8 md:p-10">
-            <button onclick="closeLeadModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition bg-slate-100 hover:bg-slate-200 rounded-full p-2"><i data-lucide="x" class="w-5 h-5"></i></button>
-            <h3 class="text-3xl font-extrabold text-slate-900 mb-2">Enquire Now</h3>
-            <p class="text-slate-500 text-sm mb-8">Select one or more programs below to get the full course outline and quotation.</p>
-
-            <form id="lead-form-modal" class="space-y-6">
-                <div class="space-y-3">
-                    <label class="cursor-pointer block group">
-                        <input type="checkbox" name="program" value="Agentic Automation (Public)" class="peer sr-only">
-                        <div class="radio-card p-4 rounded-xl relative bg-white">
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity"><i data-lucide="check-square" class="w-6 h-6"></i></div>
-                            <div class="flex items-center gap-3 pr-8 mb-1"><span class="font-bold text-slate-900 text-sm">AI Agentic Automation</span><span class="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-800 px-2 py-1 rounded">Public</span></div>
-                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Master AI automation for financial operations. (2-3 April 2026)</p>
-                        </div>
-                    </label>
-
-                    <label class="cursor-pointer block group">
-                        <input type="checkbox" name="program" value="Vibe Coding (Prototyping)" class="peer sr-only">
-                        <div class="radio-card p-4 rounded-xl relative bg-white">
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity"><i data-lucide="check-square" class="w-6 h-6"></i></div>
-                            <div class="flex items-center gap-3 pr-8 mb-1"><span class="font-bold text-slate-900 text-sm">AI Vibe Coding + Rapid Prototyping</span><span class="text-[10px] font-bold uppercase tracking-wider bg-purple-100 text-purple-700 px-2 py-1 rounded">Prototyping</span></div>
-                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Learn to build functional apps in minutes. (11-12 April 2026)</p>
-                        </div>
-                    </label>
-
-                    <label class="cursor-pointer block group">
-                        <input type="checkbox" name="program" value="AI Marketing + Whatsapp (Public)" class="peer sr-only">
-                        <div class="radio-card p-4 rounded-xl relative bg-white">
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity"><i data-lucide="check-square" class="w-6 h-6"></i></div>
-                            <div class="flex items-center gap-3 pr-8 mb-1"><span class="font-bold text-slate-900 text-sm">AI Marketing + Whatsapp Masterclass</span><span class="text-[10px] font-bold uppercase tracking-wider bg-green-100 text-green-700 px-2 py-1 rounded">Public</span></div>
-                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Automate lead qualification on WhatsApp. (25-26 April 2026)</p>
-                        </div>
-                    </label>
-
-                    <label class="cursor-pointer block group">
-                        <input type="checkbox" name="program" value="Automation + Consulting (Private)" class="peer sr-only">
-                        <div class="radio-card p-4 rounded-xl relative bg-white">
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity"><i data-lucide="check-square" class="w-6 h-6"></i></div>
-                            <div class="flex items-center gap-3 pr-8 mb-1"><span class="font-bold text-slate-900 text-sm">AI Agentic Automation + Consulting</span><span class="text-[10px] font-bold uppercase tracking-wider bg-slate-800 text-white px-2 py-1 rounded">Private</span></div>
-                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Build autonomous agents with a private architecture session.</p>
-                        </div>
-                    </label>
-
-                    <label class="cursor-pointer block group">
-                        <input type="checkbox" name="program" value="Security & Governance (1-Day)" class="peer sr-only">
-                        <div class="radio-card p-4 rounded-xl relative bg-white">
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity"><i data-lucide="check-square" class="w-6 h-6"></i></div>
-                            <div class="flex items-center gap-3 pr-8 mb-1"><span class="font-bold text-slate-900 text-sm">AI Agentic Security & Data Governance</span><span class="text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-yellow-900 px-2 py-1 rounded">1-Day</span></div>
-                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Build secure architectures and ensure privacy compliance.</p>
-                        </div>
-                    </label>
-
-                    <label class="cursor-pointer block group">
-                        <input type="checkbox" name="program" value="AI Board & C-suite Executive Course" class="peer sr-only">
-                        <div class="radio-card p-4 rounded-xl relative bg-white">
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity"><i data-lucide="check-square" class="w-6 h-6"></i></div>
-                            <div class="flex items-center gap-3 pr-8 mb-1"><span class="font-bold text-slate-900 text-sm">AI Board & C-suite Executive Course</span><span class="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700 px-2 py-1 rounded">1-Day</span></div>
-                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Catered specifically for leadership and executive awareness.</p>
-                        </div>
-                    </label>
-
-                    <label class="cursor-pointer block group">
-                        <input type="checkbox" name="program" value="Bespoke Custom Training" class="peer sr-only">
-                        <div class="radio-card p-4 rounded-xl relative bg-white">
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 text-pink-500 transition-opacity"><i data-lucide="check-square" class="w-6 h-6"></i></div>
-                            <div class="flex items-center gap-3 pr-8 mb-1"><span class="font-bold text-slate-900 text-sm">Bespoke Custom Training</span><span class="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700 px-2 py-1 rounded">Custom</span></div>
-                            <p class="text-xs text-slate-500 leading-relaxed pr-8">Tailored AI syllabus designed specifically for your organization.</p>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" id="lead-name" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                    <input type="email" id="lead-email" required placeholder="Work Email" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                    <input type="tel" id="lead-phone" required placeholder="WhatsApp No." class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                    <input type="text" id="lead-company" required placeholder="Company Name (SSM)" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                    <textarea id="lead-address" required placeholder="Company Address (for HRDC)" rows="2" class="w-full md:col-span-2 px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white"></textarea>
-                    <input type="number" id="lead-pax" required placeholder="Number of spots to reserve" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-pink-500 bg-white">
-                    <select id="lead-hrdc" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-600 outline-none focus:ring-2 focus:ring-pink-500">
-                        <option value="" disabled selected>Claiming HRDC Funding?</option>
-                        <option value="Yes">Yes, HRDC Claimable</option><option value="No">No, Direct Payment</option><option value="Not Sure">Not sure yet</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full btn-brand py-4 rounded-xl font-bold text-lg mt-4 shadow-lg flex items-center justify-center gap-2">Submit Enquiry <i data-lucide="arrow-right" class="w-5 h-5"></i></button>
-            </form>
         </div>
     </div>
 
-    <!-- Script Block for Scroll Observer & Form Logic -->
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/601137034050" target="_blank" class="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group" title="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.03c0 2.12.559 4.191 1.62 6.007L0 24l6.135-1.61a11.83 11.83 0 005.91 1.577h.005c6.637 0 12.032-5.396 12.035-12.031a11.77 11.77 0 00-3.518-8.503z"/>
+        </svg>
+        <span class="absolute right-full mr-3 bg-white text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-100">Contact Us</span>
+    </a>
+
+    <footer class="bg-[#020617] py-16 text-slate-500 border-t border-slate-900">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-slate-600 text-[10px] max-w-lg mx-auto leading-relaxed">© 2026 AITraining2U. All sessions hosted in Asia/Kuala_Lumpur time zone.</p>
+        </div>
+    </footer>
+
     <script>
+        const webinars = [
+            {
+                id: "finance-1",
+                title: "AI Automation for Finance Processes",
+                speaker: "Wei Khjan",
+                speakerTitle: "Auditor & MIA Accountant",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true",
+                image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80",
+                description: "Deep dive into transforming traditional accounting into AI-driven high-speed reporting. Learn to automate multi-source reconciliations and build live dashboards.",
+                outcomes: [
+                    "Automate multi-source data reconciliation workflows",
+                    "Build automated cash-flow visualization dashboards",
+                    "Deploy AI agents for rapid fiscal anomaly detection",
+                    "Master natural language querying for internal financial data"
+                ],
+                displayDate: "Sat, 7 Mar",
+                displayTime: "10:00am - 12:00pm",
+                startTime: "2026-03-07T10:00:00+08:00",
+                endTime: "2026-03-07T12:00:00+08:00",
+                calStart: "20260307T100000",
+                calEnd: "20260307T120000",
+                meetLink: "https://meet.google.com/uqb-ykqs-wco",
+                dialIn: "+1 502-530-1014 PIN: 425 195 383#",
+                slotsLeft: 12,
+                session: 1,
+                isFree: true
+            },
+            {
+                id: "vibe-1",
+                title: "Vibe Coding for Non-Techies",
+                speaker: "Marcus Chia",
+                speakerTitle: "UI/UX & Product Lead",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Marcus.jpg?raw=true",
+                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+                description: "Build useful business apps using AI without manual coding. Perfect for founders and PMs to translate 'vibes' into functional software prototypes.",
+                outcomes: [
+                    "Build and deploy functional web apps in under 15 minutes",
+                    "Master natural language prompting for software architecture",
+                    "Utilize Cursor and Claude Code for rapid prototyping",
+                    "Bridge the gap between product ideas and technical execution"
+                ],
+                displayDate: "Tue, 17 Mar",
+                displayTime: "9:00pm - 10:30pm",
+                startTime: "2026-03-17T21:00:00+08:00",
+                endTime: "2026-03-17T22:30:00+08:00",
+                calStart: "20260317T210000",
+                calEnd: "20260317T223000",
+                meetLink: "https://meet.google.com/zbo-dequ-ufd",
+                dialIn: "+1 502-530-1014 PIN: 425 195 383#",
+                slotsLeft: 18,
+                session: 1,
+                isFree: true
+            },
+            {
+                id: "sales-1",
+                title: "AI Automation for Sales Outreach",
+                speaker: "Warren Leow",
+                speakerTitle: "Founder & Strategy Lead",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true",
+                image: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=800&q=80",
+                description: "Automate lead scoring and personalized outreach at scale. Learn how to build autonomous agents that represent your brand while you focus on closing high-value deals.",
+                outcomes: [
+                    "Automate 80% of top-of-funnel prospecting tasks",
+                    "Build lead scoring models using LLM reasoning",
+                    "Design hyper-personalized outreach sequences at scale",
+                    "Integrate AI agents with existing CRM ecosystems"
+                ],
+                displayDate: "Tues, 24 Mar",
+                displayTime: "9:00pm - 10:30pm",
+                startTime: "2026-03-24T21:00:00+08:00",
+                endTime: "2026-03-24T22:30:00+08:00",
+                calStart: "20260324T210000",
+                calEnd: "20260324T223000",
+                meetLink: "https://meet.google.com/yci-bkvf-zvm",
+                dialIn: "+1 502-530-1014 PIN: 425 195 383#",
+                slotsLeft: 7,
+                session: 1,
+                isFree: true
+            },
+            {
+                id: "finance-2",
+                title: "AI Automation for Finance Processes (S2)",
+                speaker: "Wei Khjan",
+                speakerTitle: "Auditor & MIA Accountant",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+                description: "Repeat session of our highly-rated finance automation workshop. Qualified auditor Wei Khjan shows how to use AI for reconciliation and analysis.",
+                outcomes: [
+                    "Deploy automated audit trails using AI agents",
+                    "Master n8n for financial data synchronization",
+                    "Generate complex financial reports via natural language",
+                    "Reduce manual entry tasks by up to 90%"
+                ],
+                displayDate: "Thu, 26 Mar",
+                displayTime: "9:00pm - 10:30pm",
+                startTime: "2026-03-26T21:00:00+08:00",
+                endTime: "2026-03-26T22:30:00+08:00",
+                calStart: "20260326T210000",
+                calEnd: "20260326T223000",
+                meetLink: "https://meet.google.com/ien-vkpi-ajm",
+                dialIn: "+1 502-530-1014 PIN: 425 195 383#",
+                slotsLeft: 22,
+                session: 2,
+                isFree: true
+            },
+            {
+                id: "whatsapp-1",
+                title: "AI Marketing with Whatsapp Integration",
+                speaker: "Ruey Liuh",
+                speakerTitle: "Technical Specialist",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Profile_Ruey.jpg?raw=true",
+                image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=800&q=80",
+                description: "Automating customer conversations and lead qualifying directly on WhatsApp. Learn the tech behind intelligent AI agents that handle 24/7 customer interaction.",
+                outcomes: [
+                    "Connect LLMs directly to WhatsApp Business API",
+                    "Build qualifying agents that book appointments automatically",
+                    "Design conversational funnels for high conversion",
+                    "Sync WhatsApp conversations with centralized lead databases"
+                ],
+                displayDate: "Tue, 7 Apr",
+                displayTime: "9:00pm - 10:30pm",
+                startTime: "2026-04-07T21:00:00+08:00",
+                endTime: "2026-04-07T22:30:00+08:00",
+                calStart: "20260407T210000",
+                calEnd: "20260407T223000",
+                meetLink: "https://meet.google.com/pyt-qpvh-msy",
+                dialIn: "+1 502-530-1014 PIN: 425 195 383#",
+                slotsLeft: 14,
+                session: 1,
+                isFree: true
+            },
+            {
+                id: "change-1",
+                title: "AI Strategic Change Management",
+                speaker: "Warren Leow",
+                speakerTitle: "Founder & Strategy Lead",
+                speakerImg: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
+                description: "Navigating the cultural and operational shift required for successful AI adoption. This webinar focuses on the human side of the AI revolution.",
+                outcomes: [
+                    "Identify critical high-ROI business processes for AI",
+                    "Draft an organizational AI adoption roadmap",
+                    "Design training protocols for departmental AI leads",
+                    "Measure the impact and ROI of AI implementation"
+                ],
+                displayDate: "Sat, 11 Apr",
+                displayTime: "10:00am - 12:00pm",
+                startTime: "2026-04-11T10:00:00+08:00",
+                endTime: "2026-04-11T12:00:00+08:00",
+                calStart: "20260411T100000",
+                calEnd: "20260411T120000",
+                meetLink: "https://meet.google.com/hmv-yvnf-mqt",
+                dialIn: "+1 502-530-1014 PIN: 425 195 383#",
+                slotsLeft: 9,
+                session: 1,
+                isFree: true
+            }
+        ];
+
         lucide.createIcons();
-        function toggleFaq(button) {
-            const item = button.parentElement;
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-            if (!isActive) item.classList.add('active');
-        }
-
-        // Scroll Observer for the Triangle Fade-in
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        let currentWebinar = null;
+        let currentView = 'upcoming';
         
-        // Modal logic
-        const testimonials = {
-            ryt: { name: "Ryt Bank", subtitle: "Strategic Digital Banking", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Clear roadmap for AI adoption in digital banking.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            ccm: { name: "CCM", subtitle: "Operational Efficiency", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Bridged legacy processes with automated intelligence.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            mrdiy: { name: "MR. DIY", subtitle: "Retail Automation", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Focused on high-value logistical automation.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            shopee: { name: "Shopee", subtitle: "Market Intelligence", speaker: "AIT2U Team", speakerTitle: "Technical Architect Team", text: "Refined data pipelines for production AI.", img: "" },
-            yyc: { name: "YYC Advisors", subtitle: "Financial Transformation", speaker: "Chan Wei Khjan", speakerTitle: "Finance Expert", text: "Aligned workforce with automated audit intelligence.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" },
-            moneymatch: { name: "MoneyMatch", subtitle: "Fintech Innovation", speaker: "Chan Wei Khjan", speakerTitle: "Finance Expert", text: "Bridging accounting with automated data modeling.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" },
-            zus: { name: "Zus Coffee", subtitle: "Scalable Operations", speaker: "Chan Wei Khjan", speakerTitle: "Finance Expert", text: "Automated logic to manage rapid branch expansion.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Chan%20Wei%20Khjan.png?raw=true" },
-            mynews: { name: "myNEWS", subtitle: "Inventory Intelligence", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Predict inventory demand trends with high precision.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            ctos: { name: "CTOS", subtitle: "Data Governance", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Deep dive into AI governance for data-heavy workflows.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            bfm: { name: "BFM 89.9", subtitle: "Industry Partnership", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Bridging academic theory with corporate practicalities.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" },
-            '2x': { name: "2X Marketing", subtitle: "Demand Gen Automation", speaker: "Warren Leow", speakerTitle: "Advisor", text: "Redefined B2B demand gen with high velocity AI.", img: "https://github.com/jeleowWMsdtseru/aitraining2U/blob/main/Picture_Warren%20Leow.jpg?raw=true" }
-        };
+        // SCRIPT URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzH7uKqlK5qh__ZzrX_nZcB2cxwMhRlWkTQKtK1QhooAAtgNkVlrFSH6dfqgdOD47OcrQ/exec';
 
-        function openModal(key) {
-            const data = testimonials[key];
-            if (!data) return;
-            document.getElementById('modal-title').innerText = data.name;
-            document.getElementById('modal-subtitle').innerText = data.subtitle;
-            document.getElementById('modal-text').innerText = `"${data.text}"`;
-            document.getElementById('modal-speaker').innerText = data.speaker;
-            document.getElementById('modal-speaker-title').innerText = data.speakerTitle;
-            const imgEl = document.getElementById('modal-speaker-img');
-            const initEl = document.getElementById('modal-speaker-init');
-            if (data.img) {
-                imgEl.src = data.img; imgEl.classList.remove('hidden'); initEl.classList.add('hidden');
-            } else {
-                imgEl.classList.add('hidden'); initEl.classList.remove('hidden'); initEl.innerText = data.speaker.charAt(0);
-            }
-            document.getElementById('testimonial-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+        function getKLTime() {
+            return new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kuala_Lumpur"}));
         }
-        function closeModal() { document.getElementById('testimonial-modal').classList.remove('active'); document.body.style.overflow = ''; }
-        function openLeadModal() { document.getElementById('lead-modal').classList.add('active'); document.body.style.overflow = 'hidden'; lucide.createIcons(); }
-        function closeLeadModal() { document.getElementById('lead-modal').classList.remove('active'); document.body.style.overflow = ''; }
 
-        // --- GOOGLE SHEETS & EMAIL INTEGRATION ---
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHNqStlRYuzOYCMZxfdxNaRr_rFNaKZWIQdC5ypnXVZwanArlZiEbh-mFNN-CnDy2A/exec';
+        function updateView(view) {
+            currentView = view;
+            const btnUpcoming = document.getElementById('btn-upcoming');
+            const btnPast = document.getElementById('btn-past');
+            btnUpcoming.classList.toggle('active', view === 'upcoming');
+            btnPast.classList.toggle('active', view === 'past');
+            renderGrid();
+        }
 
-        document.getElementById('lead-form-modal').addEventListener('submit', function(e) {
+        function renderGrid() {
+            const grid = document.getElementById('webinar-grid');
+            const now = getKLTime();
+            grid.innerHTML = '';
+
+            const filtered = webinars.filter(webinar => {
+                const eventEnd = new Date(webinar.endTime);
+                return currentView === 'upcoming' ? eventEnd > now : eventEnd <= now;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-20 text-center text-slate-400 font-bold uppercase tracking-widest">No ${currentView} events scheduled</div>`;
+                return;
+            }
+
+            filtered.forEach(webinar => {
+                const card = document.createElement('div');
+                card.className = `webinar-card webinar-item group ${currentView === 'past' ? 'past-event' : ''}`;
+                const badge = currentView === 'past' 
+                    ? `<div class="absolute top-4 left-4 bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session Concluded</div>`
+                    : `<div class="absolute top-4 left-4 bg-pink-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">Session ${webinar.session}</div>`;
+
+                card.innerHTML = `
+                    <div class="relative aspect-video bg-slate-100 overflow-hidden">
+                        <img src="${webinar.image}" alt="${webinar.title}" class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700">
+                        ${badge}
+                        ${webinar.isFree ? `<div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">FREE</div>` : ''}
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex items-center gap-2 text-${currentView === 'past' ? 'slate-400' : 'pink-500'} text-xs font-bold mb-1 uppercase">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> ${webinar.displayDate} ${currentView === 'past' ? '' : `• ${webinar.displayTime}`}
+                        </div>
+                        ${currentView === 'upcoming' ? `
+                            <div class="text-[10px] font-bold text-orange-600 mb-3 flex items-center gap-1 uppercase urgency-badge">
+                                <i data-lucide="users" class="w-3 h-3"></i> Only <span id="count-${webinar.id}">${webinar.slotsLeft}</span> slots left / 100
+                            </div>
+                        ` : ''}
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">${webinar.title}</h3>
+                        <p class="text-slate-500 text-sm mb-6 flex-1 line-clamp-3">${webinar.description}</p>
+                        <div class="flex items-center gap-3 mb-6 pt-6 border-t border-slate-50">
+                            <img src="${webinar.speakerImg}" class="w-10 h-10 rounded-full object-cover border-2 border-slate-100">
+                            <div>
+                                <p class="text-sm font-bold text-slate-900">${webinar.speaker}</p>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">${webinar.speakerTitle}</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            ${currentView === 'upcoming' 
+                                ? `<button onclick="handleRegClick('${webinar.id}')" class="w-full btn-brand py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2"><i data-lucide="calendar-plus" class="w-4 h-4"></i> Add to Calendar</button>`
+                                : `<button disabled class="w-full bg-slate-100 text-slate-400 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider cursor-not-allowed">Registration Closed</button>`
+                            }
+                            <a href="${webinar.meetLink}" target="_blank" class="w-full border-2 border-slate-200 text-slate-600 hover:bg-slate-50 py-3 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+                                <i data-lucide="video" class="w-4 h-4"></i> Google Meet Link
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        function handleRegClick(id) {
+            currentWebinar = webinars.find(w => w.id === id);
+            document.getElementById('form-content').style.display = 'block';
+            document.getElementById('success-content').style.display = 'none';
+            document.getElementById('calendar-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeCalendarModal() {
+            document.getElementById('calendar-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function generateCalendarLinks() {
+            const { title, calStart, calEnd, speaker, speakerTitle, meetLink, description, outcomes, dialIn } = currentWebinar;
+            
+            let details = `🚀 AITraining2U: ${title}\n\n`;
+            details += `👤 SPEAKER: ${speaker} (${speakerTitle})\n`;
+            details += `📍 VIDEO CALL: ${meetLink}\n`;
+            details += `📞 DIAL-IN: ${dialIn}\n\n`;
+            details += `📝 DESCRIPTION:\n${description}\n\n`;
+            
+            if (outcomes && outcomes.length > 0) {
+                details += `🎯 LEARNING OUTCOMES:\n`;
+                outcomes.forEach(o => details += `• ${o}\n`);
+                details += `\n`;
+            }
+            details += `🌐 MORE INFO: https://www.aitraining2u.com\n© 2026 AITraining2U.`;
+
+            const gLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('AIT2U: ' + title)}&dates=${calStart}/${calEnd}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(meetLink)}&ctz=Asia/Kuala_Lumpur`;
+            
+            const icalData = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${calStart}\nDTEND:${calEnd}\nSUMMARY:AIT2U: ${title}\nDESCRIPTION:${details.replace(/\n/g, '\\n')}\nLOCATION:${meetLink}\nEND:VEVENT\nEND:VCALENDAR`;
+            const iLink = `data:text/calendar;charset=utf8,${encodeURIComponent(icalData)}`;
+
+            document.getElementById('cal-google').href = gLink;
+            document.getElementById('cal-ical').href = iLink;
+            document.getElementById('meet-link-display').innerText = `Link: ${meetLink}`;
+            document.getElementById('meet-join-btn').href = meetLink;
+        }
+
+        document.getElementById('calendar-lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const selectedPrograms = Array.from(document.querySelectorAll('input[name="program"]:checked')).map(cb => cb.value).join(', ');
-            if (!selectedPrograms) {
-                alert('Please select at least one program.');
-                return;
-            }
-
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            
-            if (SCRIPT_URL.includes('YOUR_SCRIPT_ID') || !SCRIPT_URL.startsWith('http')) {
-                alert('Please configure the SCRIPT_URL variable with your Google Apps Script URL.');
-                return;
-            }
-
-            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin inline-block mr-2"></i> Submitting...';
+            const btn = e.target.querySelector('button');
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin inline-block mr-2"></i> Registering...';
             btn.disabled = true;
+            lucide.createIcons();
+
+            const now = getKLTime();
+            const klDate = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            const klTime = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
             const data = new FormData();
-            data.append('formType', 'Lead Enquiry Modal');
-            data.append('program', selectedPrograms);
-            data.append('name', document.getElementById('lead-name').value);
-            data.append('email', document.getElementById('lead-email').value);
-            data.append('phone', document.getElementById('lead-phone').value);
-            data.append('company', document.getElementById('lead-company').value);
-            data.append('address', document.getElementById('lead-address').value);
-            data.append('pax', document.getElementById('lead-pax').value);
-            data.append('hrdc', document.getElementById('lead-hrdc').value);
-            data.append('message', '');
+            data.append('Date', klDate);
+            data.append('Time Stamp', klTime);
+            data.append('Event', currentWebinar.title);
+            data.append('Company Name', document.getElementById('reg-company').value);
+            data.append('Name', document.getElementById('reg-name').value);
+            data.append('Email', document.getElementById('reg-email').value);
+
+            // AUTO-FORMAT WHATSAPP NUMBER
+            let whatsapp = document.getElementById('reg-phone').value.trim();
+            
+            // Remove common formatting characters
+            whatsapp = whatsapp.replace(/[\s\-\(\)]/g, '');
+
+            if (!whatsapp.startsWith('+')) {
+                if (whatsapp.startsWith('0')) {
+                    // Malaysian prefix conversion: 012... -> +6012...
+                    whatsapp = '+6' + whatsapp;
+                } else if (whatsapp.length > 5) {
+                    // Fallback: If no + and no leading 0, assume it's a code-less number and prepend +
+                    whatsapp = '+' + whatsapp;
+                }
+            }
+            data.append('Whatsapp Number', whatsapp);
+            
+            data.append('meetLink', currentWebinar.meetLink);
+            data.append('calStart', currentWebinar.calStart);
+            data.append('calEnd', currentWebinar.calEnd);
+            data.append('speaker', currentWebinar.speaker);
+            data.append('description', currentWebinar.description);
+            data.append('outcomes', currentWebinar.outcomes.join(', '));
+            data.append('dialIn', currentWebinar.dialIn);
 
             fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
                 .then(() => {
-                    form.innerHTML = `
-                        <div class="text-center py-8">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mx-auto mb-4"><i data-lucide="check-circle" class="w-8 h-8"></i></div>
-                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Enquiry Sent!</h4>
-                            <p class="text-slate-500 text-sm">Thank you. We will send the course outline and quotation to your email shortly.</p>
-                        </div>
-                    `;
+                    generateCalendarLinks();
+                    document.getElementById('form-content').style.display = 'none';
+                    document.getElementById('success-content').style.display = 'block';
                     lucide.createIcons();
                 })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    btn.innerHTML = originalText; btn.disabled = false;
-                    alert('There was an error submitting your form. Please try again or contact us on WhatsApp.');
+                .catch(() => {
+                    generateCalendarLinks();
+                    document.getElementById('form-content').style.display = 'none';
+                    document.getElementById('success-content').style.display = 'block';
+                    lucide.createIcons();
                 });
         });
 
-        document.getElementById('footer-lead-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            
-            if (SCRIPT_URL.includes('YOUR_SCRIPT_ID') || !SCRIPT_URL.startsWith('http')) {
-                alert('Please configure the SCRIPT_URL variable with your Google Apps Script URL.');
-                return;
-            }
-
-            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin inline-block mr-2"></i> Submitting...';
-            btn.disabled = true;
-
-            const data = new FormData();
-            data.append('formType', 'Footer Quick Form');
-            data.append('program', document.getElementById('footer-program').value || 'General Enquiry');
-            data.append('name', document.getElementById('footer-name').value);
-            data.append('email', document.getElementById('footer-email').value);
-            data.append('phone', document.getElementById('footer-phone').value);
-            data.append('company', document.getElementById('footer-company').value);
-            data.append('message', document.getElementById('footer-message').value);
-            data.append('pax', ''); 
-            data.append('hrdc', '');
-
-            fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
-                .then(() => {
-                    form.innerHTML = `
-                        <div class="text-center py-10 bg-white rounded-2xl border border-slate-100">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mx-auto mb-4"><i data-lucide="check-circle" class="w-8 h-8"></i></div>
-                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Enquiry Sent!</h4>
-                            <p class="text-slate-500 text-sm">We'll get back to you with the course outline and quotation shortly.</p>
-                        </div>
-                    `;
-                    lucide.createIcons();
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    btn.innerHTML = originalText; btn.disabled = false;
-                    alert('There was an error submitting your form. Please try again or contact us on WhatsApp.');
-                });
-        });
+        window.onload = () => updateView('upcoming');
     </script>
 </body>
 </html>
